@@ -1,6 +1,6 @@
-package com.aor.hero.viewer;
+package com.aor.DK.Viewer;
 
-import com.aor.hero.gui.GUI;
+import com.aor.DK.gui.GUI;
 
 import java.io.IOException;
 
