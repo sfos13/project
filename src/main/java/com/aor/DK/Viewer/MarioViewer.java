@@ -1,6 +1,6 @@
 package com.aor.DK.Viewer;
 import com.aor.DK.gui.GUI;
-import com.aor.DK.model.game.elements.Hero;
+import com.aor.DK.model.game.elements.Mario;
 
 public class MarioViewer {
 

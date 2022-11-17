@@ -1,7 +1,7 @@
 package com.aor.DK.Viewer;
 
 import com.aor.DK.gui.GUI;
-import com.aor.DK.model.game.elements.Wall;
+import com.aor.DK.model.game.elements.Floor;
 
 public class FloorViewer implements GenericViewer<Wall> {
     @Override
