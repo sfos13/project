@@ -3,9 +3,16 @@ package com.aor.DK.controller.game;
 import com.aor.DK.Game;
 import com.aor.DK.model.Position;
 import com.aor.DK.model.arena.Arena;
+import com.aor.DK.model.elements.Floor;
+import com.aor.DK.model.elements.Mario;
 import com.aor.DK.model.elements.Stair;
 
+import java.util.List;
+
 public class MarioController extends GameController {
+
+    private final float GRAVITY = 0.5f;
+
     public MarioController(Arena arena) {
         super(arena);
     }
@@ -33,16 +40,26 @@ public class MarioController extends GameController {
         }
     }
 
+    private boolean isOnFloor() {
+        for(List<Floor> storey : getModel().getFloor()) {
+            for(Floor floor : storey)
+                if(getModel().getMario().getPosition().getY()-1 == (floor.getPosition().getY())) {
+                    return true;
+            }
+        }
+        return false;
+    }
+
+
     private void jumpMario() {
-        int n = 2, m = 2;
-        while(n-->0) moveMarioUp();
-        while(m-->0) moveMarioDown();
+        if(!isOnFloor()) {
+            getModel().getMario().setVy(2);
+        }
     }
 
     private boolean checkStairs() {
-        for(int i = 0; i < getModel().getStairs().size(); i++) {
-            Stair stair = getModel().getStairs().get(i);
-            if((getModel().getMario().getPosition().getX() == stair.getPosition().getX()) && (getModel().getMario().getPosition().getY() == (stair.getPosition().getY()-1))) {
+        for(Stair stair : getModel().getStairs()) {
+            if((getModel().getMario().getPosition().getX() == stair.getPosition().getX()) && ((getModel().getMario().getPosition().getY()-1) == stair.getPosition().getY())) {
                 return true;
             }
         }
@@ -64,5 +81,10 @@ public class MarioController extends GameController {
         }
         if (action == GUI.ACTION.LEFT) moveMarioLeft();
         if (action == GUI.ACTION.SPACE) jumpMario();
+        if(!isOnFloor()) {
+            Mario mario = getModel().getMario();
+            moveMario(mario.getPosition().getSum(0,(int)mario.getVy()));
+            mario.decrementVy(GRAVITY);
+        }
     }
 }

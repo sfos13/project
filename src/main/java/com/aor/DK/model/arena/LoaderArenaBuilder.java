@@ -39,13 +39,13 @@ public class LoaderArenaBuilder extends ArenaBuilder{
     }
 
     @Override
-    protected List<Floor> createFloor() {
-        List<Floor> floors = new ArrayList<>();
+    protected List<List<Floor>> createFloor() {
+        List<List<Floor>> floors = new ArrayList<>();
         for(int i = 1; i<width-1; i++) {
-            floors.add(new Floor(i,1));
+            floors.get(0).add(new Floor(i,1));
         }
         for(int i = 2; i<width-2; i++) {
-            floors.add(new Floor(i,height-4));
+            floors.get(1).add(new Floor(i,height-4));
         }
         return floors;
     }

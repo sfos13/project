@@ -15,7 +15,7 @@ public class Arena {
     private boolean endGame;
     private Mario mario;
     private List<Barrel> barrels;
-    private List<Floor> floor;
+    private List<List<Floor>> floor;
     private List<Stair> stairs;
 
     public Arena(int width, int height) {
@@ -49,11 +49,11 @@ public class Arena {
         this.barrels = barrels;
     }
 
-    public List<Floor> getFloor() {
+    public List<List<Floor>> getFloor() {
         return floor;
     }
 
-    public void setFloor(List<Floor> floor) {
+    public void setFloor(List<List<Floor>> floor) {
         this.floor = floor;
     }
 
@@ -84,4 +84,7 @@ public class Arena {
         endGame = true;
     }
 
+    public void deleteFirstBarrel() {
+        barrels.remove(0);
+    }
 }

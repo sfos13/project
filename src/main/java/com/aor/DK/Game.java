@@ -22,7 +22,7 @@ public class Game {
     private void start() throws IOException {
         while(this.state != null) {
             long startTime = System.currentTimeMillis();
-
+            state.update
             state.step(this, gui, startTime);
         }
         gui.close();
