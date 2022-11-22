@@ -1,6 +1,13 @@
 package com.aor.DK;
 
+import com.aor.DK.gui.LanternaGUI;
+import com.aor.DK.model.menu.Menu;
+import com.aor.DK.states.MenuState;
+import com.aor.DK.states.State;
+
+import java.awt.*;
 import java.io.IOException;
+import java.net.URISyntaxException;
 
 public class Game {
     private State state;
