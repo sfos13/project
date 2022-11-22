@@ -25,6 +25,10 @@ public class Position {
         return new Position(x, y + 1);
     }
 
+    public Position getSum(int x, int y) {
+        return new Position(this.x+x,this.y+y);
+    }
+
     public Position getRandomNeighbour() {
         int n = (int) (Math.random() * 4);
         switch (n) {

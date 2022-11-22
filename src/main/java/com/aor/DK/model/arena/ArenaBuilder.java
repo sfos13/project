@@ -24,7 +24,7 @@ public abstract class ArenaBuilder {
     protected abstract int getHeight();
     protected abstract List<Stair> createStairs();
 
-    protected abstract List<Floor> createFloor();
+    protected abstract List<List<Floor>> createFloor();
 
     protected abstract List<Barrel> createBarrels();
 
