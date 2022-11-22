@@ -1,5 +1,8 @@
 package com.aor.DK.states;
 
+import com.aor.DK.Viewer.Viewer;
+import com.aor.DK.model.menu.Menu;
+
 public class MenuState extends State<Menu> {
     public MenuState(Menu model) {
         super(model);

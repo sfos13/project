@@ -1,5 +1,7 @@
 package com.aor.DK.GUI;
 
+import com.aor.DK.model.Position;
+
 import java.io.IOException;
 
 public interface GUI {
@@ -8,9 +10,11 @@ public interface GUI {
 
     void drawMario(Position position);
 
-    void drawWall(Position position);
+    void drawFloor(Position position);
 
-    void drawMonkey(Position position);
+    void drawBarrel(Position position);
+
+    void drawStair(Position position);
 
     void drawText(Position position, String text, String color);
 

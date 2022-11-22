@@ -1,6 +1,6 @@
 package com.aor.DK.Viewer;
 
-import com.aor.DK.gui.GUI;
+import com.aor.DK.GUI.GUI;
 
 import java.io.IOException;
 
