@@ -1,5 +1,6 @@
 package com.aor.DK.model.arena;
 
+import com.aor.DK.model.Position;
 import com.aor.DK.model.elements.Barrel;
 import com.aor.DK.model.elements.Floor;
 import com.aor.DK.model.elements.Mario;
@@ -11,6 +12,7 @@ public class Arena {
     private final int width;
     private final int height;
 
+    private boolean endGame;
     private Mario mario;
     private List<Barrel> barrels;
     private List<Floor> floor;
@@ -19,6 +21,7 @@ public class Arena {
     public Arena(int width, int height) {
         this.width = width;
         this.height = height;
+        endGame = false;
     }
 
     public int getWidth() {
@@ -65,4 +68,20 @@ public class Arena {
     public void spawnBarrel() {
         barrels.add(new Barrel(1,height-3));
     }
+
+    public boolean isBarrel(Position position) {
+        for(Barrel barrel : barrels) {
+            if(barrel.getPosition().equals(position))
+                return true;
+        }
+        return false;
+    }
+    public boolean outOfBounds(Position position) {
+        return !(position.getX() > 0 && position.getX() < width);
+    }
+
+    public void end() {
+        endGame = true;
+    }
+
 }
