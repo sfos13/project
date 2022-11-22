@@ -1,5 +1,6 @@
 package com.aor.DK.controller.game;
 
+import com.aor.DK.GUI.GUI;
 import com.aor.DK.Game;
 import com.aor.DK.model.Position;
 import com.aor.DK.model.arena.Arena;
