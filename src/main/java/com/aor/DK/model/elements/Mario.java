@@ -26,7 +26,7 @@ public class Mario extends Element{
     public void setVy(float vy) {
         this.vy = vy;
     }
-    public void decrementVy(float value) {
-        this.vy = this.vy-value;
+    public void incrementVy(float value) {
+        this.vy += value;
     }
 }

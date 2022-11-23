@@ -54,7 +54,7 @@ public class MarioController extends GameController {
 
     private void jumpMario() {
         if(!isOnFloor()) {
-            getModel().getMario().setVy(2);
+            getModel().getMario().setVy(-2);
         }
     }
 
@@ -84,8 +84,8 @@ public class MarioController extends GameController {
         if (action == GUI.ACTION.SPACE) jumpMario();
         if(!isOnFloor()) {
             Mario mario = getModel().getMario();
-            moveMario(mario.getPosition().getSum(0,(int)mario.getVy()));
-            mario.decrementVy(GRAVITY);
+            moveMario(new Position(mario.getPosition().getX(),mario.getPosition().getY()+(int)mario.getVy()));
+            mario.incrementVy(GRAVITY);
         }
     }
 }

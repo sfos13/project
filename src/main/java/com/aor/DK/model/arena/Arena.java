@@ -87,4 +87,6 @@ public class Arena {
     public void deleteFirstBarrel() {
         barrels.remove(0);
     }
+
+    public boolean isEndGame() {return endGame;}
 }
