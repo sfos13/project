@@ -5,7 +5,6 @@ import com.aor.DK.Game;
 import com.aor.DK.controller.Controller;
 import com.aor.DK.model.arena.LoaderArenaBuilder;
 import com.aor.DK.model.menu.Menu;
-import com.aor.DK.model.menu.WinMenu;
 import com.aor.DK.states.GameState;
 
 import java.io.IOException;

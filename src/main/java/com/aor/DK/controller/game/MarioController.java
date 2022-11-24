@@ -9,9 +9,7 @@ import com.aor.DK.model.elements.Floor;
 import com.aor.DK.model.elements.Mario;
 import com.aor.DK.model.elements.Stair;
 import com.aor.DK.model.menu.Menu;
-import com.aor.DK.model.menu.WinMenu;
 import com.aor.DK.states.MenuState;
-import com.aor.DK.states.WinState;
 
 import java.util.Arrays;
 import java.util.List;
@@ -122,7 +120,7 @@ public class MarioController extends GameController {
             getModel().end();
         }
         if(getModel().getFloorNumber(getModel().getMario().getPosition())==8){
-            game.setState(new WinState(new WinMenu(Arrays.asList("New Game", "Exit"))));
+            game.setState(new MenuState(new Menu(Arrays.asList("New Game", "Exit"))));
         }
     }
 
