@@ -1,42 +1,62 @@
 package com.aor.DK.model.arena;
 
-import com.aor.DK.model.elements.Barrel;
 import com.aor.DK.model.elements.Floor;
 import com.aor.DK.model.elements.Mario;
 import com.aor.DK.model.elements.Stair;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
-public class LoaderArenaBuilder extends ArenaBuilder{
+public class LoaderArenaBuilder extends ArenaBuilder {
 
-    private final int width;
-    private final int height;
+    private int width;
+    private int height;
 
-    public LoaderArenaBuilder(int width, int height) {
-        this.width = width;
-        this.height = height;
+    private final int level;
+    private final List<String> lines;
+
+    public LoaderArenaBuilder(int level) throws IOException {
+        this.level = level;
+
+        URL resource = LoaderArenaBuilder.class.getResource("/levels/level" + level + ".lvl");
+        BufferedReader br = new BufferedReader(new FileReader(resource.getFile()));
+
+        lines = readLines(br);
+    }
+
+    private List<String> readLines(BufferedReader br) throws IOException {
+        List<String> lines = new ArrayList<>();
+        for (String line; (line = br.readLine()) != null; )
+            lines.add(line);
+        return lines;
     }
 
     @Override
-    public int getWidth() {
+    protected int getWidth() {
+        int width = 0;
+        for (String line : lines)
+            width = Math.max(width, line.length());
         return width;
     }
 
     @Override
-    public int getHeight() {
-        return height;
+    protected int getHeight() {
+        return lines.size();
     }
 
     @Override
     protected List<Stair> createStairs() {
         List<Stair> stairs = new ArrayList<>();
-        for(int i = 4; i <7; i++){
-            stairs.add(new Stair(3,i));
-            stairs.add(new Stair(7,i));
-        }
-        for(int i=1;i<4;i++){
-            stairs.add(new Stair(5,i));
+        for (int y = 0; y < lines.size(); y++) {
+            String line = lines.get(y);
+            for (int x = 0; x < line.length(); x++)
+                if (line.charAt(x) == 'H') {
+                    stairs.add(new Stair(x, y));
+                }
         }
 
         return stairs;
@@ -44,12 +64,12 @@ public class LoaderArenaBuilder extends ArenaBuilder{
 
     @Override
     protected List<List<Floor>> createFloor() {
-        int many_floor = 6;
+//        int many_floor = 6;
         List<List<Floor>> floors = new ArrayList<>();
-        int offset = 5;
-        floors.add(new ArrayList<>());
-
-        for (int i = 0; i < width; i++) {
+//        int offset = 5;
+//        floors.add(new ArrayList<>());
+        int floorLevel = -1;
+        /*for (int i = 0; i < width; i++) {
             floors.get(0).add(new Floor(i, height - 3));
         }
 
@@ -70,15 +90,33 @@ public class LoaderArenaBuilder extends ArenaBuilder{
         for (int i = (width/2) - 8 ; i < width/2 + 8; i++) {
             floors.get(7).add(new Floor(i, height - (7 * 3 + 3)));
         }
+*/
+        for (int y = 0; y < lines.size(); y++) {
+            String line = lines.get(y);
+            if (line.contains("#")) {
+                floors.add(new ArrayList<>());
+                floorLevel++;
+                for (int x = 0; x < line.length(); x++)
+                    if (line.charAt(x) == '#' || line.charAt(x) == 'H') floors.get(floorLevel).add(new Floor(x, y));
+            }
+        }
         return floors;
     }
 
 
     @Override
     protected Mario createMario() {
-        return new Mario(2,height-4);
+        for (int y = 0; y < lines.size(); y++) {
+            String line = lines.get(y);
+            for (int x = 0; x < line.length(); x++)
+                if (line.charAt(x) == 'X') return new Mario(x, y);
+        }
+        return null;
+
+
     }
 
-
-
+    public int getLevel() {
+        return level;
+    }
 }

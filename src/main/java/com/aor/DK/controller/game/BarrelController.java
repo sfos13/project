@@ -24,15 +24,13 @@ public class BarrelController extends GameController{
         }
             for (Barrel barrel : getModel().getBarrels()) {
                 if (getModel().getFloorNumber(barrel.getPosition()) == -1) barrel.setPosition(barrel.getPosition().getDown());
-                if (getModel().getFloorNumber(barrel.getPosition()) % 2 == 1) {
+                if (getModel().getFloorNumber(barrel.getPosition()) % 2 == 0) {
                     barrel.setPosition(barrel.getPosition().getLeft());
                 }
-                if (getModel().getFloorNumber(barrel.getPosition()) % 2 == 0) {
+                if (getModel().getFloorNumber(barrel.getPosition()) % 2 == 1) {
                     barrel.setPosition(barrel.getPosition().getRight());
                 }
 
             }
-
-
     }
 }
