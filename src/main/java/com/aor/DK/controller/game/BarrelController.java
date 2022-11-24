@@ -36,8 +36,9 @@ public class BarrelController extends GameController{
 
     @Override
     public void step(Game game, GUI.ACTION action, long time) throws IOException {
-        if(this.lastMovement - time > 500) {
+        if(time - lastMovement > 500) {
             getModel().spawnBarrel();
+            lastMovement = time;
         }
         for(Barrel barrel: getModel().getBarrels()) {
             if(getFloorNumber(barrel.getPosition()) == -1) barrel.setPosition(barrel.getPosition().getDown());
@@ -46,9 +47,6 @@ public class BarrelController extends GameController{
             }
             if(getFloorNumber(barrel.getPosition())%2 == 1) {
                 barrel.setPosition(barrel.getPosition().getRight());
-            }
-            if(isOutOfBounds(barrel.getPosition())) {
-                getModel().deleteFirstBarrel();
             }
         }
 

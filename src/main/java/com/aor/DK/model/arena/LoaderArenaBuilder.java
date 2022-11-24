@@ -41,9 +41,11 @@ public class LoaderArenaBuilder extends ArenaBuilder{
     @Override
     protected List<List<Floor>> createFloor() {
         List<List<Floor>> floors = new ArrayList<>();
+        floors.add(new ArrayList<Floor>());
         for(int i = 1; i<width-1; i++) {
             floors.get(0).add(new Floor(i,height-3));
         }
+        floors.add(new ArrayList<Floor>());
         for(int i = 2; i<width-2; i++) {
             floors.get(1).add(new Floor(i,4));
         }
@@ -53,13 +55,13 @@ public class LoaderArenaBuilder extends ArenaBuilder{
     @Override
     protected List<Barrel> createBarrels() {
         List<Barrel> barrels = new ArrayList<>();
-        barrels.add(new Barrel(1,3));
+        barrels.add(new Barrel(3,height-8));
         return barrels;
     }
 
     @Override
     protected Mario createMario() {
-        return new Mario(2,height-2);
+        return new Mario(2,height-4);
     }
 
 
