@@ -77,7 +77,7 @@ public class Arena {
         return false;
     }
     public boolean outOfBounds(Position position) {
-        return !(position.getX() > 0 && position.getX() < width);
+        return !(position.getX() >= 0 && position.getX() < width);
     }
 
     public void end() {
