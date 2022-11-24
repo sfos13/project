@@ -91,11 +91,20 @@ public class LoaderArenaBuilder extends ArenaBuilder {
 
     @Override
     protected DonkeyKong createDonkeyKong() {
-        return null;
-    }
+        for (int y = 0; y < lines.size(); y++) {
+            String line = lines.get(y);
+            for (int x = 0; x < line.length(); x++)
+                if (line.charAt(x) == 'D') return new DonkeyKong(x, y);
+        }
+        return null;    }
 
     @Override
     protected Princess createPrincess() {
+        for (int y = 0; y < lines.size(); y++) {
+            String line = lines.get(y);
+            for (int x = 0; x < line.length(); x++)
+                if (line.charAt(x) == 'P') return new Princess(x, y);
+        }
         return null;
     }
 
