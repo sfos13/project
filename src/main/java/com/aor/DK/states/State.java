@@ -4,6 +4,7 @@ import com.aor.DK.GUI.GUI;
 import com.aor.DK.Game;
 import com.aor.DK.Viewer.Viewer;
 import com.aor.DK.controller.Controller;
+import com.aor.DK.model.menu.WinMenu;
 
 import java.io.IOException;
 
@@ -17,6 +18,8 @@ public abstract class State<T> {
         this.viewer = getViewer();
         this.controller = getController();
     }
+
+
 
     protected abstract Viewer<T> getViewer();
 
