@@ -2,6 +2,7 @@ package com.aor.DK.Viewer;
 
 import com.aor.DK.GUI.GUI;
 import com.aor.DK.model.arena.Arena;
+import com.aor.DK.model.elements.DonkeyKong;
 import com.aor.DK.model.elements.Element;
 import com.aor.DK.model.elements.Floor;
 
@@ -20,6 +21,8 @@ public class GameViewer extends Viewer<Arena> {
         }
         drawElements(gui, getModel().getStairs(), new StairViewer());
         drawElement(gui, getModel().getMario(), new MarioViewer());
+        drawElement(gui, getModel().getDonkeyKong(), new DonkeyKongViewer());
+
     }
 
     private <T extends Element> void drawElements(GUI gui, List<T> elements, GenericViewer<T> viewer) {
