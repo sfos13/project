@@ -36,9 +36,8 @@ public class MarioController extends GameController {
     }
 
     private void moveMario(Position position) {
-        if (!getModel().outOfBounds(position)) {
+        if (!getModel().outOfBounds(position) || checkStairs()) {
             getModel().getMario().setPosition(position);
-            if (getModel().isBarrel(position)) getModel().end();
         }
     }
 
@@ -90,7 +89,7 @@ public class MarioController extends GameController {
         }
         if (action == GUI.ACTION.LEFT) moveMarioLeft();
         if (action == GUI.ACTION.SPACE) jumpMario();
-        if(!isOnFloor()) {
+        if(!isOnFloor() && !checkStairs()) {
             Mario mario = getModel().getMario();
             moveMario(new Position(mario.getPosition().getX(),mario.getPosition().getY()+(int)mario.getVy()));
             mario.incrementVy(GRAVITY);
