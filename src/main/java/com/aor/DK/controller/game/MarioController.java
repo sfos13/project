@@ -119,7 +119,7 @@ public class MarioController extends GameController {
         if((barrelCrash(getModel().getMario().getPosition())) || isOutOfBounds(getModel().getMario().getPosition()))  {
             getModel().end();
         }
-        if(getModel().getFloorNumber(getModel().getMario().getPosition())==8){
+        if(getModel().getFloorNumber(getModel().getMario().getPosition())==0){
             game.setState(new MenuState(new Menu(Arrays.asList("New Game", "Exit"))));
         }
     }
