@@ -116,6 +116,7 @@ public class MarioController extends GameController {
         if((barrelCrash(getModel().getMario().getPosition())) || isOutOfBounds(getModel().getMario().getPosition()))  {
             getModel().end();
         }
+        if(getModel().ge)
     }
 
 

@@ -51,6 +51,7 @@ public class LoaderArenaBuilder extends ArenaBuilder{
             for(int i = x; i<width-x-1; i++) {
                 floors.get(x).add(new Floor(i+1,height-(x*3+3)));
             }
+
         }
         return floors;
     }
@@ -66,7 +67,6 @@ public class LoaderArenaBuilder extends ArenaBuilder{
     protected Mario createMario() {
         return new Mario(2,height-4);
     }
-
 
 
 }
