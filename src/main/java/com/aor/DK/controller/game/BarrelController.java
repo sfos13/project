@@ -24,7 +24,7 @@ public class BarrelController extends GameController{
         List<List<Floor>> storeys = getModel().getFloor();
         for(int i = 0; i < storeys.size(); i++) {
             for(Floor floor : storeys.get(i)) {
-                if(position.equals(floor.getPosition())) {
+                if(position.getX() == floor.getPosition().getX() && position.getY() + 1 == floor.getPosition().getY()) {
                     return i;
                 }
             }

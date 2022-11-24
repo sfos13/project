@@ -55,7 +55,7 @@ public class LoaderArenaBuilder extends ArenaBuilder{
     @Override
     protected List<Barrel> createBarrels() {
         List<Barrel> barrels = new ArrayList<>();
-        barrels.add(new Barrel(3,height-8));
+        barrels.add(new Barrel(3,1));
         return barrels;
     }
 

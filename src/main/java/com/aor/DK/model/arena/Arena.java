@@ -66,7 +66,7 @@ public class Arena {
     }
 
     public void spawnBarrel() {
-        barrels.add(new Barrel(3,8));
+        barrels.add(new Barrel(3,1));
     }
 
     public boolean isBarrel(Position position) {
