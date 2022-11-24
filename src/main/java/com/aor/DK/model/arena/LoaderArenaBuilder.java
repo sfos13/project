@@ -1,5 +1,6 @@
 package com.aor.DK.model.arena;
 
+import com.aor.DK.model.Position;
 import com.aor.DK.model.elements.*;
 
 import java.io.BufferedReader;
@@ -10,10 +11,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class LoaderArenaBuilder extends ArenaBuilder {
-
-    private int width;
-    private int height;
-
     private final int level;
     private final List<String> lines;
 
@@ -104,6 +101,16 @@ public class LoaderArenaBuilder extends ArenaBuilder {
             String line = lines.get(y);
             for (int x = 0; x < line.length(); x++)
                 if (line.charAt(x) == 'P') return new Princess(x, y);
+        }
+        return null;
+    }
+
+    @Override
+    protected Position getSpawnBarrelPosition() {
+        for (int y = 0; y < lines.size(); y++) {
+            String line = lines.get(y);
+            for (int x = 0; x < line.length(); x++)
+                if (line.charAt(x) == 'B') return new Position(x, y);
         }
         return null;
     }

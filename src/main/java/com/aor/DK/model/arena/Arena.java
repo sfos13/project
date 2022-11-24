@@ -11,6 +11,8 @@ public class Arena {
     private final int height;
 
     private boolean endGame;
+
+    private Position spawnBarrelPosition;
     private Mario mario;
     private DonkeyKong donkeyKong;
     private Princess princess;
@@ -83,7 +85,7 @@ public class Arena {
     }
 
     public void spawnBarrel() {
-        barrels.add(new Barrel(2,height-22));
+        barrels.add(new Barrel(spawnBarrelPosition.getX(),spawnBarrelPosition.getY()));
     }
 
     public boolean isBarrel(Position position) {
@@ -116,5 +118,13 @@ public class Arena {
             }
         }
         return -1;
+    }
+
+    public Position getSpawnBarrelPosition() {
+        return spawnBarrelPosition;
+    }
+
+    public void setSpawnBarrelPosition(Position spawnBarrelPosition) {
+        this.spawnBarrelPosition = spawnBarrelPosition;
     }
 }

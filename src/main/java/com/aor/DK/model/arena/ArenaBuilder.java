@@ -1,5 +1,6 @@
 package com.aor.DK.model.arena;
 
+import com.aor.DK.model.Position;
 import com.aor.DK.model.elements.*;
 
 import java.util.List;
@@ -13,6 +14,7 @@ public abstract class ArenaBuilder {
         arena.setStairs(createStairs());
         arena.setDonkeyKong(createDonkeyKong());
         arena.setPrincess(createPrincess());
+        arena.setSpawnBarrelPosition(getSpawnBarrelPosition());
 
         return arena;
     }
@@ -24,5 +26,6 @@ public abstract class ArenaBuilder {
     protected abstract Mario createMario();
     protected abstract DonkeyKong createDonkeyKong();
     protected abstract Princess createPrincess();
+    protected abstract Position getSpawnBarrelPosition();
 
 }
