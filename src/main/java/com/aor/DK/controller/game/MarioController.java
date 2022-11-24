@@ -4,6 +4,7 @@ import com.aor.DK.GUI.GUI;
 import com.aor.DK.Game;
 import com.aor.DK.model.Position;
 import com.aor.DK.model.arena.Arena;
+import com.aor.DK.model.elements.Barrel;
 import com.aor.DK.model.elements.Floor;
 import com.aor.DK.model.elements.Mario;
 import com.aor.DK.model.elements.Stair;
@@ -35,7 +36,7 @@ public class MarioController extends GameController {
     }
 
     private void moveMario(Position position) {
-        if (getModel().outOfBounds(position)) {
+        if (!getModel().outOfBounds(position)) {
             getModel().getMario().setPosition(position);
             if (getModel().isBarrel(position)) getModel().end();
         }
@@ -44,7 +45,7 @@ public class MarioController extends GameController {
     private boolean isOnFloor() {
         for(List<Floor> storey : getModel().getFloor()) {
             for(Floor floor : storey)
-                if(getModel().getMario().getPosition().getY()-1 == (floor.getPosition().getY())) {
+                if(getModel().getMario().getPosition().getY()+1 == (floor.getPosition().getY())) {
                     return true;
             }
         }
@@ -66,7 +67,14 @@ public class MarioController extends GameController {
         }
         return false;
     }
-
+    private boolean barrelCrash(Position position) {
+        for(Barrel barrel : getModel().getBarrels()) {
+            if(barrel.getPosition().equals(position)) {
+                return true;
+            }
+        }
+        return false;
+    }
     @Override
     public void step(Game game, GUI.ACTION action, long time) {
         if (action == GUI.ACTION.UP) {
@@ -87,5 +95,10 @@ public class MarioController extends GameController {
             moveMario(new Position(mario.getPosition().getX(),mario.getPosition().getY()+(int)mario.getVy()));
             mario.incrementVy(GRAVITY);
         }
+        if(barrelCrash(getModel().getMario().getPosition())) {
+            getModel().end();
+        }
     }
+
+
 }
