@@ -16,7 +16,7 @@ import java.util.List;
 
 public class MarioController extends GameController {
 
-    private final float GRAVITY = 0.10f;
+    private final float GRAVITY = 0.15f;
 
     public MarioController(Arena arena) {
         super(arena);
@@ -58,7 +58,7 @@ public class MarioController extends GameController {
     private void jumpMario() {
         if (isOnFloor(getModel().getMario().getPosition()) && !checkStairs(getModel().getMario().getPosition())) {
             Position position = getModel().getMario().getPosition();
-            position.setY(position.getY() - 1);
+            position.setY(position.getY() - 2);
             getModel().getMario().setPosition(position);
 
         }
