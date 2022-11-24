@@ -12,10 +12,12 @@ import java.util.List;
 
 public class BarrelController extends GameController{
 
-    private long lastMovement;
+    private long lastMovement, barrelStepTime;
     public BarrelController(Arena arena) {
         super(arena);
         this.lastMovement = 0;
+        this.barrelStepTime = 0;
+
     }
 
     private int getFloorNumber(Position position) {
@@ -36,17 +38,21 @@ public class BarrelController extends GameController{
 
     @Override
     public void step(Game game, GUI.ACTION action, long time) throws IOException {
-        if(time - lastMovement > 500) {
+        if(time - lastMovement > 5000) {
             getModel().spawnBarrel();
             lastMovement = time;
         }
-        for(Barrel barrel: getModel().getBarrels()) {
-            if(getFloorNumber(barrel.getPosition()) == -1) barrel.setPosition(barrel.getPosition().getDown());
-            if(getFloorNumber(barrel.getPosition())%2 == 0) {
-                barrel.setPosition(barrel.getPosition().getLeft());
-            }
-            if(getFloorNumber(barrel.getPosition())%2 == 1) {
-                barrel.setPosition(barrel.getPosition().getRight());
+        if(time - barrelStepTime > 500) {
+            barrelStepTime = time;
+            for (Barrel barrel : getModel().getBarrels()) {
+                if (getFloorNumber(barrel.getPosition()) == -1) barrel.setPosition(barrel.getPosition().getDown());
+                if (getFloorNumber(barrel.getPosition()) % 2 == 0) {
+                    barrel.setPosition(barrel.getPosition().getLeft());
+                }
+                if (getFloorNumber(barrel.getPosition()) % 2 == 1) {
+                    barrel.setPosition(barrel.getPosition().getRight());
+                }
+
             }
         }
 
