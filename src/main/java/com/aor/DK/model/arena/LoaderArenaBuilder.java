@@ -1,6 +1,5 @@
 package com.aor.DK.model.arena;
 
-import com.aor.DK.model.elements.Barrel;
 import com.aor.DK.model.elements.Floor;
 import com.aor.DK.model.elements.Mario;
 import com.aor.DK.model.elements.Stair;
@@ -63,12 +62,6 @@ public class LoaderArenaBuilder extends ArenaBuilder{
         return floors;
     }
 
-    @Override
-    protected List<Barrel> createBarrels() {
-        List<Barrel> barrels = new ArrayList<>();
-        barrels.add(new Barrel(3,1));
-        return barrels;
-    }
 
     @Override
     protected Mario createMario() {

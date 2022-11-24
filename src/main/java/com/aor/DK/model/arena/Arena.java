@@ -6,6 +6,7 @@ import com.aor.DK.model.elements.Floor;
 import com.aor.DK.model.elements.Mario;
 import com.aor.DK.model.elements.Stair;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Arena {
@@ -22,6 +23,7 @@ public class Arena {
         this.width = width;
         this.height = height;
         endGame = false;
+        this.barrels = new ArrayList<>();
     }
 
     public int getWidth() {
@@ -66,7 +68,7 @@ public class Arena {
     }
 
     public void spawnBarrel() {
-        barrels.add(new Barrel(3,1));
+        barrels.add(new Barrel(2,height-22));
     }
 
     public boolean isBarrel(Position position) {
@@ -89,4 +91,15 @@ public class Arena {
     }
 
     public boolean isEndGame() {return endGame;}
+
+    public int getFloorNumber(Position position) {
+        for(int i = 0; i < floor.size(); i++) {
+            for(Floor tile : floor.get(i)) {
+                if(position.getX() == tile.getPosition().getX() && position.getY() + 1 == tile.getPosition().getY()) {
+                    return i;
+                }
+            }
+        }
+        return -1;
+    }
 }
