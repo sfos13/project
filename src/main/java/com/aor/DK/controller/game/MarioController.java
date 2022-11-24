@@ -53,7 +53,7 @@ public class MarioController extends GameController {
 
 
     private void jumpMario() {
-        if (isOnFloor(getModel().getMario().getPosition())) {
+        if (isOnFloor(getModel().getMario().getPosition()) && !checkStairs(getModel().getMario().getPosition())) {
             Position position = getModel().getMario().getPosition();
             position.setY(position.getY() - 1);
             getModel().getMario().setPosition(position);
@@ -63,7 +63,16 @@ public class MarioController extends GameController {
 
     private boolean checkStairs(Position position) {
         for(Stair stair : getModel().getStairs()) {
-            if(((position.getX() == stair.getPosition().getX()) && ((position.getY()+1) == stair.getPosition().getY())) || (position.equals(stair.getPosition()))) {
+            if((position.equals(stair.getPosition()))){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private boolean checkUnderStairs(Position position) {
+        for(Stair stair : getModel().getStairs()) {
+            if(new Position(position.getX(), position.getY() + 1).equals(stair.getPosition())) {
                 return true;
             }
         }
@@ -90,7 +99,7 @@ public class MarioController extends GameController {
         }
         if (action == GUI.ACTION.RIGHT) moveMarioRight();
         if (action == GUI.ACTION.DOWN) {
-            if (checkStairs(getModel().getMario().getPosition())) {
+            if (checkUnderStairs(getModel().getMario().getPosition())) {
                 moveMarioDown();
             }
         }
