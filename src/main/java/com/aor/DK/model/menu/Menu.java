@@ -5,14 +5,14 @@ import java.util.Collections;
 import java.util.List;
 
 public class Menu{
-    private String message;
+
     private List<String> entries;
     private int currentEntry = 0;
 
 
-    public Menu(List<String> entries, String message) {
+    public Menu(List<String> entries) {
         this.entries=entries;
-        this.message=message;
+
     }
 
     public void nextEntry() {
