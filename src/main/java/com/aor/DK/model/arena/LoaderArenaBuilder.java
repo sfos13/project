@@ -31,7 +31,7 @@ public class LoaderArenaBuilder extends ArenaBuilder{
     @Override
     protected List<Stair> createStairs() {
         List<Stair> stairs = new ArrayList<>();
-        for(int i = 5; i <8; i++){
+        for(int i = 4; i <8; i++){
             stairs.add(new Stair(3,i));
             stairs.add(new Stair(7,i));
         }
