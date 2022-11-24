@@ -67,6 +67,7 @@ public class MarioController extends GameController {
         }
         return false;
     }
+
     private boolean barrelCrash(Position position) {
         for(Barrel barrel : getModel().getBarrels()) {
             if(barrel.getPosition().equals(position)) {
@@ -74,6 +75,9 @@ public class MarioController extends GameController {
             }
         }
         return false;
+    }
+    private boolean isOutOfBounds(Position position) {
+        return position.getX() < 0 || position.getX() > getModel().getWidth() || position.getY() < 0 || position.getY() > getModel().getHeight();
     }
     @Override
     public void step(Game game, GUI.ACTION action, long time) {
@@ -95,7 +99,7 @@ public class MarioController extends GameController {
             moveMario(new Position(mario.getPosition().getX(),mario.getPosition().getY()+(int)mario.getVy()));
             mario.incrementVy(GRAVITY);
         }
-        if(barrelCrash(getModel().getMario().getPosition())) {
+        if((barrelCrash(getModel().getMario().getPosition())) || isOutOfBounds(getModel().getMario().getPosition()))  {
             getModel().end();
         }
     }
