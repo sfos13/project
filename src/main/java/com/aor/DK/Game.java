@@ -1,6 +1,7 @@
 package com.aor.DK;
 
-import com.aor.DK.gui.LanternaGUI;
+import com.aor.DK.GUI.LanternaGUI;
+
 import com.aor.DK.model.menu.Menu;
 import com.aor.DK.states.MenuState;
 import com.aor.DK.states.State;
@@ -13,7 +14,7 @@ public class Game {
     private State state;
     private final LanternaGUI gui;
 
-    public Game() throws IOException {
+    public Game() throws IOException, URISyntaxException, FontFormatException {
         this.gui = new LanternaGUI(20, 20);
         this.state = new MenuState(new Menu());
     }
