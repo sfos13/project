@@ -31,10 +31,11 @@ public class LoaderArenaBuilder extends ArenaBuilder{
     @Override
     protected List<Stair> createStairs() {
         List<Stair> stairs = new ArrayList<>();
-        stairs.add(new Stair(width/3,2));
-        stairs.add(new Stair(2*width/3,2));
-        stairs.add(new Stair(width/3,height-3));
-        stairs.add(new Stair(2*width/3,height-3));
+        for(int i = 5; i <8; i++){
+            stairs.add(new Stair(3,i));
+            stairs.add(new Stair(7,i));
+        }
+
         return stairs;
     }
 
