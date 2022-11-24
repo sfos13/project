@@ -10,6 +10,10 @@ public interface GUI {
 
     void drawMario(Position position);
 
+    void drawDonkeyKong(Position position);
+
+    void drawPrincess(Position position);
+
     void drawFloor(Position position);
 
     void drawBarrel(Position position);

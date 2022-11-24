@@ -1,8 +1,6 @@
 package com.aor.DK.model.arena;
 
-import com.aor.DK.model.elements.Floor;
-import com.aor.DK.model.elements.Mario;
-import com.aor.DK.model.elements.Stair;
+import com.aor.DK.model.elements.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -43,24 +41,35 @@ public class LoaderArenaBuilder extends ArenaBuilder{
 
     @Override
     protected List<List<Floor>> createFloor() {
-        int many_floor = 7;
+        int many_floor = 6;
         List<List<Floor>> floors = new ArrayList<>();
         int offset = 5;
-        for(int x=0; x<many_floor;x++){
-            floors.add(new ArrayList<Floor>());
-            if(x%2 ==0) {
-                for(int i = 0; i<width-offset; i++) {
-                    floors.get(x).add(new Floor(i,height-(x*3+3)));
+        floors.add(new ArrayList<>());
+
+        floors.add(new ArrayList<>());
+        for (int i = (width/2) - 8 ; i < width/2 + 8; i++) {
+            floors.get(0).add(new Floor(i, height - (7 * 3 + 3)));
+        }
+
+        for (int x = 1; x <= many_floor; x++) {
+            floors.add(new ArrayList<>());
+            if (x % 2 == 0) {
+                for (int i = 0; i < width - offset; i++) {
+                    floors.get(x).add(new Floor(i, height - (x * 3 + 3)));
                 }
-            }
-            else {
-                for(int i = offset; i<width; i++) {
-                    floors.get(x).add(new Floor(i,height-(x*3+3)));
+            } else {
+                for (int i = offset; i < width; i++) {
+                    floors.get(x).add(new Floor(i, height - (x * 3 + 3)));
                 }
             }
 
         }
+
+        for (int i = 0; i < width; i++) {
+            floors.get(7).add(new Floor(i, height - 3));
+        }
         return floors;
+
     }
 
 
@@ -68,6 +77,14 @@ public class LoaderArenaBuilder extends ArenaBuilder{
     protected Mario createMario() {
         return new Mario(2,height-4);
     }
+    @Override
+    protected DonkeyKong createDonkeyKong(){
+        return new DonkeyKong(0, height - (7 * 3 + 1));
+    }
 
+    @Override
+    protected Princess createPrincess(){
+        return new Princess(width/2, height - (8 * 3 + 1));
+    }
 
 }

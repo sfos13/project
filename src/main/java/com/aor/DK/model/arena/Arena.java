@@ -1,10 +1,7 @@
 package com.aor.DK.model.arena;
 
 import com.aor.DK.model.Position;
-import com.aor.DK.model.elements.Barrel;
-import com.aor.DK.model.elements.Floor;
-import com.aor.DK.model.elements.Mario;
-import com.aor.DK.model.elements.Stair;
+import com.aor.DK.model.elements.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,6 +12,8 @@ public class Arena {
 
     private boolean endGame;
     private Mario mario;
+    private DonkeyKong donkeyKong;
+    private Princess princess;
     private List<Barrel> barrels;
     private List<List<Floor>> floor;
     private List<Stair> stairs;
@@ -63,8 +62,24 @@ public class Arena {
         return stairs;
     }
 
+    public DonkeyKong getDonkeyKong() {
+        return donkeyKong;
+    }
+
+    public Princess getPrincess() {
+        return princess;
+    }
+
     public void setStairs(List<Stair> stairs) {
         this.stairs = stairs;
+    }
+
+    public void setDonkeyKong(DonkeyKong donkeyKong) {
+        this.donkeyKong = donkeyKong;
+    }
+
+    public void setPrincess(Princess princess) {
+        this.princess = princess;
     }
 
     public void spawnBarrel() {
@@ -79,7 +94,7 @@ public class Arena {
         return false;
     }
     public boolean outOfBounds(Position position) {
-        return !(position.getX() > 0 && position.getX() < width);
+        return !(position.getX() >= 0 && position.getX() < width);
     }
 
     public void end() {
