@@ -13,13 +13,10 @@ import com.googlecode.lanterna.screen.Screen;
 import com.googlecode.lanterna.screen.TerminalScreen;
 import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
 import com.googlecode.lanterna.terminal.Terminal;
-import com.googlecode.lanterna.terminal.swing.AWTTerminalFontConfiguration;
 
 import java.awt.*;
-import java.io.File;
 import java.io.IOException;
 import java.net.URISyntaxException;
-import java.net.URL;
 
 public class LanternaGUI implements GUI {
     private final Screen screen;
@@ -29,8 +26,7 @@ public class LanternaGUI implements GUI {
     }
 
     public LanternaGUI(int width, int height) throws IOException, FontFormatException, URISyntaxException {
-        AWTTerminalFontConfiguration fontConfig = loadSquareFont();
-        Terminal terminal = createTerminal(width, height, fontConfig);
+        Terminal terminal = createTerminal(width, height);
         this.screen = createScreen(terminal);
     }
 
@@ -44,27 +40,14 @@ public class LanternaGUI implements GUI {
         return screen;
     }
 
-    private Terminal createTerminal(int width, int height, AWTTerminalFontConfiguration fontConfig) throws IOException {
+    private Terminal createTerminal(int width, int height) throws IOException {
         TerminalSize terminalSize = new TerminalSize(width, height + 1);
         DefaultTerminalFactory terminalFactory = new DefaultTerminalFactory().setInitialTerminalSize(terminalSize);
         terminalFactory.setForceAWTOverSwing(true);
-        terminalFactory.setTerminalEmulatorFontConfiguration(fontConfig);
         Terminal terminal = terminalFactory.createTerminal();
         return terminal;
     }
 
-    private AWTTerminalFontConfiguration loadSquareFont() throws URISyntaxException, FontFormatException, IOException {
-        URL resource = getClass().getClassLoader().getResource("fonts/square.ttf");
-        File fontFile = new File(resource.toURI());
-        Font font = Font.createFont(Font.TRUETYPE_FONT, fontFile);
-
-        GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
-        ge.registerFont(font);
-
-        Font loadedFont = font.deriveFont(Font.PLAIN, 25);
-        AWTTerminalFontConfiguration fontConfig = AWTTerminalFontConfiguration.newInstance(loadedFont);
-        return fontConfig;
-    }
 
     public ACTION getNextAction() throws IOException {
         KeyStroke keyStroke = screen.pollInput();
@@ -77,7 +60,7 @@ public class LanternaGUI implements GUI {
         if (keyStroke.getKeyType() == KeyType.ArrowRight) return ACTION.RIGHT;
         if (keyStroke.getKeyType() == KeyType.ArrowDown) return ACTION.DOWN;
         if (keyStroke.getKeyType() == KeyType.ArrowLeft) return ACTION.LEFT;
-
+        if(keyStroke.getCharacter() == ' ') return ACTION.SPACE;
         if (keyStroke.getKeyType() == KeyType.Enter) return ACTION.SELECT;
 
         return ACTION.NONE;
@@ -85,17 +68,22 @@ public class LanternaGUI implements GUI {
 
     @Override
     public void drawMario(Position position) {
-        drawCharacter(position.getX(), position.getY(), 'H', "#FFD700");
+        drawCharacter(position.getX(), position.getY(), 'X', "#FFD700");
     }
 
     @Override
-    public void drawWall(Position position) {
+    public void drawFloor(Position position) {
         drawCharacter(position.getX(), position.getY(), '#', "#3333FF");
     }
 
     @Override
-    public void drawMonkey(Position position) {
-        drawCharacter(position.getX(), position.getY(), '@', "#CC0000");
+    public void drawBarrel(Position position) {
+        drawCharacter(position.getX(), position.getY(), 'O', "#CC0000");
+    }
+
+    @Override
+    public void drawStair(Position position) {
+        drawCharacter(position.getX(), position.getY(), 'H', "#CC0000");
     }
 
     @Override

@@ -1,5 +1,7 @@
 plugins {
     id 'java'
+    id 'application'
+
 }
 
 group 'com.aor.DK'
@@ -7,6 +9,10 @@ version '1.0-SNAPSHOT'
 
 repositories {
     mavenCentral()
+}
+
+application {
+    mainClass.set('com.aor.DK.Game')
 }
 
 dependencies {

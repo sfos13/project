@@ -29,7 +29,6 @@ public class Game {
     private void start() throws IOException {
         while(this.state != null) {
             long startTime = System.currentTimeMillis();
-
             state.step(this, gui, startTime);
         }
         gui.close();
