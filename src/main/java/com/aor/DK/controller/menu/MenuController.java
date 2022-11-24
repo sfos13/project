@@ -10,7 +10,6 @@ import com.aor.DK.states.GameState;
 import java.io.IOException;
 
 public class MenuController extends Controller<Menu> {
-
     public MenuController(Menu menu) {
         super(menu);
     }
@@ -25,7 +24,7 @@ public class MenuController extends Controller<Menu> {
                 break;
             case SELECT:
                 if (getModel().isSelectedExit()) game.setState(null);
-                if (getModel().isSelectedStart()) game.setState(new GameState(new LoaderArenaBuilder(10,10).createArena()));
+                if (getModel().isSelectedStart()) game.setState(new GameState(new LoaderArenaBuilder(70,30).createArena()));
         }
     }
 }
