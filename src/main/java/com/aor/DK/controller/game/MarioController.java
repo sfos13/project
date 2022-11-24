@@ -88,7 +88,7 @@ public class MarioController extends GameController {
         return false;
     }
     private boolean isOutOfBounds(Position position) {
-        return position.getX() < 0 || position.getX() > getModel().getWidth() || position.getY() < 0 || position.getY() > getModel().getHeight();
+        return position.getX() < 0 || position.getX() > getModel().getWidth() || position.getY() < -1 || position.getY() > getModel().getHeight();
     }
     @Override
     public void step(Game game, GUI.ACTION action, long time) {

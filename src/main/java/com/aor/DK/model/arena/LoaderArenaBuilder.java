@@ -35,20 +35,22 @@ public class LoaderArenaBuilder extends ArenaBuilder{
             stairs.add(new Stair(3,i));
             stairs.add(new Stair(7,i));
         }
+        for(int i=1;i<4;i++){
+            stairs.add(new Stair(5,i));
+        }
 
         return stairs;
     }
 
     @Override
     protected List<List<Floor>> createFloor() {
+        int many_floor =3;
         List<List<Floor>> floors = new ArrayList<>();
-        floors.add(new ArrayList<Floor>());
-        for(int i = 1; i<width-1; i++) {
-            floors.get(0).add(new Floor(i,height-3));
-        }
-        floors.add(new ArrayList<Floor>());
-        for(int i = 2; i<width-2; i++) {
-            floors.get(1).add(new Floor(i,4));
+        for(int x=0; x<many_floor;x++){
+            floors.add(new ArrayList<Floor>());
+            for(int i = x; i<width-x-1; i++) {
+                floors.get(x).add(new Floor(i+1,height-(x*3+3)));
+            }
         }
         return floors;
     }
