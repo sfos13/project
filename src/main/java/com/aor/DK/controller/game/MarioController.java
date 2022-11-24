@@ -36,16 +36,15 @@ public class MarioController extends GameController {
     }
 
     private void moveMario(Position position) {
-        if (!getModel().outOfBounds(position)) {
+        if (!getModel().outOfBounds(position) || checkStairs(getModel().getMario().getPosition())) {
             getModel().getMario().setPosition(position);
-            if (getModel().isBarrel(position)) getModel().end();
         }
     }
 
-    private boolean isOnFloor() {
+    private boolean isOnFloor(Position position) {
         for(List<Floor> storey : getModel().getFloor()) {
             for(Floor floor : storey)
-                if(getModel().getMario().getPosition().getY()+1 == (floor.getPosition().getY())) {
+                if(position.getY()+1 == (floor.getPosition().getY()) && position.getX() == floor.getPosition().getX()) {
                     return true;
             }
         }
@@ -54,14 +53,14 @@ public class MarioController extends GameController {
 
 
     private void jumpMario() {
-            Position nowPosition = getModel().getMario().getPosition();
-            nowPosition.setY(nowPosition.getY() - 1);
-            getModel().getMario().setPosition(nowPosition);
+        if(!isOnFloor(getModel().getMario().getPosition())) {
+            getModel().getMario().setVy(-2);
+        }
     }
 
-    private boolean checkStairs() {
+    private boolean checkStairs(Position position) {
         for(Stair stair : getModel().getStairs()) {
-            if((getModel().getMario().getPosition().getX() == stair.getPosition().getX()) && ((getModel().getMario().getPosition().getY()-1) == stair.getPosition().getY())) {
+            if(((position.getX() == stair.getPosition().getX()) && ((position.getY()+1) == stair.getPosition().getY())) || (position.equals(stair.getPosition()))) {
                 return true;
             }
         }
@@ -81,25 +80,25 @@ public class MarioController extends GameController {
     }
     @Override
     public void step(Game game, GUI.ACTION action, long time) {
-        if(!isOnFloor()) {
-            Mario mario = getModel().getMario();
-            moveMario(new Position(mario.getPosition().getX(),mario.getPosition().getY() + 1));
-            mario.incrementVy(GRAVITY);
-        }
         if (action == GUI.ACTION.UP) {
-            if(checkStairs()) {
+            if(checkStairs(getModel().getMario().getPosition())) {
                 moveMarioUp();
             }
         }
         if (action == GUI.ACTION.RIGHT) moveMarioRight();
         if (action == GUI.ACTION.DOWN) {
-            if (checkStairs()) {
+            if (checkStairs(getModel().getMario().getPosition())) {
                 moveMarioDown();
             }
         }
         if (action == GUI.ACTION.LEFT) moveMarioLeft();
         if (action == GUI.ACTION.SPACE) jumpMario();
-        if(barrelCrash(getModel().getMario().getPosition())) {
+        if(!isOnFloor(getModel().getMario().getPosition()) && !checkStairs(getModel().getMario().getPosition())) {
+            Mario mario = getModel().getMario();
+            moveMario(new Position(mario.getPosition().getX(),mario.getPosition().getY()+(int)mario.getVy()));
+            mario.incrementVy(GRAVITY);
+        }
+        if((barrelCrash(getModel().getMario().getPosition())) || isOutOfBounds(getModel().getMario().getPosition()))  {
             getModel().end();
         }
     }

@@ -32,10 +32,6 @@ public class BarrelController extends GameController{
         return -1;
     }
 
-    private boolean isOutOfBounds(Position position) {
-        return position.getX() < 0 || position.getX() > getModel().getWidth() || position.getY() < 0 || position.getY() > getModel().getHeight();
-    }
-
     @Override
     public void step(Game game, GUI.ACTION action, long time) throws IOException {
         if(time - lastMovement > 5000) {
