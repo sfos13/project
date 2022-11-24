@@ -6,12 +6,13 @@ import com.aor.DK.model.menu.Menu;
 
 
 public class MenuViewer extends Viewer<Menu> {
+    protected  String message;
     public MenuViewer(Menu menu) {
         super(menu);
     }
     @Override
     public void drawElements(GUI gui) {
-        gui.drawText(new Position(18, 10), "Menu", "#FFFFFF");
+        gui.drawText(new Position(18, 10), getModel().getMessage(), "#FFFFFF");
 
         for (int i = 0; i < getModel().getNumberEntries(); i++)
             gui.drawText(

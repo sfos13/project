@@ -7,12 +7,18 @@ import java.util.List;
 public class Menu{
 
     private List<String> entries;
+    protected String message;
     private int currentEntry = 0;
 
 
-    public Menu(List<String> entries) {
+    public Menu(List<String> entries, String message) {
         this.entries=entries;
+        this.message=message;
 
+    }
+
+    public String getMessage() {
+        return message;
     }
 
     public void nextEntry() {

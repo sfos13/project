@@ -120,7 +120,7 @@ public class MarioController extends GameController {
             getModel().end();
         }
         if(getModel().getFloorNumber(getModel().getMario().getPosition())==0){
-            game.setState(new MenuState(new Menu(Arrays.asList("New Game", "Exit"))));
+            game.setState(new MenuState(new Menu(Arrays.asList("Yes", "No"), "Do you want to play again?")));
         }
     }
 
