@@ -5,7 +5,6 @@ import java.util.List;
 
 public abstract class Base{
 
-
     protected List<String> entries;
     private int currentEntry = 0;
 
