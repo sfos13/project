@@ -8,7 +8,10 @@ import com.aor.DK.model.elements.Barrel;
 import com.aor.DK.model.elements.Floor;
 import com.aor.DK.model.elements.Mario;
 import com.aor.DK.model.elements.Stair;
+import com.aor.DK.model.menu.Menu;
+import com.aor.DK.states.MenuState;
 
+import java.util.Arrays;
 import java.util.List;
 
 public class MarioController extends GameController {
@@ -116,7 +119,9 @@ public class MarioController extends GameController {
         if((barrelCrash(getModel().getMario().getPosition())) || isOutOfBounds(getModel().getMario().getPosition()))  {
             getModel().end();
         }
-        if(getModel().ge)
+        if(getModel().getFloorNumber(getModel().getMario().getPosition())==8){
+            game.setState(new MenuState(new Menu(Arrays.asList("New Game", "Exit"))));
+        }
     }
 
 

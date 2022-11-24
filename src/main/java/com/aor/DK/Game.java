@@ -13,16 +13,13 @@ import java.util.Arrays;
 
 public class Game {
     private State state;
-    private final LanternaGUI gui;
+    private LanternaGUI gui;
 
     public Game() throws IOException, URISyntaxException, FontFormatException {
-<<<<<<< HEAD
         this.gui = new LanternaGUI(20, 20);
         this.state = new MenuState(new Menu(Arrays.asList("Start", "Exit")));
-=======
         this.gui = new LanternaGUI(70, 30);
-        this.state = new MenuState(new Menu());
->>>>>>> 5cbed74fe6c93b2428ca44b62ce3dad2e6d36db9
+        this.state = new MenuState(new Menu(Arrays.asList("Start", "Exit")));
     }
 
     public static void main(String[] args) throws IOException, FontFormatException, URISyntaxException {
