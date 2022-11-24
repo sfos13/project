@@ -81,5 +81,10 @@ public class LoaderArenaBuilder extends ArenaBuilder{
         return new DonkeyKong(0, height - (7 * 3 + 1));
     }
 
+    @Override
+    protected Princess createPrincess(){
+        return new Princess(width/2, height - (8 * 3 + 1));
+    }
+
 
 }

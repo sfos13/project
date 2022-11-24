@@ -1,9 +1,6 @@
 package com.aor.DK.model.arena;
 
-import com.aor.DK.model.elements.DonkeyKong;
-import com.aor.DK.model.elements.Floor;
-import com.aor.DK.model.elements.Mario;
-import com.aor.DK.model.elements.Stair;
+import com.aor.DK.model.elements.*;
 
 import java.util.List;
 
@@ -15,6 +12,7 @@ public abstract class ArenaBuilder {
         arena.setFloor(createFloor());
         arena.setStairs(createStairs());
         arena.setDonkeyKong(createDonkeyKong());
+        arena.setPrincess(createPrincess());
 
         return arena;
     }
@@ -25,5 +23,6 @@ public abstract class ArenaBuilder {
     protected abstract List<List<Floor>> createFloor();
     protected abstract Mario createMario();
     protected abstract DonkeyKong createDonkeyKong();
+    protected abstract Princess createPrincess();
 
 }

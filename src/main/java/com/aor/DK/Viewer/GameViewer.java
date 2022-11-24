@@ -22,6 +22,7 @@ public class GameViewer extends Viewer<Arena> {
         drawElements(gui, getModel().getStairs(), new StairViewer());
         drawElement(gui, getModel().getMario(), new MarioViewer());
         drawElement(gui, getModel().getDonkeyKong(), new DonkeyKongViewer());
+        drawElement(gui, getModel().getPrincess(), new PrincessViewer());
 
     }
 
