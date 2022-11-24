@@ -9,14 +9,17 @@ import com.aor.DK.states.State;
 import java.awt.*;
 import java.io.IOException;
 import java.net.URISyntaxException;
+import java.util.Arrays;
 
 public class Game {
     private State state;
-    private final LanternaGUI gui;
+    private LanternaGUI gui;
 
     public Game() throws IOException, URISyntaxException, FontFormatException {
+        this.gui = new LanternaGUI(20, 20);
+        this.state = new MenuState(new Menu(Arrays.asList("Start", "Exit")));
         this.gui = new LanternaGUI(70, 30);
-        this.state = new MenuState(new Menu());
+        this.state = new MenuState(new Menu(Arrays.asList("Start", "Exit")));
     }
 
     public static void main(String[] args) throws IOException, FontFormatException, URISyntaxException {

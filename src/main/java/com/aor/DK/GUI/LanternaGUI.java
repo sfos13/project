@@ -21,10 +21,6 @@ import java.net.URISyntaxException;
 public class LanternaGUI implements GUI {
     private final Screen screen;
 
-    public LanternaGUI(Screen screen) {
-        this.screen = screen;
-    }
-
     public LanternaGUI(int width, int height) throws IOException, FontFormatException, URISyntaxException {
         Terminal terminal = createTerminal(width, height);
         this.screen = createScreen(terminal);
@@ -84,6 +80,14 @@ public class LanternaGUI implements GUI {
     @Override
     public void drawStair(Position position) {
         drawCharacter(position.getX(), position.getY(), 'H', "#CC0000");
+    }
+    @Override
+    public void drawDonkeyKong(Position position) {
+        drawCharacter(position.getX(), position.getY(), 'D', "#964B00");
+    }
+    @Override
+    public void drawPrincess(Position position) {
+        drawCharacter(position.getX(), position.getY(), 'P', "#FFC0CB");
     }
 
     @Override

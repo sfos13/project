@@ -1,8 +1,6 @@
 package com.aor.DK.model.arena;
 
-import com.aor.DK.model.elements.Floor;
-import com.aor.DK.model.elements.Mario;
-import com.aor.DK.model.elements.Stair;
+import com.aor.DK.model.elements.*;
 
 import java.util.List;
 
@@ -13,18 +11,18 @@ public abstract class ArenaBuilder {
         arena.setMario(createMario());
         arena.setFloor(createFloor());
         arena.setStairs(createStairs());
+        arena.setDonkeyKong(createDonkeyKong());
+        arena.setPrincess(createPrincess());
 
         return arena;
     }
 
     protected abstract int getWidth();
-
     protected abstract int getHeight();
     protected abstract List<Stair> createStairs();
-
     protected abstract List<List<Floor>> createFloor();
-
-
     protected abstract Mario createMario();
+    protected abstract DonkeyKong createDonkeyKong();
+    protected abstract Princess createPrincess();
 
 }
