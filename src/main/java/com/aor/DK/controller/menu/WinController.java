@@ -4,14 +4,13 @@ import com.aor.DK.GUI.GUI;
 import com.aor.DK.Game;
 import com.aor.DK.controller.Controller;
 import com.aor.DK.model.arena.LoaderArenaBuilder;
-import com.aor.DK.model.menu.Menu;
 import com.aor.DK.model.menu.WinMenu;
 import com.aor.DK.states.GameState;
 
 import java.io.IOException;
 
-public class MenuController extends Controller<Menu> {
-    public MenuController(Menu menu) {
+public class WinController extends Controller<WinMenu> {
+    public WinController(WinMenu menu) {
         super(menu);
     }
 
@@ -31,4 +30,3 @@ public class MenuController extends Controller<Menu> {
         }
     }
 }
-
