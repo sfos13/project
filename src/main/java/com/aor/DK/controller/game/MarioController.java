@@ -54,9 +54,9 @@ public class MarioController extends GameController {
 
 
     private void jumpMario() {
-        if(!isOnFloor()) {
-            getModel().getMario().setVy(-2);
-        }
+            Position nowPosition = getModel().getMario().getPosition();
+            nowPosition.setY(nowPosition.getY() - 1);
+            getModel().getMario().setPosition(nowPosition);
     }
 
     private boolean checkStairs() {
@@ -81,6 +81,11 @@ public class MarioController extends GameController {
     }
     @Override
     public void step(Game game, GUI.ACTION action, long time) {
+        if(!isOnFloor()) {
+            Mario mario = getModel().getMario();
+            moveMario(new Position(mario.getPosition().getX(),mario.getPosition().getY() + 1));
+            mario.incrementVy(GRAVITY);
+        }
         if (action == GUI.ACTION.UP) {
             if(checkStairs()) {
                 moveMarioUp();
@@ -94,12 +99,7 @@ public class MarioController extends GameController {
         }
         if (action == GUI.ACTION.LEFT) moveMarioLeft();
         if (action == GUI.ACTION.SPACE) jumpMario();
-        if(!isOnFloor()) {
-            Mario mario = getModel().getMario();
-            moveMario(new Position(mario.getPosition().getX(),mario.getPosition().getY()+(int)mario.getVy()));
-            mario.incrementVy(GRAVITY);
-        }
-        if((barrelCrash(getModel().getMario().getPosition())) || isOutOfBounds(getModel().getMario().getPosition()))  {
+        if(barrelCrash(getModel().getMario().getPosition())) {
             getModel().end();
         }
     }
