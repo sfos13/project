@@ -13,7 +13,7 @@ import java.util.List;
 
 public class MarioController extends GameController {
 
-    private final float GRAVITY = 0.5f;
+    private final float GRAVITY = 0.25f;
 
     public MarioController(Arena arena) {
         super(arena);
@@ -57,6 +57,7 @@ public class MarioController extends GameController {
             Position position = getModel().getMario().getPosition();
             position.setY(position.getY() - 1);
             getModel().getMario().setPosition(position);
+
         }
     }
 
