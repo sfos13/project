@@ -14,12 +14,12 @@ public class GameViewer extends Viewer<Arena> {
 
     @Override
     public void drawElements(GUI gui) {
-        drawElements(gui, getModel().getStairs(), new StairViewer());
         drawElements(gui, getModel().getBarrels(), new BarrelViewer());
-        drawElement(gui, getModel().getMario(), new MarioViewer());
         for(List<Floor> storey : getModel().getFloor()) {
             drawElements(gui, storey, new FloorViewer());
         }
+        drawElements(gui, getModel().getStairs(), new StairViewer());
+        drawElement(gui, getModel().getMario(), new MarioViewer());
     }
 
     private <T extends Element> void drawElements(GUI gui, List<T> elements, GenericViewer<T> viewer) {
