@@ -13,9 +13,9 @@
 
 - **Jumping** - Mario (or the char 'X') will jump when the space bar key is pressed.
 
-- **Climbing stairs** - To move to the higher floor it's needed to climb the stairs. Therefore, if the charather is in the same position as the stairs (or char 'H'), it can climb. But if the stairs are broken, the action can't be completed.
+- **Climbing stairs** - To move to the higher floor it's needed to climb the stairs. Therefore, if the character is in the same position as the stairs (or char 'H'), it can climb. But if the stairs are broken, the action can't be completed.
 
-- **Gravity** - Gravity is very important in Donkey Kong, and ithelped in some functions. For example, if Mario isn't on the top of the floor(or char '#'), he automatically falls.
+- **Gravity** - Gravity is very important in Donkey Kong, and it helped in some functions. For example, if Mario isn't on the top of the floor(or char '#'), he automatically falls.
 
 - **Moving Barrels** - The barrels are an important feature in the original game. In this project, they move according to the floor and fall with the action of gravity. When they fall to the  lower floor, they change the tragetory. In other words, if they were moving to the right side, in the next floor, they will move to the left side. Sometimes, they can also come down to the stairs.
 
@@ -23,7 +23,7 @@
 
 - **Losing when a barrels hits** - When the barrels (or char 'O') are in the same place as Mario, the game automatically ends, and the player can try again.
 
-- **Losing when is face to face with Donkey Kong** - This feature is similiar to the previous, when Mario touches Donkey Kong, the player looses.
+- **Losing when is face to face with Donkey Kong** - This feature is similar to the previous, when Mario touches Donkey Kong, the player looses.
 
 **Screenshots of the Game**
 
