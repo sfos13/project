@@ -8,11 +8,31 @@
 
 **Features:**
 
-- **Jumping** - The game character will jump when the space bar key is pressed.
-- **Getting hidden coins** - When the game character hits a platform from below (by jumping beneath it) it will smash that segment of the platform and will get any coins that may exist hidden there.
+- **Jumping** - Mario (or the char 'X') will jump when the space bar key is pressed.
 
+- **Climbing stairs** - To move to the higher floor it's needed to climb the stairs. Therefore, if the charather is in the same position as the stairs (or char 'H'), it can climb. But if the stairs are broken, the action can't be completed.
 
-![img] 
+- **Gravity** - Gravity is very important in Donkey Kong, and ithelped in some functions. For example, if Mario isn't on the top of the floor(or char '#'), he automatically falls.
+
+- **Moving Barrels** - The barrels are an important feature in the original game. In this project, they move according to the floor and fall with the action of gravity. When they fall to the  lower floor, they change the tragetory. In other words, if they were moving to the right side, in the next floor, they will move to the left side.
+
+- **Winning when reach princess** - Usually, the game ends when  Mario is in the same level as the princess (or char 'P'). The way to win is the same. So, in the floor where the char is, the game ends, and the player can play again or exit.
+
+- **Losing when a barrels hits** - When the barrels (or char 'O') are in the same place as Mario, the game automatically ends, and the player can try again.
+
+- **Losing when is face to face with Donkey Kong** - This feature is similiar to the previous, when Mario touches Donkey Kong, the player looses.
+
+**Mario running**
+
+![img]((https://github.com/FEUP-LDTS-2022/project-l01gr09/blob/3f0ecc3c7dcb15440494e213e3df7b1eb28a300d/src/main/resources/img/floor_screenshot.png))
+
+**Mario on the stairs**
+
+![img]((https://github.com/FEUP-LDTS-2022/project-l01gr09/blob/310d5ff04cb54c08abd984266eff0f28f1774dc0/src/main/resources/img/stairs_screenshot.png))
+
+**Mario jumping**
+
+![img]((https://github.com/FEUP-LDTS-2022/project-l01gr09/blob/310d5ff04cb54c08abd984266eff0f28f1774dc0/src/main/resources/img/jump_screenshot.png))
 
 ### PLANNED FEATURES
 
@@ -45,7 +65,7 @@ We have applied the **State** pattern. This pattern allows you to represent diff
 
 The following figure shows how the pattern’s roles were mapped to the application classes.
 
-![img](https://www.fe.up.pt/~arestivo/page/img/examples/lpoo/state.svg)
+![img]((https://github.com/FEUP-LDTS-2022/project-l01gr09/blob/3f0ecc3c7dcb15440494e213e3df7b1eb28a300d/src/main/resources/img/floor_screenshot.png))
 
 These classes can be found in the following files:
 
