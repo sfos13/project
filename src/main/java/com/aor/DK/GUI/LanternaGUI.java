@@ -8,7 +8,6 @@ import com.googlecode.lanterna.TerminalSize;
 import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
 import com.googlecode.lanterna.input.KeyStroke;
-import com.googlecode.lanterna.input.KeyType;
 import com.googlecode.lanterna.screen.Screen;
 import com.googlecode.lanterna.screen.TerminalScreen;
 import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
@@ -63,18 +62,27 @@ public class LanternaGUI implements GUI {
 
     public ACTION getNextAction() throws IOException {
         KeyStroke keyStroke = screen.pollInput();
-        if (keyStroke == null) return ACTION.NONE;
-
-        if (keyStroke.getKeyType() == KeyType.EOF) return ACTION.QUIT;
-        if (keyStroke.getKeyType() == KeyType.Character && keyStroke.getCharacter() == 'q') return ACTION.QUIT;
-
-        if (keyStroke.getKeyType() == KeyType.ArrowUp) return ACTION.UP;
-        if (keyStroke.getKeyType() == KeyType.ArrowRight) return ACTION.RIGHT;
-        if (keyStroke.getKeyType() == KeyType.ArrowDown) return ACTION.DOWN;
-        if (keyStroke.getKeyType() == KeyType.ArrowLeft) return ACTION.LEFT;
-        if(keyStroke.getCharacter() == ' ') return ACTION.SPACE;
-        if (keyStroke.getKeyType() == KeyType.Enter) return ACTION.SELECT;
-
+        if(keyStroke == null) return ACTION.NONE;
+        switch(keyStroke.getKeyType()) {
+            case EOF:
+                return ACTION.QUIT;
+            case Character:
+                if (keyStroke.getCharacter() == 'q') return ACTION.QUIT;
+                if (keyStroke.getCharacter() == ' ') return ACTION.SPACE;
+                else break;
+            case ArrowUp:
+                return ACTION.UP;
+            case ArrowRight:
+                return ACTION.RIGHT;
+            case ArrowDown:
+                return ACTION.DOWN;
+            case ArrowLeft:
+                return ACTION.LEFT;
+            case Enter:
+                return ACTION.SELECT;
+            default:
+                return ACTION.NONE;
+        }
         return ACTION.NONE;
     }
 
