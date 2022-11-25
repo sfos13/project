@@ -88,23 +88,12 @@ public class Arena {
         barrels.add(new Barrel(spawnBarrelPosition.getX(),spawnBarrelPosition.getY()));
     }
 
-    public boolean isBarrel(Position position) {
-        for(Barrel barrel : barrels) {
-            if(barrel.getPosition().equals(position))
-                return true;
-        }
-        return false;
-    }
     public boolean outOfBounds(Position position) {
         return !(position.getX() >= 0 && position.getX() < width);
     }
 
     public void end() {
         endGame = true;
-    }
-
-    public void deleteFirstBarrel() {
-        barrels.remove(0);
     }
 
     public boolean isEndGame() {return endGame;}
@@ -127,4 +116,36 @@ public class Arena {
     public void setSpawnBarrelPosition(Position spawnBarrelPosition) {
         this.spawnBarrelPosition = spawnBarrelPosition;
     }
+    public boolean isOnFloor(Position position) {
+        for(List<Floor> storey : floor) {
+            for(Floor floor : storey)
+                if(position.getY()+1 == (floor.getPosition().getY()) && position.getX() == floor.getPosition().getX()) {
+                    return true;
+                }
+        }
+        return false;
+    }
+
+    public boolean checkStairs(Position position) {
+        for(Stair stair : stairs) {
+            if((position.equals(stair.getPosition()))){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean checkUnderStairs(Position position) {
+        return checkStairs(new Position(position.getX(), position.getY()+1));
+    }
+
+    public boolean barrelCrash(Position position) {
+        for(Barrel barrel : barrels) {
+            if(barrel.getPosition().equals(position)) {
+                return true;
+            }
+        }
+        return false;
+    }
+    
 }
