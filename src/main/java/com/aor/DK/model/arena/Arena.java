@@ -139,5 +139,8 @@ public class Arena {
         return false;
     }
 
+    public boolean crashDonkeyKong(Position position) {
+        return getDonkeyKong().getPosition().equals(position);
+    }
 
 }
