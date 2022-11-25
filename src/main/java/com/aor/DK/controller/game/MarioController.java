@@ -91,23 +91,36 @@ public class MarioController extends GameController {
         return false;
     }
     private boolean isOutOfBounds(Position position) {
-        return position.getX() < 0 || position.getX() > getModel().getWidth() || position.getY() < -1 || position.getY() > getModel().getHeight();
+        return position.getX() < 0 || position.getX() >= getModel().getWidth()-2|| position.getY() <= -1 || position.getY() > getModel().getHeight();
+    }
+
+    private boolean isOutOfBoundsX(Position position) {
+        return position.getX() >= getModel().getWidth()-2 ;
     }
     @Override
     public void step(Game game, GUI.ACTION action, long time) {
+
         if (action == GUI.ACTION.UP) {
             if(checkStairs(getModel().getMario().getPosition())) {
                 moveMarioUp();
             }
         }
-        if (action == GUI.ACTION.RIGHT) moveMarioRight();
+
         if (action == GUI.ACTION.DOWN) {
             if (checkUnderStairs(getModel().getMario().getPosition())) {
                 moveMarioDown();
             }
         }
-        if (action == GUI.ACTION.LEFT) moveMarioLeft();
+        if (action == GUI.ACTION.LEFT) {
+            moveMarioLeft();
+        }
+
+        if ((action == GUI.ACTION.RIGHT) && !isOutOfBoundsX(getModel().getMario().getPosition())){
+            moveMarioRight();
+        }
+
         if (action == GUI.ACTION.SPACE) jumpMario();
+
         if(!isOnFloor(getModel().getMario().getPosition()) && !checkStairs(getModel().getMario().getPosition())) {
             Mario mario = getModel().getMario();
             moveMario(new Position(mario.getPosition().getX(),mario.getPosition().getY()+(int)mario.getVy()));
@@ -116,7 +129,7 @@ public class MarioController extends GameController {
         else{
             getModel().getMario().setVy(0);
         }
-        if((barrelCrash(getModel().getMario().getPosition())) || isOutOfBounds(getModel().getMario().getPosition()))  {
+        if((barrelCrash(getModel().getMario().getPosition())))  {
             getModel().end();
         }
         if(getModel().getFloorNumber(getModel().getMario().getPosition())==0){
