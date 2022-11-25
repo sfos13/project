@@ -45,7 +45,19 @@
 - **Different Menus with More Options** - Currently, the menus are very similar and simple, and don't have options like instructions. In the future, they will be more appealing and easy to understand all the game.
 - **Different Draw Methods** - The characters are base on just one char, and element like floor or stairs are longer and have spaces between them. The next delivery will have a more detailed graphic part.
 
->Level 1 - More similar to the original game with titled floor and hammer that needs to collect 
+**MOCKS**
+
+>**Level 1** - More similar to the original game with titled floor and a hammer that needs to be collected.
+
+![img](src/main/resources/img/originalgame_nivel1.png)
+
+>**Level 2** - Instead of a titled floor, the levels of floor are proportional to each other. The goal also change: Mario need to jump all 8 yellow blocks in the floor to Donkey Kong fall and end the game.
+
+![img](src/main/resources/img/originalgame_nivel2.png)
+
+![img](src/main/resources/img/originalgame_nivel2_lastfloor.png)
+
+![img](src/main/resources/img/originalgame_nivel2_end.png)
 
 
 ### DESIGN
