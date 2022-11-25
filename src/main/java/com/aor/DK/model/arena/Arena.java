@@ -10,8 +10,6 @@ public class Arena {
     private final int width;
     private final int height;
 
-    private boolean endGame;
-
     private Position spawnBarrelPosition;
     private Mario mario;
     private DonkeyKong donkeyKong;
@@ -23,7 +21,6 @@ public class Arena {
     public Arena(int width, int height) {
         this.width = width;
         this.height = height;
-        endGame = false;
         this.barrels = new ArrayList<>();
     }
 
@@ -92,11 +89,6 @@ public class Arena {
         return !(position.getX() >= 0 && position.getX() < width);
     }
 
-    public void end() {
-        endGame = true;
-    }
-
-    public boolean isEndGame() {return endGame;}
 
     public int getFloorNumber(Position position) {
         for(int i = 0; i < floor.size(); i++) {
@@ -108,7 +100,6 @@ public class Arena {
         }
         return -1;
     }
-
     public Position getSpawnBarrelPosition() {
         return spawnBarrelPosition;
     }
