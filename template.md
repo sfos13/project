@@ -12,7 +12,8 @@
 - **Getting hidden coins** - When the game character hits a platform from below (by jumping beneath it) it will smash that segment of the platform and will get any coins that may exist hidden there.
 
 
-![img] 
+![img]((https://github.com/FEUP-LDTS-2022/project-l01gr09/blob/3f0ecc3c7dcb15440494e213e3df7b1eb28a300d/src/main/resources/img/floor_screenshot.png))
+
 
 ### PLANNED FEATURES
 
@@ -45,7 +46,7 @@ We have applied the **State** pattern. This pattern allows you to represent diff
 
 The following figure shows how the pattern’s roles were mapped to the application classes.
 
-![img](https://www.fe.up.pt/~arestivo/page/img/examples/lpoo/state.svg)
+![img]((https://github.com/FEUP-LDTS-2022/project-l01gr09/blob/3f0ecc3c7dcb15440494e213e3df7b1eb28a300d/src/main/resources/img/floor_screenshot.png))
 
 These classes can be found in the following files:
 
