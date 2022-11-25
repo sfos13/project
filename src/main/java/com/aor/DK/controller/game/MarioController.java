@@ -74,12 +74,7 @@ public class MarioController extends GameController {
     }
 
     private boolean checkUnderStairs(Position position) {
-        for(Stair stair : getModel().getStairs()) {
-            if(new Position(position.getX(), position.getY() + 1).equals(stair.getPosition())) {
-                return true;
-            }
-        }
-        return false;
+        return checkStairs(new Position(position.getX(), position.getY()+1));
     }
 
     private boolean barrelCrash(Position position) {
@@ -90,9 +85,10 @@ public class MarioController extends GameController {
         }
         return false;
     }
+    /*
     private boolean isOutOfBounds(Position position) {
         return position.getX() < 0 || position.getX() >= getModel().getWidth()-2|| position.getY() <= -1 || position.getY() > getModel().getHeight();
-    }
+    }*/
 
     private boolean isOutOfBoundsX(Position position) {
         return position.getX() >= getModel().getWidth()-2 ;
@@ -132,8 +128,8 @@ public class MarioController extends GameController {
         if((barrelCrash(getModel().getMario().getPosition())))  {
             getModel().end();
         }
-        if(getModel().getFloorNumber(getModel().getMario().getPosition())==0){
-            game.setState(new MenuState(new Menu(Arrays.asList("Yes", "No"), "Do you want to play again?")));
+        if(getModel().getFloorNumber(getModel().getMario().getPosition())==7){
+            game.setState(new MenuState(new Menu(Arrays.asList("Play again", "Exit"), "\t\t  You won!")));
         }
     }
 
