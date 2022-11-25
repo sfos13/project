@@ -223,7 +223,10 @@ Some benefits:
 
 #### KNOWN CODE SMELLS AND REFACTORING SUGGESTIONS
 
-![img](src/main/resources/img/Better Code Hub_Raking.png)
+<p>
+  <img width=767 src="img/Better Code Hub_Raking.png" alt="">
+</p>
+
 
 The raking that the game obtain 7 out 10, in the app 'Better Code Hub'.
 Some errors that are visible: the unit interfaces aren't small.
@@ -234,7 +237,9 @@ Some errors that are visible: the unit interfaces aren't small.
 
 Another error is the level of code which isn't balanced, while the package [arena](src/main/java/com/aor/DK/model/arena) has the highest count of lines with a total of 244, the package [game](src/main/java/com/aor/DK/controller/game) in comparison just has 139 lines and the [menu](src/main/java/com/aor/DK/model/menu) package just (27 lines).
 
-![img](src/main/resources/img/Better Code Hub_Lines of Code.png)
+<p>
+  <img width=1027 src="img/Better Code Hub_Lines of Code.png" alt="">
+</p>
 
 
 - In [Arena](src/main/java/com/aor/DK/model/arena/Arena.java) there are a lot of classes, many of them are Data Classes like getWidth, setMario and setBarrels (getters and setters). They can be a 'Self Encapsulate Field' and should remove the setting methods.
@@ -242,7 +247,11 @@ Another error is the level of code which isn't balanced, while the package [aren
 
 ### TESTING
 
-![img](src/main/resources/img/testcoverage1.png)
+<p>
+  <img width=1027 src="img/testcoverage1.png" alt="">
+</p>
+
+
 - Link to mutation testing report.
 
 ### SELF-EVALUATION
