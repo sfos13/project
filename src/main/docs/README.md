@@ -27,11 +27,19 @@
 
 **Screenshots of the Game**
 
-![img](src/main/resources/img/floor_screenshot.png)
+<p>
+  <img width=1249 src="img/floor_screenshot.png" alt="">
+</p>
 
-![img](src/main/resources/img/stairs_screenshot.png)
+<p>
+  <img width=1249 src="img/stairs_screenshot.png" alt="">
+</p>
 
-![img](src/main/resources/img/jump_screenshot.png)
+
+<p>
+  <img width=1249 src="img/jump_screenshot.png" alt="">
+</p>
+
 
 ## PLANNED FEATURES
 
@@ -53,23 +61,37 @@
 
 >**Level 1** - More similar to the original game with titled floor and a hammer that needs to be collected.
 
-![img](src/main/resources/img/originalgame_nivel1.png)
+<p>
+  <img width=1920 src="img/originalgame_nivel1.png" alt="">
+</p>
 
 >**Level 2** - Instead of a titled floor, the levels of floor are proportional to each other (horizontal). The goal also change: Mario need to jump all 8 yellow blocks in the floor to Donkey Kong fall and end the game.
 
-![img](src/main/resources/img/originalgame_nivel2.png)
 
-![img](src/main/resources/img/originalgame_nivel2_lastfloor.png)
 
-![img](src/main/resources/img/originalgame_nivel2_end.png)
+<p>
+  <img width=1920 src="img/originalgame_nivel2.png" alt="">
+</p>
+
+<p>
+  <img width=1920 src="img/originalgame_nivel2_lastfloor.png" alt="">
+</p>
+
+<p>
+  <img width=1920 src="img/originalgame_nivel2_end.png" alt="">
+</p>
 
 ## DESIGN
 
 ### UML
 
-![img](src/main/resources/img/DK.png)
+<p>
+  <img width=2490 src="img/DK.png" alt="">
+</p>
 
-![img](src/main/resources/img/DK2.png)
+<p>
+  <img width=6906 src="img/DK2.png" alt="">
+</p>
 
 ### MVC (Model–View–Controller)
 
