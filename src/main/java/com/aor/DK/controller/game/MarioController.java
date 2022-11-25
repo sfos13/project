@@ -49,7 +49,16 @@ public class MarioController extends GameController {
 
         }
     }
-
+    private void gravityPush() {
+        if(!getModel().isOnFloor(getModel().getMario().getPosition()) && !getModel().checkStairs(getModel().getMario().getPosition())) {
+            Mario mario = getModel().getMario();
+            moveMario(new Position(mario.getPosition().getX(),mario.getPosition().getY()+(int)mario.getVy()));
+            mario.incrementVy(GRAVITY);
+        }
+        else{
+            getModel().getMario().setVy(0);
+        }
+    }
     @Override
     public void step(Game game, GUI.ACTION action, long time) {
 
@@ -74,21 +83,18 @@ public class MarioController extends GameController {
 
         if (action == GUI.ACTION.SPACE) jumpMario();
 
-        if(!getModel().isOnFloor(getModel().getMario().getPosition()) && !getModel().checkStairs(getModel().getMario().getPosition())) {
-            Mario mario = getModel().getMario();
-            moveMario(new Position(mario.getPosition().getX(),mario.getPosition().getY()+(int)mario.getVy()));
-            mario.incrementVy(GRAVITY);
-        }
-        else{
-            getModel().getMario().setVy(0);
-        }
+        gravityPush();
+
         if((getModel().barrelCrash(getModel().getMario().getPosition()))|| getModel().outOfBounds(getModel().getMario().getPosition()))  {
             getModel().end();
         }
+
         if(getModel().getFloorNumber(getModel().getMario().getPosition())==0){
             game.setState(new MenuState(new Menu(Arrays.asList("Play again", "Exit"), "\t\t  You won!")));
         }
     }
+
+
 
 
 }
