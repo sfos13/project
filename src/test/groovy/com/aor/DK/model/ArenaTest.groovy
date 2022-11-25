@@ -140,12 +140,7 @@ class ArenaTest extends Specification{
         then:
         a1
     }
-
-    def 'ending arena'() {
-        expect:
-            arena.end()
-            arena.isEndGame()
-    }
+    
     def 'get and set spawn position'() {
         given:
             def spawnPos = new Position(1,2)
