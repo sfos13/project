@@ -24,15 +24,15 @@
 
 **Mario running**
 
-![]((https://github.com/FEUP-LDTS-2022/project-l01gr09/blob/3f0ecc3c7dcb15440494e213e3df7b1eb28a300d/src/main/resources/img/floor_screenshot.png))
+![img](src/main/resources/img/floor_screenshot.png)
 
 **Mario on the stairs**
 
-![img]((https://github.com/FEUP-LDTS-2022/project-l01gr09/blob/310d5ff04cb54c08abd984266eff0f28f1774dc0/src/main/resources/img/stairs_screenshot.png))
+![img](src/main/resources/img/stairs_screenshot.png)
 
 **Mario jumping**
 
-![img]((https://github.com/FEUP-LDTS-2022/project-l01gr09/blob/310d5ff04cb54c08abd984266eff0f28f1774dc0/src/main/resources/img/jump_screenshot.png))
+![img](src/main/resources/img/jump_screenshot.png)
 
 ### PLANNED FEATURES
 
