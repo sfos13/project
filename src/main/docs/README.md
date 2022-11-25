@@ -69,6 +69,8 @@
 
 ![img](src/main/resources/img/DK.png)
 
+![img](src/main/resources/img/DK2.png)
+
 ### MVC (Model–View–Controller)
 
 **Problem in Context**

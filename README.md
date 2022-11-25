@@ -226,4 +226,3 @@ Other error is the level of code isn't balanced, where the package [arena](src/m
 ### SELF-EVALUATION
 
 Every element worked on the project in different ways. Also we did some important meetings that helped to solve problems, and create the necessary solutions. So, we believe that everybody deserves the same percentage(33%).
->>>>>>> 0acfa5371d723cd1163fe16f127185e7db83eb5f
