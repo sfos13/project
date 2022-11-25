@@ -115,7 +115,4 @@ public class LoaderArenaBuilder extends ArenaBuilder {
         return null;
     }
 
-    public int getLevel() {
-        return level;
-    }
 }

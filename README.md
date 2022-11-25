@@ -193,10 +193,16 @@ Some benefits:
 
 ![img](src/main/resources/img/Better Code Hub_Raking.png)
 The raking that the game obtain 7 out 10,in the app 'Better Code Hub'. 
-Some errors that are visible are the unit interfaces aren't small. For example, BarrelController in  
+Some errors that are visible are the unit interfaces aren't small. 
+- For example, [BarrelController](src/main/java/com/aor/DK/controller/game/BarrelController.java) in the unit 'step' (BarrelController.step(Game,GUI.ACTION,long)) has 16 lines of code with 3 parameters. There is used a 'for' with 3 'if'. A suggestion was using game loop, but a better one is using the states pattern because the barrel has 3 state, when is going to the left, to the right and down.
+- In the [MarioController](src/main/java/com/aor/DK/model) also the unit has a lot of lines (26), because of the quantity of 'if' that exists. The code can be simplified, but it was easier to implement in that way.
+- Both are bloaters that represent large class and long parameter list
 
-In the [MarioController](src/main/java/com/aor/DK/model)
+Other error is the level of code isn't balanced, where the package [arena](src/main/java/com/aor/DK/model/arena) has the highest level of lines with a total of 244 lines.
 
+![img](src/main/resources/img/Better Code Hub - Lines of Code.png) 
+
+- In [Arena](src/main/java/com/aor/DK/model/arena/Arena.java) has a lot of classes, a lot of them are Data Classes like getWidth, setMario and setBarrels (getters and setters)
 
 ### TESTING
 
@@ -205,4 +211,4 @@ In the [MarioController](src/main/java/com/aor/DK/model)
 
 ### SELF-EVALUATION
 
-Every element work on the project in different ways. Also we did some important meetings that help to work on problems, and make the solutions. So, we believe that everybody deserve the same percentage (33%).
+Every element worked on the project in different ways. Also we did some important meetings that helped to solve problems, and create the necessary solutions. So, we believe that everybody deserves the same percentage(33%).
