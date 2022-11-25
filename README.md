@@ -1,13 +1,15 @@
-## L00T01G09 - Donkey Kong<PROJECT NAME>
+# L00T01G09 - Donkey Kong<PROJECT NAME>
 
 
 > The project is based on an arcade game of 1981 the 'Donkey Kong'. This charather is the main monster that the jupman (Mario) needs to confront. An important charatheristic is the ability to jump, since it was the first arcade game to incorporate it. Therefore, the goal of the game is for Mario to reach the princess, in the highest floor. But he will have to face Donkey Kong that is on rampage throwing barrels, and climb some dangerous stairs.
 
 >The authors of the project are (...), João Fernandes (202108867@fe.up.pt) and Sara Santos (202108675@fe.up.pt) for LDTS 2022/2023
 
-### IMPLEMENTED FEATURES
+## IMPLEMENTED FEATURES
 
 **Features:**
+
+- **Mario Movement** - The player can controll the directions that Mario moves. But there are restrictions, you only move to right and left in the floor, and the stairs are the only way to move in the axis of y.
 
 - **Jumping** - Mario (or the char 'X') will jump when the space bar key is pressed.
 
@@ -31,17 +33,16 @@
 
 ![img](src/main/resources/img/jump_screenshot.png)
 
-### PLANNED FEATURES
+## PLANNED FEATURES
 
 **Future Features:**
 
-- **Hammer** - Instead of only jumping to bypass the barrels, Mario has a tool (the hammer) to kill them, pressing 'X'.
-- **Two Different Levels** - On the actual model, it has just one level, will have two, with higher difficulty, different rules and goals. Because of the new elements added and more complex design.
-- **Tilted Floor** - In the first level, the floor won't be straight, to add difficulty to the gameplay and the program itself.
-- **New Elements** - In the present level, to win, Mario needs to go to the higher floor. But will be added new elements, like different floor that need to jump to make Donkey Kong fall or new types of monsters.
-- **Different Menus with More Options** - Currently, the menus are very similar and simple, and don't have options like instructions. In the future, they will be more appealing and easy to understand.
-- **Different Draw Methods** - The characters are base on just one char, and element like floor or stairs are longer and have spaces between them. The next delivery will have a more detailed graphic part.
-
+- *Hammer* - Instead of only jumping to bypass the barrels, Mario has a tool (the hammer) to destroy them, pressing 'X'.
+- *Two Different Levels* - On the actual model, it has just one level, but it will have two, with higher difficulty, different rules, and goals. Because of the new elements added and more complex design.
+- *Tilted Floor* - In the first level, the floor won't be straight, to add difficulty to the gameplay and the program itself.
+- *New Elements* - In the present level, to win, Mario needs to go to the highest floor. But new elements will be added, like a different floor where Mario needs to jump to make Donkey Kong fall or new types of barrels.
+- *Different Menus with More Options* - Currently, the menus are very similar and simple, and don't have options like instructions. In the future, they will be more appealing and easy to understand.
+- *Different Draw Methods* - The characters are based on just one char, and elements like floors or stairs are longer and have spaces between them. The next delivery will have more detail and better graphics.
 
 **Mocks**
 
@@ -57,54 +58,144 @@
 
 ![img](src/main/resources/img/originalgame_nivel2_end.png)
 
-### DESIGN
+## DESIGN
 
-> This section should be organized in different subsections, each describing a different design problem that you had to solve during the project. Each subsection should be organized in four different parts:
 
-- **Problem in Context.** The description of the design context and the concrete problem that motivated the instantiation of the pattern. Someone else other than the original developer should be able to read and understand all the motivations for the decisions made. When refering to the implementation before the pattern was applied, don’t forget to [link to the relevant lines of code](https://help.github.com/en/articles/creating-a-permanent-link-to-a-code-snippet) in the appropriate version.
-- **The Pattern.** Identify the design pattern to be applied, why it was selected and how it is a good fit considering the existing design context and the problem at hand.
-- **Implementation.** Show how the pattern roles, operations and associations were mapped to the concrete design classes. Illustrate it with a UML class diagram, and refer to the corresponding source code with links to the relevant lines (these should be [relative links](https://help.github.com/en/articles/about-readmes#relative-links-and-image-paths-in-readme-files). When doing this, always point to the latest version of the code.
-- **Consequences.** Benefits and liabilities of the design after the pattern instantiation, eventually comparing these consequences with those of alternative solutions.
+### MVC (Model–View–Controller)
 
-**Example of one of such subsections**:
+*Problem in Context*
 
-------
+From a beginner's point of view, it's difficult to create a game and connect all the dots. Because the user wants to have his commands interpreted, stored, easily seeable, and for them to have logical behind. This Design Pattern is a solution that puts it all together in a easy way.
 
-#### THE JUMP ACTION OF THE KANGAROOBOY SHOULD BEHAVE DIFFERENTLY DEPENDING ON ITS STATE
+
+*The Pattern*
+
+All the game has a base in this architecture. Therefore, the View is a representation of the data put by the user, the Controller is who manipulates according to the user, and the Model represents the part of the logic behind data in the game.
+
+*Implementation*
+
+In the game it's visible where which component is:
+
+- [Controller](src/main/java/com/aor/DK/controller)
+- [Viewer](src/main/java/com/aor/DK/Viewer)
+- [Model](src/main/java/com/aor/DK/model)
+
+*Consequences*
+
+Some benefits:
+
+- Easy to test independently and to maintain
+- Features are reusable
+- Can be easily extended
+- Facilitates collaborative work
+- Separation of these three different components, separate responsibilities, and the independence between input and output
+
+Some disadvantages:
+
+- High complexity
+- Difficult to understand 
+
+### Factory Method
+**Problem in Context**
+
+The problem is based on the many components that need to be represented, and, also, the resemblances between the components. So, the game must have a Design Pattern to not implement the same code twice or more. For example, Mario and the Princess are both chars, they are different because of their color and the chosen char, but the method to draw is the same.
+
+*The Pattern*
+
+The Pattern creates objects without exposing the instantiation logic to the client.
+So, the creator can create a standard way to create objects, but it can be easily overriden.
+
+*Implementation*
+
+In the game it's visible where each component is:
+
+Interface:
+- [GenericViewer](src/main/java/com/aor/DK/Viewer/GenericViewer.java)
+
+Abstract Class:
+- [Viewer](src/main/java/com/aor/DK/Viewer/Viewer.java)
+
+Examples of subclasses:
+
+- [MenuViewer](src/main/java/com/aor/DK/Viewer/MenuViewer.java)
+- [BarrelViewer](src/main/java/com/aor/DK/Viewer/BarrelViewer.java)
+
+*Consequences*
+
+Some benefits:
+
+- Easy to test  and maintain
+- Create a design more customizable
+- Polymorphic creation is possible
+- Subclasses are proliferate
+- Single Responsibility Principle
+
+Some disadvantage:
+- High complexity because of the many subclasses that need to implement
+
+### State
 
 **Problem in Context**
 
-There was a lot of scattered conditional logic when deciding how the KangarooBoy should behave when jumping, as the jumps should be different depending on the items that came to his possession during the game (an helix will alow him to fly, driking a potion will allow him to jump double the height, etc.). This is a violation of the **Single Responsability Principle**. We could concentrate all the conditional logic in the same method to circumscribe the issue to that one method but the **Single Responsability Principle** would still be violated.
+Actually, the game only has two state (Menu and Game Play) on the graphic interface, and on controller. In the future, the game will have more, so it's important to has a way to implement the different stages, in different times of the gameplay. So the code its easier to implement and comprehend.
 
 **The Pattern**
 
-We have applied the **State** pattern. This pattern allows you to represent different states with different subclasses. We can switch to a different state of the application by switching to another implementation (i.e., another subclass). This pattern allowed to address the identified problems because […].
+State Pattern is a Behavioral software design pattern, so it's a way to solve similar recurring issues. When its internal state changes, alter its behavior.Within any unique state, the program behaves differently, and the program can be switched from one state to another instantaneously.
 
 **Implementation**
 
-The following figure shows how the pattern’s roles were mapped to the application classes.
+In the game is visible where which component are:
 
-![img]((https://github.com/FEUP-LDTS-2022/project-l01gr09/blob/3f0ecc3c7dcb15440494e213e3df7b1eb28a300d/src/main/resources/img/floor_screenshot.png))
-
-These classes can be found in the following files:
-
-- [Character](https://web.fe.up.pt/~arestivo/page/courses/2021/lpoo/template/src/main/java/Character.java)
-- [JumpAbilityState](https://web.fe.up.pt/~arestivo/page/courses/2021/lpoo/template/src/main/java/JumpAbilityState.java)
-- [DoubleJumpState](https://web.fe.up.pt/~arestivo/page/courses/2021/lpoo/template/src/main/java/DoubleJumpState.java)
-- [HelicopterState](https://web.fe.up.pt/~arestivo/page/courses/2021/lpoo/template/src/main/java/HelicopterState.java)
-- [IncreasedGravityState](https://web.fe.up.pt/~arestivo/page/courses/2021/lpoo/template/src/main/java/IncreasedGravityState.java)
+- [Controller](src/main/java/com/aor/DK/controller)
+- [Viewer](src/main/java/com/aor/DK/Viewer)
+- [Model](src/main/java/com/aor/DK/model)
 
 **Consequences**
 
-The use of the State Pattern in the current design allows the following benefits:
+Some benefits:
 
-- The several states that represent the character’s hability to jump become explicit in the code, instead of relying on a series of flags.
-- We don’t need to have a long set of conditional if or switch statements associated with the various states; instead, polimorphism is used to activate the right behavior.
-- There are now more classes and instances to manage, but still in a reasonable number.
+- Single Responsibility Principle
+- Simplify the code
+- Open/Closed Principle
+
+Some disadvantage:
+- Finite number of states
+
+### Game Loop Pattern
+
+**Problem in Context**
+
+A situation that occurs frequently is what happened previously in MVC. So the user makes an action, and then the controller handles input, the model updates the game and in the end it is visible because of the viewer.
+This happens always the same way, so the game needs to handle this sequence of events without using a 'while'or a'for'.
+
+**The Pattern**
+
+Is used in almost every game and it's considered one of the basics of programming, avoiding inserting repeated data. It tracks the passage of time and with each turn of the loop, it processes user input without blocking. For example, this could've been used to define that Donkey Kong throws barrels until Mario reaches the top floor
+
+**Implementation**
+
+In the game it's visible where which component is:
+
+- [Controller](src/main/java/com/aor/DK/controller)
+- [Viewer](src/main/java/com/aor/DK/Viewer)
+- [Model](src/main/java/com/aor/DK/model)
+
+
+**Consequences**
+
+Some benefits:
+- A very common tool in games
+- Easy to use and define
+- Easy to understand when it can be used
 
 #### KNOWN CODE SMELLS AND REFACTORING SUGGESTIONS
 
-> This section should describe 3 to 5 different code smells that you have identified in your current implementation, and suggest ways in which the code could be refactored to eliminate them. Each smell and refactoring suggestions should be described in its own subsection.
+![img](src/main/resources/img/Better Code Hub_Raking.png)
+The raking that the game obtain 7 out 10,in the app 'Better Code Hub'. 
+Some errors that are visible are the unit interfaces aren't small. For example, BarrelController in  
+
+In the [MarioController](src/main/java/com/aor/DK/model)
 
 
 ### TESTING
@@ -114,9 +205,4 @@ The use of the State Pattern in the current design allows the following benefits
 
 ### SELF-EVALUATION
 
-> In this section describe how the work regarding the project was divided between the students. In the event that members of the group do not agree on a work distribution, the group should send an email to the teacher explaining the disagreement.
-
-**Example**:
-
-- John Doe: 40%
-- Jane Doe: 60%
+Every element work on the project in different ways. Also we did some important meetings that help to work on problems, and make the solutions. So, we believe that everybody deserve the same percentage (33%).
