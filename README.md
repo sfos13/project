@@ -1,4 +1,4 @@
-## LDTS<T><G> - Donkey Kong<PROJECT NAME>
+## L00T01G09 - Donkey Kong<PROJECT NAME>
 
 > The project is based on an arcade game of 1981 the 'Donkey Kong'. This charather is the main monster that the jupman (Mario) needs to confront. An important charatheristic is the ability to jump, since it was the first arcade game to incorporate it. Therefore, the goal of the game is for Mario to reach the princess, in the highest floor. But he will have to face Donkey Kong that is on rampage throwing barrels, and climb some dangerous stairs.
 
