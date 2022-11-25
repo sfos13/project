@@ -13,9 +13,9 @@
 
 - **Jumping** - Mario (or the char 'X') will jump when the space bar key is pressed.
 
-- **Climbing stairs** - To move to the higher floor it's needed to climb the stairs. Therefore, if the charather is in the same position as the stairs (or char 'H'), it can climb. But if the stairs are broken, the action can't be completed.
+- **Climbing stairs** - To move to the higher floor it's needed to climb the stairs. Therefore, if the character is in the same position as the stairs (or char 'H'), it can climb. But if the stairs are broken, the action can't be completed.
 
-- **Gravity** - Gravity is very important in Donkey Kong, and ithelped in some functions. For example, if Mario isn't on the top of the floor(or char '#'), he automatically falls.
+- **Gravity** - Gravity is very important in Donkey Kong, and it helped in some functions. For example, if Mario isn't on the top of the floor(or char '#'), he automatically falls.
 
 - **Moving Barrels** - The barrels are an important feature in the original game. In this project, they move according to the floor and fall with the action of gravity. When they fall to the  lower floor, they change the tragetory. In other words, if they were moving to the right side, in the next floor, they will move to the left side. Sometimes, they can also come down to the stairs.
 
@@ -23,7 +23,7 @@
 
 - **Losing when a barrels hits** - When the barrels (or char 'O') are in the same place as Mario, the game automatically ends, and the player can try again.
 
-- **Losing when is face to face with Donkey Kong** - This feature is similiar to the previous, when Mario touches Donkey Kong, the player looses.
+- **Losing when is face to face with Donkey Kong** - This feature is similar to the previous, when Mario touches Donkey Kong, the player looses.
 
 **Screenshots of the Game**
 
@@ -60,19 +60,22 @@
 
 ## DESIGN
 
+### UML
+
+![img](src/main/resources/img/DK.png)
 
 ### MVC (Model–View–Controller)
 
-*Problem in Context*
+**Problem in Context**
 
 From a beginner's point of view, it's difficult to create a game and connect all the dots. Because the user wants to have his commands interpreted, stored, easily seeable, and for them to have logical behind. This Design Pattern is a solution that puts it all together in a easy way.
 
 
-*The Pattern*
+**The Pattern**
 
 All the game has a base in this architecture. Therefore, the View is a representation of the data put by the user, the Controller is who manipulates according to the user, and the Model represents the part of the logic behind data in the game.
 
-*Implementation*
+**Implementation**
 
 In the game it's visible where each component is:
 
@@ -80,7 +83,7 @@ In the game it's visible where each component is:
 - [Viewer](src/main/java/com/aor/DK/Viewer)
 - [Model](src/main/java/com/aor/DK/model)
 
-*Consequences*
+**Consequences**
 
 Some benefits:
 
@@ -100,12 +103,12 @@ Some disadvantages:
 
 The problem is based on the many components that need to be represented, and, also, the resemblances between the components. So, the game must have a Design Pattern to not implement the same code twice or more. For example, Mario and the Princess are both chars, they are different because of their color and the chosen char, but the method to draw is the same.
 
-*The Pattern*
+**The Pattern**
 
 The Pattern creates objects without exposing the instantiation logic to the client.
 So, the creator can create a standard way to create objects, but it can be easily overriden.
 
-*Implementation*
+**Implementation**
 
 In the game it's visible where each component is:
 
@@ -120,7 +123,7 @@ Examples of subclasses:
 - [MenuViewer](src/main/java/com/aor/DK/Viewer/MenuViewer.java)
 - [BarrelViewer](src/main/java/com/aor/DK/Viewer/BarrelViewer.java)
 
-*Consequences*
+**Consequences**
 
 Some benefits:
 
