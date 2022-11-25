@@ -3,7 +3,7 @@
 
 > The project is based on an arcade game of 1981 the 'Donkey Kong'. This charather is the main monster that the jupman (Mario) needs to confront. An important charatheristic is the ability to jump, since it was the first arcade game to incorporate it. Therefore, the goal of the game is for Mario to reach the princess, in the highest floor. But he will have to face Donkey Kong that is on rampage throwing barrels, and climb some dangerous stairs.
 
->The authors of the project are (...), João Fernandes (202108867@fe.up.pt) and Sara Santos (202108675@fe.up.pt) for LDTS 2022/2023
+>The authors of the project are Nils Rothamel (202203004@fe.up.pt), João Fernandes (202108867@fe.up.pt) and Sara Santos (202108675@fe.up.pt) for LDTS 2022/2023
 
 ## IMPLEMENTED FEATURES
 

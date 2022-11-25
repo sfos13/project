@@ -6,6 +6,7 @@ import com.aor.DK.model.elements.DonkeyKong
 import com.aor.DK.model.elements.Floor
 import com.aor.DK.model.elements.Mario
 import com.aor.DK.model.elements.Princess
+import com.aor.DK.model.elements.Stair
 import spock.lang.Specification
 
 class ArenaTest extends Specification{
@@ -80,12 +81,72 @@ class ArenaTest extends Specification{
             arena.setFloor(floors)
         then:
             1 == arena.getFloorNumber(new Position(5,6))
+            -1 == arena.getFloorNumber(new Position(10,10))
     }
+
+    def 'is on floor'() {
+        given:
+        List<List<Floor>> floors = new ArrayList<>()
+        floors.add(new ArrayList<Floor>())
+        def floor1 = new Floor(3,4)
+        floors.get(0).add(floor1)
+        floors.add(new ArrayList<Floor>())
+        def floor2 = new Floor(5,7)
+        floors.get(1).add(floor2)
+        when:
+        arena.setFloor(floors)
+        then:
+        arena.isOnFloor(new Position(5,6))
+        !arena.isOnFloor(new Position(10,10))
+    }
+
+    def 'check if on stair' (){
+        given:
+        arena.stairs = new ArrayList<Stair>()
+        arena.stairs.add(new Stair(1,1))
+        when:
+        def a1 = arena.checkStairs(new Position(1,1))
+        def a2 = arena.checkStairs(new Position(2,1))
+        then:
+        a1
+        !a2
+    }
+
+    def 'check if stairs under mario' (){
+        given:
+        arena.stairs = new ArrayList<Stair>()
+        arena.stairs.add(new Stair(1,1))
+        when:
+        def a1 = arena.checkUnderStairs(new Position(1,0))
+        then:
+        a1
+    }
+
+    def 'check if barrel crash' (){
+        given:
+        arena.barrels = new ArrayList<Barrel>()
+        arena.barrels.add(new Barrel(1,1))
+        when:
+        def a1 = arena.barrelCrash(new Position(1,1))
+        def a2 = arena.barrelCrash(new Position(1,0))
+        then:
+        a1
+        !a2
+    }
+
+    def 'check out of bounds'(){
+        when:
+        def a1 = arena.outOfBounds(new Position(11,0))
+        then:
+        a1
+    }
+
     def 'ending arena'() {
         expect:
             arena.end()
             arena.isEndGame()
     }
+
     def 'get and set spawn position'() {
         given:
             def spawnPos = new Position(1,2)
@@ -103,4 +164,5 @@ class ArenaTest extends Specification{
             arena.getBarrels().size() == 1
             arena.getBarrels().get(0).getPosition() == arena.getSpawnBarrelPosition()
     }
+
 }
