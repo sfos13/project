@@ -16,7 +16,7 @@ import java.util.List;
 
 public class MarioController extends GameController {
 
-    private final float GRAVITY = 0.15f;
+    private final float GRAVITY = 0.20f;
 
     public MarioController(Arena arena) {
         super(arena);
@@ -60,7 +60,6 @@ public class MarioController extends GameController {
             Position position = getModel().getMario().getPosition();
             position.setY(position.getY() - 2);
             getModel().getMario().setPosition(position);
-
         }
     }
 
@@ -128,7 +127,7 @@ public class MarioController extends GameController {
         if((barrelCrash(getModel().getMario().getPosition())))  {
             getModel().end();
         }
-        if(getModel().getFloorNumber(getModel().getMario().getPosition())==7){
+        if(getModel().getFloorNumber(getModel().getMario().getPosition())==0){
             game.setState(new MenuState(new Menu(Arrays.asList("Play again", "Exit"), "\t\t  You won!")));
         }
     }
