@@ -74,7 +74,7 @@ All the game has a base in this architecture. Therefore, the View is a represent
 
 *Implementation*
 
-In the game it's visible where which component is:
+In the game it's visible where each component is:
 
 - [Controller](src/main/java/com/aor/DK/controller)
 - [Viewer](src/main/java/com/aor/DK/Viewer)
@@ -145,7 +145,7 @@ State Pattern is a Behavioral software design pattern, so it's a way to solve si
 
 **Implementation**
 
-In the game is visible where which component are:
+In the game is visible where each component is:
 
 - [Controller](src/main/java/com/aor/DK/controller)
 - [Viewer](src/main/java/com/aor/DK/Viewer)
@@ -167,15 +167,15 @@ Some disadvantage:
 **Problem in Context**
 
 A situation that occurs frequently is what happened previously in MVC. So the user makes an action, and then the controller handles input, the model updates the game and in the end it is visible because of the viewer.
-This happens always the same way, so the game needs to handle this sequence of events without using a 'while'or a'for'.
+This happens always the same way, so the game needs to handle this sequence of events without using a 'while' or a 'for'.
 
 **The Pattern**
 
-Is used in almost every game and it's considered one of the basics of programming, avoiding inserting repeated data. It tracks the passage of time and with each turn of the loop, it processes user input without blocking. For example, this could've been used to define that Donkey Kong throws barrels until Mario reaches the top floor
+It's used in almost every game, and it's considered one of the basics of programming, avoiding inserting repeated data. It tracks the passage of time and with each turn of the loop, it processes user input without blocking. For example, this could've been used to define that Donkey Kong throws barrels until Mario reaches the top floor
 
 **Implementation**
 
-In the game it's visible where which component is:
+In the game it's visible where each component is:
 
 - [Controller](src/main/java/com/aor/DK/controller)
 - [Viewer](src/main/java/com/aor/DK/Viewer)
@@ -193,7 +193,7 @@ Some benefits:
 
 ![img](src/main/resources/img/Better Code Hub_Raking.png)
 
-The raking that the game obtain 7 out 10,in the app 'Better Code Hub'. 
+The raking that the game obtain 7 out 10, in the app 'Better Code Hub'. 
 Some errors that are visible: the unit interfaces aren't small. 
 
 - For example, [BarrelController](src/main/java/com/aor/DK/controller/game/BarrelController.java) in the unit 'step' (BarrelController.step(Game,GUI.ACTION,long)) has 16 lines of code with 3 parameters. There are used a 'for' with 3 'if'. A suggestion was using game loop, but a better one is using the states pattern because the barrel has 3 state (when is going to the left, to the right and down).
@@ -210,7 +210,7 @@ Other error is the level of code isn't balanced, where the package [arena](src/m
 
 ### TESTING
 
-- Screenshot of coverage report.
+![img](src/main/resources/img/testcoverage1.png)
 - Link to mutation testing report.
 
 ### SELF-EVALUATION
