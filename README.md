@@ -192,17 +192,21 @@ Some benefits:
 #### KNOWN CODE SMELLS AND REFACTORING SUGGESTIONS
 
 ![img](src/main/resources/img/Better Code Hub_Raking.png)
+
 The raking that the game obtain 7 out 10,in the app 'Better Code Hub'. 
-Some errors that are visible are the unit interfaces aren't small. 
-- For example, [BarrelController](src/main/java/com/aor/DK/controller/game/BarrelController.java) in the unit 'step' (BarrelController.step(Game,GUI.ACTION,long)) has 16 lines of code with 3 parameters. There is used a 'for' with 3 'if'. A suggestion was using game loop, but a better one is using the states pattern because the barrel has 3 state, when is going to the left, to the right and down.
+Some errors that are visible: the unit interfaces aren't small. 
+
+- For example, [BarrelController](src/main/java/com/aor/DK/controller/game/BarrelController.java) in the unit 'step' (BarrelController.step(Game,GUI.ACTION,long)) has 16 lines of code with 3 parameters. There are used a 'for' with 3 'if'. A suggestion was using game loop, but a better one is using the states pattern because the barrel has 3 state (when is going to the left, to the right and down).
 - In the [MarioController](src/main/java/com/aor/DK/model) also the unit has a lot of lines (26), because of the quantity of 'if' that exists. The code can be simplified, but it was easier to implement in that way.
 - Both are bloaters that represent large class and long parameter list
 
-Other error is the level of code isn't balanced, where the package [arena](src/main/java/com/aor/DK/model/arena) has the highest level of lines with a total of 244 lines.
+Other error is the level of code isn't balanced, where the package [arena](src/main/java/com/aor/DK/model/arena) has the highest level of lines with a total of 244 lines, another pachage is [game](src/main/java/com/aor/DK/controller/game) with 139 lines when is compared with [menu](src/main/java/com/aor/DK/model/menu) (27 lines).
 
-![img](src/main/resources/img/Better Code Hub - Lines of Code.png) 
+![img](src/main/resources/img/Better Code Hub_Lines of Code.png)
 
-- In [Arena](src/main/java/com/aor/DK/model/arena/Arena.java) has a lot of classes, a lot of them are Data Classes like getWidth, setMario and setBarrels (getters and setters)
+
+- In [Arena](src/main/java/com/aor/DK/model/arena/Arena.java) has a lot of classes, a lot of them are Data Classes like getWidth, setMario and setBarrels (getters and setters). They can be a 'Self Encapsulate Field' and should remove the setting method's.
+- In [MarioController](src/main/java/com/aor/DK/controller/game/MarioController.java)  there are a lot of 'if', that can replace conditional with polymorphism and should decompose conditional in the last class.
 
 ### TESTING
 
