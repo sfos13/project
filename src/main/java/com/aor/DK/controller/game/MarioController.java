@@ -16,7 +16,7 @@ import java.util.List;
 
 public class MarioController extends GameController {
 
-    private final float GRAVITY = 0.15f;
+    private final float GRAVITY = 0.20f;
 
     public MarioController(Arena arena) {
         super(arena);
@@ -74,12 +74,7 @@ public class MarioController extends GameController {
     }
 
     private boolean checkUnderStairs(Position position) {
-        for(Stair stair : getModel().getStairs()) {
-            if(new Position(position.getX(), position.getY() + 1).equals(stair.getPosition())) {
-                return true;
-            }
-        }
-        return false;
+        return checkStairs(new Position(position.getX(), position.getY()+1));
     }
 
     private boolean barrelCrash(Position position) {
@@ -90,6 +85,7 @@ public class MarioController extends GameController {
         }
         return false;
     }
+
     private boolean isOutOfBoundsY(Position position) {
         return position.getY() <= -1 || position.getY() > getModel().getHeight();
     }
@@ -133,7 +129,7 @@ public class MarioController extends GameController {
             getModel().end();
         }
         if(getModel().getFloorNumber(getModel().getMario().getPosition())==0){
-            game.setState(new MenuState(new Menu(Arrays.asList("Yes", "No"), "Do you want to play again?")));
+            game.setState(new MenuState(new Menu(Arrays.asList("Play again", "Exit"), "\t\t  You won!")));
         }
     }
 
