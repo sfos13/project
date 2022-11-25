@@ -60,6 +60,7 @@ public class MarioController extends GameController {
             Position position = getModel().getMario().getPosition();
             position.setY(position.getY() - 2);
             getModel().getMario().setPosition(position);
+
         }
     }
 
@@ -84,10 +85,10 @@ public class MarioController extends GameController {
         }
         return false;
     }
-    /*
-    private boolean isOutOfBounds(Position position) {
-        return position.getX() < 0 || position.getX() >= getModel().getWidth()-2|| position.getY() <= -1 || position.getY() > getModel().getHeight();
-    }*/
+
+    private boolean isOutOfBoundsY(Position position) {
+        return position.getY() <= -1 || position.getY() > getModel().getHeight();
+    }
 
     private boolean isOutOfBoundsX(Position position) {
         return position.getX() >= getModel().getWidth()-2 ;
@@ -124,7 +125,7 @@ public class MarioController extends GameController {
         else{
             getModel().getMario().setVy(0);
         }
-        if((barrelCrash(getModel().getMario().getPosition())))  {
+        if((barrelCrash(getModel().getMario().getPosition()))|| isOutOfBoundsY(getModel().getMario().getPosition()))  {
             getModel().end();
         }
         if(getModel().getFloorNumber(getModel().getMario().getPosition())==0){
