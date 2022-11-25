@@ -1,2 +1,6 @@
 rootProject.name = 'DK'
+include 'src:main:docs'
+findProject(':src:main:docs')?.name = 'docs'
+include 'src:main:docs'
+findProject(':src:main:docs')?.name = 'docs'
 

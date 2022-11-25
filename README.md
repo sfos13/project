@@ -37,12 +37,17 @@
 
 **Future Features:**
 
-- *Hammer* - Instead of only jumping to bypass the barrels, Mario has a tool (the hammer) to destroy them, pressing 'X'.
-- *Two Different Levels* - On the actual model, it has just one level, but it will have two, with higher difficulty, different rules, and goals. Because of the new elements added and more complex design.
-- *Tilted Floor* - In the first level, the floor won't be straight, to add difficulty to the gameplay and the program itself.
-- *New Elements* - In the present level, to win, Mario needs to go to the highest floor. But new elements will be added, like a different floor where Mario needs to jump to make Donkey Kong fall or new types of barrels.
-- *Different Menus with More Options* - Currently, the menus are very similar and simple, and don't have options like instructions. In the future, they will be more appealing and easy to understand.
-- *Different Draw Methods* - The characters are based on just one char, and elements like floors or stairs are longer and have spaces between them. The next delivery will have more detail and better graphics.
+- **Hammer** - Instead of only jumping to bypass the barrels, Mario has a tool (the hammer) to destroy them, pressing 'X'.
+
+- **Two Different Levels** - On the actual model, it has just one level, but it will have two, with higher difficulty, different rules, and goals. Because of the new elements added and more complex design.
+
+- **Tilted Floor** - In the first level, the floor won't be straight, to add difficulty to the gameplay and the program itself.
+
+- **New Elements** - In the present level, to win, Mario needs to go to the highest floor. But new elements will be added, like a different floor where Mario needs to jump to make Donkey Kong fall or new types of barrels.
+
+- **Different Menus with More Options** - Currently, the menus are very similar and simple, and don't have options like instructions. In the future, they will be more appealing and easy to understand.
+
+- **Different Draw Methods** - The characters are based on just one char, and elements like floors or stairs are longer and have spaces between them. The next delivery will have more detail and better graphics.
 
 **Mocks**
 
@@ -60,19 +65,22 @@
 
 ## DESIGN
 
+### UML
+
+![img](src/main/resources/img/DK.png)
 
 ### MVC (Model–View–Controller)
 
-*Problem in Context*
+**Problem in Context**
 
 From a beginner's point of view, it's difficult to create a game and connect all the dots. Because the user wants to have his commands interpreted, stored, easily viewable, and being logical for them. This Design Pattern is a solution that puts it all together in a easy way.
 
 
-*The Pattern*
+**The Pattern**
 
 The whole game is based on the MVC architecture. Therefore, the View is a representation of the input data by the user, the Controller manipulates the Model according to the users input, and the Model represents the logical part of the backend data in the game.
 
-*Implementation*
+**Implementation**
 
 In the game it's visible where which component is implemented:
 
@@ -80,7 +88,7 @@ In the game it's visible where which component is implemented:
 - [Viewer](src/main/java/com/aor/DK/Viewer)
 - [Model](src/main/java/com/aor/DK/model)
 
-*Consequences*
+**Consequences**
 
 Some benefits:
 
@@ -100,12 +108,12 @@ Some disadvantages:
 
 The problem is based on the high count of components that need to be represented and also the resemblances between the components. So, the game must have a Design Pattern to not implement the same code twice or more. For example, Mario and the Princess are both chars, they differ in their color and the chosen char, but the method to draw is the same.
 
-*The Pattern*
+**The Pattern**
 
 The Pattern creates objects without exposing the instantiation logic to the client.
 So, the creator can create a standard way to create objects, but it can be easily overridden/customized.
 
-*Implementation*
+**Implementation**
 
 In the game it's visible where which component is implemented:
 
@@ -120,7 +128,7 @@ Examples of subclasses:
 - [MenuViewer](src/main/java/com/aor/DK/Viewer/MenuViewer.java)
 - [BarrelViewer](src/main/java/com/aor/DK/Viewer/BarrelViewer.java)
 
-*Consequences*
+**Consequences**
 
 Some benefits:
 
@@ -171,7 +179,7 @@ This happens always the same way, so the game needs to handle this sequence of e
 
 **The Pattern**
 
-Is used in almost every game, and it's considered one of the basics of programming, avoiding inserting repeated data. It tracks the passage of time and with each turn of the loop, it processes user input without being blocked. For example, this could've been used to define that Donkey Kong throws barrels until Mario reaches the top floor.
+It's used in almost every game, and it's considered one of the basics of programming, avoiding inserting repeated data. It tracks the passage of time and with each turn of the loop, it processes user input without being blocked. For example, this could've been used to define that Donkey Kong throws barrels until Mario reaches the top floor.
 
 **Implementation**
 
@@ -210,9 +218,9 @@ Another error is the level of code which isn't balanced, while the package [aren
 
 ### TESTING
 
-- Screenshot of coverage report.
+![img](src/main/resources/img/testcoverage1.png)
 - Link to mutation testing report.
 
 ### SELF-EVALUATION
 
-Every element worked on the project in different ways. Also, we did some important meetings that helped to solve problems, and create the necessary solutions. So, we believe that everybody deserves the same percentage (33%).
+Every element worked on the project in different ways. Also we did some important meetings that helped to solve problems, and create the necessary solutions. So, we believe that everybody deserves the same percentage(33%).
