@@ -14,7 +14,7 @@
 
 - **Gravity** - Gravity is very important in Donkey Kong, and ithelped in some functions. For example, if Mario isn't on the top of the floor(or char '#'), he automatically falls.
 
-- **Moving Barrels** - The barrels are an important feature in the original game. In this project, they move according to the floor and fall with the action of gravity. When they fall to the  lower floor, they change the tragetory. In other words, if they were moving to the right side, in the next floor, they will move to the left side.
+- **Moving Barrels** - The barrels are an important feature in the original game. In this project, they move according to the floor and fall with the action of gravity. When they fall to the  lower floor, they change the tragetory. In other words, if they were moving to the right side, in the next floor, they will move to the left side. Sometimes, they can also come down to the stairs.
 
 - **Winning when reach princess** - Usually, the game ends when  Mario is in the same level as the princess (or char 'P'). The way to win is the same. So, in the floor where the char is, the game ends, and the player can play again or exit.
 
@@ -36,7 +36,17 @@
 
 ### PLANNED FEATURES
 
-> This section is similar to the previous one but should list the features that are not yet implemented. Instead of screenshots you should include GUI mock-ups for the planned features.
+**Future Features:**
+
+- **Hammer** - Instead of only jumping to bypass the barrels, Mario has a tool (the hammer) to kill them, pressing 'X'.
+- **Two Different Levels** - On the actual model, it has  just one level, will have two, with different rules and higher difficulty. 
+- **Tilted Floor** - In the first level, the floor won't be straight, to add difficulty to the gameplay and the program itself. 
+- **New Elements** - In the present level, to win is just to go to the higher floor. But will be added new elements, like different floor that need to jump to make Donkey Kong fall. 
+- **Different Menus with More Options** - Currently, the menus are very similar and simple, and don't have options like instructions. In the future, they will be more appealing and easy to understand all the game.
+- **Different Draw Methods** - The characters are base on just one char, and element like floor or stairs are longer and have spaces between them. The next delivery will have a more detailed graphic part.
+
+>Level 1 - More similar to the original game with titled floor and hammer that needs to collect 
+
 
 ### DESIGN
 
