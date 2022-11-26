@@ -63,8 +63,6 @@
 
 ![img](src/main/resources/img/originalgame_nivel2_end.png)
 
-<<<<<<< HEAD
-=======
 ## DESIGN
 
 ### UML
@@ -221,8 +219,7 @@ Other error is the level of code isn't balanced, where the package [arena](src/m
 ### TESTING
 
 ![img](src/main/resources/img/testcoverage1.png)
-- Link to mutation testing report.
-
+[mutation tests](build/reports/tests/test/index.html)
 ### SELF-EVALUATION
 
 Every element worked on the project in different ways. Also we did some important meetings that helped to solve problems, and create the necessary solutions. So, we believe that everybody deserves the same percentage(33%).
