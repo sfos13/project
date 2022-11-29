@@ -248,7 +248,7 @@ Another error is the level of code which isn't balanced, while the package [aren
 ### TESTING
 
 <p>
-  <img width=1027 src="img/testcoverage1.png" alt="">
+  <img width=918 src="img/testcoverage1.png" alt="">
 </p>
 
 
