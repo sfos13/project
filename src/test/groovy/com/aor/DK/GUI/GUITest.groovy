@@ -1,6 +1,5 @@
 package com.aor.DK.GUI
 
-
 import com.googlecode.lanterna.screen.Screen
 import spock.lang.Specification
 
@@ -10,7 +9,7 @@ class GUITest extends Specification{
     def 'screen must close'() {
 
         given:
-            Screen screen = Mock()
+        Screen screen = Mock()
         when:
             lanternaGUI.close(screen)
         then:
