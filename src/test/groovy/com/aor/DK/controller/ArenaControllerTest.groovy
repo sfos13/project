@@ -4,7 +4,6 @@ import com.aor.DK.GUI.GUI
 import com.aor.DK.Game
 import com.aor.DK.controller.game.ArenaController
 import com.aor.DK.model.arena.Arena
-import com.aor.DK.states.MenuState
 import spock.lang.Specification
 
 class ArenaControllerTest extends Specification{
