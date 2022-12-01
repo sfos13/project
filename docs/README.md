@@ -108,9 +108,9 @@ The whole game is based on the MVC architecture. Therefore, the View is a repres
 
 In the game it's visible where which component is implemented:
 
-- [Controller](../java/com/aor/DK/controller)
-- [Viewer](../java/com/aor/DK/Viewer)
-- [Model](../java/com/aor/DK/model)
+- [Controller](../src/main/java/com/aor/DK/controller)
+- [Viewer](../src/main/java/com/aor/DK/viewer)
+- [Model](../src/main/java/com/aor/DK/model)
 
 **Consequences**
 
@@ -142,15 +142,15 @@ So, the creator can create a standard way to create objects, but it can be easil
 In the game it's visible where which component is implemented:
 
 Interface:
-- [GenericViewer](../java/com/aor/DK/Viewer/GenericViewer.java)
+- [GenericViewer](../src/main/java/com/aor/DK/viewer/GenericViewer.java)
 
 Abstract Class:
-- [Viewer](../java/com/aor/DK/Viewer/Viewer.java)
+- [Viewer](../src/main/java/com/aor/DK/viewer/Viewer.java)
 
 Examples of subclasses:
 
-- [MenuViewer](../java/com/aor/DK/Viewer/MenuViewer.java)
-- [BarrelViewer](../java/com/aor/DK/Viewer/BarrelViewer.java)
+- [MenuViewer](../src/main/java/com/aor/DK/viewer/MenuViewer.java)
+- [BarrelViewer](../src/main/java/com/aor/DK/viewer/BarrelViewer.java)
 
 **Consequences**
 
@@ -179,9 +179,9 @@ State Pattern is a Behavioral software design pattern, it's a way to solve simil
 
 In the game it's visible where which component is implemented:
 
-- [Controller](../java/com/aor/DK/controller)
-- [Viewer](../java/com/aor/DK/Viewer)
-- [Model](../java/com/aor/DK/model)
+- [Controller](../src/main/java/com/aor/DK/controller)
+- [Viewer](../src/main/java/com/aor/DK/viewer)
+- [Model](../src/main/java/com/aor/DK/model)
 
 **Consequences**
 
@@ -209,9 +209,9 @@ It's used in almost every game, and it's considered one of the basics of program
 
 In the game it's visible where which component is implemented:
 
-- [Controller](../java/com/aor/DK/controller)
-- [Viewer](../java/com/aor/DK/Viewer)
-- [Model](../java/com/aor/DK/model)
+- [Controller](../src/main/java/com/aor/DK/controller)
+- [Viewer](../src/main/java/com/aor/DK/viewer)
+- [Model](../src/main/java/com/aor/DK/model)
 
 
 **Consequences**
@@ -224,32 +224,32 @@ Some benefits:
 #### KNOWN CODE SMELLS AND REFACTORING SUGGESTIONS
 
 <p>
-  <img width=767 src="img/Better Code Hub_Raking.png" alt="">
+  <img width=767 src="img/Better%20Code%20Hub_Raking.png" alt="">
 </p>
 
 
 The raking that the game obtain 7 out 10, in the app 'Better Code Hub'.
 Some errors that are visible: the unit interfaces aren't small.
 
-- For example, [BarrelController](../java/com/aor/DK/controller/game/BarrelController.java) in the unit 'step' (BarrelController.step(Game,GUI.ACTION,long)) has 16 lines of code with 3 parameters. There are used a 'for' with 3 'if'. A suggestion was using game loop, but a better one is using the states pattern because the barrels have 3 states (when is going to the left, to the right and down).
-- In the [MarioController](../java/com/aor/DK/model) the unit has a lot of lines (26), because of a high quantity of 'if' cases. The code can be simplified, but it was easier to implement in that way.
+- For example, [BarrelController](../src/main/java/com/aor/DK/controller/game/BarrelController.java) in the unit 'step' (BarrelController.step(Game,GUI.ACTION,long)) has 16 lines of code with 3 parameters. There are used a 'for' with 3 'if'. A suggestion was using game loop, but a better one is using the states pattern because the barrels have 3 states (when is going to the left, to the right and down).
+- In the [MarioController](../src/main/java/com/aor/DK/model) the unit has a lot of lines (26), because of a high quantity of 'if' cases. The code can be simplified, but it was easier to implement in that way.
 - Both are bloaters that represent large class and long parameter list
 
-Another error is the level of code which isn't balanced, while the package [arena](../java/com/aor/DK/model/arena) has the highest count of lines with a total of 244, the package [game](../java/com/aor/DK/controller/game) in comparison just has 139 lines and the [menu](../java/com/aor/DK/model/menu) package just (27 lines).
+Another error is the level of code which isn't balanced, while the package [arena](../src/main/java/com/aor/DK/model/arena) has the highest count of lines with a total of 244, the package [game](../src/main/java/com/aor/DK/controller/game) in comparison just has 139 lines and the [menu](../src/main/java/com/aor/DK/model/menu) package just (27 lines).
 
 <p>
-  <img width=1027 src="img/Better Code Hub_Lines of Code.png" alt="">
+  <img width=1027 src="img/Better%20Code%20Hub_Lines%20of%20Code.png" alt="">
 </p>
 
 
-- In [Arena](../java/com/aor/DK/model/arena/Arena.java) there are a lot of classes, many of them are Data Classes like getWidth, setMario and setBarrels (getters and setters). They can be a 'Self Encapsulate Field' and should remove the setting methods.
-- In [MarioController](../java/com/aor/DK/controller/game/MarioController.java) there are a lot of 'if' clauses, that can replace conditional with polymorphism and should decompose conditional in the last class.
+- In [Arena](../src/main/java/com/aor/DK/model/arena/Arena.java) there are a lot of classes, many of them are Data Classes like getWidth, setMario and setBarrels (getters and setters). They can be a 'Self Encapsulate Field' and should remove the setting methods.
+- In [MarioController](../src/main/java/com/aor/DK/controller/game/MarioController.java) there are a lot of 'if' clauses, that can replace conditional with polymorphism and should decompose conditional in the last class.
 
 ### TESTING
 
-![](img/testcoverage1.png)
+![testcoverage](img/testcoverage1.png)
 
-![](img/mutation-results-print.png)
+![mutation-results-print](img/mutation-results-print.png)
 
 - [mutation tests](mutation-test-results)
 
