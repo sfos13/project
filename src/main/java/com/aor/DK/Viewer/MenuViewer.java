@@ -13,9 +13,7 @@ public class MenuViewer extends Viewer<Menu> {
     }
     @Override
     public void drawElements(GUI gui) {
-        int x=10;
-        int y=10;
-        String message = getModel().getMessage();
+
 
         gui.drawText(new Position(x, y), message, "#FFFFFF");
 

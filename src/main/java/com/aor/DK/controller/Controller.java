@@ -18,5 +18,4 @@ public abstract class Controller<T> {
 
     public abstract void step(Game game, GUI.ACTION action, long time) throws IOException;
 
-
 }

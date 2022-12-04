@@ -1,27 +1,23 @@
 package com.aor.DK.model.menu;
 
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
 public class Menu{
-
-    private List<String> entries;
-    protected String message;
+    private final List<String> entries;
     private int currentEntry = 0;
+    protected String message;
 
 
-    public Menu(List<String> entries, String message) {
-        this.entries=entries;
-        this.message=message;
-
+    public Menu() {
+        this.entries = Arrays.asList("Start", "Exit");
     }
 
     public String getMessage() {
         return message;
     }
 
-    public void nextEntry() {
+     public void nextEntry() {
         currentEntry++;
         if (currentEntry > this.entries.size() - 1)
             currentEntry = 0;
