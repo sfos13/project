@@ -88,12 +88,12 @@ public class MarioController extends GameController {
         if((getModel().barrelCrash(getModel().getMario().getPosition()))
                 || getModel().outOfBounds(getModel().getMario().getPosition())
                 || getModel().crashDonkeyKong(getModel().getMario().getPosition()))  {
-            game.setState(new MenuState(new Menu(Arrays.asList("Try again", "Exit"), "\t\t  You lost!")));
+            game.setState(new MenuState(new Menu("Lost")));
         }
 
         int winFloor = getModel().getFloorNumber(getModel().getPrincess().getPosition());
         if(getModel().getFloorNumber(getModel().getMario().getPosition())==winFloor){
-            game.setState(new MenuState(new Menu(Arrays.asList("Play again", "Exit"), "\t\t  You won!")));
+            game.setState(new MenuState(new Menu("Lost")));
         }
     }
 

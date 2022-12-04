@@ -4,18 +4,28 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Menu{
-    private final List<String> entries;
+    private final String mod;
+    private List<String> entries;
     private int currentEntry = 0;
     protected String message;
 
 
-    public Menu() {
-        this.entries = Arrays.asList("Start", "Exit");
+    public Menu(String mod) {
+        this.mod=mod;
+        if (mod=="Start")
+            this.entries = Arrays.asList("Start", "Instructions", "Exit");
+            this.message  = "Menu";
+
+        if (mod=="Win")
+            this.entries = Arrays.asList("Start", "Instructions", "Exit");
+            this.message  = "Congratulations! You won the game!";
+        if (mod=="Lost") this.entries = Arrays.asList("New Game?", "Instructions", "Exit");
+            this.message  = "Try again! It's just a Donkey Kong";
+        if (mod=="Instructions")
+            this.entries=Arrays.asList("Start","Exit");
+            this.message= "Instructions";
     }
 
-    public String getMessage() {
-        return message;
-    }
 
      public void nextEntry() {
         currentEntry++;
@@ -33,16 +43,18 @@ public class Menu{
         return entries.get(i);
     }
 
-    public boolean isSelected(int i) {
-        return currentEntry == i;
+    public boolean isSelected_Number(int Entry) {
+        if (currentEntry == Entry) {
+            return true;
+        }
+        return false;
     }
 
-    public boolean isSelectedExit() {
-        return isSelected(1);
-    }
-
-    public boolean isSelectedStart() {
-        return isSelected(0);
+    public boolean isSelected_String(String Entry) {
+            if (entries.get(currentEntry) == Entry) {
+                return true;
+            }
+        return false;
     }
 
     public int getNumberEntries() {
@@ -51,5 +63,9 @@ public class Menu{
 
     public int getCurrentEntry (){
         return this.currentEntry;
+    }
+
+    public String getMessage() {
+        return message;
     }
 }

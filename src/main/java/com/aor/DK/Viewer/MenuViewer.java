@@ -14,6 +14,7 @@ public class MenuViewer extends Viewer<Menu> {
     @Override
     public void drawElements(GUI gui) {
 
+        String message=getModel().getMessage();
 
         gui.drawText(new Position(x, y), message, "#FFFFFF");
 
@@ -21,7 +22,7 @@ public class MenuViewer extends Viewer<Menu> {
             gui.drawText(
                     new Position(x+8, y+4 + i),
                     getModel().getEntry(i),
-                    getModel().isSelected(i) ? "#FFD700" : "#FFFFFF");
+                    getModel().isSelected_Number(i) ? "#FFD700" : "#FFFFFF");
 
     }
 

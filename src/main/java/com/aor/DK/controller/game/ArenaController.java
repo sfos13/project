@@ -20,9 +20,9 @@ public class ArenaController extends GameController {
     }
 
     @Override
-    public void step(Game game, GUI.ACTION action, long time) throws IOException {
+    public void step(Game game, GUI.ACTION action, long time)  {
         if (action == GUI.ACTION.QUIT)
-            game.setState(new MenuState(new Menu(Arrays.asList("Start", "Exit"),"\t\t  Menu")));
+            game.setState(new MenuState(new Menu("Start")));
         else {
             marioController.step(game, action, time);
             barrelController.step(game, action, time);
