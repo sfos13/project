@@ -8,11 +8,7 @@ import com.aor.DK.model.elements.Mario;
 import com.aor.DK.model.menu.Menu;
 import com.aor.DK.states.MenuState;
 
-import java.util.Arrays;
-
 public class MarioController extends GameController {
-
-    private final float GRAVITY = 0.25f;
 
     public MarioController(Arena arena) {
         super(arena);
@@ -53,6 +49,7 @@ public class MarioController extends GameController {
         if(!getModel().isOnFloor(getModel().getMario().getPosition()) && !getModel().checkStairs(getModel().getMario().getPosition())) {
             Mario mario = getModel().getMario();
             moveMario(new Position(mario.getPosition().getX(),mario.getPosition().getY()+(int)mario.getVy()));
+            float GRAVITY = 0.25f;
             mario.incrementVy(GRAVITY);
         }
         else{

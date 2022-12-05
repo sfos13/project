@@ -7,12 +7,13 @@ public class Menu{
     private List<String> entries;
     private int currentEntry = 0;
     protected String message;
-
+    protected String mod;
 
     public Menu(String mod) {
+        this.mod=mod;
         if (mod.equals("Start")) {
             this.entries = Arrays.asList("Start", "Instructions", "Ranking","Exit");
-            this.message = "Menu";
+            this.message = "Donkey Kong";
         }
         if (mod.equals("Win")) {
             this.entries = Arrays.asList("Play again?", "Exit");
@@ -46,17 +47,11 @@ public class Menu{
     }
 
     public boolean isSelected_Number(int Entry) {
-        if (currentEntry == Entry) {
-            return true;
-        }
-        return false;
+        return currentEntry == Entry;
     }
 
     public boolean isSelected_String(String Entry) {
-            if (entries.get(currentEntry) == Entry) {
-                return true;
-            }
-        return false;
+        return entries.get(currentEntry).equals(Entry);
     }
 
     public int getNumberEntries() {
@@ -70,4 +65,6 @@ public class Menu{
     public String getMessage() {
         return message;
     }
+
+    public String getMod() {return mod;}
 }

@@ -5,7 +5,6 @@ import com.aor.DK.Viewer.Viewer;
 import com.aor.DK.controller.Controller;
 import com.aor.DK.controller.menu.LevelController;
 import com.aor.DK.model.menu.Level;
-import com.aor.DK.model.menu.Menu;
 
 public class LevelState extends State<Level> {
     public LevelState(Level model) {
