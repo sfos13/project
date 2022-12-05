@@ -4,26 +4,28 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Menu{
-    private final String mod;
     private List<String> entries;
     private int currentEntry = 0;
     protected String message;
 
 
     public Menu(String mod) {
-        this.mod=mod;
-        if (mod=="Start")
-            this.entries = Arrays.asList("Start", "Instructions", "Exit");
-            this.message  = "Menu";
-
-        if (mod=="Win")
-            this.entries = Arrays.asList("Start", "Instructions", "Exit");
-            this.message  = "Congratulations! You won the game!";
-        if (mod=="Lost") this.entries = Arrays.asList("New Game?", "Instructions", "Exit");
-            this.message  = "Try again! It's just a Donkey Kong";
-        if (mod=="Instructions")
-            this.entries=Arrays.asList("Start","Exit");
-            this.message= "Instructions";
+        if (mod.equals("Start")) {
+            this.entries = Arrays.asList("Start", "Instructions", "Ranking","Exit");
+            this.message = "Menu";
+        }
+        if (mod.equals("Win")) {
+            this.entries = Arrays.asList("Play again?", "Exit");
+            this.message = "Congratulations! You won the game!";
+        }
+        if (mod.equals("Lost")) {
+            this.entries = Arrays.asList("New Game?", "Instructions", "Exit");
+            this.message = "Try again! It's just a Donkey Kong";
+        }
+        if (mod.equals("Instructions")) {
+            this.entries = Arrays.asList("Start", "Exit");
+            this.message = "Instructions";
+        }
     }
 
 
