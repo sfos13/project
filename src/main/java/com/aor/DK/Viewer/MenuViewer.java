@@ -16,8 +16,7 @@ public class MenuViewer extends Viewer<Menu> {
         String message=getModel().getMessage();
         int y=10;
         int w=40;
-        int x;
-        x= (w-message.length())/2;
+        int x=(w-message.length())/2;
         gui.drawText(new Position(x, y), message, "#FFFFFF");
 
         for (int i = 0; i < getModel().getNumberEntries(); i++) {
