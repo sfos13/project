@@ -29,7 +29,7 @@ public class LanternaGUI implements GUI {
         this.screen = createScreen(terminal);
     }
     private AWTTerminalFontConfiguration loadSquareFont() throws URISyntaxException, FontFormatException, IOException {
-        URL resource = getClass().getClassLoader().getResource("fonts/square.ttf");
+        URL resource = getClass().getClassLoader().getResource("fonts/MyFont-Modern.otf");
         File fontFile = new File(resource.toURI());
         Font font = Font.createFont(Font.TRUETYPE_FONT, fontFile);
 
@@ -88,7 +88,7 @@ public class LanternaGUI implements GUI {
 
     @Override
     public void drawMario(Position position) {
-        drawCharacter(position.getX(), position.getY(), 'X', "#e2cbd2");
+        drawCharacter(position.getX(), position.getY(), '*', "#e2cbd2");
     }
 
     @Override
@@ -107,7 +107,7 @@ public class LanternaGUI implements GUI {
     }
     @Override
     public void drawDonkeyKong(Position position) {
-        drawCharacter(position.getX(), position.getY(), 'D', "#560000");
+        drawCharacter(position.getX(), position.getY(), '$', "#560000");
     }
     @Override
     public void drawPrincess(Position position) {
