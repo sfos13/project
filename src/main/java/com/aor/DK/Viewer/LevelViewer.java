@@ -17,20 +17,24 @@ public class LevelViewer extends Viewer<Level> {
         int x = (40 - message.length()) / 2;
         int y = 28;
         int level = getModel().getLevel();
-        String branco= "#FFFFFF";
-        String azul="#3F50EB";
-        gui.drawText(new Position(x, y), message, branco);
-        gui.drawText(new Position (30,5),"L="+level,azul);
-        gui.drawText(new Position (5,5),"Click space to begin", branco);
+        String white= "#FFFFFF";
+        String blue="#3F50EB";
+        gui.drawText(new Position(x, y), message, white);
+        gui.drawText(new Position (30,5),"L="+level,blue);
+        gui.drawText(new Position (5,5),"Click space to begin", white);
 
         gui.drawDonkeyKong(new Position(20, y -4));
-        gui.drawText(new Position(5, y -3),   "25 m", branco);
+        gui.drawText(new Position(5, y -3),   "25 m", white);
 
+        drawLevel2(gui, y, level, white);
+
+    }
+
+    private void drawLevel2(GUI gui, int y, int level, String  colour) {
         if (level==2) {
             gui.drawDonkeyKong(new Position(20, y - 8));
-            gui.drawText(new Position(5, y - 7), "50 m", branco);
+            gui.drawText(new Position(5, y - 7), "50 m", colour);
         }
-
     }
 
 
