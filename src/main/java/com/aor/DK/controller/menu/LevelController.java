@@ -10,25 +10,24 @@ import com.aor.DK.states.GameState;
 import java.io.IOException;
 
 public class LevelController extends Controller<Level> {
-
+    private long lastMovement;
 
     public LevelController(Level level) {
         super(level);
-
+        this.lastMovement = System.currentTimeMillis();
     }
 
     @Override
     public void step(Game game, GUI.ACTION action, long time) throws IOException {
         int level= getModel().getLevel();
 
-        if (GUI.ACTION.SPACE == action){
+        if (time - lastMovement > 5000){
             if (level==1){
                 game.setState(new GameState(new LoaderArenaBuilder(1).createArena()));
             }
             if(level==2){
                 game.setState(new GameState(new LoaderArenaBuilder(2).createArena()));
             }
-
         }
     }
 }

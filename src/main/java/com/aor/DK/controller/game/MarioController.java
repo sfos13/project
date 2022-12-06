@@ -71,7 +71,7 @@ public class MarioController extends GameController {
             }
         }
         if (action == GUI.ACTION.LEFT) {
-            moveMarioLeft();
+          moveMarioLeft();
         }
 
         if ((action == GUI.ACTION.RIGHT) && !getModel().outOfBounds(getModel().getMario().getPosition())){
