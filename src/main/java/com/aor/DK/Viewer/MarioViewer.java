@@ -8,7 +8,7 @@ import com.aor.DK.model.elements.Mario;
     public class MarioViewer implements GenericViewer<Mario> {
         @Override
         public void draw(Mario mario, GUI gui) {
-            gui.drawMario(mario.getPosition());
+            gui.drawMario(mario.getPosition(), mario.getLetter());
         }
     }
 
