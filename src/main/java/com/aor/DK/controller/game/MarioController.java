@@ -2,16 +2,28 @@ package com.aor.DK.controller.game;
 
 import com.aor.DK.GUI.GUI;
 import com.aor.DK.Game;
+import com.aor.DK.controller.rules.BarrelsCrash;
+import com.aor.DK.controller.rules.DonkeyCrash;
 import com.aor.DK.model.Position;
 import com.aor.DK.model.arena.Arena;
+import com.aor.DK.model.elements.Barrel;
 import com.aor.DK.model.elements.Mario;
 import com.aor.DK.model.menu.Menu;
 import com.aor.DK.states.MenuState;
 
-public class MarioController extends GameController {
+import java.util.List;
 
+public class MarioController extends GameController {
+    private Arena arena;
+    private Position positionMario;
+    private Position positionDonkey;
+    private List<Barrel> barrels;
     public MarioController(Arena arena) {
         super(arena);
+        this.arena=arena;
+        this.positionMario=arena.getMario().getPosition();
+        this.positionDonkey=arena.getDonkeyKong().getPosition();
+        this.barrels = arena.getBarrels();
     }
 
     public void moveMarioLeft() {
@@ -38,7 +50,9 @@ public class MarioController extends GameController {
 
 
     private void jumpMario() {
-        if (getModel().isOnFloor(getModel().getMario().getPosition()) && !getModel().checkStairs(getModel().getMario().getPosition())) {
+
+
+        if (((arena.isOnFloor(arena.getMario().getPosition()) && !arena.checkStairs(arena.getMario().getPosition())))) {
             Position position = getModel().getMario().getPosition();
             position.setY(position.getY() - 2);
             getModel().getMario().setPosition(position);
@@ -81,10 +95,10 @@ public class MarioController extends GameController {
         if (action == GUI.ACTION.SPACE) jumpMario();
 
         gravityPush();
+        Boolean isDonkeyKongCrash = new DonkeyCrash(positionMario,positionDonkey).isValid();
+        Boolean isBarrelsCrash = new BarrelsCrash(positionMario, barrels).isValid();
 
-        if((getModel().barrelCrash(getModel().getMario().getPosition()))
-                || getModel().outOfBounds(getModel().getMario().getPosition())
-                || getModel().crashDonkeyKong(getModel().getMario().getPosition()))  {
+        if((isBarrelsCrash)|| getModel().outOfBounds(getModel().getMario().getPosition())||  isDonkeyKongCrash ) {
             game.setState(new MenuState(new Menu("Lost")));
         }
 

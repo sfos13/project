@@ -130,17 +130,5 @@ public class Arena {
         return checkStairs(new Position(position.getX(), position.getY()+1));
     }
 
-    public boolean barrelCrash(Position position) {
-        for(Barrel barrel : barrels) {
-            if(barrel.getPosition().equals(position)) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    public boolean crashDonkeyKong(Position position) {
-        return getDonkeyKong().getPosition().equals(position);
-    }
 
 }
