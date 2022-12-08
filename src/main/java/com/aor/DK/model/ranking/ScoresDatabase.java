@@ -7,7 +7,7 @@ public class ScoresDatabase implements Subject{
     private Set<Observer> observer = new HashSet<>();
     private int timeScore;
     private int jumpScore;
-    private int attackScore;
+
 
     public void setTimeScore(){
         this.timeScore=-100;
@@ -19,15 +19,11 @@ public class ScoresDatabase implements Subject{
         notifyObserver();
     }
 
-    public void setAttackScore(){
-        this.attackScore=+100;
-        notifyObserver();
-    }
 
     @Override
     public void registerObserver(Observer observer) {
         this.observer.add(observer);
-        observer.update(this.timeScore,this.jumpScore,this.attackScore);
+        observer.update(this.timeScore,this.jumpScore);
     }
 
     @Override
@@ -37,7 +33,7 @@ public class ScoresDatabase implements Subject{
 
     @Override
     public void notifyObserver() {
-        observer.stream().forEach(observer -> observer.update(this.timeScore,this.jumpScore,this.attackScore));
+        observer.stream().forEach(observer -> observer.update(this.timeScore,this.jumpScore));
 
     }
 }

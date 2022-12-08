@@ -16,10 +16,9 @@ public class Scores implements Observer{
     }
 
     @Override
-    public void update(int timeScore, int jumpScore, int attackScore) {
+    public void update(int timeScore, int jumpScore) {
         this.timeScore = timeScore;
         this.jumpScore=jumpScore;
-        this.attackScore=attackScore;
         //refresh
     }
 

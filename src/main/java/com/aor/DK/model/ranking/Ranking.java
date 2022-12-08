@@ -10,7 +10,7 @@ public class Ranking implements Observer{
     }
 
     @Override
-    public void update(int timeScore, int jumpScore, int attackScore) {
+    public void update(int timeScore, int jumpScore) {
         //print
     }
 }
