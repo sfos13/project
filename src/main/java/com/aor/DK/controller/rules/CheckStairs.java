@@ -14,13 +14,12 @@ public class CheckStairs implements MarioValidation {
     public CheckStairs(Position position, Arena arena) {
         this.positionMario = position;
         this.stairs = arena.getStairs();
-
     }
 
     @Override
     public boolean isValid() {
         for (Stair stair : stairs) {
-            if ((positionMario.equals(stair.getPosition()))) {
+            if (positionMario.equals(stair.getPosition())) {
                 return true;
             }
         }

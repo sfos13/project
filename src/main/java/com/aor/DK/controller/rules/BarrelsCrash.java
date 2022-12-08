@@ -9,14 +9,12 @@ import java.util.List;
 public class BarrelsCrash implements MarioValidation{
     Position positionMario;
 
-
     List<Barrel> barrels;
 
     public BarrelsCrash(Position positionMario, Arena arena) {
         this.positionMario=positionMario;
         this.barrels = arena.getBarrels();
     }
-
 
     @Override
     public boolean isValid() {
