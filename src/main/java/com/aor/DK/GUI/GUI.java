@@ -3,10 +3,11 @@ package com.aor.DK.GUI;
 import com.aor.DK.model.Position;
 
 import java.io.IOException;
+import java.util.List;
 
 public interface GUI {
 
-    ACTION getNextAction() throws IOException;
+    List<ACTION> getNextActions() throws IOException;
 
     void drawMario(Position position);
 

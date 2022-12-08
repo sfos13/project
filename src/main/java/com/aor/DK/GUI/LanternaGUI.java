@@ -7,29 +7,35 @@ import com.aor.DK.model.Position;
 import com.googlecode.lanterna.TerminalSize;
 import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
-import com.googlecode.lanterna.input.KeyStroke;
 import com.googlecode.lanterna.screen.Screen;
 import com.googlecode.lanterna.screen.TerminalScreen;
 import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
 import com.googlecode.lanterna.terminal.Terminal;
 import com.googlecode.lanterna.terminal.swing.AWTTerminalFontConfiguration;
+import com.googlecode.lanterna.terminal.swing.AWTTerminalFrame;
 
 import java.awt.*;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.io.File;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.net.URL;
+import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Set;
 
 public class LanternaGUI implements GUI {
     private final Screen screen;
-
+    Set<Integer> pressedKeys = new HashSet<>();
     public LanternaGUI(int width, int height) throws IOException, FontFormatException, URISyntaxException {
         AWTTerminalFontConfiguration fontConfig = loadSquareFont();
         Terminal terminal = createTerminal(width, height, fontConfig);
         this.screen = createScreen(terminal);
     }
     private AWTTerminalFontConfiguration loadSquareFont() throws URISyntaxException, FontFormatException, IOException {
-        URL resource = getClass().getClassLoader().getResource("fonts/MyFont-Modern.otf");
+        URL resource = getClass().getClassLoader().getResource("fonts/square.ttf");
         File fontFile = new File(resource.toURI());
         Font font = Font.createFont(Font.TRUETYPE_FONT, fontFile);
 
@@ -50,40 +56,42 @@ public class LanternaGUI implements GUI {
         return screen;
     }
 
+
     private Terminal createTerminal(int width, int height, AWTTerminalFontConfiguration fontConfig) throws IOException {
         TerminalSize terminalSize = new TerminalSize(width, height + 1);
-        DefaultTerminalFactory terminalFactory = new DefaultTerminalFactory().setInitialTerminalSize(terminalSize);
+        DefaultTerminalFactory terminalFactory = new DefaultTerminalFactory()
+                .setInitialTerminalSize(terminalSize);
         terminalFactory.setForceAWTOverSwing(true);
         terminalFactory.setTerminalEmulatorFontConfiguration(fontConfig);
         Terminal terminal = terminalFactory.createTerminal();
+
+        ((AWTTerminalFrame)terminal).getComponent(0).addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyPressed(KeyEvent e) {
+                pressedKeys.add(e.getKeyCode());
+            }
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+                pressedKeys.remove(e.getKeyCode());
+            }
+        });
+
         return terminal;
     }
 
+    public List<ACTION> getNextActions() throws IOException {
+        List<ACTION> actions = new LinkedList<>();
+        if (pressedKeys.contains(KeyEvent.VK_SPACE)) actions.add(ACTION.SPACE);
+        if (pressedKeys.contains(KeyEvent.VK_Q)) actions.add(ACTION.QUIT);
+        if (pressedKeys.contains(KeyEvent.VK_UP)) actions.add(ACTION.UP);
+        if (pressedKeys.contains(KeyEvent.VK_RIGHT)) actions.add(ACTION.RIGHT);
+        if (pressedKeys.contains(KeyEvent.VK_DOWN)) actions.add(ACTION.DOWN);
+        if (pressedKeys.contains(KeyEvent.VK_LEFT)) actions.add(ACTION.LEFT);
+        if (pressedKeys.contains(KeyEvent.VK_ENTER)) actions.add(ACTION.SELECT);
+        if(pressedKeys.isEmpty()) actions.add(ACTION.NONE);
 
-    public ACTION getNextAction() throws IOException {
-        KeyStroke keyStroke = screen.pollInput();
-        if(keyStroke == null) return ACTION.NONE;
-        switch(keyStroke.getKeyType()) {
-            case EOF:
-                return ACTION.QUIT;
-            case Character:
-                if (keyStroke.getCharacter() == 'q') return ACTION.QUIT;
-                if (keyStroke.getCharacter() == ' ') return ACTION.SPACE;
-                else break;
-            case ArrowUp:
-                return ACTION.UP;
-            case ArrowRight:
-                return ACTION.RIGHT;
-            case ArrowDown:
-                return ACTION.DOWN;
-            case ArrowLeft:
-                return ACTION.LEFT;
-            case Enter:
-                return ACTION.SELECT;
-            default:
-                return ACTION.NONE;
-        }
-        return ACTION.NONE;
+        return actions;
     }
 
     @Override

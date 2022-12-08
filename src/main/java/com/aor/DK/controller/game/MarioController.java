@@ -9,13 +9,16 @@ import com.aor.DK.model.menu.Menu;
 import com.aor.DK.states.MenuState;
 
 import java.util.Arrays;
+import java.util.List;
 
 public class MarioController extends GameController {
 
     private final float GRAVITY = 0.25f;
+    private long lastRegistered;
 
     public MarioController(Arena arena) {
         super(arena);
+        lastRegistered = 0;
     }
 
     public void moveMarioLeft() {
@@ -60,29 +63,33 @@ public class MarioController extends GameController {
         }
     }
     @Override
-    public void step(Game game, GUI.ACTION action, long time) {
+    public void step(Game game, List<GUI.ACTION> actions, long time) {
 
-        if (action == GUI.ACTION.UP) {
-            if(getModel().checkStairs(getModel().getMario().getPosition())) {
-                moveMarioUp();
+        if (time-lastRegistered>50){
+            if (actions.contains(GUI.ACTION.UP)) {
+                if (getModel().checkStairs(getModel().getMario().getPosition())) {
+                    moveMarioUp();
+                }
             }
-        }
 
-        if (action == GUI.ACTION.DOWN) {
-            if (getModel().checkUnderStairs(getModel().getMario().getPosition())) {
-                moveMarioDown();
+            if (actions.contains(GUI.ACTION.DOWN)) {
+                if (getModel().checkUnderStairs(getModel().getMario().getPosition())) {
+                    moveMarioDown();
+                }
             }
-        }
-        if (action == GUI.ACTION.LEFT) {
-            moveMarioLeft();
-        }
+            if (actions.contains(GUI.ACTION.LEFT)) {
+                moveMarioLeft();
+            }
 
-        if ((action == GUI.ACTION.RIGHT) && !getModel().outOfBounds(getModel().getMario().getPosition())){
-            moveMarioRight();
+            if (actions.contains(GUI.ACTION.RIGHT)) {
+                moveMarioRight();
+            }
+
+            if (actions.contains(GUI.ACTION.SPACE)) {
+                jumpMario();
+            }
+            lastRegistered = time;
         }
-
-        if (action == GUI.ACTION.SPACE) jumpMario();
-
         gravityPush();
 
         if((getModel().barrelCrash(getModel().getMario().getPosition()))
