@@ -1,17 +1,20 @@
 package com.aor.DK.controller.rules;
 
 import com.aor.DK.model.Position;
+import com.aor.DK.model.arena.Arena;
 import com.aor.DK.model.elements.Barrel;
 
 import java.util.List;
 
 public class BarrelsCrash implements MarioValidation{
     Position positionMario;
-    private List<Barrel> barrels;
 
-    public BarrelsCrash(Position positionMario, List<Barrel> barrels) {
+
+    List<Barrel> barrels;
+
+    public BarrelsCrash(Position positionMario, Arena arena) {
         this.positionMario=positionMario;
-        this.barrels = barrels;
+        this.barrels = arena.getBarrels();
     }
 
 

@@ -21,7 +21,7 @@ public class LevelController extends Controller<Level> {
     public void step(Game game, GUI.ACTION action, long time) throws IOException {
         int level= getModel().getLevel();
 
-        if (time - lastMovement > 5000){
+        if (time - lastMovement > 1000){
             if (level==1){
                 game.setState(new GameState(new LoaderArenaBuilder(1).createArena()));
             }

@@ -1,13 +1,15 @@
 package com.aor.DK.controller.rules;
 import com.aor.DK.model.Position;
+import com.aor.DK.model.arena.Arena;
 
 public class DonkeyCrash implements MarioValidation {
 
     Position positionDonkey;
     Position positionMario;
 
-    public DonkeyCrash (Position positionMario, Position positionDonkey) {
-        this.positionDonkey= positionDonkey;
+
+    public DonkeyCrash (Position positionMario, Arena arena) {
+        this.positionDonkey= arena.getDonkeyKong().getPosition();
         this.positionMario = positionMario;
     }
 
