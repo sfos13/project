@@ -107,10 +107,10 @@ public class LanternaGUI implements GUI {
     }
     @Override
     public void drawDonkeyKong(Position position) {
-        drawCharacter(position.getX()-1, position.getY()-1, '$', "#560000");
-        drawCharacter(position.getX(), position.getY()-1, '%', "#560000");
-        drawCharacter(position.getX()-1, position.getY(), '&', "#560000");
-        drawCharacter(position.getX(), position.getY(), '\'', "#560000");
+        drawCharacter(position.getX()-1, position.getY()-1, '$', "#A03305");
+        drawCharacter(position.getX(), position.getY()-1, '%', "#A03305");
+        drawCharacter(position.getX()-1, position.getY(), '&', "#A03305");
+        drawCharacter(position.getX(), position.getY(), '\'', "#A03305");
     }
     @Override
     public void drawPrincess(Position position) {
