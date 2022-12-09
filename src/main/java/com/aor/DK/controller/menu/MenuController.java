@@ -5,10 +5,9 @@ import com.aor.DK.Game;
 import com.aor.DK.controller.Controller;
 import com.aor.DK.model.menu.Level;
 import com.aor.DK.model.menu.Menu;
-import com.aor.DK.model.ranking.Scores;
-import com.aor.DK.model.ranking.Subject;
 import com.aor.DK.states.LevelState;
 import com.aor.DK.states.MenuState;
+
 
 public class MenuController extends Controller<Menu> {
 
@@ -26,13 +25,14 @@ public class MenuController extends Controller<Menu> {
             case SELECT -> {
                 if (getModel().isSelected_String("Exit")){
                     game.setState(null);
-                    //registar o jogador
+
                 }
 
                 if (getModel().isSelected_Number(0)) game.setState(new LevelState(new Level(1)));
 
                 if (getModel().isSelected_String("Instructions"))
                     game.setState(new MenuState(new Menu("Instructions")));
+
             }
         }
     }
