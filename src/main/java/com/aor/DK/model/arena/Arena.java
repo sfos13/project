@@ -82,11 +82,12 @@ public class Arena {
     }
 
     public void spawnBarrel() {
+        if(spawnBarrelPosition == null) return;
         barrels.add(new Barrel(spawnBarrelPosition.getX(),spawnBarrelPosition.getY()));
     }
 
     public boolean outOfBounds(Position position) {
-        return !(position.getX() >= 0 && position.getX() < width-1);
+        return !(position.getX() >= 0 && position.getX() < width);
     }
 
 
