@@ -8,6 +8,7 @@ import com.aor.DK.model.menu.Level;
 import com.aor.DK.states.GameState;
 
 import java.io.IOException;
+import java.util.List;
 
 public class LevelController extends Controller<Level> {
     private long lastMovement;
@@ -18,7 +19,7 @@ public class LevelController extends Controller<Level> {
     }
 
     @Override
-    public void step(Game game, GUI.ACTION action, long time) throws IOException {
+    public void step(Game game, List<GUI.ACTION> actions, long time) throws IOException {
         int level= getModel().getLevel();
 
         if (time - lastMovement > 1000){
@@ -29,5 +30,7 @@ public class LevelController extends Controller<Level> {
                 game.setState(new GameState(new LoaderArenaBuilder(2).createArena()));
             }
         }
+
     }
+
 }

@@ -26,9 +26,9 @@ public class MenuController extends Controller<Menu> {
                     case UP -> getModel().previousEntry();
                     case DOWN -> getModel().nextEntry();
                     case SELECT -> {
-                        if (getModel().isSelected_Number(0)) game.setState(null);
-                        if (getModel().isSelected_String("Instructions"))
-                            game.setState(new GameState(new LoaderArenaBuilder(1).createArena()));
+                        if (getModel().isSelected_String("Exit")) game.setState(null);
+                        if(getModel().isSelected_String("Start")) game.setState(null);
+                        if (getModel().isSelected_String("Instructions"))game.setState(null);
                     }
                 }
             }

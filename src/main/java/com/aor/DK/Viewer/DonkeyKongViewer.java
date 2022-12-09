@@ -1,9 +1,8 @@
 package com.aor.DK.viewer;
 
 import com.aor.DK.GUI.GUI;
-import com.aor.DK.Viewer.GenericViewer;
 import com.aor.DK.model.elements.DonkeyKong;
-import com.aor.DK.viewer.GenericViewer;
+
 
 public class DonkeyKongViewer implements GenericViewer<DonkeyKong> {
 
