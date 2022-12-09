@@ -59,7 +59,6 @@ public class MarioController extends GameController {
         if (isOnFloor && !checkStairs) {
             positionMario.setY(positionMario.getY()-2);
             getModel().getMario().setPosition(positionMario);
-            System.out.println(isJumpingBarrels);
             if (isJumpingBarrels) {
                 scoresDatabase.setJumpScore();
 

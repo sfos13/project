@@ -5,12 +5,21 @@ import java.util.Set;
 
 public class ScoresDatabase implements Subject{
     private  Set<Observer> observer = new HashSet<>();
-    private int timeScore;
+    private int timeScore=5000;
     private int jumpScore;
+    private long lastMovement;
 
+    public void ScoresDatabase(){
+        this.lastMovement = System.currentTimeMillis();
+    }
 
     public void setTimeScore(){
-        this.timeScore=-100;
+        long time = System.currentTimeMillis();
+        if (time -lastMovement>2000){
+            this.timeScore=-100;
+        }
+        System.out.println(timeScore);
+
         notifyObserver();
 
     }
