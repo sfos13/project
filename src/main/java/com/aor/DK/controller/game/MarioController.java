@@ -62,23 +62,32 @@ public class MarioController extends GameController {
     @Override
     public void step(Game game, GUI.ACTION action, long time) {
 
+        /*
+        if (action == GUI.ACTION.NONE && getModel().isOnFloor(getModel().getMario().getPosition())) {
+            getModel().getMario().stationary();
+        }*/
+
         if (action == GUI.ACTION.UP) {
             if(getModel().checkStairs(getModel().getMario().getPosition())) {
                 moveMarioUp();
+                getModel().getMario().climbingStairs();
             }
         }
 
         if (action == GUI.ACTION.DOWN) {
             if (getModel().checkUnderStairs(getModel().getMario().getPosition())) {
                 moveMarioDown();
+                getModel().getMario().climbingStairs();
             }
         }
         if (action == GUI.ACTION.LEFT) {
             moveMarioLeft();
+            getModel().getMario().movingLeft();
         }
 
         if ((action == GUI.ACTION.RIGHT) && !getModel().outOfBounds(getModel().getMario().getPosition())){
             moveMarioRight();
+            getModel().getMario().movingRight();
         }
 
         if (action == GUI.ACTION.SPACE) jumpMario();

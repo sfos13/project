@@ -8,7 +8,7 @@ public interface GUI {
 
     ACTION getNextAction() throws IOException;
 
-    void drawMario(Position position);
+    void drawMario(Position position, char letter);
 
     void drawDonkeyKong(Position position);
 

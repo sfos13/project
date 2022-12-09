@@ -87,8 +87,8 @@ public class LanternaGUI implements GUI {
     }
 
     @Override
-    public void drawMario(Position position) {
-        drawCharacter(position.getX(), position.getY(), '*', "#e2cbd2");
+    public void drawMario(Position position, char letter) {
+        drawCharacter(position.getX(), position.getY(), letter, "#e2cbd2");
     }
 
     @Override
@@ -98,20 +98,23 @@ public class LanternaGUI implements GUI {
 
     @Override
     public void drawBarrel(Position position) {
-        drawCharacter(position.getX(), position.getY(), 'O', "#ef970f");
+        drawCharacter(position.getX(), position.getY(), '(', "#ef970f");
     }
 
     @Override
     public void drawStair(Position position) {
-        drawCharacter(position.getX(), position.getY(), 'H', "#4ad5f6");
+        drawCharacter(position.getX(), position.getY(), '+', "#4ad5f6");
     }
     @Override
     public void drawDonkeyKong(Position position) {
-        drawCharacter(position.getX(), position.getY(), '$', "#560000");
+        drawCharacter(position.getX()-1, position.getY()-1, '$', "#A03305");
+        drawCharacter(position.getX(), position.getY()-1, '%', "#A03305");
+        drawCharacter(position.getX()-1, position.getY(), '&', "#A03305");
+        drawCharacter(position.getX(), position.getY(), '\'', "#A03305");
     }
     @Override
     public void drawPrincess(Position position) {
-        drawCharacter(position.getX(), position.getY(), 'P', "#ff57ff");
+        drawCharacter(position.getX(), position.getY(), '@', "#ff57ff");
     }
 
     @Override
