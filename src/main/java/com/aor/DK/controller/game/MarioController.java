@@ -65,24 +65,28 @@ public class MarioController extends GameController {
     @Override
     public void step(Game game, List<GUI.ACTION> actions, long time) {
 
-        if (time-lastRegistered>50){
+        if (time-lastRegistered>70){
             if (actions.contains(GUI.ACTION.UP)) {
                 if (getModel().checkStairs(getModel().getMario().getPosition())) {
                     moveMarioUp();
+                    getModel().getMario().climbingStairs();
                 }
             }
 
             if (actions.contains(GUI.ACTION.DOWN)) {
                 if (getModel().checkUnderStairs(getModel().getMario().getPosition())) {
                     moveMarioDown();
+                    getModel().getMario().climbingStairs();
                 }
             }
             if (actions.contains(GUI.ACTION.LEFT)) {
                 moveMarioLeft();
+                getModel().getMario().movingLeft();
             }
 
             if (actions.contains(GUI.ACTION.RIGHT)) {
                 moveMarioRight();
+                getModel().getMario().movingRight();
             }
 
             if (actions.contains(GUI.ACTION.SPACE)) {
