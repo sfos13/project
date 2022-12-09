@@ -11,10 +11,12 @@ public class ArenaController extends GameController {
     private final MarioController marioController;
     private final BarrelController barrelController;
 
+
     public ArenaController(Arena arena) {
         super(arena);
         this.marioController = new MarioController(arena);
         this.barrelController = new BarrelController(arena);
+
     }
 
     @Override
@@ -22,6 +24,7 @@ public class ArenaController extends GameController {
 
         if (action == GUI.ACTION.QUIT)
             game.setState(new MenuState(new Menu("Start")));
+
         else {
             marioController.step(game, action, time);
             barrelController.step(game, action, time);
