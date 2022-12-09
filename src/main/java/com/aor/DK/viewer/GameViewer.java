@@ -1,7 +1,6 @@
-package com.aor.DK.Viewer;
+package com.aor.DK.viewer;
 
 import com.aor.DK.GUI.GUI;
-import com.aor.DK.Viewer.Elements.*;
 import com.aor.DK.model.arena.Arena;
 import com.aor.DK.model.elements.Element;
 import com.aor.DK.model.elements.Floor;

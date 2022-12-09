@@ -1,4 +1,4 @@
-package com.aor.DK.Viewer.Ranking;
+package com.aor.DK.viewer.Ranking;
 
 import com.aor.DK.model.ranking.Scores;
 import com.aor.DK.model.ranking.ScoresDatabase;
@@ -23,7 +23,6 @@ public class PlayerNameGUI extends JFrame {
         frame.add(label);
         frame.add(textField);
 
-        textField.setLayout(fl);
         frame.pack();
         frame.setSize(500,500);
         frame.setLayout(null);

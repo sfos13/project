@@ -2,10 +2,11 @@ package com.aor.DK.states;
 
 import com.aor.DK.GUI.GUI;
 import com.aor.DK.Game;
-import com.aor.DK.Viewer.Viewer;
 import com.aor.DK.controller.Controller;
+import com.aor.DK.viewer.Viewer;
 
 import java.io.IOException;
+import java.util.List;
 
 public abstract class State<T> {
     private final T model;
@@ -29,8 +30,8 @@ public abstract class State<T> {
     }
 
     public void step(Game game, GUI gui, long time) throws IOException {
-        GUI.ACTION action = gui.getNextAction();
-        controller.step(game, action, time);
+        List<GUI.ACTION> actions = gui.getNextActions();
+        controller.step(game, actions, time);
         viewer.draw(gui);
     }
 }

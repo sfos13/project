@@ -85,6 +85,11 @@ public class Arena {
         barrels.add(new Barrel(spawnBarrelPosition.getX(),spawnBarrelPosition.getY()));
     }
 
+    public boolean outOfBounds(Position position) {
+        return !(position.getX() >= 0 && position.getX() < width-1);
+    }
+
+
     public int getFloorNumber(Position position) {
         for(int i = 0; i < floor.size(); i++) {
             for(Floor tile : floor.get(i)) {

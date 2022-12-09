@@ -1,4 +1,4 @@
-package com.aor.DK.Viewer.Elements;
+package com.aor.DK.viewer;
 
 import com.aor.DK.GUI.GUI;
 import com.aor.DK.Viewer.GenericViewer;

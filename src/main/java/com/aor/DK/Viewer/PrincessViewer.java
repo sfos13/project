@@ -1,9 +1,13 @@
-package com.aor.DK.Viewer.Elements;
+package com.aor.DK.viewer;
 
+«
 import com.aor.DK.GUI.GUI;
-import com.aor.DK.Viewer.GenericViewer;
-import com.aor.DK.model.elements.DonkeyKong;
+
+package com.aor.DK.viewer;
+
+«
 import com.aor.DK.model.elements.Princess;
+import com.aor.DK.viewer.GenericViewer;
 
 public class PrincessViewer implements GenericViewer<Princess> {
     @Override

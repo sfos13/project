@@ -2,23 +2,22 @@ package com.aor.DK;
 
 import com.aor.DK.GUI.LanternaGUI;
 
-import com.aor.DK.Viewer.Ranking.PlayerNameGUI;
 import com.aor.DK.model.menu.Menu;
 import com.aor.DK.states.MenuState;
 import com.aor.DK.states.State;
+import com.aor.DK.viewer.Ranking.PlayerNameGUI;
 
 import javax.swing.*;
 import java.awt.*;
 import java.io.IOException;
 import java.net.URISyntaxException;
 
-
 public class Game {
     private State state;
     private final LanternaGUI gui;
 
     public Game() throws IOException, URISyntaxException, FontFormatException {
-        this.gui = new LanternaGUI(40, 30);
+        this.gui = new LanternaGUI(41, 31);
         this.state = new MenuState(new Menu("Start"));
 
     }

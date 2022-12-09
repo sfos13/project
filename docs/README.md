@@ -150,7 +150,7 @@ Abstract Class:
 Examples of subclasses:
 
 - [MenuViewer](../java/com/aor/DK/Viewer/MenuViewer.java)
-- [BarrelViewer](../java/com/aor/DK/Viewer/BarrelViewer.java)
+- [com.aor.DK.viewer.BarrelViewer](../java/com/aor/DK/Viewer/com.aor.DK.viewer.BarrelViewer.java)
 
 **Consequences**
 
@@ -247,13 +247,12 @@ Another error is the level of code which isn't balanced, while the package [aren
 
 ### TESTING
 
-<<<<<<< HEAD:src/main/docs/README.md
 <p>
   <img width=918 src="img/testcoverage1.png" alt="">
 </p>
-=======
+
 ![](img/testcoverage1.png)
->>>>>>> ceaa0be59ff5e1d112b16f891025e3211dfa1640:docs/README.md
+
 
 ![](img/mutation-results-print.png)
 

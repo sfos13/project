@@ -7,9 +7,12 @@ import com.aor.DK.model.Position;
 import com.aor.DK.model.arena.Arena;
 import com.aor.DK.model.elements.Barrel;
 
+import java.util.List;
+
 public class BarrelController extends GameController{
 
     private long lastMovement;
+
     Arena arena;
     public BarrelController(Arena arena) {
         super(arena);
@@ -18,8 +21,7 @@ public class BarrelController extends GameController{
     }
 
     @Override
-    public void step(Game game, GUI.ACTION action, long time) {
-
+    public void step(Game game, List<GUI.ACTION> actions, long time) {
         if(time - lastMovement > 2000) {
             getModel().spawnBarrel();
             lastMovement = time;

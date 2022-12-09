@@ -10,7 +10,9 @@ import com.aor.DK.model.menu.Menu;
 import com.aor.DK.model.ranking.ScoresDatabase;
 import com.aor.DK.states.MenuState;
 
-
+import java.io.IOException;
+import java.util.Arrays;
+import java.util.List;
 
 public class MarioController extends GameController {
     public Arena arena;
@@ -84,8 +86,8 @@ public class MarioController extends GameController {
             arena.getMario().setVy(0);
         }
     }
-    @Override
-    public void step(Game game, GUI.ACTION action, long time) {
+
+    public void step(Game game, List<GUI.ACTION> actions, long time){
         boolean isOutOfBonds= new OutOfBonds(positionMario, arena).isValid();
         boolean isDonkeyKongCrash = new DonkeyCrash(positionMario,arena).isValid();
         boolean isBarrelsCrash = new BarrelsCrash(positionMario, arena).isValid();
@@ -94,39 +96,44 @@ public class MarioController extends GameController {
 
         gravityPush();
 
-        if (action == GUI.ACTION.UP) {
-            if(checkStairs) {
-                moveMarioUp();
+        for (GUI.ACTION action : actions) {
+            if (action == GUI.ACTION.UP) {
+                if(checkStairs) {
+                    moveMarioUp();
+                }
             }
-        }
 
-        if (action == GUI.ACTION.DOWN) {
-            if (underStairs) {
-                moveMarioDown();
+            if (action == GUI.ACTION.DOWN) {
+                if (underStairs) {
+                    moveMarioDown();
+                }
             }
+            if (action == GUI.ACTION.LEFT) {
+                moveMarioLeft();
+            }
+
+            if ((action == GUI.ACTION.RIGHT) && !isOutOfBonds){
+                moveMarioRight();
+            }
+
+            if (action == GUI.ACTION.SPACE) jumpMario();
+
+            if(isBarrelsCrash||isOutOfBonds||isDonkeyKongCrash ) {
+                game.setState(new MenuState(new Menu("Lost")));
+            }
+
+            Position positionPrincess= getModel().getPrincess().getPosition();
+            int winFloor = getModel().getFloorNumber(positionPrincess);
+
+            if(getModel().getFloorNumber(positionMario)==winFloor){
+                game.setState(new MenuState(new Menu("Lost")));
+            }
+
         }
-        if (action == GUI.ACTION.LEFT) {
-            moveMarioLeft();
-        }
 
-        if ((action == GUI.ACTION.RIGHT) && !isOutOfBonds){
-            moveMarioRight();
-        }
-
-        if (action == GUI.ACTION.SPACE) jumpMario();
-
-
-
-        if(isBarrelsCrash||isOutOfBonds||isDonkeyKongCrash ) {
-            game.setState(new MenuState(new Menu("Lost")));
-        }
-
-        Position positionPrincess= getModel().getPrincess().getPosition();
-        int winFloor = getModel().getFloorNumber(positionPrincess);
-
-        if(getModel().getFloorNumber(positionMario)==winFloor){
-            game.setState(new MenuState(new Menu("Lost")));
-        }
     }
+
+
+
 
 }

@@ -1,4 +1,9 @@
+<<<<<<< HEAD:src/main/java/com/aor/DK/Viewer/MenuViewer.java
 package com.aor.DK.Viewer;
+=======
+package com.aor.DK.viewer;
+
+>>>>>>> 5390dce126dfe5973a39985df3be6574adf424a4:src/main/java/com/aor/DK/viewer/MenuViewer.java
 import com.aor.DK.GUI.GUI;
 import com.aor.DK.Viewer.Menu.InstructionsViewer;
 import com.aor.DK.Viewer.Menu.LostViewer;
