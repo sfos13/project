@@ -22,6 +22,8 @@ public class PlayerNameGUI extends JFrame {
         frame.add(button);
         frame.add(label);
         frame.add(textField);
+
+        textField.setLayout(fl);
         frame.pack();
         frame.setSize(500,500);
         frame.setLayout(null);

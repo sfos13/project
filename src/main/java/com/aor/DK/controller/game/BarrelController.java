@@ -30,8 +30,7 @@ public class BarrelController extends GameController{
                 barrel.setPosition(barrel.getPosition().getDown());
             }
             if (getModel().getFloorNumber(barrel.getPosition()) % 2 == 0) {
-                Position left = barrel.getPosition().getLeft();
-                barrel.setPosition(left);
+                barrel.setPosition(barrel.getPosition().getLeft());
             }
             if (getModel().getFloorNumber(barrel.getPosition()) % 2 == 1) {
                     barrel.setPosition(barrel.getPosition().getRight());
