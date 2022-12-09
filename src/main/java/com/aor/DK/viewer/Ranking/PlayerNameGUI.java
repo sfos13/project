@@ -29,7 +29,7 @@ public class PlayerNameGUI extends JFrame {
         frame.pack();
         frame.setSize(450,300);
         textField.move(50, 150);
-        frame.getContentPane().setBackground(Color.darkGray);
+        frame.getContentPane().setBackground(Color.DARK_GRAY);
         frame.setLayout(null);
         frame.setVisible(true);
 

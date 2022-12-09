@@ -1,9 +1,10 @@
-package com.aor.DK.viewer.Menu;
+package com.aor.DK.Viewer.Menu;
 
 import com.aor.DK.GUI.GUI;
+import com.aor.DK.Viewer.MenuViewer;
 import com.aor.DK.model.Position;
 import com.aor.DK.model.menu.Menu;
-import com.aor.DK.viewer.MenuViewer;
+
 
 public class LostViewer extends MenuViewer {
 
