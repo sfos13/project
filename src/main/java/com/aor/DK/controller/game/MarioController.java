@@ -7,6 +7,7 @@ import com.aor.DK.model.Position;
 import com.aor.DK.model.arena.Arena;
 import com.aor.DK.model.elements.Mario;
 import com.aor.DK.model.menu.Menu;
+import com.aor.DK.model.ranking.ScoresDatabase;
 import com.aor.DK.states.MenuState;
 
 
@@ -14,6 +15,9 @@ import com.aor.DK.states.MenuState;
 public class MarioController extends GameController {
     public Arena arena;
     public Position positionMario;
+
+    public ScoresDatabase scoresDatabase = new ScoresDatabase();
+
 
     public MarioController(Arena arena) {
         super(arena);
@@ -39,7 +43,7 @@ public class MarioController extends GameController {
     }
 
     private void moveMario(Position position) {
-        Boolean isOutOfBonds= new OutOfBonds(positionMario, arena).isValid();
+        boolean isOutOfBonds= new OutOfBonds(positionMario, arena).isValid();
 
         if (!isOutOfBonds ){
             positionMario=position;
@@ -49,18 +53,24 @@ public class MarioController extends GameController {
 
 
     private void jumpMario() {
-        Boolean isOnFloor= new OnFloor(positionMario,arena).isValid();
-        Boolean checkStairs = new CheckStairs(positionMario,arena).isValid();
+        boolean isOnFloor= new OnFloor(positionMario,arena).isValid();
+        boolean checkStairs = new CheckStairs(positionMario,arena).isValid();
+        boolean isJumpingBarrels = new JumpBarrels(positionMario,arena).isValid();
 
         if (isOnFloor && !checkStairs) {
             positionMario.setY(positionMario.getY()-2);
             getModel().getMario().setPosition(positionMario);
+            System.out.println(isJumpingBarrels);
+            if (isJumpingBarrels) {
+                scoresDatabase.setJumpScore();
 
+            }
         }
+
     }
     private void gravityPush() {
-        Boolean isOnFloor= new OnFloor(positionMario,arena).isValid();
-        Boolean checkStairs = new CheckStairs(positionMario,arena).isValid();
+        boolean isOnFloor= new OnFloor(positionMario,arena).isValid();
+        boolean checkStairs = new CheckStairs(positionMario,arena).isValid();
 
         float GRAVITY = 0.25f;
         if(!isOnFloor && !checkStairs) {
@@ -76,11 +86,11 @@ public class MarioController extends GameController {
     }
     @Override
     public void step(Game game, GUI.ACTION action, long time) {
-        Boolean isOutOfBonds= new OutOfBonds(positionMario, arena).isValid();
-        Boolean isDonkeyKongCrash = new DonkeyCrash(positionMario,arena).isValid();
-        Boolean isBarrelsCrash = new BarrelsCrash(positionMario, arena).isValid();
-        Boolean checkStairs = new CheckStairs(positionMario,arena).isValid();
-        Boolean underStairs = new UnderStairs(positionMario, arena).isValid();
+        boolean isOutOfBonds= new OutOfBonds(positionMario, arena).isValid();
+        boolean isDonkeyKongCrash = new DonkeyCrash(positionMario,arena).isValid();
+        boolean isBarrelsCrash = new BarrelsCrash(positionMario, arena).isValid();
+        boolean checkStairs = new CheckStairs(positionMario,arena).isValid();
+        boolean underStairs = new UnderStairs(positionMario, arena).isValid();
 
         gravityPush();
 

@@ -1,9 +1,10 @@
 package com.aor.DK.model.ranking;
 
+import com.aor.DK.model.Position;
+
 public class Scores implements Observer{
     private int timeScore;
     private int jumpScore;
-    private int attackScore;
 
     private String player;
 
@@ -19,7 +20,7 @@ public class Scores implements Observer{
     public void update(int timeScore, int jumpScore) {
         this.timeScore = timeScore;
         this.jumpScore=jumpScore;
-        //refresh
+        System.out.println(jumpScore);
     }
 
 
