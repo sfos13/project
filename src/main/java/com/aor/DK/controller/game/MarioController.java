@@ -9,9 +9,6 @@ import com.aor.DK.model.elements.Mario;
 import com.aor.DK.model.menu.Menu;
 import com.aor.DK.model.ranking.ScoresDatabase;
 import com.aor.DK.states.MenuState;
-
-import java.io.IOException;
-import java.util.Arrays;
 import java.util.List;
 
 public class MarioController extends GameController {
@@ -118,9 +115,6 @@ public class MarioController extends GameController {
 
             if (action == GUI.ACTION.SPACE) jumpMario();
 
-            if(isBarrelsCrash||isOutOfBonds||isDonkeyKongCrash ) {
-                game.setState(new MenuState(new Menu("Lost")));
-            }
 
             Position positionPrincess= getModel().getPrincess().getPosition();
             int winFloor = getModel().getFloorNumber(positionPrincess);
@@ -130,10 +124,11 @@ public class MarioController extends GameController {
             }
 
         }
+        if(isBarrelsCrash||isOutOfBonds||isDonkeyKongCrash ) {
+            game.setState(new MenuState(new Menu("Lost")));
+        }
 
     }
-
-
 
 
 }

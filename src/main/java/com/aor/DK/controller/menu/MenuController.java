@@ -31,7 +31,7 @@ public class MenuController extends Controller<Menu> {
                     case SELECT -> {
                         if (getModel().isSelected_String("Exit")) game.setState(null);
                         if(getModel().isSelected_String("Start"))  game.setState(new LevelState(new Level(1)));
-                        if (getModel().isSelected_String("Instructions"))game.setState(new MenuState("Instructions"));
+                        if (getModel().isSelected_String("Instructions"))game.setState(new MenuState(new Menu("Instructions")));
                     }
                 }
             }
