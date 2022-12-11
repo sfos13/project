@@ -56,7 +56,7 @@ public class MarioController extends GameController {
         if(!getModel().isOnFloor(getModel().getMario().getPosition()) && !getModel().checkStairs(getModel().getMario().getPosition())) {
             Mario mario = getModel().getMario();
             moveMario(new Position(mario.getPosition().getX(),mario.getPosition().getY()+(int)mario.getVy()));
-            mario.incrementVy(GRAVITY);
+            if(mario.getVy()<2) mario.incrementVy(GRAVITY);
         }
         else{
             getModel().getMario().setVy(0);
@@ -96,9 +96,8 @@ public class MarioController extends GameController {
         }
         gravityPush();
 
-        if((getModel().barrelCrash(getModel().getMario().getPosition()))
-                || getModel().outOfBounds(getModel().getMario().getPosition())
-                || getModel().crashDonkeyKong(getModel().getMario().getPosition()))  {
+        if((getModel().crash(getModel().getMario().getPosition()))
+                || getModel().outOfBounds(getModel().getMario().getPosition()))  {
             game.setState(new MenuState(new Menu(Arrays.asList("Try again", "Exit"), "\t\t  You lost!")));
         }
 

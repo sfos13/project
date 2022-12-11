@@ -21,6 +21,8 @@ public interface GUI {
 
     void drawStair(Position position);
 
+    void drawFire(Position position, char letter);
+
     void drawText(Position position, String text, String color);
 
     void clear();
@@ -28,6 +30,7 @@ public interface GUI {
     void refresh() throws IOException;
 
     void close() throws IOException;
+
 
     enum ACTION {UP, RIGHT, DOWN, LEFT, QUIT, SPACE, SELECT}
 }
