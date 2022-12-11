@@ -1,6 +1,6 @@
 package com.aor.DK.model.ranking;
 
-public class Scores implements Observer{
+public class Ranking implements Observer{
     private int timeScore;
     private int jumpScore;
 
@@ -8,7 +8,7 @@ public class Scores implements Observer{
 
     private Subject resultData;
 
-    public Scores(String player, Subject resultData){
+    public Ranking(String player, Subject resultData){
         this.player= player;
         this.resultData=resultData;
         this.resultData.registerObserver(this);

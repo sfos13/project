@@ -31,6 +31,7 @@ public class LanternaGUI implements GUI {
     Set<Integer> pressedKeys = new HashSet<>();
     public LanternaGUI(int width, int height) throws IOException, FontFormatException, URISyntaxException {
         AWTTerminalFontConfiguration fontConfig = loadSquareFont();
+
         Terminal terminal = createTerminal(width, height, fontConfig);
         this.screen = createScreen(terminal);
     }
@@ -42,10 +43,12 @@ public class LanternaGUI implements GUI {
         GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
         ge.registerFont(font);
 
-        Font loadedFont = font.deriveFont(Font.PLAIN, 25);
+        Font loadedFont = font.deriveFont(Font.PLAIN, 20);
         AWTTerminalFontConfiguration fontConfig = AWTTerminalFontConfiguration.newInstance(loadedFont);
         return fontConfig;
     }
+
+
     private Screen createScreen(Terminal terminal) throws IOException {
         final Screen screen;
         screen = new TerminalScreen(terminal);
@@ -130,6 +133,29 @@ public class LanternaGUI implements GUI {
         tg.setForegroundColor(TextColor.Factory.fromString(color));
         tg.putString(position.getX(), position.getY(), text);
     }
+
+
+
+    @Override
+    public void drawScores(Position position, int highScore, int bonusScore, int jumpScore) {
+        int x=position.getX();
+        int y=position.getY();
+
+        //drawText(position,"Bonus Score","#ff57ff");
+        //drawText(new Position(x,y+2), String.valueOf(bonusScore),"#ff57ff" );
+        //drawText(new Position(x+5,y),"High Score","#ff57ff");
+        //drawText(new Position(x+5,y+2), String.valueOf(highScore),"#ff57ff" );
+        //drawText(new Position(x+10,y),"Jump Score","#ff57ff");
+        //drawText(new Position(x+10,y+2), String.valueOf(jumpScore),"#ff57ff" );
+    }
+
+    @Override
+    public void drawLevel(Position position, int level) {
+        drawText(position,"L="+level,"#3F50EB" );
+
+
+    }
+
 
     private void drawCharacter(int x, int y, char c, String color) {
         TextGraphics tg = screen.newTextGraphics();

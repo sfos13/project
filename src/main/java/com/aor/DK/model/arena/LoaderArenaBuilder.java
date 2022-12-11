@@ -118,5 +118,15 @@ public class LoaderArenaBuilder extends ArenaBuilder {
         }
         return null;
     }
+    @Override
+    protected Level createLevel(){
+            return new Level(36,1);
+    }
+
+    @Override
+    protected Scores createScores(){
+        return new Scores(0,0);
+
+    }
 
 }

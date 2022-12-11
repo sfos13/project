@@ -2,7 +2,9 @@ package com.aor.DK.GUI;
 
 import com.aor.DK.model.Position;
 
+import java.awt.*;
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.util.List;
 
 public interface GUI {
@@ -22,6 +24,13 @@ public interface GUI {
     void drawStair(Position position);
 
     void drawText(Position position, String text, String color);
+
+
+    void drawScores(Position position, int highScore, int bonusScore, int jumpScore);
+
+    void drawLevel(Position position, int level) ;
+
+
 
     void clear();
 

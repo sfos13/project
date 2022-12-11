@@ -6,8 +6,10 @@ import com.aor.DK.controller.rules.*;
 import com.aor.DK.model.Position;
 import com.aor.DK.model.arena.Arena;
 import com.aor.DK.model.elements.Mario;
+import com.aor.DK.model.menu.Level;
 import com.aor.DK.model.menu.Menu;
 import com.aor.DK.model.ranking.ScoresDatabase;
+import com.aor.DK.states.LevelState;
 import com.aor.DK.states.MenuState;
 import java.util.List;
 
@@ -119,7 +121,7 @@ public class MarioController extends GameController {
             int winFloor = getModel().getFloorNumber(positionPrincess);
 
             if(getModel().getFloorNumber(positionMario)==winFloor){
-                game.setState(new MenuState(new Menu("Lost")));
+                game.setState(new LevelState(new Level(2)));
             }
 
         }

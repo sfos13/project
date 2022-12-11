@@ -21,9 +21,13 @@ public class GameViewer extends Viewer<Arena> {
         drawElements(gui, getModel().getBarrels(), new BarrelViewer());
         drawElement(gui, getModel().getMario(), new MarioViewer());
         drawElement(gui, getModel().getDonkeyKong(), new DonkeyKongViewer());
-        drawElement(gui, getModel().getPrincess(), new PrincessViewer());
 
+        gui.drawLevel(getModel().getLevelPosition().getPosition(),1);
+        gui.drawScores(getModel().getScores().getPosition(),10,20,25);
     }
+
+
+
 
     private <T extends Element> void drawElements(GUI gui, List<T> elements, GenericViewer<T> viewer) {
         for (T element : elements)

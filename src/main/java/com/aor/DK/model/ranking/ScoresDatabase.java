@@ -18,7 +18,6 @@ public class ScoresDatabase implements Subject{
         if (time -lastMovement>2000){
             this.timeScore=-100;
         }
-        System.out.println(timeScore);
 
         notifyObserver();
 

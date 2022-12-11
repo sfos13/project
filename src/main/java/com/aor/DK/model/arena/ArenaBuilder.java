@@ -8,13 +8,15 @@ import java.util.List;
 public abstract class ArenaBuilder {
     public Arena createArena() {
         Arena arena = new Arena(getWidth(), getHeight());
-
+        arena.setLevelPosition(createLevel());
         arena.setMario(createMario());
         arena.setFloor(createFloor());
         arena.setStairs(createStairs());
         arena.setDonkeyKong(createDonkeyKong());
         arena.setPrincess(createPrincess());
         arena.setSpawnBarrelPosition(getSpawnBarrelPosition());
+        arena.setScores(createScores());
+
 
         return arena;
     }
@@ -28,4 +30,7 @@ public abstract class ArenaBuilder {
     protected abstract Princess createPrincess();
     protected abstract Position getSpawnBarrelPosition();
 
+    protected abstract Level createLevel();
+
+    protected abstract Scores createScores();
 }

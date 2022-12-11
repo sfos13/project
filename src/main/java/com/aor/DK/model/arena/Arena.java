@@ -18,6 +18,10 @@ public class Arena {
     private List<List<Floor>> floor;
     private List<Stair> stairs;
 
+    private Scores scores;
+
+    private Level level;
+
     public Arena(int width, int height) {
         this.width = width;
         this.height = height;
@@ -69,6 +73,8 @@ public class Arena {
         return princess;
     }
 
+
+
     public void setStairs(List<Stair> stairs) {
         this.stairs = stairs;
     }
@@ -83,10 +89,6 @@ public class Arena {
 
     public void spawnBarrel() {
         barrels.add(new Barrel(spawnBarrelPosition.getX(),spawnBarrelPosition.getY()));
-    }
-
-    public boolean outOfBounds(Position position) {
-        return !(position.getX() >= 0 && position.getX() < width-1);
     }
 
 
@@ -108,4 +110,20 @@ public class Arena {
         this.spawnBarrelPosition = spawnBarrelPosition;
     }
 
+
+    public void setScores(Scores scores) {
+        this.scores=scores;
+    }
+
+    public void setLevelPosition(Level level) {
+        this.level=level;
+    }
+
+    public Level getLevelPosition() {
+        return level;
+    }
+
+    public Scores getScores() {
+        return scores;
+    }
 }
