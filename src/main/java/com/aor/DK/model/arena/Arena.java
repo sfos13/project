@@ -22,6 +22,7 @@ public class Arena {
     private List<Stair> stairs;
     private List<Fire> fireMonsters;
     private boolean spawnFlag;
+    private List<Switch> switches;
 
     public Arena(int width, int height) {
         this.width = width;
@@ -142,12 +143,12 @@ public class Arena {
         if(getDonkeyKong().getPosition().equals(position)) {
             return true;
         }
-        if(barrels != null) for(Barrel barrel : barrels) {
+        for(Barrel barrel : barrels) {
             if(barrel.getPosition().equals(position)) {
                 return true;
             }
         }
-        if(fireMonsters != null ) for (Fire fire : fireMonsters) {
+        for (Fire fire : fireMonsters) {
             if(fire.getPosition().equals(position)) {
                 return true;
             }
@@ -175,5 +176,13 @@ public class Arena {
     public void setSpawnFirePosition(Position spawnFirePosition, int spawnNumber) {
         if(spawnNumber == 1) this.spawnFirePosition1 = spawnFirePosition;
         if(spawnNumber == 2) this.spawnFirePosition2 = spawnFirePosition;
+    }
+
+    public List<Switch> getSwitches() {
+        return switches;
+    }
+
+    public void setSwitches(List<Switch> switches) {
+        this.switches = switches;
     }
 }

@@ -17,6 +17,7 @@ public abstract class ArenaBuilder {
         arena.setSpawnBarrelPosition(getSpawnBarrelPosition());
         arena.setSpawnFirePosition(getSpawnFirePosition1(),1);
         arena.setSpawnFirePosition(getSpawnFirePosition2(),2);
+        arena.setSwitches(createSwitches());
         return arena;
     }
 
@@ -30,4 +31,5 @@ public abstract class ArenaBuilder {
     protected abstract Position getSpawnBarrelPosition();
     protected abstract Position getSpawnFirePosition1();
     protected abstract Position getSpawnFirePosition2();
+    protected abstract List<Switch> createSwitches();
 }

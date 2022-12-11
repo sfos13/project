@@ -23,7 +23,7 @@ public class GameViewer extends Viewer<Arena> {
         drawElement(gui, getModel().getDonkeyKong(), new DonkeyKongViewer());
         drawElement(gui, getModel().getPrincess(), new PrincessViewer());
         drawElements(gui, getModel().getFireMonsters(), new FireViewer());
-
+        drawElements(gui, getModel().getSwitches(),new SwitchViewer());
     }
 
     private <T extends Element> void drawElements(GUI gui, List<T> elements, GenericViewer<T> viewer) {
