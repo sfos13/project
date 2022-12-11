@@ -10,6 +10,9 @@ public class Arena {
     private final int width;
     private final int height;
 
+    private Position spawnFirePosition1;
+
+    private Position spawnFirePosition2;
     private Position spawnBarrelPosition;
     private Mario mario;
     private DonkeyKong donkeyKong;
@@ -17,11 +20,15 @@ public class Arena {
     private List<Barrel> barrels;
     private List<List<Floor>> floor;
     private List<Stair> stairs;
+    private List<Fire> fireMonsters;
+    private boolean spawnFlag;
 
     public Arena(int width, int height) {
         this.width = width;
         this.height = height;
         this.barrels = new ArrayList<>();
+        this.fireMonsters = new ArrayList<>();
+        spawnFlag = true;
     }
 
     public int getWidth() {
@@ -131,17 +138,42 @@ public class Arena {
         return checkStairs(new Position(position.getX(), position.getY()+1));
     }
 
-    public boolean barrelCrash(Position position) {
-        for(Barrel barrel : barrels) {
+    public boolean crash(Position position) {
+        if(getDonkeyKong().getPosition().equals(position)) {
+            return true;
+        }
+        if(barrels != null) for(Barrel barrel : barrels) {
             if(barrel.getPosition().equals(position)) {
+                return true;
+            }
+        }
+        if(fireMonsters != null ) for (Fire fire : fireMonsters) {
+            if(fire.getPosition().equals(position)) {
                 return true;
             }
         }
         return false;
     }
 
-    public boolean crashDonkeyKong(Position position) {
-        return getDonkeyKong().getPosition().equals(position);
+
+    public List<Fire> getFireMonsters() {
+        return fireMonsters;
     }
 
+
+    public void spawnFire() {
+        if(spawnFirePosition1 == null) return;
+        if(spawnFlag) {
+            fireMonsters.add(new Fire(spawnFirePosition1.getX(),spawnFirePosition1.getY()));
+            spawnFlag = false;
+            return;
+        }
+        fireMonsters.add(new Fire(spawnFirePosition2.getX(),spawnFirePosition2.getY()));
+        spawnFlag = true;
+    }
+
+    public void setSpawnFirePosition(Position spawnFirePosition, int spawnNumber) {
+        if(spawnNumber == 1) this.spawnFirePosition1 = spawnFirePosition;
+        if(spawnNumber == 2) this.spawnFirePosition2 = spawnFirePosition;
+    }
 }

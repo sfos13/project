@@ -125,6 +125,10 @@ public class LanternaGUI implements GUI {
     }
 
     @Override
+    public void drawFire(Position position, char letter) {
+        drawCharacter(position.getX(),position.getY(),letter,"#ff8b00");
+    }
+    @Override
     public void drawText(Position position, String text, String color) {
         TextGraphics tg = screen.newTextGraphics();
         tg.setForegroundColor(TextColor.Factory.fromString(color));
@@ -151,6 +155,8 @@ public class LanternaGUI implements GUI {
     public void close() throws IOException {
         screen.close();
     }
+
+
 
     public void close(Screen screen) throws IOException {
         screen.close();

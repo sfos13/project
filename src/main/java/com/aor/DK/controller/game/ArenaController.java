@@ -14,10 +14,13 @@ public class ArenaController extends GameController {
     private final MarioController marioController;
     private final BarrelController barrelController;
 
+    private final FireController fireController;
+
     public ArenaController(Arena arena) {
         super(arena);
         this.marioController = new MarioController(arena);
         this.barrelController = new BarrelController(arena);
+        this.fireController = new FireController(arena);
     }
 
     @Override
@@ -27,6 +30,7 @@ public class ArenaController extends GameController {
         else {
             marioController.step(game, actions, time);
             barrelController.step(game, actions, time);
+            fireController.step(game, actions, time);
         }
     }
 }

@@ -15,7 +15,8 @@ public abstract class ArenaBuilder {
         arena.setDonkeyKong(createDonkeyKong());
         arena.setPrincess(createPrincess());
         arena.setSpawnBarrelPosition(getSpawnBarrelPosition());
-
+        arena.setSpawnFirePosition(getSpawnFirePosition1(),1);
+        arena.setSpawnFirePosition(getSpawnFirePosition2(),2);
         return arena;
     }
 
@@ -27,5 +28,6 @@ public abstract class ArenaBuilder {
     protected abstract DonkeyKong createDonkeyKong();
     protected abstract Princess createPrincess();
     protected abstract Position getSpawnBarrelPosition();
-
+    protected abstract Position getSpawnFirePosition1();
+    protected abstract Position getSpawnFirePosition2();
 }
