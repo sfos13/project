@@ -17,6 +17,7 @@ application {
 }
 
 dependencies {
+    implementation 'org.jetbrains:annotations:20.1.0'
     testImplementation 'org.spockframework:spock-core:2.3-groovy-3.0'
     testImplementation 'org.codehaus.groovy:groovy-all:3.0.13'
     implementation group: 'com.googlecode.lanterna', name:

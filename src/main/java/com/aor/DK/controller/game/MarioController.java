@@ -8,17 +8,10 @@ import com.aor.DK.model.elements.Mario;
 import com.aor.DK.model.menu.Menu;
 import com.aor.DK.states.MenuState;
 
-import java.util.Arrays;
-import java.util.List;
-
 public class MarioController extends GameController {
-
-    private final float GRAVITY = 0.25f;
-    private long lastRegistered;
 
     public MarioController(Arena arena) {
         super(arena);
-        lastRegistered = 0;
     }
 
     public void moveMarioLeft() {
@@ -56,6 +49,7 @@ public class MarioController extends GameController {
         if(!getModel().isOnFloor(getModel().getMario().getPosition()) && !getModel().checkStairs(getModel().getMario().getPosition())) {
             Mario mario = getModel().getMario();
             moveMario(new Position(mario.getPosition().getX(),mario.getPosition().getY()+(int)mario.getVy()));
+            float GRAVITY = 0.25f;
             mario.incrementVy(GRAVITY);
         }
         else{
@@ -63,48 +57,40 @@ public class MarioController extends GameController {
         }
     }
     @Override
-    public void step(Game game, List<GUI.ACTION> actions, long time) {
+    public void step(Game game, GUI.ACTION action, long time) {
 
-        if (time-lastRegistered>70){
-            if (actions.contains(GUI.ACTION.UP)) {
-                if (getModel().checkStairs(getModel().getMario().getPosition())) {
-                    moveMarioUp();
-                    getModel().getMario().climbingStairs();
-                }
+        if (action == GUI.ACTION.UP) {
+            if(getModel().checkStairs(getModel().getMario().getPosition())) {
+                moveMarioUp();
             }
-
-            if (actions.contains(GUI.ACTION.DOWN)) {
-                if (getModel().checkUnderStairs(getModel().getMario().getPosition())) {
-                    moveMarioDown();
-                    getModel().getMario().climbingStairs();
-                }
-            }
-            if (actions.contains(GUI.ACTION.LEFT)) {
-                moveMarioLeft();
-                getModel().getMario().movingLeft();
-            }
-
-            if (actions.contains(GUI.ACTION.RIGHT)) {
-                moveMarioRight();
-                getModel().getMario().movingRight();
-            }
-
-            if (actions.contains(GUI.ACTION.SPACE)) {
-                jumpMario();
-            }
-            lastRegistered = time;
         }
+
+        if (action == GUI.ACTION.DOWN) {
+            if (getModel().checkUnderStairs(getModel().getMario().getPosition())) {
+                moveMarioDown();
+            }
+        }
+        if (action == GUI.ACTION.LEFT) {
+          moveMarioLeft();
+        }
+
+        if ((action == GUI.ACTION.RIGHT) && !getModel().outOfBounds(getModel().getMario().getPosition())){
+            moveMarioRight();
+        }
+
+        if (action == GUI.ACTION.SPACE) jumpMario();
+
         gravityPush();
 
         if((getModel().barrelCrash(getModel().getMario().getPosition()))
                 || getModel().outOfBounds(getModel().getMario().getPosition())
                 || getModel().crashDonkeyKong(getModel().getMario().getPosition()))  {
-            game.setState(new MenuState(new Menu(Arrays.asList("Try again", "Exit"), "\t\t  You lost!")));
+            game.setState(new MenuState(new Menu("Lost")));
         }
 
         int winFloor = getModel().getFloorNumber(getModel().getPrincess().getPosition());
         if(getModel().getFloorNumber(getModel().getMario().getPosition())==winFloor){
-            game.setState(new MenuState(new Menu(Arrays.asList("Play again", "Exit"), "\t\t  You won!")));
+            game.setState(new MenuState(new Menu("Lost")));
         }
     }
 
