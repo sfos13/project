@@ -1,8 +1,11 @@
 package com.aor.DK.GUI;
 
 import com.aor.DK.model.Position;
+import com.aor.DK.model.ranking.Scores;
 
+import java.awt.*;
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.util.List;
 
 public interface GUI {
@@ -21,13 +24,25 @@ public interface GUI {
 
     void drawStair(Position position);
 
+    void drawFire(Position position, char letter);
+
+    void drawSwitch(Position position);
+
     void drawText(Position position, String text, String color);
+
+
+    void drawScores(Position position, int jumpScore, int timeScore );
+
+    void drawLevel(Position position, int level) ;
+
+
 
     void clear();
 
     void refresh() throws IOException;
 
     void close() throws IOException;
+
 
     enum ACTION {UP, RIGHT, DOWN, LEFT, QUIT, SPACE, SELECT}
 }

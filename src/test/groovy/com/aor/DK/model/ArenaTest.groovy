@@ -127,8 +127,8 @@ class ArenaTest extends Specification{
         arena.barrels = new ArrayList<Barrel>()
         arena.barrels.add(new Barrel(1,1))
         when:
-        def a1 = arena.barrelCrash(new Position(1,1))
-        def a2 = arena.barrelCrash(new Position(1,0))
+        def a1 = arena.crash(new Position(1,1))
+        def a2 = arena.crash(new Position(1,0))
         then:
         a1
         !a2
