@@ -1,27 +1,36 @@
 package com.aor.DK.model.menu;
 
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
 public class Menu{
-
     private List<String> entries;
-    protected String message;
     private int currentEntry = 0;
+    protected String message;
+    protected String mod;
 
-
-    public Menu(List<String> entries, String message) {
-        this.entries=entries;
-        this.message=message;
-
+    public Menu(String mod) {
+        this.mod=mod;
+        if (mod.equals("Start")) {
+            this.entries = Arrays.asList("Start", "Instructions", "Ranking","Exit");
+            this.message = "Donkey Kong";
+        }
+        if (mod.equals("Win")) {
+            this.entries = Arrays.asList("Play again?", "Exit");
+            this.message = "Congratulations! You won the game!";
+        }
+        if (mod.equals("Lost")) {
+            this.entries = Arrays.asList("New Game?", "Instructions", "Exit");
+            this.message = "Try again! It's just a Donkey Kong";
+        }
+        if (mod.equals("Instructions")) {
+            this.entries = Arrays.asList("Start", "Exit");
+            this.message = "Instructions";
+        }
     }
 
-    public String getMessage() {
-        return message;
-    }
 
-    public void nextEntry() {
+     public void nextEntry() {
         currentEntry++;
         if (currentEntry > this.entries.size() - 1)
             currentEntry = 0;
@@ -37,16 +46,12 @@ public class Menu{
         return entries.get(i);
     }
 
-    public boolean isSelected(int i) {
-        return currentEntry == i;
+    public boolean isSelected_Number(int Entry) {
+        return currentEntry == Entry;
     }
 
-    public boolean isSelectedExit() {
-        return isSelected(1);
-    }
-
-    public boolean isSelectedStart() {
-        return isSelected(0);
+    public boolean isSelected_String(String Entry) {
+        return entries.get(currentEntry).equals(Entry);
     }
 
     public int getNumberEntries() {
@@ -56,4 +61,10 @@ public class Menu{
     public int getCurrentEntry (){
         return this.currentEntry;
     }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public String getMod() {return mod;}
 }

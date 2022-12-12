@@ -15,6 +15,7 @@ public class LoaderArenaBuilder extends ArenaBuilder {
     private final List<String> lines;
 
     public LoaderArenaBuilder(int level) throws IOException {
+
         this.level = level;
 
         URL resource = LoaderArenaBuilder.class.getResource("/levels/level" + level + ".lvl");
