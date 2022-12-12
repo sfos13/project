@@ -130,8 +130,8 @@ public class LanternaGUI implements GUI {
     }
 
     @Override
-    public void drawSwitch(Position position) {
-        drawCharacter(position.getX(),position.getY(),')',"#fff600");
+    public void drawSwitch(Position position, String color) {
+        drawCharacter(position.getX(),position.getY(),')',color);
     }
 
     @Override

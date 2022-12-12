@@ -23,7 +23,7 @@ public interface GUI {
 
     void drawFire(Position position, char letter);
 
-    void drawSwitch(Position position);
+    void drawSwitch(Position position, String color);
 
     void drawText(Position position, String text, String color);
 
