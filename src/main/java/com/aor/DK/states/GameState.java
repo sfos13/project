@@ -1,7 +1,7 @@
 package com.aor.DK.states;
 
 
-import com.aor.DK.model.Viewer.GameViewer;
+import com.aor.DK.viewer.GameViewer;
 import com.aor.DK.viewer.Viewer;
 import com.aor.DK.controller.Controller;
 import com.aor.DK.controller.game.ArenaController;

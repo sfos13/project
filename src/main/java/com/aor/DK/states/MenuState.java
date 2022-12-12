@@ -1,6 +1,7 @@
 package com.aor.DK.states;
 
-import com.aor.DK.model.Viewer.MenuViewer;
+
+import com.aor.DK.viewer.MenuViewer;
 import com.aor.DK.viewer.Viewer;
 import com.aor.DK.controller.Controller;
 import com.aor.DK.controller.menu.MenuController;

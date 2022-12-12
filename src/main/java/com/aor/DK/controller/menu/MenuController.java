@@ -8,6 +8,9 @@ import com.aor.DK.model.menu.Menu;
 import com.aor.DK.states.LevelState;
 import com.aor.DK.states.MenuState;
 
+
+import java.util.List;
+
 public class MenuController extends Controller<Menu> {
     public MenuController(Menu menu) {
         super(menu);
@@ -15,7 +18,8 @@ public class MenuController extends Controller<Menu> {
 
 
     @Override
-    public void step(Game game, GUI.ACTION action, long time)  {
+    public void step(Game game, List<GUI.ACTION> actions, long time)  {
+
         switch (action) {
             case UP -> getModel().previousEntry();
             case DOWN -> getModel().nextEntry();
