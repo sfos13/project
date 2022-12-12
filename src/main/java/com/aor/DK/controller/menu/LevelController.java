@@ -21,7 +21,7 @@ public class LevelController extends Controller<Level> {
 
     @Override
     public void step(Game game, List<GUI.ACTION> actions, long time) throws IOException {
-        int level= getModel().getLevel();
+        int level = getModel().getLevel();
 
         if (time - lastMovement > 3000){
             run_level(game, level, 1);

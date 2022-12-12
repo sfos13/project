@@ -22,7 +22,7 @@ public class ArenaController extends GameController {
 
     @Override
     public void step(Game game, List<GUI.ACTION> actions, long time) throws IOException {
-        if (actions == GUI.ACTION.QUIT) {
+        if (GUI.ACTION.QUIT == actions) {
             game.setState(new MenuState(new Menu("Start")));
         } else {
             marioController.step(game, actions, time);

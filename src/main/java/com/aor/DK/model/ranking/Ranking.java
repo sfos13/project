@@ -31,4 +31,5 @@ public class Ranking implements Serializable {
         public void sort() {
             list.sort(new RankingElement("A", 0,0));
         }
+
 }
