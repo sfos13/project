@@ -1,11 +1,9 @@
-package com.aor.DK.Viewer.Ranking;
+package com.aor.DK.viewer.ranking;
 
 import com.aor.DK.GUI.GUI;
 import com.aor.DK.Game;
-import com.aor.DK.model.menu.Level;
 import com.aor.DK.model.ranking.Ranking;
 import com.aor.DK.model.ranking.RankingElement;
-import com.aor.DK.states.LevelState;
 
 import javax.swing.*;
 import java.awt.*;
