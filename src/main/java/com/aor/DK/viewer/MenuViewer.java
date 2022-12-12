@@ -1,10 +1,14 @@
 package com.aor.DK.viewer;
 
 import com.aor.DK.GUI.GUI;
+import com.aor.DK.model.ranking.Ranking;
 import com.aor.DK.viewer.Menu.InstructionsViewer;
 import com.aor.DK.viewer.Menu.LostViewer;
 import com.aor.DK.model.Position;
 import com.aor.DK.model.menu.Menu;
+import com.aor.DK.viewer.Ranking.RankingViewer;
+
+import java.io.IOException;
 
 
 public class MenuViewer extends Viewer<Menu> {
@@ -15,7 +19,7 @@ public class MenuViewer extends Viewer<Menu> {
         this.menu=menu;
     }
     @Override
-    public void drawElements(GUI gui) {
+    public void drawElements(GUI gui) throws IOException {
         int y=10;
         int w=40;
         int x=(w-message.length())/2;
@@ -28,6 +32,11 @@ public class MenuViewer extends Viewer<Menu> {
         if (getModel().getMod().equals("Instructions")){
             InstructionsViewer instruct = new InstructionsViewer(menu);
             instruct.drawElements(gui);
+        }
+
+        if(getModel().getMod().equals("Ranking")) {
+            RankingViewer rankingViewer = new RankingViewer(new Ranking());
+            rankingViewer.drawElements(gui);
         }
 
         if (getModel().getMod().equals("Lost")){

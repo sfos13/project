@@ -20,7 +20,7 @@ public class JumpBarrels implements Validation {
     public boolean isValid() {
         int positionMarioY = positionMario.getY();
         int positionMarioX = positionMario.getX();
-        boolean BarrelsCrash = new BarrelsCrash(positionMario, arena).isValid();
+        boolean BarrelsCrash = new Crash(positionMario, arena).isValid();
         if (BarrelsCrash) {
             return false;
         }

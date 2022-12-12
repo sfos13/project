@@ -1,16 +1,24 @@
 package com.aor.DK.model.ranking;
 
-
-import java.io.Serializable;
+import java.io.*;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 
 public class Ranking implements Serializable {
 
-        ArrayList<RankingElement> list;
+        List<RankingElement> list;
 
-        public Ranking() {
+        public Ranking() throws IOException {
             this.list = new ArrayList<>();
+            String line;
+            String splitBy = ",";
+            BufferedReader br = new BufferedReader(new FileReader("scoreboard.csv"));
+            while((line=br.readLine())!=null) {
+                String[] player = line.split(splitBy);
+                list.add(new RankingElement(player[0],Integer.parseInt(player[1])));
+            }
         }
 
         public void addPerson(RankingElement item) {
@@ -24,12 +32,19 @@ public class Ranking implements Serializable {
             this.list = list;
         }
 
-        public ArrayList<RankingElement> getPeople() {
+        public List<RankingElement> getList() {
             return list;
         }
 
         public void sort() {
-            list.sort(new RankingElement("A", 0,0));
+            Collections.sort(list);
         }
 
+    public void save() throws IOException {
+        FileWriter outputFile = new FileWriter("scoreboard.csv");
+        for(RankingElement element : list) {
+            String out = element.name + "," + element.score;
+            outputFile.write(out);
+        }
+    }
 }

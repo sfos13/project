@@ -1,16 +1,15 @@
 package com.aor.DK.model.ranking;
 
 import java.io.Serializable;
-import java.util.Comparator;
 
-public class RankingElement implements Serializable, Comparator<RankingElement> {
+public class RankingElement implements Serializable, Comparable<RankingElement> {
 
     String name;
     int score;
 
-    public RankingElement(String name, int scoreJump, int scoreTime) {
+    public RankingElement(String name, int score) {
         this.name = name.toUpperCase();
-        this.score = scoreJump + scoreTime;
+        this.score = score;
     }
 
     public String getName() {
@@ -27,7 +26,7 @@ public class RankingElement implements Serializable, Comparator<RankingElement> 
 
 
     @Override
-    public int compare(RankingElement p, RankingElement p1) {
-        return Integer.compare(p1.score, p.score);
+    public int compareTo(RankingElement o) {
+        return score - o.score;
     }
 }
