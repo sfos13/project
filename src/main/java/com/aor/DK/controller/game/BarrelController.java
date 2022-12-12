@@ -21,7 +21,7 @@ public class BarrelController extends GameController{
 
     @Override
     public void step(Game game, List<GUI.ACTION> actions, long time) {
-        if(time - lastMovement > 5000) {
+        if(time - lastMovement > 2000) {
             getModel().spawnBarrel();
             lastMovement = time;
         }

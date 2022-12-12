@@ -1,7 +1,7 @@
-package com.aor.DK.Viewer.Ranking;
+package com.aor.DK.model.Viewer.Ranking;
 
 import com.aor.DK.GUI.GUI;
-import com.aor.DK.Viewer.Viewer;
+import com.aor.DK.model.Viewer.Viewer;
 import com.aor.DK.model.ranking.Ranking;
 
 public class RankingViewer extends Viewer<Ranking> {

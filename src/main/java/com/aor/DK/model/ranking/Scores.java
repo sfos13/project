@@ -12,7 +12,6 @@ public class Scores extends Element {
     }
     public void setJumpScore(){
         jumpScore+=100;
-        System.out.println(jumpScore);
     }
 
 

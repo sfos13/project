@@ -1,11 +1,10 @@
-package com.aor.DK.Viewer;
+package com.aor.DK.model.Viewer;
 
 
 import com.aor.DK.GUI.GUI;
 import com.aor.DK.model.Position;
 
 import com.aor.DK.model.menu.Level;
-import com.aor.DK.model.ranking.Scores;
 
 
 public class LevelViewer extends Viewer<Level> {

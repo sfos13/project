@@ -1,7 +1,7 @@
 package com.aor.DK.states;
 
-import com.aor.DK.Viewer.LevelViewer;
-import com.aor.DK.Viewer.Viewer;
+import com.aor.DK.model.Viewer.LevelViewer;
+import com.aor.DK.model.Viewer.Viewer;
 import com.aor.DK.controller.Controller;
 import com.aor.DK.controller.menu.LevelController;
 import com.aor.DK.model.menu.Level;
