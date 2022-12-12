@@ -146,22 +146,6 @@ public class Arena {
 
     public Scores getScores() { return scores;}
 
-    public boolean crash(Position position) {
-        if(getDonkeyKong().getPosition().equals(position)) {
-            return true;
-        }
-        for(Barrel barrel : barrels) {
-            if(barrel.getPosition().equals(position)) {
-                return true;
-            }
-        }
-        for (Fire fire : fireMonsters) {
-            if(fire.getPosition().equals(position)) {
-                return true;
-            }
-        }
-        return false;
-    }
 
     public void setScores(Scores scores) {
         this.scores = scores;

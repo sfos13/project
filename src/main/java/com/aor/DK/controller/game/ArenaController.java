@@ -45,7 +45,6 @@ public class ArenaController extends GameController{
             barrelController.step(game, actions, time);
             fireController.step(game, actions, time);
             manageSwitches();
-
         }
     }
 }

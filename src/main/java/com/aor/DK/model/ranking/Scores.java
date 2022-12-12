@@ -27,7 +27,7 @@ public class Scores extends Element {
         return this.timeScore;
     }
 
-
+    public int getTotal() {return jumpScore+timeScore;}
 
 
 }

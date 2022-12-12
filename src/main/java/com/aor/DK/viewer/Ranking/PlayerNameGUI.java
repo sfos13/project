@@ -1,24 +1,24 @@
 package com.aor.DK.viewer.Ranking;
 
-import com.aor.DK.Game;
+import com.aor.DK.model.arena.Arena;
 import com.aor.DK.model.ranking.Ranking;
 import com.aor.DK.model.ranking.RankingElement;
-import com.aor.DK.states.RankingState;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
+import java.io.IOException;
 
 
 public class PlayerNameGUI extends JFrame {
 
     JFrame frame;
     JTextField textField;
+    Arena arena;
 
-    Game game;
 
-    public PlayerNameGUI(Game game, Arena arena){
-        this.game= game;
+    public PlayerNameGUI(Arena arena){
+        this.arena = arena;
         frame = new JFrame("Name Player");
         JButton button = new JButton("OK");
         button.setBounds(200 ,180,60,50);
@@ -41,18 +41,23 @@ public class PlayerNameGUI extends JFrame {
         frame.setLayout(null);
         frame.setVisible(true);
 
-        button.addActionListener(this::actionButtonOk);
+        button.addActionListener(e -> {
+            try {
+                actionButtonOk(e);
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
+        });
 
     }
 
-    public void actionButtonOk(ActionEvent e){
+    public void actionButtonOk(ActionEvent e) throws IOException {
         String name= textField.getText();
         if (name.equals("")) name="Player";
         frame.setVisible(false);
-        RankingElement rankingElement = new RankingElement(name, 0,0);
-        Ranking ranking =new Ranking();
-        ranking.addPerson(rankingElement);
+        Ranking ranking = new Ranking();
+        ranking.addPerson(new RankingElement(name, arena.getScores().getTotal()));
+        ranking.save();
         frame.dispose();
-        game.setState(new RankingState(ranking));
     }
 }

@@ -23,6 +23,7 @@ public class MarioController extends GameController {
 
     public long lastMovement;
     public long lastTime;
+
     public Mario mario;
 
     public MarioController(Arena arena) {
@@ -35,7 +36,6 @@ public class MarioController extends GameController {
         this.lastTime = System.currentTimeMillis();
         arena.setScores(scores);
         mario = arena.getMario();
-
     }
 
     public void moveMarioLeft() {
@@ -106,8 +106,8 @@ public class MarioController extends GameController {
 
     public void step(Game game, List<GUI.ACTION> actions, long time) {
         boolean isOutOfBonds = new OutOfBonds(positionMario, arena).isValid();
-        boolean isDonkeyKongCrash = new DonkeyCrash(positionMario, arena).isValid();
-        boolean isBarrelsCrash = new BarrelsCrash(positionMario, arena).isValid();
+        boolean isCrash = new Crash(positionMario, arena).isValid();
+        boolean Crash = new Crash(positionMario, arena).isValid();
         boolean checkStairs = new CheckStairs(positionMario, arena).isValid();
         boolean underStairs = new UnderStairs(positionMario, arena).isValid();
 
@@ -136,13 +136,15 @@ public class MarioController extends GameController {
             int level =arena.getLevel();
             if (level==1){game.setState(new LevelState(new Level(level+1)));}
             else{
+                arena.setScores(scores);
                 game.setState(new MenuState(new Menu("Win")));
             }
 
 
         }
 
-        if (isBarrelsCrash || isOutOfBonds || isDonkeyKongCrash) {
+        if (isCrash || isOutOfBonds ) {
+            arena.setScores(scores);
             game.setState(new MenuState(new Menu("Lost")));
         }
 
