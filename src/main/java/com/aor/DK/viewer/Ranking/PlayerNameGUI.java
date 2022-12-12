@@ -1,4 +1,4 @@
-package com.aor.DK.model.Viewer.Ranking;
+package com.aor.DK.viewer.Ranking;
 
 import com.aor.DK.Game;
 import com.aor.DK.model.ranking.Ranking;
@@ -17,7 +17,7 @@ public class PlayerNameGUI extends JFrame {
 
     Game game;
 
-    public PlayerNameGUI(Game game){
+    public PlayerNameGUI(Game game, Arena arena){
         this.game= game;
         frame = new JFrame("Name Player");
         JButton button = new JButton("OK");

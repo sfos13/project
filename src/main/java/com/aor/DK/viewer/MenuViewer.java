@@ -1,9 +1,9 @@
-package com.aor.DK.model.Viewer;
+package com.aor.DK.viewer;
 
 import com.aor.DK.GUI.GUI;
-import com.aor.DK.model.Viewer.Menu.LostViewer;
+import com.aor.DK.viewer.Menu.InstructionsViewer;
+import com.aor.DK.viewer.Menu.LostViewer;
 import com.aor.DK.model.Position;
-import com.aor.DK.model.Viewer.Menu.InstructionsViewer;
 import com.aor.DK.model.menu.Menu;
 
 
