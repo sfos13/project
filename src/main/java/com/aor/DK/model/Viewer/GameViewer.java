@@ -1,6 +1,8 @@
-package com.aor.DK.viewer;
+package com.aor.DK.model.Viewer;
 
 import com.aor.DK.GUI.GUI;
+
+import com.aor.DK.model.Position;
 import com.aor.DK.model.arena.Arena;
 import com.aor.DK.model.elements.Element;
 import com.aor.DK.model.elements.Floor;
@@ -22,6 +24,10 @@ public class GameViewer extends Viewer<Arena> {
         drawElement(gui, getModel().getMario(), new MarioViewer());
         drawElement(gui, getModel().getDonkeyKong(), new DonkeyKongViewer());
         drawElement(gui, getModel().getPrincess(), new PrincessViewer());
+        drawElements(gui, getModel().getFireMonsters(), new FireViewer());
+        drawElements(gui, getModel().getSwitches(),new SwitchViewer());
+        gui.drawLevel(new Position(36,1),1);
+        gui.drawScores(new Position(0,1),getModel().getScores().getJumpScore(),getModel().getScores().getTimeScore());
 
     }
 

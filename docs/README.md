@@ -150,7 +150,7 @@ Abstract Class:
 Examples of subclasses:
 
 - [MenuViewer](../java/com/aor/DK/Viewer/MenuViewer.java)
-- [BarrelViewer](../java/com/aor/DK/Viewer/BarrelViewer.java)
+- [com.aor.DK.viewer.BarrelViewer](../java/com/aor/DK/Viewer/com.aor.DK.viewer.BarrelViewer.java)
 
 **Consequences**
 

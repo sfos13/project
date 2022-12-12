@@ -1,7 +1,7 @@
 package com.aor.DK.states;
 
-import com.aor.DK.viewer.MenuViewer;
-import com.aor.DK.viewer.Viewer;
+import com.aor.DK.model.Viewer.MenuViewer;
+import com.aor.DK.model.Viewer.Viewer;
 import com.aor.DK.controller.Controller;
 import com.aor.DK.controller.menu.MenuController;
 import com.aor.DK.model.menu.Menu;
@@ -12,12 +12,12 @@ public class MenuState extends State<Menu> {
     }
 
     @Override
-    protected Viewer<Menu> getViewer() {
+    public Viewer<Menu> getViewer() {
         return new MenuViewer(getModel());
     }
 
     @Override
-    protected Controller<Menu> getController() {
+    public Controller<Menu> getController() {
         return new MenuController(getModel());
     }
 }
