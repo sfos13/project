@@ -13,8 +13,10 @@ class ArenaControllerTest extends Specification{
         def game = Mock(Game.class)
         def arena = new Arena(10, 10)
         def arenaController = new ArenaController(arena)
+        def guiList = new ArrayList<GUI.ACTION>()
+        guiList.add(GUI.ACTION.QUIT)
         when:
-        arenaController.step(game, GUI.ACTION.QUIT,0)
+        arenaController.step(game, guiList,0)
         then:
         1 * game.setState(_);
    }
