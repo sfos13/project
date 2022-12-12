@@ -39,6 +39,9 @@ public class MenuController extends Controller<Menu> {
                             game.setState(new LevelState(new Level(1)));
 
                         }
+                        if (getModel().isSelected_String("New Game?")) {
+                            game.setState(new LevelState(new Level(1)));
+                        }
                         if (getModel().isSelected_String("Instructions"))game.setState(new MenuState(new Menu("Instructions")));
                     }
                 }
