@@ -22,6 +22,7 @@ public class MarioController extends GameController {
     public Scores scores;
 
     public long lastMovement;
+    public long lastTime;
     public Mario mario;
 
     public MarioController(Arena arena) {
@@ -31,6 +32,7 @@ public class MarioController extends GameController {
         scores = new Scores(0, 1);
         scores.setTimeScore();
         this.lastMovement = System.currentTimeMillis();
+        this.lastTime = System.currentTimeMillis();
         arena.setScores(scores);
         mario = arena.getMario();
 
@@ -109,8 +111,8 @@ public class MarioController extends GameController {
         boolean checkStairs = new CheckStairs(positionMario, arena).isValid();
         boolean underStairs = new UnderStairs(positionMario, arena).isValid();
 
-
-        if(time-lastMovement>70){
+        if(time-lastTime>70){
+            lastTime=time;
             if (actions.contains(GUI.ACTION.UP)) {
                     if (checkStairs) {moveMarioUp();}
                 }
