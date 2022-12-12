@@ -4,6 +4,7 @@ package com.aor.DK.GUI;
 //import com.aor.hero.model.Position;
 
 import com.aor.DK.model.Position;
+import com.googlecode.lanterna.TerminalPosition;
 import com.googlecode.lanterna.TerminalSize;
 import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
@@ -154,5 +155,9 @@ public class LanternaGUI implements GUI {
 
     public void close(Screen screen) throws IOException {
         screen.close();
+    }
+
+    public Screen getScreen(){
+        return screen;
     }
 }
