@@ -2,6 +2,7 @@ package com.aor.DK.model.arena;
 
 import com.aor.DK.model.Position;
 import com.aor.DK.model.elements.*;
+import com.aor.DK.model.ranking.Scores;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,9 +19,10 @@ public class Arena {
     private List<List<Floor>> floor;
     private List<Stair> stairs;
 
-    private Scores scores;
 
-    private Level level;
+    private Scores scores;
+    private LV lv;
+
 
     public Arena(int width, int height) {
         this.width = width;
@@ -111,19 +113,20 @@ public class Arena {
     }
 
 
-    public void setScores(Scores scores) {
-        this.scores=scores;
+
+    public void setLevelPosition(LV level) {
+        this.lv=level;
     }
 
-    public void setLevelPosition(Level level) {
-        this.level=level;
+    public LV getLevelPosition() {
+        return lv;
     }
 
-    public Level getLevelPosition() {
-        return level;
+
+    public Scores getScores() { return scores;}
+
+    public void setScores(Scores scores){
+        this.scores= scores;
     }
 
-    public Scores getScores() {
-        return scores;
-    }
 }

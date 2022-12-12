@@ -1,6 +1,7 @@
 package com.aor.DK.GUI;
 
 import com.aor.DK.model.Position;
+import com.aor.DK.model.ranking.Scores;
 
 import java.awt.*;
 import java.io.IOException;
@@ -26,7 +27,7 @@ public interface GUI {
     void drawText(Position position, String text, String color);
 
 
-    void drawScores(Position position, int highScore, int bonusScore, int jumpScore);
+    void drawScores(Position position, int jumpScore, int timeScore );
 
     void drawLevel(Position position, int level) ;
 

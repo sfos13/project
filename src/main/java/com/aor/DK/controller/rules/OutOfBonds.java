@@ -3,7 +3,7 @@ package com.aor.DK.controller.rules;
 import com.aor.DK.model.Position;
 import com.aor.DK.model.arena.Arena;
 
-public class OutOfBonds implements MarioValidation{
+public class OutOfBonds implements Validation {
     Position positionMario;
     int width;
 

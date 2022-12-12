@@ -6,7 +6,7 @@ import com.aor.DK.model.elements.Floor;
 
 import java.util.List;
 
-public class OnFloor implements MarioValidation {
+public class OnFloor implements Validation {
     Position positionMario;
     List<List<Floor>> floors;
 

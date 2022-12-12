@@ -6,7 +6,7 @@ import com.aor.DK.model.elements.Barrel;
 
 import java.util.List;
 
-public class BarrelsCrash implements MarioValidation{
+public class BarrelsCrash implements Validation {
     Position positionMario;
 
     List<Barrel> barrels;

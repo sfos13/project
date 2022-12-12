@@ -2,7 +2,7 @@ package com.aor.DK.controller.rules;
 import com.aor.DK.model.Position;
 import com.aor.DK.model.arena.Arena;
 
-public class DonkeyCrash implements MarioValidation {
+public class DonkeyCrash implements Validation {
 
     Position positionDonkey;
     Position positionMario;

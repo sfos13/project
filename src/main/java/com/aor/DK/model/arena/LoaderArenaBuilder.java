@@ -2,6 +2,7 @@ package com.aor.DK.model.arena;
 
 import com.aor.DK.model.Position;
 import com.aor.DK.model.elements.*;
+import com.aor.DK.model.ranking.Scores;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -119,14 +120,11 @@ public class LoaderArenaBuilder extends ArenaBuilder {
         return null;
     }
     @Override
-    protected Level createLevel(){
-            return new Level(36,1);
+    protected LV createLevel(){
+            return new LV(36,1);
     }
 
-    @Override
-    protected Scores createScores(){
-        return new Scores(0,0);
 
-    }
+
 
 }

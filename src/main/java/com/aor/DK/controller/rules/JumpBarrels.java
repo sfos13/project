@@ -5,7 +5,7 @@ import com.aor.DK.model.arena.Arena;
 import com.aor.DK.model.elements.Barrel;
 import java.util.List;
 
-public class JumpBarrels implements MarioValidation {
+public class JumpBarrels implements Validation {
     Position positionMario;
     Arena arena;
     List<Barrel> barrels;

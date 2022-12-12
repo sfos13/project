@@ -10,7 +10,7 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 
-public class ArenaController extends GameController {
+public class ArenaController extends GameController{
     private final MarioController marioController;
     private final BarrelController barrelController;
 
@@ -27,6 +27,7 @@ public class ArenaController extends GameController {
         else {
             marioController.step(game, actions, time);
             barrelController.step(game, actions, time);
+
         }
     }
 }

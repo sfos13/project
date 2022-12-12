@@ -1,12 +1,14 @@
-package com.aor.DK.Viewer.NameRanking;
+package com.aor.DK.Viewer.Ranking;
 
-import com.aor.DK.model.ranking.Ranking;
-import com.aor.DK.model.ranking.ScoresDatabase;
+import com.aor.DK.GUI.GUI;
+import com.aor.DK.Game;
+import com.aor.DK.model.menu.Level;
+import com.aor.DK.states.LevelState;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.Font;
-
 
 
 public class PlayerNameGUI extends JFrame {
@@ -14,7 +16,11 @@ public class PlayerNameGUI extends JFrame {
     JFrame frame;
     JTextField textField;
 
-    public PlayerNameGUI(){
+    Game game;
+    GUI gui;
+
+    public PlayerNameGUI(Game game){
+        this.game= game;
         frame = new JFrame("Name Player");
         JButton button = new JButton("OK");
         button.setBounds(200 ,180,60,50);
@@ -44,11 +50,8 @@ public class PlayerNameGUI extends JFrame {
     public void actionButtonOk(ActionEvent e){
         String name= textField.getText();
         if (name.equals("")) name="Player";
-        ScoresDatabase scoresDatabase = new ScoresDatabase();
-        Ranking scores = new Ranking(name, scoresDatabase);
-
         frame.setVisible(false);
-
+        frame.dispose();
 
     }
 }

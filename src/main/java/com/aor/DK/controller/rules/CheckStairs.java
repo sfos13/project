@@ -6,7 +6,7 @@ import com.aor.DK.model.elements.Stair;
 
 import java.util.List;
 
-public class CheckStairs implements MarioValidation {
+public class CheckStairs implements Validation {
 
     Position positionMario;
     List<Stair> stairs;

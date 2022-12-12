@@ -3,7 +3,7 @@ package com.aor.DK.controller.rules;
 import com.aor.DK.model.Position;
 import com.aor.DK.model.arena.Arena;
 
-public class UnderStairs implements MarioValidation{
+public class UnderStairs implements Validation {
 
     Arena arena;
     Position positionMario;

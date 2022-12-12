@@ -136,24 +136,22 @@ public class LanternaGUI implements GUI {
 
 
 
-    @Override
-    public void drawScores(Position position, int highScore, int bonusScore, int jumpScore) {
-        int x=position.getX();
-        int y=position.getY();
 
-        //drawText(position,"Bonus Score","#ff57ff");
-        //drawText(new Position(x,y+2), String.valueOf(bonusScore),"#ff57ff" );
-        //drawText(new Position(x+5,y),"High Score","#ff57ff");
-        //drawText(new Position(x+5,y+2), String.valueOf(highScore),"#ff57ff" );
-        //drawText(new Position(x+10,y),"Jump Score","#ff57ff");
-        //drawText(new Position(x+10,y+2), String.valueOf(jumpScore),"#ff57ff" );
-    }
 
     @Override
     public void drawLevel(Position position, int level) {
         drawText(position,"L="+level,"#3F50EB" );
 
+    }
 
+    public void drawScores(Position position,int jumpScore, int timeScore) {
+        int x=position.getX();
+        int y=position.getY();
+
+        drawText(position,"Time","#ff57ff");
+        drawText(new Position(x,y+1), String.valueOf(timeScore),"#ff57ff" );
+        drawText(new Position(x+10,y),"Jump Score","#ff57ff");
+        drawText(new Position(x+10,y+1), String.valueOf(jumpScore),"#ff57ff" );
     }
 
 

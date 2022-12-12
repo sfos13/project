@@ -2,6 +2,7 @@ package com.aor.DK.model.arena;
 
 import com.aor.DK.model.Position;
 import com.aor.DK.model.elements.*;
+import com.aor.DK.model.ranking.Scores;
 
 import java.util.List;
 
@@ -15,7 +16,7 @@ public abstract class ArenaBuilder {
         arena.setDonkeyKong(createDonkeyKong());
         arena.setPrincess(createPrincess());
         arena.setSpawnBarrelPosition(getSpawnBarrelPosition());
-        arena.setScores(createScores());
+        arena.setScores(arena.getScores());
 
 
         return arena;
@@ -30,7 +31,8 @@ public abstract class ArenaBuilder {
     protected abstract Princess createPrincess();
     protected abstract Position getSpawnBarrelPosition();
 
-    protected abstract Level createLevel();
+    protected abstract LV createLevel();
 
-    protected abstract Scores createScores();
+
+
 }

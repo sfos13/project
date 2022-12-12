@@ -8,7 +8,7 @@ import com.aor.DK.model.arena.Arena;
 import com.aor.DK.model.elements.Mario;
 import com.aor.DK.model.menu.Level;
 import com.aor.DK.model.menu.Menu;
-import com.aor.DK.model.ranking.ScoresDatabase;
+import com.aor.DK.model.ranking.Scores;
 import com.aor.DK.states.LevelState;
 import com.aor.DK.states.MenuState;
 import java.util.List;
@@ -17,15 +17,22 @@ public class MarioController extends GameController {
     public Arena arena;
     public Position positionMario;
 
-    public ScoresDatabase scoresDatabase = new ScoresDatabase();
+    public Scores scores;
 
-
+    public long lastMovement;
     public MarioController(Arena arena) {
         super(arena);
         this.arena=arena;
         this.positionMario=arena.getMario().getPosition();
+        scores= new Scores(0,1);
+        scores.setTimeScore();
+        this.lastMovement = System.currentTimeMillis();
+        arena.setScores(scores);
 
     }
+
+
+
 
     public void moveMarioLeft() {
         moveMario(positionMario.getLeft());
@@ -45,7 +52,6 @@ public class MarioController extends GameController {
 
     private void moveMario(Position position) {
         boolean isOutOfBonds= new OutOfBonds(positionMario, arena).isValid();
-
         if (!isOutOfBonds ){
             positionMario=position;
             getModel().getMario().setPosition(position);
@@ -62,7 +68,7 @@ public class MarioController extends GameController {
             positionMario.setY(positionMario.getY()-2);
             getModel().getMario().setPosition(positionMario);
             if (isJumpingBarrels) {
-                scoresDatabase.setJumpScore();
+                scores.setJumpScore();
 
             }
         }
@@ -127,6 +133,10 @@ public class MarioController extends GameController {
         }
         if(isBarrelsCrash||isOutOfBonds||isDonkeyKongCrash ) {
             game.setState(new MenuState(new Menu("Lost")));
+        }
+        if (time - lastMovement > 3000) {
+            scores.setTimeScore();
+            lastMovement = time;
         }
 
     }

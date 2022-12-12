@@ -1,7 +1,7 @@
 package com.aor.DK.controller.rules;
 
 
-public interface MarioValidation {
+public interface Validation {
 
     public abstract boolean isValid();
 }
