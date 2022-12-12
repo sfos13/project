@@ -118,23 +118,9 @@ public class LoaderArenaBuilder extends ArenaBuilder {
         }
         return null;
     }
+    @Override
+    protected Level createLevel(){
+            return new Level(36,1);
+    }
 
-    @Override
-    protected Position getSpawnFirePosition1() {
-        for (int y = 0; y < lines.size(); y++) {
-            String line = lines.get(y);
-            for (int x = 0; x < line.length(); x++)
-                if (line.charAt(x) == '1') return new Position(x, y);
-        }
-        return null;
-    }
-    @Override
-    protected Position getSpawnFirePosition2() {
-        for (int y = 0; y < lines.size(); y++) {
-            String line = lines.get(y);
-            for (int x = 0; x < line.length(); x++)
-                if (line.charAt(x) == '2') return new Position(x, y);
-        }
-        return null;
-    }
 }

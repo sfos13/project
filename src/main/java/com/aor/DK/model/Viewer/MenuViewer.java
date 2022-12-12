@@ -1,10 +1,10 @@
-package com.aor.DK.Viewer;
-import com.aor.DK.GUI.GUI;
-import com.aor.DK.Viewer.Menu.InstructionsViewer;
-import com.aor.DK.Viewer.Menu.LostViewer;
-import com.aor.DK.model.Position;
-import com.aor.DK.model.menu.Menu;
+package com.aor.DK.model.Viewer;
 
+import com.aor.DK.GUI.GUI;
+import com.aor.DK.model.Viewer.Menu.LostViewer;
+import com.aor.DK.model.Position;
+import com.aor.DK.model.Viewer.Menu.InstructionsViewer;
+import com.aor.DK.model.menu.Menu;
 
 
 public class MenuViewer extends Viewer<Menu> {
@@ -22,7 +22,7 @@ public class MenuViewer extends Viewer<Menu> {
         gui.drawText(new Position(x, y), message, "#FFFFFF");
         for (int i = 0; i < getModel().getNumberEntries(); i++) {
             x=(w-getModel().getEntry(i).length())/2;
-            gui.drawText(new Position(x, y + 2 + i*2), getModel().getEntry(i), getModel().isSelected_Number(i) ? "#FFD700" : "#FFFFFF");
+            gui.drawText(new Position(x, y + 2 + i*2), getModel().getEntry(i), getModel().isSelected_Number(i) ? "#E6003C" : "#FFFFFF");
         }
 
         if (getModel().getMod().equals("Instructions")){
@@ -34,9 +34,6 @@ public class MenuViewer extends Viewer<Menu> {
             LostViewer lost = new LostViewer(menu);
             lost.drawElements(gui);
         }
-
-
-
 
     }
 

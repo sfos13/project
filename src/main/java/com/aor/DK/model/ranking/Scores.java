@@ -1,27 +1,33 @@
 package com.aor.DK.model.ranking;
 
-public class Scores implements Observer{
-    private int timeScore;
-    private int jumpScore;
-    private int attackScore;
 
-    private String player;
+import com.aor.DK.model.elements.Element;
 
-    private Subject resultData;
+public class Scores extends Element {
+    int jumpScore;
+    int timeScore=5100;
+    public Scores(int x, int y) {
 
-    public Scores(String player, Subject resultData){
-        this.player= player;
-        this.resultData=resultData;
-        this.resultData.registerObserver(this);
+        super(x, y);
+    }
+    public void setJumpScore(){
+        jumpScore+=100;
     }
 
-    @Override
-    public void update(int timeScore, int jumpScore, int attackScore) {
-        this.timeScore = timeScore;
-        this.jumpScore=jumpScore;
-        this.attackScore=attackScore;
-        //refresh
+
+    public void setTimeScore(){
+        this.timeScore-=100;
+
     }
+    public int getJumpScore(){
+        return this.jumpScore;
+    }
+
+    public int getTimeScore(){
+        return this.timeScore;
+    }
+
+
 
 
 }

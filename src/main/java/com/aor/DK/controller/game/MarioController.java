@@ -2,99 +2,147 @@ package com.aor.DK.controller.game;
 
 import com.aor.DK.GUI.GUI;
 import com.aor.DK.Game;
+import com.aor.DK.controller.rules.*;
 import com.aor.DK.model.Position;
 import com.aor.DK.model.arena.Arena;
 import com.aor.DK.model.elements.Mario;
 import com.aor.DK.model.menu.Menu;
+import com.aor.DK.model.ranking.RankingElement;
+import com.aor.DK.model.ranking.Scores;
 import com.aor.DK.states.MenuState;
 
-public class MarioController extends GameController {
+import java.util.List;
 
+public class MarioController extends GameController {
+    public Arena arena;
+    public Position positionMario;
+
+    public Scores scores;
+
+    public long lastMovement;
     public MarioController(Arena arena) {
         super(arena);
+        this.arena=arena;
+        this.positionMario=arena.getMario().getPosition();
+        scores= new Scores(0,1);
+        scores.setTimeScore();
+        this.lastMovement = System.currentTimeMillis();
+        arena.setScores(scores);
     }
 
+
+
+
     public void moveMarioLeft() {
-        moveMario(getModel().getMario().getPosition().getLeft());
+        moveMario(positionMario.getLeft());
     }
 
     public void moveMarioRight() {
-        moveMario(getModel().getMario().getPosition().getRight());
+        moveMario(positionMario.getRight());
     }
 
     public void moveMarioUp() {
-        moveMario(getModel().getMario().getPosition().getUp());
+        moveMario(positionMario.getUp());
     }
 
     public void moveMarioDown() {
-        moveMario(getModel().getMario().getPosition().getDown());
+        moveMario(positionMario.getDown());
     }
 
     private void moveMario(Position position) {
-        if (!getModel().outOfBounds(position) || getModel().checkStairs(getModel().getMario().getPosition())) {
+        boolean isOutOfBonds= new OutOfBonds(positionMario, arena).isValid();
+        if (!isOutOfBonds ){
+            positionMario=position;
             getModel().getMario().setPosition(position);
         }
     }
 
 
     private void jumpMario() {
-        if (getModel().isOnFloor(getModel().getMario().getPosition()) && !getModel().checkStairs(getModel().getMario().getPosition())) {
-            Position position = getModel().getMario().getPosition();
-            position.setY(position.getY() - 2);
-            getModel().getMario().setPosition(position);
+        boolean isOnFloor= new OnFloor(positionMario,arena).isValid();
+        boolean checkStairs = new CheckStairs(positionMario,arena).isValid();
+        boolean isJumpingBarrels = new JumpBarrels(positionMario,arena).isValid();
 
+        if (isOnFloor && !checkStairs) {
+            positionMario.setY(positionMario.getY()-2);
+            getModel().getMario().setPosition(positionMario);
+            if (isJumpingBarrels) {
+                scores.setJumpScore();
+
+            }
         }
+
     }
     private void gravityPush() {
-        if(!getModel().isOnFloor(getModel().getMario().getPosition()) && !getModel().checkStairs(getModel().getMario().getPosition())) {
-            Mario mario = getModel().getMario();
-            moveMario(new Position(mario.getPosition().getX(),mario.getPosition().getY()+(int)mario.getVy()));
-            float GRAVITY = 0.25f;
+        boolean isOnFloor= new OnFloor(positionMario,arena).isValid();
+        boolean checkStairs = new CheckStairs(positionMario,arena).isValid();
+
+        float GRAVITY = 0.5f;
+        if(!isOnFloor && !checkStairs) {
+            Mario mario = arena.getMario();
+            Position position = new Position(positionMario.getX(), positionMario.getY()+(int)mario.getVy());
+            moveMario(position);
             mario.incrementVy(GRAVITY);
+
         }
         else{
-            getModel().getMario().setVy(0);
+            arena.getMario().setVy(0);
         }
     }
-    @Override
-    public void step(Game game, GUI.ACTION action, long time) {
 
-        if (action == GUI.ACTION.UP) {
-            if(getModel().checkStairs(getModel().getMario().getPosition())) {
-                moveMarioUp();
-            }
-        }
-
-        if (action == GUI.ACTION.DOWN) {
-            if (getModel().checkUnderStairs(getModel().getMario().getPosition())) {
-                moveMarioDown();
-            }
-        }
-        if (action == GUI.ACTION.LEFT) {
-          moveMarioLeft();
-        }
-
-        if ((action == GUI.ACTION.RIGHT) && !getModel().outOfBounds(getModel().getMario().getPosition())){
-            moveMarioRight();
-        }
-
-        if (action == GUI.ACTION.SPACE) jumpMario();
+    public void step(Game game, List<GUI.ACTION> actions, long time){
+        boolean isOutOfBonds= new OutOfBonds(positionMario, arena).isValid();
+        boolean isDonkeyKongCrash = new DonkeyCrash(positionMario,arena).isValid();
+        boolean isBarrelsCrash = new BarrelsCrash(positionMario, arena).isValid();
+        boolean checkStairs = new CheckStairs(positionMario,arena).isValid();
+        boolean underStairs = new UnderStairs(positionMario, arena).isValid();
 
         gravityPush();
 
-        if((getModel().barrelCrash(getModel().getMario().getPosition()))
-                || getModel().outOfBounds(getModel().getMario().getPosition())
-                || getModel().crashDonkeyKong(getModel().getMario().getPosition()))  {
+        for (GUI.ACTION action : actions) {
+            if (action == GUI.ACTION.UP) {
+                if(checkStairs) {
+                    moveMarioUp();
+                }
+            }
+
+            if (action == GUI.ACTION.DOWN) {
+                if (underStairs) {
+                    moveMarioDown();
+                }
+            }
+            if (action == GUI.ACTION.LEFT) {
+                moveMarioLeft();
+            }
+
+            if ((action == GUI.ACTION.RIGHT) && !isOutOfBonds){
+                moveMarioRight();
+            }
+
+            if (action == GUI.ACTION.SPACE) jumpMario();
+
+
+            Position positionPrincess= getModel().getPrincess().getPosition();
+            int winFloor = getModel().getFloorNumber(positionPrincess);
+
+            if(getModel().getFloorNumber(positionMario)==winFloor){
+                game.setState(new MenuState(new Menu("Win")));
+
+                RankingElement rankingElement = new RankingElement(action.name(), scores.getJumpScore(), scores.getTimeScore());
+
+
+            }
+
+        }
+        if(isBarrelsCrash||isOutOfBonds||isDonkeyKongCrash ) {
             game.setState(new MenuState(new Menu("Lost")));
+        }
+        if (time - lastMovement > 3000) {
+            scores.setTimeScore();
+            lastMovement = time;
         }
 
-        int winFloor = getModel().getFloorNumber(getModel().getPrincess().getPosition());
-        if(getModel().getFloorNumber(getModel().getMario().getPosition())==winFloor){
-            game.setState(new MenuState(new Menu("Lost")));
-        }
     }
-
-
 
 
 }

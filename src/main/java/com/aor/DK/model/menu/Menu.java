@@ -16,12 +16,12 @@ public class Menu{
             this.message = "Donkey Kong";
         }
         if (mod.equals("Win")) {
-            this.entries = Arrays.asList("Play again?", "Exit");
+            this.entries = Arrays.asList("Play again?", "Register Score", "Exit");
             this.message = "Congratulations! You won the game!";
         }
         if (mod.equals("Lost")) {
-            this.entries = Arrays.asList("New Game?", "Instructions", "Exit");
-            this.message = "Try again! It's just a Donkey Kong";
+            this.entries = Arrays.asList("New Game?", "Register Score", "Instructions", "Exit");
+            this.message = "Try again! Its just a Donkey Kong";
         }
         if (mod.equals("Instructions")) {
             this.entries = Arrays.asList("Start", "Exit");
