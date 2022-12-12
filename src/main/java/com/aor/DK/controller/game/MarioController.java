@@ -8,13 +8,11 @@ import com.aor.DK.model.arena.Arena;
 import com.aor.DK.model.elements.Mario;
 import com.aor.DK.model.menu.Level;
 import com.aor.DK.model.menu.Menu;
-import com.aor.DK.model.ranking.Ranking;
-import com.aor.DK.model.ranking.RankingElement;
 import com.aor.DK.model.ranking.Scores;
 import com.aor.DK.states.LevelState;
 import com.aor.DK.states.MenuState;
 
-import java.util.Arrays;
+
 import java.util.List;
 
 public class MarioController extends GameController {
@@ -24,6 +22,7 @@ public class MarioController extends GameController {
     public Scores scores;
 
     public long lastMovement;
+    public Mario mario;
 
     public MarioController(Arena arena) {
         super(arena);
@@ -33,23 +32,34 @@ public class MarioController extends GameController {
         scores.setTimeScore();
         this.lastMovement = System.currentTimeMillis();
         arena.setScores(scores);
+        mario = arena.getMario();
 
     }
 
     public void moveMarioLeft() {
+
         moveMario(positionMario.getLeft());
+        mario.movingLeft();
     }
 
     public void moveMarioRight() {
+
         moveMario(positionMario.getRight());
+        mario.movingRight();
+
     }
 
     public void moveMarioUp() {
+
         moveMario(positionMario.getUp());
+        mario.climbingStairs();
+
+
     }
 
     public void moveMarioDown() {
         moveMario(positionMario.getDown());
+        mario.climbingStairs();
     }
 
     private void moveMario(Position position) {
@@ -80,7 +90,6 @@ public class MarioController extends GameController {
     private void gravityPush() {
         boolean isOnFloor = new OnFloor(positionMario, arena).isValid();
         boolean checkStairs = new CheckStairs(positionMario, arena).isValid();
-
         float GRAVITY = 0.25f;
         if (!isOnFloor && !checkStairs) {
             Mario mario = arena.getMario();
@@ -100,49 +109,48 @@ public class MarioController extends GameController {
         boolean checkStairs = new CheckStairs(positionMario, arena).isValid();
         boolean underStairs = new UnderStairs(positionMario, arena).isValid();
 
+
+        if(time-lastMovement>70){
+            if (actions.contains(GUI.ACTION.UP)) {
+                    if (checkStairs) {moveMarioUp();}
+                }
+            if (actions.contains(GUI.ACTION.DOWN)) {
+                    if (underStairs) {moveMarioDown();}
+                }
+            if  (actions.contains(GUI.ACTION.LEFT)) {moveMarioLeft();}
+
+            if (actions.contains(GUI.ACTION.RIGHT)) {moveMarioRight();}
+
+            if ((actions.contains(GUI.ACTION.SPACE))){ jumpMario();}
+
+            }
+
         gravityPush();
 
-        for (GUI.ACTION action : actions) {
-            if (action == GUI.ACTION.UP) {
-                if (checkStairs) {
-                    moveMarioUp();
-                }
-            }
+        Position positionPrincess = getModel().getPrincess().getPosition();
+        int winFloor = getModel().getFloorNumber(positionPrincess);
 
-            if (action == GUI.ACTION.DOWN) {
-                if (underStairs) {
-                    moveMarioDown();
-                }
-            }
-            if (action == GUI.ACTION.LEFT) {
-                moveMarioLeft();
-            }
-
-            if ((action == GUI.ACTION.RIGHT) && !isOutOfBonds) {
-                moveMarioRight();
-            }
-
-            if (action == GUI.ACTION.SPACE) jumpMario();
-
-
-            Position positionPrincess = getModel().getPrincess().getPosition();
-            int winFloor = getModel().getFloorNumber(positionPrincess);
-
-            if (getModel().getFloorNumber(positionMario) == winFloor) {
+        if (getModel().getFloorNumber(positionMario) == winFloor) {
+            int level =arena.getLevel();
+            if (level==1){game.setState(new LevelState(new Level(level+1)));}
+            else{
                 game.setState(new MenuState(new Menu("Win")));
-
-
             }
+
 
         }
+
         if (isBarrelsCrash || isOutOfBonds || isDonkeyKongCrash) {
             game.setState(new MenuState(new Menu("Lost")));
         }
+
+
+
         if (time - lastMovement > 3000) {
             scores.setTimeScore();
             lastMovement = time;
         }
 
-
     }
 }
+

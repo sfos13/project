@@ -3,6 +3,8 @@ package com.aor.DK.controller.game;
 
 import com.aor.DK.GUI.GUI;
 import com.aor.DK.Game;
+import com.aor.DK.controller.rules.OnFloor;
+import com.aor.DK.controller.rules.UnderStairs;
 import com.aor.DK.model.Position;
 import com.aor.DK.model.arena.Arena;
 import com.aor.DK.model.elements.Fire;
@@ -65,9 +67,11 @@ public class FireController extends GameController {
         // move fires
         if (time - lastMovement > 1000) {
             for (Fire fire : getModel().getFireMonsters()) {
-                boolean isOnStairs = getModel().checkStairs(fire.getPosition());
-                boolean isOverStairs = getModel().checkUnderStairs(fire.getPosition());
-                boolean isOnFloor = getModel().isOnFloor(fire.getPosition());
+                Arena arena =getModel();
+                Position positionFire = fire.getPosition();
+                boolean isOnStairs = arena.checkStairs(positionFire);
+                boolean isOverStairs = new UnderStairs(positionFire,arena).isValid();
+                boolean isOnFloor = new OnFloor(positionFire,arena).isValid();
 
                 // go up
                 if (isOnStairs && (fire.isSmart() || fire.getDirection().equals("up")) && !fire.getDirection().equals("down")) {

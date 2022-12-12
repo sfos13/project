@@ -17,7 +17,6 @@ public class Scores extends Element {
 
     public void setTimeScore(){
         this.timeScore-=100;
-        System.out.println(timeScore);
 
     }
     public int getJumpScore(){

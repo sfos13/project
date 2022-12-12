@@ -56,7 +56,6 @@ public class PlayerNameGUI extends JFrame {
         RankingElement rankingElement = new RankingElement(name, 0,0);
         Ranking ranking =new Ranking();
         ranking.addPerson(rankingElement);
-        game.setState(new LevelState(new Level(1)));
         frame.dispose();
     }
 }
