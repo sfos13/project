@@ -65,17 +65,17 @@ public class MarioController extends GameController {
     }
     @Override
     public void step(Game game, List<GUI.ACTION> actions, long time) {
-
+        Position marioPos = getModel().getMario().getPosition();
         if (time-lastRegistered>70){
             if (actions.contains(GUI.ACTION.UP)) {
-                if (getModel().checkStairs(getModel().getMario().getPosition())) {
+                if (getModel().checkStairs(marioPos)) {
                     moveMarioUp();
                     getModel().getMario().climbingStairs();
                 }
             }
 
             if (actions.contains(GUI.ACTION.DOWN)) {
-                if (getModel().checkUnderStairs(getModel().getMario().getPosition())) {
+                if (getModel().checkUnderStairs(marioPos)) {
                     moveMarioDown();
                     getModel().getMario().climbingStairs();
                 }
@@ -97,18 +97,13 @@ public class MarioController extends GameController {
         }
         gravityPush();
 
-        if((getModel().crash(getModel().getMario().getPosition()))
-                || getModel().outOfBounds(getModel().getMario().getPosition()))  {
+        if (getModel().crash(marioPos) || getModel().outOfBounds(marioPos))  {
             game.setState(new MenuState(new Menu(Arrays.asList("Try again", "Exit"), "\t\t  You lost!")));
         }
 
         int winFloor = getModel().getFloorNumber(getModel().getPrincess().getPosition());
-        if(getModel().getFloorNumber(getModel().getMario().getPosition())==winFloor){
+        if (getModel().getFloorNumber(marioPos)==winFloor){
             game.setState(new MenuState(new Menu(Arrays.asList("Play again", "Exit"), "\t\t  You won!")));
         }
     }
-
-
-
-
 }
