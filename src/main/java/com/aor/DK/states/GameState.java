@@ -1,8 +1,8 @@
 package com.aor.DK.states;
 
 
-import com.aor.DK.viewer.GameViewer;
-import com.aor.DK.viewer.Viewer;
+import com.aor.DK.model.Viewer.GameViewer;
+import com.aor.DK.model.Viewer.Viewer;
 import com.aor.DK.controller.Controller;
 import com.aor.DK.controller.game.ArenaController;
 import com.aor.DK.model.arena.Arena;
@@ -13,12 +13,12 @@ public class GameState extends State<Arena> {
     }
 
     @Override
-    protected Viewer<Arena> getViewer() {
+    public Viewer<Arena> getViewer() {
         return new GameViewer(getModel());
     }
 
     @Override
-    protected Controller<Arena> getController() {
+    public Controller<Arena> getController() {
         return new ArenaController(getModel());
     }
 }

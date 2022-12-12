@@ -2,6 +2,7 @@ package com.aor.DK.model.arena;
 
 import com.aor.DK.model.Position;
 import com.aor.DK.model.elements.*;
+import com.aor.DK.model.ranking.Scores;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,6 +24,12 @@ public class Arena {
     private List<Fire> fireMonsters;
     private boolean spawnFlag;
     private List<Switch> switches;
+
+
+    private Scores scores;
+
+    private int level;
+
 
     public Arena(int width, int height) {
         this.width = width;
@@ -116,15 +123,7 @@ public class Arena {
     public void setSpawnBarrelPosition(Position spawnBarrelPosition) {
         this.spawnBarrelPosition = spawnBarrelPosition;
     }
-    public boolean isOnFloor(Position position) {
-        for(List<Floor> storey : floor) {
-            for(Floor floor : storey)
-                if(position.getY()+1 == (floor.getPosition().getY()) && position.getX() == floor.getPosition().getX()) {
-                    return true;
-                }
-        }
-        return false;
-    }
+
 
     public boolean isOnSwitch(Position position) {
         for(Switch s : switches)
@@ -144,9 +143,8 @@ public class Arena {
         return false;
     }
 
-    public boolean checkUnderStairs(Position position) {
-        return checkStairs(new Position(position.getX(), position.getY()+1));
-    }
+
+    public Scores getScores() { return scores;}
 
     public boolean crash(Position position) {
         if(getDonkeyKong().getPosition().equals(position)) {
@@ -165,6 +163,9 @@ public class Arena {
         return false;
     }
 
+    public void setScores(Scores scores) {
+        this.scores = scores;
+    }
 
     public List<Fire> getFireMonsters() {
         return fireMonsters;
@@ -194,4 +195,12 @@ public class Arena {
     public void setSwitches(List<Switch> switches) {
         this.switches = switches;
     }
+
+    public int getLevel(){
+        return level;
+    }
+
+    public void setLevel(int level){this.level=level;}
+
+
 }

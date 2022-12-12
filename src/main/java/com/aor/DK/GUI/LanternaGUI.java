@@ -31,6 +31,7 @@ public class LanternaGUI implements GUI {
     Set<Integer> pressedKeys = new HashSet<>();
     public LanternaGUI(int width, int height) throws IOException, FontFormatException, URISyntaxException {
         AWTTerminalFontConfiguration fontConfig = loadSquareFont();
+
         Terminal terminal = createTerminal(width, height, fontConfig);
         this.screen = createScreen(terminal);
     }
@@ -42,10 +43,12 @@ public class LanternaGUI implements GUI {
         GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
         ge.registerFont(font);
 
-        Font loadedFont = font.deriveFont(Font.PLAIN, 25);
+        Font loadedFont = font.deriveFont(Font.PLAIN, 20);
         AWTTerminalFontConfiguration fontConfig = AWTTerminalFontConfiguration.newInstance(loadedFont);
         return fontConfig;
     }
+
+
     private Screen createScreen(Terminal terminal) throws IOException {
         final Screen screen;
         screen = new TerminalScreen(terminal);
@@ -140,6 +143,27 @@ public class LanternaGUI implements GUI {
         tg.setForegroundColor(TextColor.Factory.fromString(color));
         tg.putString(position.getX(), position.getY(), text);
     }
+
+
+
+
+
+    @Override
+    public void drawLevel(Position position, int level) {
+        drawText(position,"L="+level,"#3F50EB" );
+
+    }
+
+    public void drawScores(Position position,int jumpScore, int timeScore) {
+        int x=position.getX();
+        int y=position.getY();
+
+        drawText(position,"Time","#ff57ff");
+        drawText(new Position(x,y+1), String.valueOf(timeScore),"#ff57ff" );
+        drawText(new Position(x+10,y),"Jump Score","#ff57ff");
+        drawText(new Position(x+10,y+1), String.valueOf(jumpScore),"#ff57ff" );
+    }
+
 
     private void drawCharacter(int x, int y, char c, String color) {
         TextGraphics tg = screen.newTextGraphics();

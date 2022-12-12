@@ -11,10 +11,9 @@ import com.aor.DK.states.GameState;
 import com.aor.DK.states.MenuState;
 
 import java.io.IOException;
-import java.util.Arrays;
 import java.util.List;
 
-public class ArenaController extends GameController {
+public class ArenaController extends GameController{
     private final MarioController marioController;
     private final BarrelController barrelController;
 
@@ -43,7 +42,7 @@ public class ArenaController extends GameController {
     public void step(Game game, List<GUI.ACTION> actions, long time) throws IOException {
         boolean allSwitchesOff = false;
         if (actions.contains(GUI.ACTION.QUIT))
-            game.setState(new MenuState(new Menu(Arrays.asList("Start", "Exit"),"\t\t  Menu")));
+            game.setState(new MenuState(new Menu("Start")));
         else {
             marioController.step(game, actions, time);
             barrelController.step(game, actions, time);
