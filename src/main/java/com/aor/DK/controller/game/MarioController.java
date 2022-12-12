@@ -43,7 +43,6 @@ public class MarioController extends GameController {
         }
     }
 
-
     private void jumpMario() {
         Position marioPos = getModel().getMario().getPosition();
         if (getModel().isOnFloor(marioPos) && !getModel().checkStairs(marioPos) || getModel().isOnSwitch(marioPos)) {
