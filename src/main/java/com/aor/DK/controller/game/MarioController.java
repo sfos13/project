@@ -13,6 +13,8 @@ import com.aor.DK.model.ranking.RankingElement;
 import com.aor.DK.model.ranking.Scores;
 import com.aor.DK.states.LevelState;
 import com.aor.DK.states.MenuState;
+
+import java.util.Arrays;
 import java.util.List;
 
 public class MarioController extends GameController {
@@ -22,19 +24,17 @@ public class MarioController extends GameController {
     public Scores scores;
 
     public long lastMovement;
+
     public MarioController(Arena arena) {
         super(arena);
-        this.arena=arena;
-        this.positionMario=arena.getMario().getPosition();
-        scores= new Scores(0,1);
+        this.arena = arena;
+        this.positionMario = arena.getMario().getPosition();
+        scores = new Scores(0, 1);
         scores.setTimeScore();
         this.lastMovement = System.currentTimeMillis();
         arena.setScores(scores);
 
     }
-
-
-
 
     public void moveMarioLeft() {
         moveMario(positionMario.getLeft());
@@ -53,21 +53,21 @@ public class MarioController extends GameController {
     }
 
     private void moveMario(Position position) {
-        boolean isOutOfBonds= new OutOfBonds(positionMario, arena).isValid();
-        if (!isOutOfBonds ){
-            positionMario=position;
+        boolean isOutOfBonds = new OutOfBonds(positionMario, arena).isValid();
+        if (!isOutOfBonds) {
+            positionMario = position;
             getModel().getMario().setPosition(position);
         }
     }
 
 
     private void jumpMario() {
-        boolean isOnFloor= new OnFloor(positionMario,arena).isValid();
-        boolean checkStairs = new CheckStairs(positionMario,arena).isValid();
-        boolean isJumpingBarrels = new JumpBarrels(positionMario,arena).isValid();
+        boolean isOnFloor = new OnFloor(positionMario, arena).isValid();
+        boolean checkStairs = new CheckStairs(positionMario, arena).isValid();
+        boolean isJumpingBarrels = new JumpBarrels(positionMario, arena).isValid();
 
         if (isOnFloor && !checkStairs) {
-            positionMario.setY(positionMario.getY()-2);
+            positionMario.setY(positionMario.getY() - 2);
             getModel().getMario().setPosition(positionMario);
             if (isJumpingBarrels) {
                 scores.setJumpScore();
@@ -76,35 +76,35 @@ public class MarioController extends GameController {
         }
 
     }
+
     private void gravityPush() {
-        boolean isOnFloor= new OnFloor(positionMario,arena).isValid();
-        boolean checkStairs = new CheckStairs(positionMario,arena).isValid();
+        boolean isOnFloor = new OnFloor(positionMario, arena).isValid();
+        boolean checkStairs = new CheckStairs(positionMario, arena).isValid();
 
         float GRAVITY = 0.25f;
-        if(!isOnFloor && !checkStairs) {
+        if (!isOnFloor && !checkStairs) {
             Mario mario = arena.getMario();
-            Position position = new Position(positionMario.getX(), positionMario.getY()+(int)mario.getVy());
+            Position position = new Position(positionMario.getX(), positionMario.getY() + (int) mario.getVy());
             moveMario(position);
             mario.incrementVy(GRAVITY);
 
-        }
-        else{
+        } else {
             arena.getMario().setVy(0);
         }
     }
 
-    public void step(Game game, List<GUI.ACTION> actions, long time){
-        boolean isOutOfBonds= new OutOfBonds(positionMario, arena).isValid();
-        boolean isDonkeyKongCrash = new DonkeyCrash(positionMario,arena).isValid();
+    public void step(Game game, List<GUI.ACTION> actions, long time) {
+        boolean isOutOfBonds = new OutOfBonds(positionMario, arena).isValid();
+        boolean isDonkeyKongCrash = new DonkeyCrash(positionMario, arena).isValid();
         boolean isBarrelsCrash = new BarrelsCrash(positionMario, arena).isValid();
-        boolean checkStairs = new CheckStairs(positionMario,arena).isValid();
+        boolean checkStairs = new CheckStairs(positionMario, arena).isValid();
         boolean underStairs = new UnderStairs(positionMario, arena).isValid();
 
         gravityPush();
 
         for (GUI.ACTION action : actions) {
             if (action == GUI.ACTION.UP) {
-                if(checkStairs) {
+                if (checkStairs) {
                     moveMarioUp();
                 }
             }
@@ -118,26 +118,24 @@ public class MarioController extends GameController {
                 moveMarioLeft();
             }
 
-            if ((action == GUI.ACTION.RIGHT) && !isOutOfBonds){
+            if ((action == GUI.ACTION.RIGHT) && !isOutOfBonds) {
                 moveMarioRight();
             }
 
             if (action == GUI.ACTION.SPACE) jumpMario();
 
 
-            Position positionPrincess= getModel().getPrincess().getPosition();
+            Position positionPrincess = getModel().getPrincess().getPosition();
             int winFloor = getModel().getFloorNumber(positionPrincess);
 
-            if(getModel().getFloorNumber(positionMario)==winFloor){
+            if (getModel().getFloorNumber(positionMario) == winFloor) {
                 game.setState(new MenuState(new Menu("Win")));
-
-                RankingElement rankingElement = new RankingElement(action.name(), scores.getJumpScore(), scores.getTimeScore());
 
 
             }
 
         }
-        if(isBarrelsCrash||isOutOfBonds||isDonkeyKongCrash ) {
+        if (isBarrelsCrash || isOutOfBonds || isDonkeyKongCrash) {
             game.setState(new MenuState(new Menu("Lost")));
         }
         if (time - lastMovement > 3000) {
@@ -145,7 +143,6 @@ public class MarioController extends GameController {
             lastMovement = time;
         }
 
+
     }
-
-
 }
