@@ -2,6 +2,7 @@ package com.aor.DK.controller.game;
 
 import com.aor.DK.GUI.GUI;
 import com.aor.DK.Game;
+import com.aor.DK.model.Position;
 import com.aor.DK.model.arena.Arena;
 import com.aor.DK.model.elements.Mario;
 import com.aor.DK.model.elements.Switch;
@@ -26,12 +27,12 @@ public class ArenaController extends GameController {
     }
 
     private void manageSwitches() {
-        Mario mario = getModel().getMario();
+        Position marioPos = getModel().getMario().getPosition();
         for(Switch s : getModel().getSwitches()) {
             if(!s.isOn()) continue;
-            if(s.getPosition().getX() == mario.getPosition().getX() &&
-                    (mario.getPosition().getY() == s.getPosition().getY() - 1
-                    || mario.getPosition().getY() == s.getPosition().getY() - 2 )) {
+            if(s.getPosition().getX() == marioPos.getX() &&
+                    (marioPos.getY() == s.getPosition().getY() - 1
+                    || marioPos.getY() == s.getPosition().getY() - 2 )) {
                 s.turnOff();
             }
         }

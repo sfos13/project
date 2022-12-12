@@ -1,5 +1,7 @@
 package com.aor.DK.model.elements;
 
+import com.aor.DK.model.Position;
+
 public class Switch extends Element{
 
     private boolean isOn;
@@ -8,7 +10,6 @@ public class Switch extends Element{
         isOn = true;
     }
 
-
     public boolean isOn() {
         return isOn;
     }
@@ -16,4 +17,5 @@ public class Switch extends Element{
     public void turnOff() {
         isOn = false;
     }
+
 }
