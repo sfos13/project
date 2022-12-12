@@ -10,9 +10,7 @@ import java.util.List;
 public class Arena {
     private final int width;
     private final int height;
-
     private Position spawnFirePosition1;
-
     private Position spawnFirePosition2;
     private Position spawnBarrelPosition;
     private Mario mario;
@@ -24,10 +22,7 @@ public class Arena {
     private List<Fire> fireMonsters;
     private boolean spawnFlag;
     private List<Switch> switches;
-
-
     private Scores scores;
-
     private int level;
 
 
@@ -46,7 +41,6 @@ public class Arena {
     public int getHeight() {
         return height;
     }
-
 
     public Mario getMario() {
         return mario;

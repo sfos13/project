@@ -20,17 +20,20 @@ public class LevelController extends Controller<Level> {
 
     @Override
     public void step(Game game, List<GUI.ACTION> actions, long time) throws IOException {
-        int level= getModel().getLevel();
+        int level = getModel().getLevel();
 
-        if (time - lastMovement > 1000){
-            if (level==1){
+        if (time - lastMovement > 1000) {
+            if (level == 1) {
                 game.setState(new GameState(new LoaderArenaBuilder(1).createArena()));
             }
-            if(level==2){
+            if (level == 2) {
                 game.setState(new GameState(new LoaderArenaBuilder(2).createArena()));
             }
+            if (level == 21) {
+                game.setState(new GameState(new LoaderArenaBuilder(21).createArena()));
+            }
+
         }
 
     }
-
 }

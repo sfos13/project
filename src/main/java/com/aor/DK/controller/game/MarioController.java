@@ -132,20 +132,19 @@ public class MarioController extends GameController {
         int winFloor = getModel().getFloorNumber(positionPrincess);
 
         if (getModel().getFloorNumber(positionMario) == winFloor) {
-            int level =arena.getLevel();
-            if (level==1){game.setState(new LevelState(new Level(level+1)));}
+            int level = arena.getLevel();
+            if (level == 1){
+                game.setState(new LevelState(new Level(level+1)));
+            }
             else{
                 game.setState(new MenuState(new Menu("Win")));
             }
-
 
         }
 
         if (isBarrelsCrash || isOutOfBonds || isDonkeyKongCrash) {
             game.setState(new MenuState(new Menu("Lost")));
         }
-
-
 
         if (time - lastMovement > 3000) {
             scores.setTimeScore();

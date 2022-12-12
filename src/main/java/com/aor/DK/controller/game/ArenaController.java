@@ -6,8 +6,10 @@ import com.aor.DK.model.Position;
 import com.aor.DK.model.arena.Arena;
 import com.aor.DK.model.elements.Mario;
 import com.aor.DK.model.elements.Switch;
+import com.aor.DK.model.menu.Level;
 import com.aor.DK.model.menu.Menu;
 import com.aor.DK.states.GameState;
+import com.aor.DK.states.LevelState;
 import com.aor.DK.states.MenuState;
 
 import java.io.IOException;
@@ -16,7 +18,6 @@ import java.util.List;
 public class ArenaController extends GameController{
     private final MarioController marioController;
     private final BarrelController barrelController;
-
     private final FireController fireController;
 
     public ArenaController(Arena arena) {
@@ -40,7 +41,7 @@ public class ArenaController extends GameController{
 
     @Override
     public void step(Game game, List<GUI.ACTION> actions, long time) throws IOException {
-        boolean allSwitchesOff = false;
+        boolean allSwitchesOff = true;
         if (actions.contains(GUI.ACTION.QUIT))
             game.setState(new MenuState(new Menu("Start")));
         else {
@@ -48,10 +49,10 @@ public class ArenaController extends GameController{
             barrelController.step(game, actions, time);
             fireController.step(game, actions, time);
             for(Switch s : getModel().getSwitches()){
-                allSwitchesOff = allSwitchesOff || s.isOn();
+                allSwitchesOff = allSwitchesOff && !s.isOn();
             }
-            if(!allSwitchesOff){
-                game.setState();
+            if(allSwitchesOff && getModel().getLevel() == 2){
+                game.setState(new LevelState(new Level(21)));
             }
             else {
                 manageSwitches();
