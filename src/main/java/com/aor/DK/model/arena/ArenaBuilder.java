@@ -8,7 +8,7 @@ import java.util.List;
 public abstract class ArenaBuilder {
     public Arena createArena() {
         Arena arena = new Arena(getWidth(), getHeight());
-        arena.setLevelPosition(createLevel());
+
         arena.setMario(createMario());
         arena.setFloor(createFloor());
         arena.setStairs(createStairs());
@@ -16,7 +16,9 @@ public abstract class ArenaBuilder {
         arena.setPrincess(createPrincess());
         arena.setSpawnBarrelPosition(getSpawnBarrelPosition());
         arena.setScores(arena.getScores());
-
+        arena.setSpawnFirePosition(getSpawnFirePosition1(),1);
+        arena.setSpawnFirePosition(getSpawnFirePosition2(),2);
+        arena.setSwitches(createSwitches());
         return arena;
     }
 
@@ -29,8 +31,7 @@ public abstract class ArenaBuilder {
     protected abstract Princess createPrincess();
     protected abstract Position getSpawnBarrelPosition();
 
-    protected abstract Level createLevel();
-
-
-
+    protected abstract Position getSpawnFirePosition1();
+    protected abstract Position getSpawnFirePosition2();
+    protected abstract List<Switch> createSwitches();
 }

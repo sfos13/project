@@ -115,12 +115,6 @@ public class LanternaGUI implements GUI {
     public void drawStair(Position position) {
         drawCharacter(position.getX(), position.getY(), '+', "#4ad5f6");
     }
-
-    @Override
-    public void drawFire(Position position, char letter) {
-
-    }
-
     @Override
     public void drawDonkeyKong(Position position) {
         drawCharacter(position.getX()-1, position.getY()-1, '$', "#A03305");
@@ -131,6 +125,16 @@ public class LanternaGUI implements GUI {
     @Override
     public void drawPrincess(Position position) {
         drawCharacter(position.getX(), position.getY(), '@', "#ff57ff");
+    }
+
+    @Override
+    public void drawFire(Position position, char letter) {
+        drawCharacter(position.getX(),position.getY(),letter,"#ff8b00");
+    }
+
+    @Override
+    public void drawSwitch(Position position) {
+        drawCharacter(position.getX(),position.getY(),')',"#fff600");
     }
 
     @Override
@@ -181,6 +185,8 @@ public class LanternaGUI implements GUI {
     public void close() throws IOException {
         screen.close();
     }
+
+
 
     public void close(Screen screen) throws IOException {
         screen.close();
