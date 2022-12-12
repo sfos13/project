@@ -1,4 +1,4 @@
-package com.aor.DK.model.Viewer.Ranking;
+package com.aor.DK.Viewer.Ranking;
 
 import com.aor.DK.GUI.GUI;
 import com.aor.DK.Game;
