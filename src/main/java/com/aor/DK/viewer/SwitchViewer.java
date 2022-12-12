@@ -9,7 +9,7 @@ public class SwitchViewer implements GenericViewer<Switch>{
         if(s.isOn()){
             gui.drawSwitch(s.getPosition(),"#fff600");
         }
-        else if (!s.isOn()){
+        else {
             gui.drawSwitch(s.getPosition(),"#00FF00");
         }
         }
