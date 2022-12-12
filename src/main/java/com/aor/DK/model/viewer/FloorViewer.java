@@ -1,5 +1,5 @@
 
-package com.aor.DK.model.Viewer;
+package com.aor.DK.model.viewer;
 
 import com.aor.DK.GUI.GUI;
 import com.aor.DK.model.elements.Floor;

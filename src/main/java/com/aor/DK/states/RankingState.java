@@ -1,7 +1,7 @@
 package com.aor.DK.states;
 
-import com.aor.DK.model.Viewer.Ranking.RankingViewer;
-import com.aor.DK.model.Viewer.Viewer;
+import com.aor.DK.model.viewer.ranking.RankingViewer;
+import com.aor.DK.model.viewer.Viewer;
 import com.aor.DK.controller.Controller;
 import com.aor.DK.controller.menu.RankingController;
 import com.aor.DK.model.ranking.Ranking;
