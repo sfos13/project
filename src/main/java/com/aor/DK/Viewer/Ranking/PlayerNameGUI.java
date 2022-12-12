@@ -3,6 +3,8 @@ package com.aor.DK.Viewer.Ranking;
 import com.aor.DK.GUI.GUI;
 import com.aor.DK.Game;
 import com.aor.DK.model.menu.Level;
+import com.aor.DK.model.ranking.Ranking;
+import com.aor.DK.model.ranking.RankingElement;
 import com.aor.DK.states.LevelState;
 
 import javax.swing.*;
@@ -51,7 +53,10 @@ public class PlayerNameGUI extends JFrame {
         String name= textField.getText();
         if (name.equals("")) name="Player";
         frame.setVisible(false);
+        RankingElement rankingElement = new RankingElement(name, 0,0);
+        Ranking ranking =new Ranking();
+        ranking.addPerson(rankingElement);
+        game.setState(new LevelState(new Level(1)));
         frame.dispose();
-
     }
 }

@@ -21,7 +21,7 @@ public class Menu{
         }
         if (mod.equals("Lost")) {
             this.entries = Arrays.asList("New Game?", "Instructions", "Exit");
-            this.message = "Try again! It's just a Donkey Kong";
+            this.message = "Try again! Its just a Donkey Kong";
         }
         if (mod.equals("Instructions")) {
             this.entries = Arrays.asList("Start", "Exit");

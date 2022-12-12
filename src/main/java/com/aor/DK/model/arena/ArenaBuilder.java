@@ -2,7 +2,6 @@ package com.aor.DK.model.arena;
 
 import com.aor.DK.model.Position;
 import com.aor.DK.model.elements.*;
-import com.aor.DK.model.ranking.Scores;
 
 import java.util.List;
 
@@ -31,7 +30,7 @@ public abstract class ArenaBuilder {
     protected abstract Princess createPrincess();
     protected abstract Position getSpawnBarrelPosition();
 
-    protected abstract LV createLevel();
+    protected abstract Level createLevel();
 
 
 

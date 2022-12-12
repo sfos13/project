@@ -21,7 +21,7 @@ public class Arena {
 
 
     private Scores scores;
-    private LV lv;
+    private Level lv;
 
 
     public Arena(int width, int height) {
@@ -114,11 +114,11 @@ public class Arena {
 
 
 
-    public void setLevelPosition(LV level) {
+    public void setLevelPosition(Level level) {
         this.lv=level;
     }
 
-    public LV getLevelPosition() {
+    public Level getLevelPosition() {
         return lv;
     }
 
