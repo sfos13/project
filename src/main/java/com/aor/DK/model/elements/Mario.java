@@ -18,7 +18,7 @@ public class Mario extends Element{
         this.vy = vy;
     }
     public void incrementVy(float value) {
-        this.vy += value;
+        if (vy<2){this.vy += value;}
     }
 
     public char getLetter() {
