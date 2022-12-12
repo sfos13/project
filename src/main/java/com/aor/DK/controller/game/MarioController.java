@@ -7,7 +7,6 @@ import com.aor.DK.model.Position;
 import com.aor.DK.model.arena.Arena;
 import com.aor.DK.model.elements.Mario;
 import com.aor.DK.model.menu.Menu;
-import com.aor.DK.model.ranking.RankingElement;
 import com.aor.DK.model.ranking.Scores;
 import com.aor.DK.states.MenuState;
 
@@ -127,10 +126,6 @@ public class MarioController extends GameController {
 
             if(getModel().getFloorNumber(positionMario)==winFloor){
                 game.setState(new MenuState(new Menu("Win")));
-
-                RankingElement rankingElement = new RankingElement(action.name(), scores.getJumpScore(), scores.getTimeScore());
-
-
             }
 
         }
