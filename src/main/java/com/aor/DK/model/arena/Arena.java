@@ -12,7 +12,6 @@ public class Arena {
     private final int height;
 
     private Position spawnFirePosition1;
-
     private Position spawnFirePosition2;
     private Position spawnBarrelPosition;
     private Mario mario;
@@ -24,10 +23,7 @@ public class Arena {
     private List<Fire> fireMonsters;
     private boolean spawnFlag;
     private List<Switch> switches;
-
-
     private Scores scores;
-
     private int level;
 
 
@@ -46,7 +42,6 @@ public class Arena {
     public int getHeight() {
         return height;
     }
-
 
     public Mario getMario() {
         return mario;
@@ -96,6 +91,34 @@ public class Arena {
         this.princess = princess;
     }
 
+    public Scores getScores() { return scores;}
+
+    public void setScores(Scores scores) {
+        this.scores = scores;
+    }
+
+    public List<Switch> getSwitches() {
+        return switches;
+    }
+
+    public void setSwitches(List<Switch> switches) {
+        this.switches = switches;
+    }
+
+    public int getLevel(){
+        return level;
+    }
+
+    public void setLevel(int level){this.level=level;}
+
+    public List<Fire> getFireMonsters() {
+        return fireMonsters;
+    }
+
+    public void setFireMonster(List<Fire> fireMonsters){
+        this.fireMonsters = fireMonsters;
+    }
+
     public void spawnBarrel() {
         if(spawnBarrelPosition == null) return;
         barrels.add(new Barrel(spawnBarrelPosition.getX(),spawnBarrelPosition.getY()));
@@ -104,7 +127,6 @@ public class Arena {
     public boolean outOfBounds(Position position) {
         return !(position.getX() >= 0 && position.getX() < width);
     }
-
 
     public int getFloorNumber(Position position) {
         for(int i = 0; i < floor.size(); i++) {
@@ -124,7 +146,6 @@ public class Arena {
         this.spawnBarrelPosition = spawnBarrelPosition;
     }
 
-
     public boolean checkStairs(Position position) {
         for(Stair stair : stairs) {
             if((position.equals(stair.getPosition()))){
@@ -133,9 +154,6 @@ public class Arena {
         }
         return false;
     }
-
-
-    public Scores getScores() { return scores;}
 
     public boolean crash(Position position) {
         if(getDonkeyKong().getPosition().equals(position)) {
@@ -154,15 +172,6 @@ public class Arena {
         return false;
     }
 
-    public void setScores(Scores scores) {
-        this.scores = scores;
-    }
-
-    public List<Fire> getFireMonsters() {
-        return fireMonsters;
-    }
-
-
     public void spawnFire() {
         if(spawnFirePosition1 == null) return;
         if(spawnFlag) {
@@ -178,20 +187,5 @@ public class Arena {
         if(spawnNumber == 1) this.spawnFirePosition1 = spawnFirePosition;
         if(spawnNumber == 2) this.spawnFirePosition2 = spawnFirePosition;
     }
-
-    public List<Switch> getSwitches() {
-        return switches;
-    }
-
-    public void setSwitches(List<Switch> switches) {
-        this.switches = switches;
-    }
-
-    public int getLevel(){
-        return level;
-    }
-
-    public void setLevel(int level){this.level=level;}
-
 
 }
