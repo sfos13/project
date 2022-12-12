@@ -47,19 +47,16 @@ public class MarioController extends GameController {
     private void jumpMario() {
         Position marioPos = getModel().getMario().getPosition();
         if (getModel().isOnFloor(marioPos) && !getModel().checkStairs(marioPos) || getModel().isOnSwitch(marioPos)) {
-            Position position = getModel().getMario().getPosition();
-            position.setY(position.getY() - 2);
-            getModel().getMario().setPosition(position);
+            marioPos.setY(marioPos.getY() - 2);
+            getModel().getMario().setPosition(marioPos);
 
         }
     }
     private void gravityPush() {
         Position marioPos = getModel().getMario().getPosition();
-        if(!getModel().isOnFloor(marioPos)
-                && !getModel().checkStairs(marioPos)
-                && !getModel().isOnSwitch(marioPos)) {
+        if(!getModel().isOnFloor(marioPos) && !getModel().checkStairs(marioPos) && !getModel().isOnSwitch(marioPos)) {
             Mario mario = getModel().getMario();
-            moveMario(new Position(mario.getPosition().getX(),mario.getPosition().getY()+(int)mario.getVy()));
+            moveMario(new Position(marioPos.getX(),marioPos.getY()+(int)mario.getVy()));
             if(mario.getVy()<2) mario.incrementVy(GRAVITY);
         }
         else{
