@@ -132,7 +132,7 @@ public class MarioController extends GameController {
         int winFloor = getModel().getFloorNumber(positionPrincess);
 
         if (getModel().getFloorNumber(positionMario) == winFloor) {
-            int level =arena.getLevel();
+            int level = arena.getLevel();
             if (level==1){game.setState(new LevelState(new Level(level+1)));}
             else{
                 arena.setScores(scores);
