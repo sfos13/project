@@ -7,6 +7,7 @@ import com.aor.DK.model.menu.Level;
 import com.aor.DK.model.menu.Menu;
 import com.aor.DK.states.LevelState;
 import com.aor.DK.states.MenuState;
+import com.aor.DK.viewer.ranking.PlayerNameGUI;
 
 
 import java.io.IOException;
@@ -37,7 +38,10 @@ public class MenuController extends Controller<Menu> {
                             game.setState(new LevelState(new Level(1)));
 
                         }
-                        if (getModel().isSelected_String("Instructions"))game.setState(new MenuState(new Menu("Instructions")));
+                        if (getModel().isSelected_String("Instructions")){
+                            game.setState(new MenuState(new Menu("Instructions")));
+                        }
+
                     }
                 }
             }

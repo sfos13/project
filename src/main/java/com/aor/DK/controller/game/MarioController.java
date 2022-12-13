@@ -140,7 +140,6 @@ public class MarioController extends GameController {
                 game.setState(new MenuState(new Menu("Win")));
             }
 
-
         }
 
         if (isCrash || isOutOfBonds ) {
