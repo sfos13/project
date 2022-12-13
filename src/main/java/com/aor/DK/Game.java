@@ -5,20 +5,19 @@ import com.aor.DK.GUI.LanternaGUI;
 import com.aor.DK.model.menu.Menu;
 import com.aor.DK.states.MenuState;
 import com.aor.DK.states.State;
+
 import java.awt.*;
 import java.io.IOException;
 import java.net.URISyntaxException;
+
 
 public class Game {
     private State state;
     private final LanternaGUI gui;
 
-    private int level;
-
     public Game() throws IOException, URISyntaxException, FontFormatException {
         this.gui = new LanternaGUI(41, 31);
         this.state = new MenuState(new Menu("Start"));
-
     }
 
     public static void main(String[] args) throws IOException, FontFormatException, URISyntaxException {
@@ -30,7 +29,7 @@ public class Game {
     }
 
     private void start() throws IOException {
-        int FPS = 10;
+        int FPS = 20;
         int frameTime = 1000 / FPS;
 
         while (this.state != null) {
@@ -46,9 +45,6 @@ public class Game {
             } catch (InterruptedException e) {
             }
         }
-
         gui.close();
     }
-
-
 }

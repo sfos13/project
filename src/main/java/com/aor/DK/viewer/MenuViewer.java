@@ -1,12 +1,12 @@
 package com.aor.DK.viewer;
 
 import com.aor.DK.GUI.GUI;
-import com.aor.DK.model.ranking.Ranking;
-import com.aor.DK.viewer.Menu.InstructionsViewer;
-import com.aor.DK.viewer.Menu.LostViewer;
+import com.aor.DK.model.ranking.Ranking;;
 import com.aor.DK.model.Position;
 import com.aor.DK.model.menu.Menu;
-import com.aor.DK.viewer.Ranking.RankingViewer;
+import com.aor.DK.viewer.ranking.RankingViewer;
+import com.aor.DK.viewer.menu.InstructionsViewer;
+import com.aor.DK.viewer.menu.LostViewer;
 
 import java.io.IOException;
 

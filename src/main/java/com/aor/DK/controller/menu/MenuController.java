@@ -57,4 +57,3 @@ public class MenuController extends Controller<Menu> {
         }
     }
 }
-
