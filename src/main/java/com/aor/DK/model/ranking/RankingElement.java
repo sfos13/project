@@ -27,6 +27,6 @@ public class RankingElement implements Serializable, Comparable<RankingElement> 
 
     @Override
     public int compareTo(RankingElement o) {
-        return score - o.score;
+        return o.score - score;
     }
 }

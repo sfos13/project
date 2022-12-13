@@ -153,4 +153,10 @@ public class LoaderArenaBuilder extends ArenaBuilder {
         }
         return switches;
     }
+
+    @Override
+    protected int getLevel() {
+        return level;
+    }
+
 }

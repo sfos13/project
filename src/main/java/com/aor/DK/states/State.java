@@ -10,7 +10,7 @@ import java.io.IOException;
 import java.util.List;
 
 public abstract class State<T> {
-    private final T model;
+    private T model;
     private final Controller<T> controller;
     private final Viewer<T> viewer;
 
@@ -34,5 +34,9 @@ public abstract class State<T> {
         List<GUI.ACTION> actions = gui.getNextActions();
         controller.step(game, actions, time);
         viewer.draw(gui);
+    }
+
+    public void setModel(T model){
+        this.model = model;
     }
 }
