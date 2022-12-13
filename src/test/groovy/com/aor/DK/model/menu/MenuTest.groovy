@@ -17,13 +17,13 @@ class MenuTest extends Specification{
         when:
         def menu = new Menu("Instructions")
         then:
-        menu.getNumberEntries() == 2
+        menu.getNumberEntries() == 1
         menu.getMessage() == "Instructions"
     }
 
     def 'Testing next entry'() {
         given:
-        def menu = new Menu("Instructions")
+        def menu = new Menu("Start")
         when:
         menu.nextEntry()
         then:
@@ -32,8 +32,10 @@ class MenuTest extends Specification{
 
         def 'Testing next entry to 0'(){
             given:
-            def menu = new Menu("Instructions")
+            def menu = new Menu("Start")
             when:
+            menu.nextEntry()
+            menu.nextEntry()
             menu.nextEntry()
             menu.nextEntry()
             then:
@@ -42,17 +44,19 @@ class MenuTest extends Specification{
 
     def 'Testing previous entry'(){
         given:
-        def menu = new Menu("Instructions")
+        def menu = new Menu("Start")
         when:
         menu.previousEntry()
         then:
-        menu.isSelected_Number(1)
+        menu.isSelected_Number(3)
     }
 
     def 'Testing previous entry to 0'(){
         given:
-        def menu = new Menu("Instructions")
+        def menu = new Menu("Start")
         when:
+        menu.previousEntry()
+        menu.previousEntry()
         menu.previousEntry()
         menu.previousEntry()
         then:
@@ -61,7 +65,7 @@ class MenuTest extends Specification{
 
     def 'Testing get entry'(){
         given:
-        def menu = new Menu("Instructions")
+        def menu = new Menu("Start")
         when:
         def entry = menu.getEntry(0)
         then:
@@ -70,7 +74,7 @@ class MenuTest extends Specification{
 
     def 'Testing is selected String'(){
         given:
-        def menu = new Menu("Instructions")
+        def menu = new Menu("Start")
         expect:
         menu.isSelected_String("Start")
     }

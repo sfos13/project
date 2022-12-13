@@ -21,6 +21,6 @@ class RankingTest extends Specification{
         ranking.setList(list)
         ranking.addPerson(new RankingElement("X",10))
         then:
-        ranking.getList().get(9).getName() == "X"
+        ranking.getList().get(9).getName() == "J"
     }
 }

@@ -1,5 +1,6 @@
 package com.aor.DK.model.arena
 
+import com.aor.DK.controller.rules.Crash
 import com.aor.DK.model.Position
 import com.aor.DK.model.arena.Arena
 import com.aor.DK.model.elements.Barrel
@@ -156,9 +157,9 @@ class ArenaTest extends Specification{
         given:
         arena.setDonkeyKong(new DonkeyKong(1,1))
         when:
-        def bool = arena.crash(new Position(1,1))
+        def crash = new Crash(new Position(1,1), arena)
         then:
-        bool
+        crash.isValid()
     }
 
     def 'Testing barrel crash'(){
@@ -167,20 +168,19 @@ class ArenaTest extends Specification{
         arena.setBarrels(new ArrayList<Barrel>())
         arena.barrels.add(new Barrel(2,2))
         when:
-        def bool = arena.crash(new Position(2,2))
+        def crash = new Crash(new Position(2,2), arena)
         then:
-        bool
+        crash.isValid()
     }
 
     def 'Testing fire monster crash'(){
         given:
         arena.setDonkeyKong(new DonkeyKong(1,1))
-        arena.setFireMonster(new ArrayList<Barrel>())
         arena.fireMonsters.add(new Fire(2,2))
         when:
-        def bool = arena.crash(new Position(2,2))
+        def crash = new Crash(new Position(2,2), arena)
         then:
-        bool
+        crash.isValid()
     }
 
     def 'Testing spawn fire monster'(){
@@ -198,12 +198,11 @@ class ArenaTest extends Specification{
     def 'Testing no crash'(){
         given:
         arena.setDonkeyKong(new DonkeyKong(1,1))
-        arena.setFireMonster(new ArrayList<Barrel>())
         arena.fireMonsters.add(new Fire(2,2))
         when:
-        def bool = arena.crash(new Position(3,3))
+        def crash = new Crash(new Position(3,3), arena)
         then:
-        !bool
+        !crash.isValid()
     }
 
 }

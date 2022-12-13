@@ -11,23 +11,34 @@ class MenuViewerTest extends Specification{
 
     def 'Testing instructions viewer'(){
         given:
+        int x = 2;
+        int y = 12;
         def viewer = new InstructionsViewer(new Menu("Instructions"))
         def gui = Mock(LanternaGUI.class, constructorArgs:[30,30])
-        when:
-        viewer.drawElements(gui)
-        then:
-        1 * gui.drawText(new Position(5,20),"-Space is to jump","#FFFFFF");
-        1 * gui.drawText(new Position(5,22),"-Pay attention to the monsters ","#FFFFFF");
-    }
 
-    def 'Testing lost viewer'(){
-        given:
-        def viewer = new LostViewer(new Menu("Lost"))
-        def gui = Mock(LanternaGUI.class, constructorArgs:[30,30])
         when:
         viewer.drawElements(gui)
         then:
-        1 * gui.drawDonkeyKong(new Position(19, 24));
+        1 * gui.drawText(new Position(x + 2, y), "Princess", "#E6003C");
+        1 * gui.drawText(new Position(x + 2, y + 1), "Your goal is to save her ", "#FFFFFF");
+        1 * gui.drawPrincess(new Position(x, y));
+
+        1 * gui.drawText(new Position(x + 2, y + 3), "Donkey Kong ", "#E6003C");
+        1 * gui.drawText(new Position(x + 2, y + 4), "Appears in every level ", "#FFFFFF");
+        1 * gui.drawText(new Position(x + 2, y + 5), "Throwing obstacles or guarding Lady ", "#FFFFFF");
+        1 * gui.drawDonkeyKong(new Position(x, y + 3));
+
+        1 * gui.drawText(new Position(x + 2, y + 7), "Stairs", "#E6003C");
+        1 * gui.drawText(new Position(x + 2, y + 8), "To go to the up level", "#FFFFFF");
+        1 * gui.drawText(new Position(x + 2, y + 9), "you need to climb them", "#FFFFFF");
+        1 * gui.drawStair(new Position(x, y + 7));
+        1 * gui.drawStair(new Position(x, y + 8));
+
+        1 * gui.drawText(new Position(x + 2, y + 11), "Barrels", "#E6003C");
+        1 * gui.drawText(new Position(x + 2, y + 12), "Are thrown by Donkey Kong", "#FFFFFF");
+        1 * gui.drawText(new Position(x + 2, y + 13), "Move randomly across the game", "#FFFFFF");
+        1 * gui.drawText(new Position(x + 2, y + 14), "Jump them to get some points", "#FFFFFF");
+        1 * gui.drawBarrel(new Position(x, y + 11));
     }
 
 }
