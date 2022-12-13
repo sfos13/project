@@ -1,8 +1,6 @@
 package com.aor.DK.GUI;
 
 
-//import com.aor.hero.model.Position;
-
 import com.aor.DK.model.Position;
 import com.googlecode.lanterna.TerminalSize;
 import com.googlecode.lanterna.TextColor;
@@ -158,10 +156,10 @@ public class LanternaGUI implements GUI {
         int x=position.getX();
         int y=position.getY();
 
-        drawText(position,"Time","#ff57ff");
-        drawText(new Position(x,y+1), String.valueOf(timeScore),"#ff57ff" );
-        drawText(new Position(x+10,y),"Jump Score","#ff57ff");
-        drawText(new Position(x+10,y+1), String.valueOf(jumpScore),"#ff57ff" );
+        drawText(position,"Bonus","#E6003C");
+        drawText(new Position(x,y+1), String.valueOf(timeScore),"#ffffff" );
+        drawText(new Position(x+10,y),"Jump Score","#E6003C");
+        drawText(new Position(x+10,y+1), String.valueOf(jumpScore),"#ffffff" );
     }
 
 

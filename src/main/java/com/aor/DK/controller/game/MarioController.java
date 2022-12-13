@@ -128,8 +128,8 @@ public class MarioController extends GameController {
 
         gravityPush();
 
-        Position positionPrincess = getModel().getPrincess().getPosition();
-        int winFloor = getModel().getFloorNumber(positionPrincess);
+        Position positionPrincess = arena.getPrincess().getPosition();
+        int winFloor = arena.getFloorNumber(positionPrincess);
 
         if (getModel().getFloorNumber(positionMario) == winFloor) {
             int level = arena.getLevel();
