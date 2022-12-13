@@ -1,6 +1,7 @@
 package com.aor.DK.viewer.ranking;
 
 import com.aor.DK.GUI.GUI;
+import com.aor.DK.model.Position;
 import com.aor.DK.model.ranking.Ranking;
 import com.aor.DK.model.ranking.RankingElement;
 import com.aor.DK.viewer.Viewer;
@@ -21,12 +22,24 @@ public class RankingViewer extends Viewer<Ranking> {
     }
 
 
-
-
     @Override
     public void drawElements(GUI gui) {
+        int w=40;
+        String message="Ranking";
+        int x=(w-message.length())/2;
+        gui.drawText(new Position(x ,3 ), message, "#E6003C");
+
+        gui.drawText(new Position(x-10,6),"Name","#ffffff");
+        gui.drawText(new Position(x+10,6),"Total Score","#ffffff");
+        int y=8;
         for(RankingElement element : list) {
+            gui.drawText(new Position(x-10,y), element.getName(), "#ffffff");
+            y+=2;
 
         }
+        String  finalMessage="Exit";
+        int x1=(w-finalMessage.length())/2;
+        gui.drawText(new Position(x1 ,30), finalMessage, "#E6003C");
+
     }
 }

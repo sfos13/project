@@ -6,8 +6,10 @@ import com.aor.DK.controller.Controller;
 import com.aor.DK.model.menu.Level;
 import com.aor.DK.model.menu.Menu;
 import com.aor.DK.model.menu.RegisterScoreMenu;
+import com.aor.DK.model.ranking.Ranking;
 import com.aor.DK.states.LevelState;
 import com.aor.DK.states.MenuState;
+import com.aor.DK.states.RankingState;
 import com.aor.DK.viewer.ranking.PlayerNameGUI;
 
 
@@ -37,6 +39,8 @@ public class MenuController extends Controller<Menu> {
 
                         if(getModel().isSelected_String("Start") || getModel().isSelected_String("Play Again")) {
                             game.setState(new LevelState(new Level(1)));
+
+
                         }
                         if (getModel().isSelected_String("Instructions")) {
                             game.setState(new MenuState(new Menu("Instructions")));
@@ -49,6 +53,9 @@ public class MenuController extends Controller<Menu> {
                             var model = (RegisterScoreMenu) getModel();
                             new PlayerNameGUI(model.getScore());
                             game.setState(new MenuState(new Menu("Start")));
+                        }
+                        if (getModel().isSelected_String("Ranking")) {
+                            game.setState(new RankingState(new Ranking()));
                         }
 
 
