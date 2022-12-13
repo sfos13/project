@@ -1,6 +1,5 @@
 package com.aor.DK.viewer.ranking;
 
-import com.aor.DK.model.arena.Arena;
 import com.aor.DK.model.ranking.Ranking;
 import com.aor.DK.model.ranking.RankingElement;
 
@@ -28,20 +27,23 @@ public class PlayerNameGUI extends JFrame {
         label.setFont(new Font("Jumpman",Font.BOLD,18));
         label.setForeground(Color.white);
         textField = new JTextField(40);
-
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.add(button);
         frame.add(label);
         frame.add(textField);
         frame.pack();
         frame.setSize(500,300);
-
         textField.setLocation(30,150);
         frame.getContentPane().setBackground(Color.BLACK);
         frame.setLayout(null);
         frame.setVisible(true);
-
-        button.addActionListener(this::actionButtonOk);
+        button.addActionListener(e -> {
+            try {
+                actionButtonOk(e);
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
+        });
 
     }
 
@@ -49,14 +51,10 @@ public class PlayerNameGUI extends JFrame {
         String name= textField.getText();
         if (name.equals("")) name="Player";
         frame.setVisible(false);
-        Ranking ranking = null;
-        ranking = new Ranking();
+        Ranking ranking = new Ranking();
         ranking.addPerson(new RankingElement(name, score));
-        try {
-            ranking.save();
-        } catch (IOException ex) {
-            throw new RuntimeException(ex);
-        }
+        ranking.save();
         frame.dispose();
     }
 }
+
