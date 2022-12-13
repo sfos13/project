@@ -22,10 +22,10 @@ public class Ranking implements Serializable {
         }
 
         public void addPerson(RankingElement item) {
-            if (list.size() == 10)
-                list.remove(9);
             list.add(item);
             sort();
+            while (list.size() > 10)
+                list.remove(list.size()-1);
         }
 
         public void setList(ArrayList<RankingElement> list) {
@@ -43,8 +43,9 @@ public class Ranking implements Serializable {
     public void save() throws IOException {
         FileWriter outputFile = new FileWriter("scoreboard.csv");
         for(RankingElement element : list) {
-            String out = element.name + "," + element.score;
+            String out = element.name + "," + element.score + '\n';
             outputFile.write(out);
+            outputFile.flush();
         }
     }
 }
