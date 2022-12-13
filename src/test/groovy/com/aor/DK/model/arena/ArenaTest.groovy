@@ -1,16 +1,25 @@
-package com.aor.DK.model
+package com.aor.DK.model.arena
 
+import com.aor.DK.model.Position
 import com.aor.DK.model.arena.Arena
 import com.aor.DK.model.elements.Barrel
 import com.aor.DK.model.elements.DonkeyKong
+import com.aor.DK.model.elements.Fire
 import com.aor.DK.model.elements.Floor
 import com.aor.DK.model.elements.Mario
 import com.aor.DK.model.elements.Princess
 import com.aor.DK.model.elements.Stair
+import com.aor.DK.model.elements.Switch
+import com.aor.DK.model.ranking.Scores
 import spock.lang.Specification
 
 class ArenaTest extends Specification{
-    Arena arena = new Arena(10,20)
+    Arena arena
+
+    def setup(){
+       arena = new Arena(10,20)
+    }
+
     def 'get width and height'() {
         expect:
             arena.getWidth() == 10
@@ -84,22 +93,6 @@ class ArenaTest extends Specification{
             -1 == arena.getFloorNumber(new Position(10,10))
     }
 
-    def 'is on floor'() {
-        given:
-        List<List<Floor>> floors = new ArrayList<>()
-        floors.add(new ArrayList<Floor>())
-        def floor1 = new Floor(3,4)
-        floors.get(0).add(floor1)
-        floors.add(new ArrayList<Floor>())
-        def floor2 = new Floor(5,7)
-        floors.get(1).add(floor2)
-        when:
-        arena.setFloor(floors)
-        then:
-        arena.isOnFloor(new Position(5,6))
-        !arena.isOnFloor(new Position(10,10))
-    }
-
     def 'check if on stair' (){
         given:
         arena.stairs = new ArrayList<Stair>()
@@ -107,28 +100,6 @@ class ArenaTest extends Specification{
         when:
         def a1 = arena.checkStairs(new Position(1,1))
         def a2 = arena.checkStairs(new Position(2,1))
-        then:
-        a1
-        !a2
-    }
-
-    def 'check if stairs under mario' (){
-        given:
-        arena.stairs = new ArrayList<Stair>()
-        arena.stairs.add(new Stair(1,1))
-        when:
-        def a1 = arena.checkUnderStairs(new Position(1,0))
-        then:
-        a1
-    }
-
-    def 'check if barrel crash' (){
-        given:
-        arena.barrels = new ArrayList<Barrel>()
-        arena.barrels.add(new Barrel(1,1))
-        when:
-        def a1 = arena.crash(new Position(1,1))
-        def a2 = arena.crash(new Position(1,0))
         then:
         a1
         !a2
@@ -157,6 +128,82 @@ class ArenaTest extends Specification{
         then:
             arena.getBarrels().size() == 1
             arena.getBarrels().get(0).getPosition() == arena.getSpawnBarrelPosition()
+    }
+
+    def 'Testing getter and setter score'(){
+        when:
+        arena.setScores(new Scores(1,1))
+        then:
+        arena.getScores().getPosition() == (new Scores(1,1)).getPosition()
+    }
+
+    def 'Testing getter setter switches'(){
+        when:
+        arena.setSwitches(new ArrayList<Switch>())
+        arena.switches.add(new Switch(1,1))
+        then:
+        arena.getSwitches().get(0).getPosition() == new Position(1,1)
+    }
+
+    def 'Testing getter and setter levels'(){
+        when:
+        arena.setLevel(1)
+        then:
+        arena.getLevel() == 1
+    }
+
+    def 'Testing donkey kong crash'(){
+        given:
+        arena.setDonkeyKong(new DonkeyKong(1,1))
+        when:
+        def bool = arena.crash(new Position(1,1))
+        then:
+        bool
+    }
+
+    def 'Testing barrel crash'(){
+        given:
+        arena.setDonkeyKong(new DonkeyKong(1,1))
+        arena.setBarrels(new ArrayList<Barrel>())
+        arena.barrels.add(new Barrel(2,2))
+        when:
+        def bool = arena.crash(new Position(2,2))
+        then:
+        bool
+    }
+
+    def 'Testing fire monster crash'(){
+        given:
+        arena.setDonkeyKong(new DonkeyKong(1,1))
+        arena.setFireMonster(new ArrayList<Barrel>())
+        arena.fireMonsters.add(new Fire(2,2))
+        when:
+        def bool = arena.crash(new Position(2,2))
+        then:
+        bool
+    }
+
+    def 'Testing spawn fire monster'(){
+        given:
+        arena.setSpawnFirePosition(new Position(1,1),1)
+        arena.setSpawnFirePosition(new Position(2,2),2)
+        when:
+        arena.spawnFire()
+        arena.spawnFire()
+        then:
+        arena.getFireMonsters().get(0).getPosition() == new Position(1,1)
+        arena.getFireMonsters().get(1).getPosition() == new Position(2,2)
+    }
+
+    def 'Testing no crash'(){
+        given:
+        arena.setDonkeyKong(new DonkeyKong(1,1))
+        arena.setFireMonster(new ArrayList<Barrel>())
+        arena.fireMonsters.add(new Fire(2,2))
+        when:
+        def bool = arena.crash(new Position(3,3))
+        then:
+        !bool
     }
 
 }

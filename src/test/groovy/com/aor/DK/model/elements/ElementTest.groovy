@@ -22,30 +22,4 @@ class ElementTest extends Specification{
             m.getPosition() == p
     }
 
-    def 'get Mario velocity'() {
-        given:
-            def m = new Mario(2,3)
-        expect:
-            0f == m.getVy()
-    }
-
-    def 'set Mario velocity'() {
-        given:
-            def m = new Mario(2,3)
-        when:
-            m.setVy(2)
-        then:
-            2f == m.getVy()
-    }
-
-    def 'increment Mario velocity'() {
-        given:
-            def m = new Mario(2,3)
-        when:
-            m.setVy(2)
-            m.incrementVy(1)
-        then:
-            3f == m.getVy()
-    }
-
 }

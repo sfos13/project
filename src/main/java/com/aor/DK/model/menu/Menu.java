@@ -54,10 +54,6 @@ public class Menu{
         return this.entries.size();
     }
 
-    public int getCurrentEntry (){
-        return this.currentEntry;
-    }
-
     public String getMessage() {
         return message;
     }
