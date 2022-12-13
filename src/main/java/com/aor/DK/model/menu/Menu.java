@@ -4,24 +4,20 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Menu{
-    private List<String> entries;
-    private int currentEntry = 0;
+    protected List<String> entries;
+    protected int currentEntry = 0;
     protected String message;
     protected String mod;
 
     public Menu(String mod) {
         this.mod=mod;
+        parse(mod);
+    }
+
+    protected void parse(String mod) {
         if (mod.equals("Start")) {
             this.entries = Arrays.asList("Start", "Instructions", "Ranking","Exit");
             this.message = "Donkey Kong";
-        }
-        if (mod.equals("Win")) {
-            this.entries = Arrays.asList("Play again?", "Register Score", "Exit");
-            this.message = "Congratulations! You won the game!";
-        }
-        if (mod.equals("Lost")) {
-            this.entries = Arrays.asList("New Game?", "Register Score", "Instructions", "Exit");
-            this.message = "Try again! Its just a Donkey Kong";
         }
         if (mod.equals("Instructions")) {
             this.entries = Arrays.asList("Start", "Exit");
@@ -30,7 +26,7 @@ public class Menu{
     }
 
 
-     public void nextEntry() {
+    public void nextEntry() {
         currentEntry++;
         if (currentEntry > this.entries.size() - 1)
             currentEntry = 0;

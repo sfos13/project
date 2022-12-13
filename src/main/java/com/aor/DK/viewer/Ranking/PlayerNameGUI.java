@@ -1,6 +1,5 @@
 package com.aor.DK.viewer.Ranking;
 
-import com.aor.DK.model.arena.Arena;
 import com.aor.DK.model.ranking.Ranking;
 import com.aor.DK.model.ranking.RankingElement;
 
@@ -14,11 +13,11 @@ public class PlayerNameGUI extends JFrame {
 
     JFrame frame;
     JTextField textField;
-    Arena arena;
+    int score;
 
 
-    public PlayerNameGUI(Arena arena){
-        this.arena = arena;
+    public PlayerNameGUI(int score){
+        this.score = score;
         frame = new JFrame("Name Player");
         JButton button = new JButton("OK");
         button.setBounds(200 ,180,60,50);
@@ -56,7 +55,7 @@ public class PlayerNameGUI extends JFrame {
         if (name.equals("")) name="Player";
         frame.setVisible(false);
         Ranking ranking = new Ranking();
-        ranking.addPerson(new RankingElement(name, arena.getScores().getTotal()));
+        ranking.addPerson(new RankingElement(name, score));
         ranking.save();
         frame.dispose();
     }
