@@ -68,7 +68,7 @@ public class MarioController extends GameController {
         boolean isOutOfBonds = new OutOfBonds(positionMario, arena).isValid();
         if (!isOutOfBonds) {
             positionMario = position;
-            getModel().getMario().setPosition(position);
+            mario.setPosition(position);
         }
     }
 
