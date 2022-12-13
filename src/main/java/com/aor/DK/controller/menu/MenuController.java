@@ -37,10 +37,8 @@ public class MenuController extends Controller<Menu> {
                             game.setState(null);
                         }
 
-                        if(getModel().isSelected_String("Start") || getModel().isSelected_String("Play Again")) {
+                        if(getModel().isSelected_String("Start") || getModel().isSelected_String("Play Again?")) {
                             game.setState(new LevelState(new Level(1)));
-
-
                         }
                         if (getModel().isSelected_String("Instructions")) {
                             game.setState(new MenuState(new Menu("Instructions")));
@@ -52,13 +50,10 @@ public class MenuController extends Controller<Menu> {
                         if (getModel().isSelected_String("Register Score")) {
                             var model = (RegisterScoreMenu) getModel();
                             new PlayerNameGUI(game,model.getScore());
-                            game.setState(new MenuState(new Menu("Start")));
                         }
                         if (getModel().isSelected_String("Ranking")) {
                             game.setState(new RankingState(new Ranking()));
                         }
-
-
                     }
                 }
             }

@@ -20,7 +20,7 @@ public class Game {
         this.state = new MenuState(new Menu("Start"));
     }
 
-    public static void main(String[] args) throws IOException, FontFormatException, URISyntaxException {
+    public static void main(String[] args) throws IOException, FontFormatException, URISyntaxException, InterruptedException {
         new Game().start();
     }
 
@@ -28,7 +28,7 @@ public class Game {
         this.state = state;
     }
 
-    private void start() throws IOException {
+    private void start() throws IOException, InterruptedException {
         int FPS = 20;
         int frameTime = 1000 / FPS;
 

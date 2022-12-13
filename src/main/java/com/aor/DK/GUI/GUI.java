@@ -1,11 +1,8 @@
 package com.aor.DK.GUI;
 
 import com.aor.DK.model.Position;
-import com.aor.DK.model.ranking.Scores;
 
-import java.awt.*;
 import java.io.IOException;
-import java.net.URISyntaxException;
 import java.util.List;
 
 public interface GUI {
@@ -28,6 +25,8 @@ public interface GUI {
 
     void drawSwitch(Position position, String color);
 
+    void drawStick(Position position);
+
     void drawText(Position position, String text, String color);
 
 
@@ -44,5 +43,7 @@ public interface GUI {
     void close() throws IOException;
 
 
-    enum ACTION {UP, RIGHT, DOWN, LEFT, QUIT, SPACE, SELECT}
+
+
+    enum ACTION {UP, RIGHT, DOWN, LEFT, QUIT, SPACE, SELECT, WIN}
 }

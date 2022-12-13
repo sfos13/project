@@ -26,6 +26,7 @@ public class LevelController extends Controller<Level> {
         if (time - lastMovement > 3000){
             run_level(game, level, 1);
             run_level(game, level, 2);
+            run_level(game, level, 21);
         }
 
     }

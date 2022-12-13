@@ -16,7 +16,7 @@ public class RegisterScoreMenu extends Menu{
     @Override
     protected void parse(String mod){
         if (mod.equals("Win")) {
-            this.entries = Arrays.asList("Play again?", "Register Score", "Exit to Menu");
+            this.entries = Arrays.asList("Play Again?", "Register Score", "Exit to Menu");
             this.message = "Congratulations! You won the game!";
         }
         if (mod.equals("Lost")) {

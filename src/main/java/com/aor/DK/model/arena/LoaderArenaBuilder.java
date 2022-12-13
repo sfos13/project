@@ -155,6 +155,20 @@ public class LoaderArenaBuilder extends ArenaBuilder {
     }
 
     @Override
+    protected List<Stick> createSticks() {
+        List<Stick> sticks = new ArrayList<>();
+        for (int y = 0; y < lines.size(); y++) {
+            String line = lines.get(y);
+            for (int x = 0; x < line.length(); x++)
+                if (line.charAt(x) == '|') {
+                    sticks.add(new Stick(x, y));
+                }
+        }
+        return sticks;
+    }
+
+
+    @Override
     protected int getLevel() {
         return level;
     }

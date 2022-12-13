@@ -8,7 +8,6 @@ public class Switch extends Element{
         isOn = true;
     }
 
-
     public boolean isOn() {
         return isOn;
     }
@@ -16,4 +15,5 @@ public class Switch extends Element{
     public void turnOff() {
         isOn = false;
     }
+
 }

@@ -90,6 +90,7 @@ public class LanternaGUI implements GUI {
         if (pressedKeys.contains(KeyEvent.VK_DOWN)) actions.add(ACTION.DOWN);
         if (pressedKeys.contains(KeyEvent.VK_LEFT)) actions.add(ACTION.LEFT);
         if (pressedKeys.contains(KeyEvent.VK_ENTER)) actions.add(ACTION.SELECT);
+        if(pressedKeys.contains(KeyEvent.VK_W)) actions.add(ACTION.WIN);
 
         return actions;
     }
@@ -136,6 +137,11 @@ public class LanternaGUI implements GUI {
     }
 
     @Override
+    public void drawStick(Position position) {
+        drawCharacter(position.getX(),position.getY(),'|',"#FAA0A0");
+    }
+
+    @Override
     public void drawText(Position position, String text, String color) {
         TextGraphics tg = screen.newTextGraphics();
         tg.setForegroundColor(TextColor.Factory.fromString(color));
@@ -148,6 +154,9 @@ public class LanternaGUI implements GUI {
 
     @Override
     public void drawLevel(Position position, int level) {
+        while(level > 9) {
+            level /= 10;
+        }
         drawText(position,"L="+level,"#3F50EB" );
 
     }

@@ -27,9 +27,9 @@ public class GameViewer extends Viewer<Arena> {
         drawElement(gui, getModel().getPrincess(), new PrincessViewer());
         drawElements(gui, getModel().getFireMonsters(), new FireViewer());
         drawElements(gui, getModel().getSwitches(),new SwitchViewer());
-        gui.drawLevel(new Position(36,1),1);
+        drawElements(gui,getModel().getSticks(),new StickViewer());
+        gui.drawLevel(new Position(36,1),getModel().getLevel());
         gui.drawScores(new Position(0,1),getModel().getScores().getJumpScore(),getModel().getScores().getTimeScore());
-
     }
 
     private <T extends Element> void drawElements(GUI gui, List<T> elements, GenericViewer<T> viewer) {

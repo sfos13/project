@@ -30,10 +30,10 @@ public abstract class State<T> {
         return model;
     }
 
-    public void step(Game game, GUI gui, long time) throws IOException {
+    public void step(Game game, GUI gui, long time) throws IOException, InterruptedException {
+        viewer.draw(gui);
         List<GUI.ACTION> actions = gui.getNextActions();
         controller.step(game, actions, time);
-        viewer.draw(gui);
     }
 
     public void setModel(T model){
