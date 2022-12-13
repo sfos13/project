@@ -20,7 +20,7 @@ public class RegisterScoreMenu extends Menu{
             this.message = "Congratulations! You won the game!";
         }
         if (mod.equals("Lost")) {
-            this.entries = Arrays.asList("New Game?", "Register Score", "Exit to Menu");
+            this.entries = Arrays.asList("Play Again?", "Register Score", "Exit to Menu");
             this.message = "Try again! Its just a Donkey Kong";
         }
     }

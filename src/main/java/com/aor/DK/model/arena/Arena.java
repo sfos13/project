@@ -24,6 +24,8 @@ public class Arena {
     private List<Switch> switches;
     private List<Stick> sticks;
     private Scores scores;
+
+    private int originalScore;
     private int level;
 
 
@@ -190,5 +192,11 @@ public class Arena {
     public void setLevel(int level){this.level=level;}
 
 
+    public int getOriginalScore() {
+        return originalScore;
+    }
 
+    public void setOriginalScore(int originalScore) {
+        this.originalScore = originalScore;
+    }
 }

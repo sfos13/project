@@ -31,14 +31,13 @@ public class MenuController extends Controller<Menu> {
                 switch (action) {
                     case UP -> getModel().previousEntry();
                     case DOWN -> getModel().nextEntry();
-                    case QUIT -> game.setState(null);
                     case SELECT -> {
                         if (getModel().isSelected_String("Exit")) {
                             game.setState(null);
                         }
 
                         if(getModel().isSelected_String("Start") || getModel().isSelected_String("Play Again?")) {
-                            game.setState(new LevelState(new Level(1)));
+                            game.setState(new LevelState(new Level(1, 0)));
                         }
                         if (getModel().isSelected_String("Instructions")) {
                             game.setState(new MenuState(new Menu("Instructions")));

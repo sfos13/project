@@ -6,7 +6,7 @@ class LevelTest extends Specification{
 
     def'Testing level getter'(){
         given:
-        def level = new Level(1)
+        def level = new Level(1, scores.getTotal())
         when:
         def x = level.getLevel()
         then:
