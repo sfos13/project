@@ -9,6 +9,14 @@ import com.aor.DK.model.elements.Mario
 import com.aor.DK.model.elements.Princess
 import com.aor.DK.model.elements.Stair
 import com.aor.DK.model.elements.Switch
+import com.aor.DK.viewer.elements.BarrelViewer
+import com.aor.DK.viewer.elements.DonkeyKongViewer
+import com.aor.DK.viewer.elements.FireViewer
+import com.aor.DK.viewer.elements.FloorViewer
+import com.aor.DK.viewer.elements.MarioViewer
+import com.aor.DK.viewer.elements.PrincessViewer
+import com.aor.DK.viewer.elements.StairViewer
+import com.aor.DK.viewer.elements.SwitchViewer
 import spock.lang.Specification
 
 class AllBasicViewerTest extends Specification{

@@ -7,20 +7,20 @@ class RankingTest extends Specification{
         given:
         def ranking = new Ranking()
         def list = new ArrayList<RankingElement>()
-        list.add(new RankingElement("A",10,10))
-        list.add(new RankingElement("B",10,10))
-        list.add(new RankingElement("C",10,10))
-        list.add(new RankingElement("D",10,10))
-        list.add(new RankingElement("E",10,10))
-        list.add(new RankingElement("F",10,10))
-        list.add(new RankingElement("G",10,10))
-        list.add(new RankingElement("H",10,10))
-        list.add(new RankingElement("I",10,10))
-        list.add(new RankingElement("J",10,10))
+        list.add(new RankingElement("A",10))
+        list.add(new RankingElement("B",10))
+        list.add(new RankingElement("C",10))
+        list.add(new RankingElement("D",10))
+        list.add(new RankingElement("E",10))
+        list.add(new RankingElement("F",10))
+        list.add(new RankingElement("G",10))
+        list.add(new RankingElement("H",10))
+        list.add(new RankingElement("I",10))
+        list.add(new RankingElement("J",10))
         when:
         ranking.setList(list)
-        ranking.addPerson(new RankingElement("X",10,10))
+        ranking.addPerson(new RankingElement("X",10))
         then:
-        ranking.getPeople().get(9).getName() == "X"
+        ranking.getList().get(9).getName() == "X"
     }
 }

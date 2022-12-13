@@ -12,21 +12,6 @@ class MenuTest extends Specification{
         menu.getMessage() == "Donkey Kong"
     }
 
-    def 'Testing menu win'(){
-        when:
-        def menu = new Menu("Win")
-        then:
-        menu.getNumberEntries() == 2
-        menu.getMessage() == "Congratulations! You won the game!"
-    }
-
-    def 'Testing menu lost'(){
-        when:
-        def menu = new Menu("Lost")
-        then:
-        menu.getNumberEntries() == 3
-        menu.getMessage() == "Try again! Its just a Donkey Kong"
-    }
 
     def 'Testing menu instructions'(){
         when:
@@ -38,7 +23,7 @@ class MenuTest extends Specification{
 
     def 'Testing next entry'() {
         given:
-        def menu = new Menu("Win")
+        def menu = new Menu("Instructions")
         when:
         menu.nextEntry()
         then:
@@ -47,7 +32,7 @@ class MenuTest extends Specification{
 
         def 'Testing next entry to 0'(){
             given:
-            def menu = new Menu("Win")
+            def menu = new Menu("Instructions")
             when:
             menu.nextEntry()
             menu.nextEntry()
@@ -57,7 +42,7 @@ class MenuTest extends Specification{
 
     def 'Testing previous entry'(){
         given:
-        def menu = new Menu("Win")
+        def menu = new Menu("Instructions")
         when:
         menu.previousEntry()
         then:
@@ -66,7 +51,7 @@ class MenuTest extends Specification{
 
     def 'Testing previous entry to 0'(){
         given:
-        def menu = new Menu("Win")
+        def menu = new Menu("Instructions")
         when:
         menu.previousEntry()
         menu.previousEntry()
@@ -76,26 +61,26 @@ class MenuTest extends Specification{
 
     def 'Testing get entry'(){
         given:
-        def menu = new Menu("Win")
+        def menu = new Menu("Instructions")
         when:
         def entry = menu.getEntry(0)
         then:
-        entry == "Play again?"
+        entry == "Start"
     }
 
     def 'Testing is selected String'(){
         given:
-        def menu = new Menu("Win")
+        def menu = new Menu("Instructions")
         expect:
-        menu.isSelected_String("Play again?")
+        menu.isSelected_String("Start")
     }
 
     def 'Testing get message / get Mod'(){
         given:
-        def menu = new Menu("Win")
+        def menu = new Menu("Instructions")
         expect:
-        menu.getMessage() == "Congratulations! You won the game!"
-        menu.getMod() == "Win"
+        menu.getMessage() == "Instructions"
+        menu.getMod() == "Instructions"
     }
 
 

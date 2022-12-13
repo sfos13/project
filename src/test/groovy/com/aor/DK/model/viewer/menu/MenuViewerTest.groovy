@@ -3,6 +3,8 @@ package com.aor.DK.model.viewer.menu
 import com.aor.DK.GUI.LanternaGUI
 import com.aor.DK.model.Position
 import com.aor.DK.model.menu.Menu
+import com.aor.DK.viewer.menu.InstructionsViewer
+import com.aor.DK.viewer.menu.LostViewer
 import spock.lang.Specification
 
 class MenuViewerTest extends Specification{

@@ -6,10 +6,11 @@ class RankingElementTest extends Specification{
 
     def 'Testing set and get score'(){
         given:
-        def element = new RankingElement("X", 10, 10)
+        def element = new RankingElement("X", 10)
         when:
         element.setScore(100)
         then:
         element.getScore() == 100
+        element.getName() == "X"
     }
 }
