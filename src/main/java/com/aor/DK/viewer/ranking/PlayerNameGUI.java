@@ -41,23 +41,27 @@ public class PlayerNameGUI extends JFrame {
         frame.setLayout(null);
         frame.setVisible(true);
 
-        button.addActionListener(e -> {
-            try {
-                actionButtonOk(e);
-            } catch (IOException ex) {
-                throw new RuntimeException(ex);
-            }
-        });
+        button.addActionListener(this::actionButtonOk);
 
     }
 
-    public void actionButtonOk(ActionEvent e) throws IOException {
+    private void actionButtonOk(ActionEvent actionEvent) {
         String name= textField.getText();
         if (name.equals("")) name="Player";
         frame.setVisible(false);
-        Ranking ranking = new Ranking();
+        Ranking ranking = null;
+        try {
+            ranking = new Ranking();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
         ranking.addPerson(new RankingElement(name, arena.getScores().getTotal()));
-        ranking.save();
+        try {
+            ranking.save();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
         frame.dispose();
     }
+
 }
