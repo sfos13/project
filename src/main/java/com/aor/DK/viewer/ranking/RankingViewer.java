@@ -26,6 +26,7 @@ public class RankingViewer extends Viewer<Ranking> {
     @Override
     public void drawElements(GUI gui) {
         for(RankingElement element : list) {
+
         }
     }
 }

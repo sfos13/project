@@ -21,7 +21,6 @@ public class LevelViewer extends Viewer<Level> {
         String blue="#3F50EB";
         gui.drawText(new Position(x, y), message, white);
         gui.drawText(new Position (30,5),"L="+level,blue);
-        gui.drawText(new Position (5,5),"Click space to begin", white);
 
         gui.drawDonkeyKong(new Position(20, y -4));
         gui.drawText(new Position(5, y -3),   "25 m", white);

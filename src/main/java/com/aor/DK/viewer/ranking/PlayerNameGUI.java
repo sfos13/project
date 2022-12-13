@@ -27,19 +27,16 @@ public class PlayerNameGUI extends JFrame {
         label.setFont(new Font("Jumpman",Font.BOLD,18));
         label.setForeground(Color.white);
         textField = new JTextField(40);
-
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.add(button);
         frame.add(label);
         frame.add(textField);
         frame.pack();
         frame.setSize(500,300);
-
         textField.setLocation(30,150);
         frame.getContentPane().setBackground(Color.BLACK);
         frame.setLayout(null);
         frame.setVisible(true);
-
         button.addActionListener(e -> {
             try {
                 actionButtonOk(e);
@@ -60,3 +57,4 @@ public class PlayerNameGUI extends JFrame {
         frame.dispose();
     }
 }
+
