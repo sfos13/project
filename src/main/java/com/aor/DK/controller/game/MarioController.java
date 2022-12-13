@@ -7,11 +7,10 @@ import com.aor.DK.model.Position;
 import com.aor.DK.model.arena.Arena;
 import com.aor.DK.model.elements.Mario;
 import com.aor.DK.model.menu.Level;
-import com.aor.DK.model.menu.Menu;
+import com.aor.DK.model.menu.RegisterScoreMenu;
 import com.aor.DK.model.ranking.Scores;
 import com.aor.DK.states.LevelState;
 import com.aor.DK.states.MenuState;
-
 
 import java.util.List;
 
@@ -137,14 +136,14 @@ public class MarioController extends GameController {
             if (level==1){game.setState(new LevelState(new Level(level+1)));}
             else{
                 arena.setScores(scores);
-                game.setState(new MenuState(new Menu("Win")));
+                game.setState(new MenuState(new RegisterScoreMenu("Win",scores.getTotal())));
             }
 
         }
 
         if (isCrash || isOutOfBonds ) {
             arena.setScores(scores);
-            game.setState(new MenuState(new Menu("Lost")));
+            game.setState(new MenuState(new RegisterScoreMenu("Lost",scores.getTotal())));
         }
 
 

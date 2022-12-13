@@ -14,11 +14,11 @@ public class PlayerNameGUI extends JFrame {
 
     JFrame frame;
     JTextField textField;
-    Arena arena;
+    int score;
 
 
-    public PlayerNameGUI(Arena arena){
-        this.arena = arena;
+    public PlayerNameGUI(int score){
+        this.score = score;
         frame = new JFrame("Name Player");
         JButton button = new JButton("OK");
         button.setBounds(200 ,180,60,50);
@@ -45,23 +45,18 @@ public class PlayerNameGUI extends JFrame {
 
     }
 
-    private void actionButtonOk(ActionEvent actionEvent) {
+    public void actionButtonOk(ActionEvent e) throws IOException {
         String name= textField.getText();
         if (name.equals("")) name="Player";
         frame.setVisible(false);
         Ranking ranking = null;
-        try {
-            ranking = new Ranking();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-        ranking.addPerson(new RankingElement(name, arena.getScores().getTotal()));
+        ranking = new Ranking();
+        ranking.addPerson(new RankingElement(name, score));
         try {
             ranking.save();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
+        } catch (IOException ex) {
+            throw new RuntimeException(ex);
         }
         frame.dispose();
     }
-
 }
