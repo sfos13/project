@@ -25,6 +25,10 @@ public class Mario extends Element{
         return letter;
     }
 
+    public void setLetter(char letter){
+        this.letter = letter;
+    }
+
     public void stationaryRight() {
         this.letter = ',';
     }

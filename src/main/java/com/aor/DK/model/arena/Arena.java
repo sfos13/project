@@ -22,7 +22,6 @@ public class Arena {
     private List<Fire> fireMonsters;
     private boolean spawnFlag;
     private List<Switch> switches;
-
     private List<Stick> sticks;
     private Scores scores;
     private int level;
@@ -180,9 +179,6 @@ public class Arena {
         return level;
     }
 
-    public void setLevel(int level){this.level=level;}
-
-
     public List<Stick> getSticks() {
         return sticks;
     }
@@ -190,4 +186,9 @@ public class Arena {
     public void setSticks(List<Stick> sticks) {
         this.sticks = sticks;
     }
+
+    public void setLevel(int level){this.level=level;}
+
+
+
 }

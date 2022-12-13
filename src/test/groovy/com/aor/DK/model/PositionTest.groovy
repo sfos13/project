@@ -4,17 +4,19 @@ import spock.lang.Specification
 
 class PositionTest extends Specification{
 
+    Position p
+
+    def setup(){
+        p = new Position(2,3)
+    }
+
     def 'build position'() {
-        given:
-            def p = new Position(2,3)
         expect:
             2 == p.getX()
             3 == p.getY()
     }
 
     def 'get position on the left'() {
-        given:
-            def p = new Position(2,3)
         when:
             p = p.getLeft()
         then:
@@ -22,8 +24,6 @@ class PositionTest extends Specification{
     }
 
     def 'get position on the right'() {
-        given:
-            def p = new Position(2,3)
         when:
             p = p.getRight()
         then:
@@ -31,8 +31,6 @@ class PositionTest extends Specification{
     }
 
     def 'get position up'() {
-        given:
-        def p = new Position(2,3)
         when:
         p = p.getUp()
         then:
@@ -40,12 +38,17 @@ class PositionTest extends Specification{
     }
 
     def 'get position down'() {
-        given:
-        def p = new Position(2,3)
         when:
         p = p.getDown()
         then:
         p == new Position(2, 4)
+    }
+
+    def 'Testing get set x'(){
+        when:
+        p.setX(10)
+        then:
+        p.getX() == 10
     }
 
 }
