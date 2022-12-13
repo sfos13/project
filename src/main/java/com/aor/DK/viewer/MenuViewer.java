@@ -20,7 +20,7 @@ public class MenuViewer extends Viewer<Menu> {
     }
     @Override
     public void drawElements(GUI gui) throws IOException {
-        int y=10;
+        int y=5;
         int w=40;
         int x=(w-message.length())/2;
         gui.drawText(new Position(x, y), message, "#FFFFFF");
