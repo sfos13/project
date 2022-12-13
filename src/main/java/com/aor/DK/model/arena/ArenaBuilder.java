@@ -16,8 +16,8 @@ public abstract class ArenaBuilder {
         arena.setPrincess(createPrincess());
         arena.setSpawnBarrelPosition(getSpawnBarrelPosition());
         arena.setScores(arena.getScores());
-        arena.setSpawnFirePosition(getSpawnFirePosition1(),1);
-        arena.setSpawnFirePosition(getSpawnFirePosition2(),2);
+        arena.setSpawnFirePosition(getSpawnFirePosition1(), 1);
+        arena.setSpawnFirePosition(getSpawnFirePosition2(), 2);
         arena.setSwitches(createSwitches());
         arena.setSticks(createSticks());
         arena.setLevel(getLevel());
@@ -25,17 +25,28 @@ public abstract class ArenaBuilder {
     }
 
     protected abstract int getWidth();
+
     protected abstract int getHeight();
+
     protected abstract List<Stair> createStairs();
+
     protected abstract List<List<Floor>> createFloor();
+
     protected abstract Mario createMario();
+
     protected abstract DonkeyKong createDonkeyKong();
+
     protected abstract Princess createPrincess();
+
     protected abstract Position getSpawnBarrelPosition();
 
     protected abstract Position getSpawnFirePosition1();
+
     protected abstract Position getSpawnFirePosition2();
+
     protected abstract List<Switch> createSwitches();
+
     protected abstract List<Stick> createSticks();
+
     protected abstract int getLevel();
 }

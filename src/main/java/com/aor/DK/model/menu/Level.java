@@ -4,8 +4,9 @@ public class Level {
 
     private final int level;
     private final int score;
-    public Level(int level, int total){
-        this.level=level;
+
+    public Level(int level, int total) {
+        this.level = level;
         this.score = total;
     }
 

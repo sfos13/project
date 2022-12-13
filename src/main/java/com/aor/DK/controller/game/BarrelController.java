@@ -11,9 +11,10 @@ import org.jetbrains.annotations.NotNull;
 import java.io.IOException;
 import java.util.List;
 
-public class BarrelController extends GameController{
+public class BarrelController extends GameController {
 
     private long lastMovement;
+
     public BarrelController(Arena arena) {
         super(arena);
         this.lastMovement = 0;
@@ -36,7 +37,7 @@ public class BarrelController extends GameController{
             barrel.setPosition(down);
         }
         if (getModel().getFloorNumber(barrel.getPosition()) % 2 == 0) {
-                barrel.setPosition(barrel.getPosition().getLeft());
+            barrel.setPosition(barrel.getPosition().getLeft());
         }
         if (getModel().getFloorNumber(barrel.getPosition()) % 2 == 1) {
             Position right = barrel.getPosition().getRight();
@@ -45,7 +46,7 @@ public class BarrelController extends GameController{
     }
 
     private void time_barrel(long time) {
-        if(time - lastMovement > 2000) {
+        if (time - lastMovement > 2000) {
             getModel().spawnBarrel();
             lastMovement = time;
         }

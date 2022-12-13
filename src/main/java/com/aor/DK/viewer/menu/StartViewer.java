@@ -11,9 +11,9 @@ public class StartViewer extends MenuViewer implements MenuGeneric {
     }
 
     public void drawElements(GUI gui) {
-        gui.drawDonkeyKong(new Position(15,20));
-        gui.drawPrincess(new Position(20,20));
-        gui.drawText(new Position(21,20),"HELP!!!!","#EB93D0");
+        gui.drawDonkeyKong(new Position(15, 20));
+        gui.drawPrincess(new Position(20, 20));
+        gui.drawText(new Position(21, 20), "HELP!!!!", "#EB93D0");
 
     }
 }

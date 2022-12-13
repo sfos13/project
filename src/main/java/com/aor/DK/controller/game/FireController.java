@@ -67,11 +67,11 @@ public class FireController extends GameController {
         // move fires
         if (time - lastMovement > 1000) {
             for (Fire fire : getModel().getFireMonsters()) {
-                Arena arena =getModel();
+                Arena arena = getModel();
                 Position positionFire = fire.getPosition();
                 boolean isOnStairs = arena.checkStairs(positionFire);
-                boolean isOverStairs = new UnderStairs(positionFire,arena).isValid();
-                boolean isOnFloor = new OnFloor(positionFire,arena).isValid();
+                boolean isOverStairs = new UnderStairs(positionFire, arena).isValid();
+                boolean isOnFloor = new OnFloor(positionFire, arena).isValid();
 
                 // go up
                 if (isOnStairs && (fire.isSmart() || fire.getDirection().equals("up")) && !fire.getDirection().equals("down")) {
@@ -102,7 +102,7 @@ public class FireController extends GameController {
                 }
 
                 // not on floor
-                if(!isOnFloor && !isOnStairs) {
+                if (!isOnFloor && !isOnStairs) {
                     fire.switchDirection();
                     moveFire(fire);
                 }

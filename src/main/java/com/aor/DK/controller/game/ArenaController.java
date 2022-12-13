@@ -13,7 +13,7 @@ import com.aor.DK.states.MenuState;
 import java.io.IOException;
 import java.util.List;
 
-public class ArenaController extends GameController{
+public class ArenaController extends GameController {
     private final MarioController marioController;
     private final BarrelController barrelController;
     private final FireController fireController;
@@ -27,11 +27,11 @@ public class ArenaController extends GameController{
 
     private void manageSwitches() {
         Position marioPos = getModel().getMario().getPosition();
-        for(Switch s : getModel().getSwitches()) {
-            if(!s.isOn()) continue;
-            if(s.getPosition().getX() == marioPos.getX() &&
+        for (Switch s : getModel().getSwitches()) {
+            if (!s.isOn()) continue;
+            if (s.getPosition().getX() == marioPos.getX() &&
                     (marioPos.getY() == s.getPosition().getY() - 1
-                    || marioPos.getY() == s.getPosition().getY() - 2 )) {
+                            || marioPos.getY() == s.getPosition().getY() - 2)) {
                 s.turnOff();
             }
         }
@@ -46,16 +46,14 @@ public class ArenaController extends GameController{
             marioController.step(game, actions, time);
             barrelController.step(game, actions, time);
             fireController.step(game, actions, time);
-            for(Switch s : getModel().getSwitches()){
+            for (Switch s : getModel().getSwitches()) {
                 allSwitchesOff = allSwitchesOff && !s.isOn();
             }
-            if(allSwitchesOff && getModel().getLevel() == 2){
+            if (allSwitchesOff && getModel().getLevel() == 2) {
                 game.setState(new GameState(new LoaderArenaBuilder(21).createArena()));
-            }
-            else {
+            } else {
                 manageSwitches();
             }
-
         }
     }
 }

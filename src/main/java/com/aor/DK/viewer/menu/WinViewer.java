@@ -11,5 +11,6 @@ public class WinViewer extends MenuViewer implements MenuGeneric {
     }
 
     public void drawElements(GUI gui) {
-        gui.drawPrincess(new Position(20,20));}
+        gui.drawPrincess(new Position(20, 20));
+    }
 }

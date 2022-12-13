@@ -3,20 +3,20 @@ package com.aor.DK.model.menu;
 import java.util.Arrays;
 import java.util.List;
 
-public class Menu{
+public class Menu {
     protected List<String> entries;
     protected int currentEntry = 0;
     protected String message;
     protected String mod;
 
     public Menu(String mod) {
-        this.mod=mod;
+        this.mod = mod;
         parse(mod);
     }
 
     protected void parse(String mod) {
         if (mod.equals("Start")) {
-            this.entries = Arrays.asList("Start", "Instructions", "Ranking","Exit");
+            this.entries = Arrays.asList("Start", "Instructions", "Ranking", "Exit");
             this.message = "Donkey Kong";
         }
         if (mod.equals("Instructions")) {
@@ -58,5 +58,7 @@ public class Menu{
         return message;
     }
 
-    public String getMod() {return mod;}
+    public String getMod() {
+        return mod;
+    }
 }

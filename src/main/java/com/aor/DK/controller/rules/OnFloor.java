@@ -10,9 +10,9 @@ public class OnFloor implements Validation {
     Position positionMario;
     List<List<Floor>> floors;
 
-    public OnFloor (Position positionMario, Arena arena) {
-        this.positionMario=positionMario;
-        this.floors=arena.getFloor();
+    public OnFloor(Position positionMario, Arena arena) {
+        this.positionMario = positionMario;
+        this.floors = arena.getFloor();
     }
 
     @Override
@@ -20,9 +20,9 @@ public class OnFloor implements Validation {
         int positionX = positionMario.getX();
         int positionY = positionMario.getY();
 
-        for(List<Floor> storey : floors) {
-            for(Floor floor : storey)
-                if(positionY+1 == (floor.getPosition().getY()) && positionX == floor.getPosition().getX()) {
+        for (List<Floor> storey : floors) {
+            for (Floor floor : storey)
+                if (positionY + 1 == (floor.getPosition().getY()) && positionX == floor.getPosition().getX()) {
                     return true;
                 }
         }

@@ -1,10 +1,10 @@
 package com.aor.DK.states;
 
-import com.aor.DK.viewer.ranking.RankingViewer;
-import com.aor.DK.viewer.Viewer;
 import com.aor.DK.controller.Controller;
 import com.aor.DK.controller.menu.RankingController;
 import com.aor.DK.model.ranking.Ranking;
+import com.aor.DK.viewer.Viewer;
+import com.aor.DK.viewer.ranking.RankingViewer;
 
 public class RankingState extends State<Ranking> {
 

@@ -30,10 +30,9 @@ public interface GUI {
     void drawText(Position position, String text, String color);
 
 
-    void drawScores(Position position, int jumpScore, int timeScore );
+    void drawScores(Position position, int jumpScore, int timeScore);
 
-    void drawLevel(Position position, int level) ;
-
+    void drawLevel(Position position, int level);
 
 
     void clear();
@@ -41,8 +40,6 @@ public interface GUI {
     void refresh() throws IOException;
 
     void close() throws IOException;
-
-
 
 
     enum ACTION {UP, RIGHT, DOWN, LEFT, QUIT, SPACE, SELECT, WIN}

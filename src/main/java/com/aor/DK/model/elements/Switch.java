@@ -1,8 +1,9 @@
 package com.aor.DK.model.elements;
 
-public class Switch extends Element{
+public class Switch extends Element {
 
     private boolean isOn;
+
     public Switch(int x, int y) {
         super(x, y);
         isOn = true;

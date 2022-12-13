@@ -23,7 +23,7 @@ public class LevelController extends Controller<Level> {
     public void step(Game game, List<GUI.ACTION> actions, long time) throws IOException {
         int level = getModel().getLevel();
         int score = getModel().getScore();
-        if (time - lastMovement > 3000){
+        if (time - lastMovement > 3000) {
             run_level(game, level, 1, score);
             run_level(game, level, 2, score);
             run_level(game, level, 21, score);

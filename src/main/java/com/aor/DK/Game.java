@@ -1,7 +1,6 @@
 package com.aor.DK;
 
 import com.aor.DK.GUI.LanternaGUI;
-
 import com.aor.DK.model.menu.Menu;
 import com.aor.DK.states.MenuState;
 import com.aor.DK.states.State;
@@ -12,8 +11,8 @@ import java.net.URISyntaxException;
 
 
 public class Game {
-    private State state;
     private final LanternaGUI gui;
+    private State state;
 
     public Game() throws IOException, URISyntaxException, FontFormatException {
         this.gui = new LanternaGUI(41, 31);

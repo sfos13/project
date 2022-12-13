@@ -1,6 +1,6 @@
 package com.aor.DK.model.elements;
 
-public class Mario extends Element{
+public class Mario extends Element {
 
     private float vy;
     private char letter;
@@ -17,15 +17,18 @@ public class Mario extends Element{
     public void setVy(float vy) {
         this.vy = vy;
     }
+
     public void incrementVy(float value) {
-        if (vy<2){this.vy += value;}
+        if (vy < 2) {
+            this.vy += value;
+        }
     }
 
     public char getLetter() {
         return letter;
     }
 
-    public void setLetter(char letter){
+    public void setLetter(char letter) {
         this.letter = letter;
     }
 
@@ -36,6 +39,7 @@ public class Mario extends Element{
     public void stationaryLeft() {
         this.letter = '-';
     }
+
     public void runningLeft() {
         this.letter = '.';
     }
@@ -53,7 +57,7 @@ public class Mario extends Element{
     }
 
     public void movingRight() {
-        if(letter == ',') {
+        if (letter == ',') {
             runningRight();
             return;
         }
@@ -61,7 +65,7 @@ public class Mario extends Element{
     }
 
     public void movingLeft() {
-        if(letter == '-') {
+        if (letter == '-') {
             runningLeft();
             return;
         }
@@ -69,7 +73,7 @@ public class Mario extends Element{
     }
 
     public void climbingStairs() {
-        if(letter == '/') {
+        if (letter == '/') {
             goingUp2();
             return;
         }
@@ -77,11 +81,11 @@ public class Mario extends Element{
     }
 
     public void stationary() {
-        if(letter == '*') {
+        if (letter == '*') {
             stationaryRight();
             return;
         }
-        if(letter == '.') {
+        if (letter == '.') {
             stationaryLeft();
             return;
         }

@@ -79,7 +79,7 @@ public class MarioController extends GameController {
 
     private void jumpMario() {
         boolean isOnFloor = new OnFloor(positionMario, arena).isValid();
-        boolean isOnSwitches = new OnSwitches(positionMario,arena).isValid();
+        boolean isOnSwitches = new OnSwitches(positionMario, arena).isValid();
         boolean checkStairs = new CheckStairs(positionMario, arena).isValid();
         boolean isJumpingEnemies = new JumpEnemy(positionMario, arena).isValid();
 
@@ -95,7 +95,7 @@ public class MarioController extends GameController {
 
     private void gravityPush() {
         boolean isOnFloor = new OnFloor(positionMario, arena).isValid();
-        boolean isOnSwitches = new OnSwitches(positionMario,arena).isValid();
+        boolean isOnSwitches = new OnSwitches(positionMario, arena).isValid();
         boolean checkStairs = new CheckStairs(positionMario, arena).isValid();
         float GRAVITY = 0.25f;
         if (!isOnFloor && !checkStairs && !isOnSwitches) {
@@ -115,49 +115,56 @@ public class MarioController extends GameController {
         boolean checkStairs = new CheckStairs(positionMario, arena).isValid();
         boolean underStairs = new UnderStairs(positionMario, arena).isValid();
 
-        if(time-lastTime>70){
-            lastTime=time;
+        if (time - lastTime > 70) {
+            lastTime = time;
             if (actions.contains(GUI.ACTION.UP)) {
-                    if (checkStairs) {moveMarioUp();}
+                if (checkStairs) {
+                    moveMarioUp();
                 }
+            }
             if (actions.contains(GUI.ACTION.DOWN)) {
-                    if (underStairs) {moveMarioDown();}
+                if (underStairs) {
+                    moveMarioDown();
                 }
-            if  (actions.contains(GUI.ACTION.LEFT)) {moveMarioLeft();}
-
-            if (actions.contains(GUI.ACTION.RIGHT)) {moveMarioRight();}
-
-            if ((actions.contains(GUI.ACTION.SPACE))){ jumpMario();}
-
+            }
+            if (actions.contains(GUI.ACTION.LEFT)) {
+                moveMarioLeft();
             }
 
+            if (actions.contains(GUI.ACTION.RIGHT)) {
+                moveMarioRight();
+            }
+
+            if ((actions.contains(GUI.ACTION.SPACE))) {
+                jumpMario();
+            }
+
+        }
+
         gravityPush();
-        if(arena.getLevel() == 21) sleep(2000);
+        if (arena.getLevel() == 21) sleep(2000);
         Position positionPrincess = arena.getPrincess().getPosition();
         int winFloor = arena.getFloorNumber(positionPrincess);
 
         if (getModel().getFloorNumber(positionMario) == winFloor || actions.contains(GUI.ACTION.WIN)) {
 
             int level = arena.getLevel();
-            if (level == 1){
-                game.setState(new LevelState(new Level(level+1,scores.getTotal())));
-            }
-            else if(level == 2) {
+            if (level == 1) {
+                game.setState(new LevelState(new Level(level + 1, scores.getTotal())));
+            } else if (level == 2) {
                 game.setState(new GameState(new LoaderArenaBuilder(21).createArena()));
-            }
-            else{
+            } else {
                 arena.setScores(scores);
-                game.setState(new MenuState(new RegisterScoreMenu("Win",scores.getTotal() + arena.getOriginalScore())));
+                game.setState(new MenuState(new RegisterScoreMenu("Win", scores.getTotal() + arena.getOriginalScore())));
             }
 
 
         }
 
-        if (isCrash || isOutOfBonds ) {
+        if (isCrash || isOutOfBonds) {
             arena.setScores(scores);
-            game.setState(new MenuState(new RegisterScoreMenu("Lost",scores.getTotal() + arena.getOriginalScore())));
+            game.setState(new MenuState(new RegisterScoreMenu("Lost", scores.getTotal() + arena.getOriginalScore())));
         }
-
 
 
         if (time - lastMovement > 3000) {

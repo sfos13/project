@@ -56,7 +56,6 @@ public class JumpEnemy implements Validation {
 
             }
         }
-
         return false;
     }
 }

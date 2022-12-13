@@ -97,7 +97,8 @@ public class LoaderArenaBuilder extends ArenaBuilder {
             for (int x = 0; x < line.length(); x++)
                 if (line.charAt(x) == 'D') return new DonkeyKong(x, y);
         }
-        return null;    }
+        return null;
+    }
 
     @Override
     protected Princess createPrincess() {
@@ -120,8 +121,6 @@ public class LoaderArenaBuilder extends ArenaBuilder {
     }
 
 
-
-
     @Override
     protected Position getSpawnFirePosition1() {
         for (int y = 0; y < lines.size(); y++) {
@@ -131,6 +130,7 @@ public class LoaderArenaBuilder extends ArenaBuilder {
         }
         return null;
     }
+
     @Override
     protected Position getSpawnFirePosition2() {
         for (int y = 0; y < lines.size(); y++) {
