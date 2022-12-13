@@ -48,8 +48,7 @@ public class MenuController extends Controller<Menu> {
 
                         if (getModel().isSelected_String("Register Score")) {
                             var model = (RegisterScoreMenu) getModel();
-                            new PlayerNameGUI(model.getScore());
-                            game.setState(new MenuState(new Menu("Start")));
+                            new PlayerNameGUI(game,model.getScore());
                         }
                     }
                 }

@@ -1,7 +1,10 @@
 package com.aor.DK.viewer.ranking;
 
+import com.aor.DK.Game;
+import com.aor.DK.model.menu.Menu;
 import com.aor.DK.model.ranking.Ranking;
 import com.aor.DK.model.ranking.RankingElement;
+import com.aor.DK.states.MenuState;
 
 import javax.swing.*;
 import java.awt.*;
@@ -15,8 +18,11 @@ public class PlayerNameGUI extends JFrame {
     JTextField textField;
     int score;
 
+    Game game;
 
-    public PlayerNameGUI(int score){
+
+    public PlayerNameGUI(Game game, int score){
+        this.game = game;
         this.score = score;
         frame = new JFrame("Name Player");
         JButton button = new JButton("OK");
@@ -55,6 +61,7 @@ public class PlayerNameGUI extends JFrame {
         ranking.addPerson(new RankingElement(name, score));
         ranking.save();
         frame.dispose();
+        game.setState(new MenuState(new Menu("Start")));
     }
 }
 
