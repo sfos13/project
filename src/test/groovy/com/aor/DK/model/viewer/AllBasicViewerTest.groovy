@@ -107,6 +107,18 @@ class AllBasicViewerTest extends Specification{
         when:
         viewer.draw(s,gui)
         then:
-        1 * gui.drawSwitch(s.getPosition());
+        1 * gui.drawSwitch(s.getPosition(),"#fff600");
+    }
+
+    def 'Testing switch viewer with switch off'(){
+        given:
+        def viewer = new SwitchViewer()
+        def gui = Mock(LanternaGUI.class, constructorArgs:[30, 30])
+        def s = Mock(Switch.class, constructorArgs: [1, 1])
+        s.isOn() >> false
+        when:
+        viewer.draw(s,gui)
+        then:
+        1 * gui.drawSwitch(s.getPosition(),"#00FF00");
     }
 }
