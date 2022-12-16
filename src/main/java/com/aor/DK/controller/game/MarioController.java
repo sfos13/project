@@ -142,7 +142,7 @@ public class MarioController extends GameController {
         }
 
         gravityPush();
-        if (arena.getLevel() == 21) sleep(2000);
+        if (arena.getLevel() == 21) sleep(5000);
         Position positionPrincess = arena.getPrincess().getPosition();
         int winFloor = arena.getFloorNumber(positionPrincess);
 
@@ -150,18 +150,20 @@ public class MarioController extends GameController {
 
             int level = arena.getLevel();
             if (level == 1) {
-                game.setState(new LevelState(new Level(level + 1, scores.getTotal())));
+                game.setState(new LevelState(new Level(level + 1, scores.getTotal() + 5000)));
             } else if (level == 2) {
-                game.setState(new GameState(new LoaderArenaBuilder(21).createArena()));
+                Arena arena = new LoaderArenaBuilder(21).createArena();
+                arena.setOriginalScore(scores.getTotal() + 2500);
+                game.setState(new GameState(arena));
             } else {
                 arena.setScores(scores);
-                game.setState(new MenuState(new RegisterScoreMenu("Win", scores.getTotal() + arena.getOriginalScore())));
+                game.setState(new MenuState(new RegisterScoreMenu("Win", scores.getTotal() + arena.getOriginalScore() + 2500)));
             }
 
 
         }
 
-        if (isCrash || isOutOfBonds) {
+        if (isCrash || isOutOfBonds || scores.getTimeScore() == 0) {
             arena.setScores(scores);
             game.setState(new MenuState(new RegisterScoreMenu("Lost", scores.getTotal() + arena.getOriginalScore())));
         }
