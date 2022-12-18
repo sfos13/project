@@ -12,7 +12,6 @@ import com.aor.DK.viewer.ranking.RankingViewer;
 
 import java.io.IOException;
 
-;
 
 
 public class MenuViewer extends Viewer<Menu> {
