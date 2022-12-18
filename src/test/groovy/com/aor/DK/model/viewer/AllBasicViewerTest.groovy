@@ -8,6 +8,7 @@ import com.aor.DK.model.elements.Floor
 import com.aor.DK.model.elements.Mario
 import com.aor.DK.model.elements.Princess
 import com.aor.DK.model.elements.Stair
+import com.aor.DK.model.elements.Stick
 import com.aor.DK.model.elements.Switch
 import com.aor.DK.viewer.elements.BarrelViewer
 import com.aor.DK.viewer.elements.DonkeyKongViewer
@@ -16,6 +17,7 @@ import com.aor.DK.viewer.elements.FloorViewer
 import com.aor.DK.viewer.elements.MarioViewer
 import com.aor.DK.viewer.elements.PrincessViewer
 import com.aor.DK.viewer.elements.StairViewer
+import com.aor.DK.viewer.elements.StickViewer
 import com.aor.DK.viewer.elements.SwitchViewer
 import spock.lang.Specification
 
@@ -120,5 +122,16 @@ class AllBasicViewerTest extends Specification{
         viewer.draw(s,gui)
         then:
         1 * gui.drawSwitch(s.getPosition(),"#00FF00");
+    }
+
+    def 'Testing stick viewer'(){
+        given:
+        def viewer = new StickViewer()
+        def gui = Mock(LanternaGUI.class, constructorArgs:[30, 30])
+        def stick = Mock(Stick.class, constructorArgs: [1, 1])
+        when:
+        viewer.draw(stick,gui)
+        then:
+        1 * gui.drawStick(stick.getPosition())
     }
 }
