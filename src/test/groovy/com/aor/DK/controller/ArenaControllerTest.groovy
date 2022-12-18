@@ -13,10 +13,9 @@ class ArenaControllerTest extends Specification{
     def 'testing step'(){
         given:
         def game = Mock(Game.class)
-        def arena = Mock(Arena.class, constructorArgs:[10, 10])
-        def arenaController = new ArenaController(arena)
+        def arena = new Arena(10,10)
+        def arenaController = Mock(ArenaController.class, constructorArgs: arena)
         def guiList = new ArrayList<GUI.ACTION>()
-        arena.getMario().getPosition() >> new Position(1,1)
         guiList.add(GUI.ACTION.QUIT)
         when:
         arenaController.step(game, guiList,0)

@@ -1,4 +1,4 @@
-package com.aor.DK.model.viewer
+package com.aor.DK.viewer
 
 import com.aor.DK.GUI.LanternaGUI
 import com.aor.DK.model.elements.Barrel
@@ -134,4 +134,7 @@ class AllBasicViewerTest extends Specification{
         then:
         1 * gui.drawStick(stick.getPosition())
     }
+
+
+
 }
