@@ -53,16 +53,14 @@
 
 ## Screenshots 
 
-### Menus
 
 ### Level 1
-
 
 <p>
   <img src="img/originalgame_nivel1.png" alt="">
 </p>
 <p align="center">
-  <b><i>Gif 1. Original Level 1</i></b>
+  <b><i>Img 1. Original Level 1</i></b>
 </p>
 <br>
 <br />
@@ -72,20 +70,151 @@
 </p>
 
 <p align="center">
-  <b><i>Gif 2. Level 1 - First Deliver</i></b>
+  <b><i>Img 2. Level 1 - First Deliver</i></b>
 </p>
 <br>
 <br />
 
 <p align="center" justify="center">
-  <img src="img/level1_climbingStairs.png." alt="">
+  <img src="img/level1_climbingStairs.png" alt="">
 </p>
 
 <p align="center">
-  <b><i>Gif 2. Level 1 - Second Deliver</i></b>
+  <b><i>Img 3. Level 1 - Second Deliver</i></b>
 </p>
 <br>
 <br />
+
+### Level 2
+
+<p align="center" justify="center">
+  <img src="img/originalgame_nivel2_lastfloor.png" alt="" >
+</p>
+
+<p align="center">
+  <b><i>Img 4. Level 2 - Original Game</i></b>
+</p>
+<br>
+<br />
+
+<p align="center" justify="center">
+  <img src="img/level2_switches.png" alt="" >
+</p>
+
+<p align="center">
+  <b><i>Img 5. Level 2 - Gameplay</i></b>
+</p>
+<br>
+<br />
+
+<p align="center" justify="center">
+  <img src="img/originalgame_nivel2_end.png" alt="" >
+</p>
+
+<p align="center">
+  <b><i>Img 6. Level 2 - End - Original Game</i></b>
+</p>
+<br>
+<br />
+
+<p align="center" justify="center">
+  <img src="img/level2_end.png" alt="" >
+</p>
+
+<p align="center">
+  <b><i>Img 7. Level 2 - End</i></b>
+</p>
+<br>
+<br />
+
+### Between Levels
+
+<p align="center" justify="center">
+  <img src="img/originalgame_between.png" alt="" >
+</p>
+
+<p align="center">
+  <b><i>Img 8. Between Levels - Original Game</i></b>
+</p>
+<br>
+<br />
+
+<p align="center" justify="center">
+  <img src="img/betweenLevels.png" alt="" >
+</p>
+
+<p align="center">
+  <b><i>Img 9. Between Levels - End</i></b>
+</p>
+<br>
+<br />
+
+
+### Menus
+
+<p align="center" justify="center">
+  <img src="img/initialMenu.png" alt="" >
+</p>
+
+<p align="center">
+  <b><i>Img 10. Initial Menu</i></b>
+</p>
+<br>
+<br />
+
+<p align="center" justify="center">
+  <img src="img/loseMenu.png" alt="" >
+</p>
+
+<p align="center">
+  <b><i>Img 11. Lost Menu</i></b>
+</p>
+<br>
+<br />
+
+<p align="center" justify="center">
+  <img src="img/winMenu.png" alt="" >
+</p>
+
+<p align="center">
+  <b><i>Img 12. Win Menu</i></b>
+</p>
+<br>
+<br />
+
+
+### Others
+<p align="center" justify="center">
+  <img src="img/instructionsGUI.png" alt="" >
+</p>
+
+<p align="center">
+  <b><i>Img 13. Instructions </i></b>
+</p>
+<br>
+<br />
+
+<p align="center" justify="center">
+  <img src="img/playerName.png" alt="" >
+</p>
+
+<p align="center">
+  <b><i>Img 14. Player Name</i></b>
+</p>
+<br>
+<br />
+
+<p align="center" justify="center">
+  <img src="img/ranking.png" alt="" >
+</p>
+
+<p align="center">
+  <b><i>Img 15. Ranking</i></b>
+</p>
+<br>
+<br />
+
+
 
 
 
@@ -94,12 +223,15 @@
 ### UML
 
 <p>
-  <img width=2490 src="img/DK.png" alt="">
+  <img src="img/UML.png" alt="">
 </p>
 
-<p>
-  <img width=6906 src="img/DK2.png" alt="">
+<p align="center">
+  <b><i>Img 16. UML</i></b>
 </p>
+<br>
+<br />
+
 
 ### MVC (Model–View–Controller)
 
@@ -116,9 +248,9 @@ The whole game is based on the MVC architecture. Therefore, the View is a repres
 
 In the game it's visible where which component is implemented:
 
-- [Controller](../java/com/aor/DK/controller)
-- [Viewer](../java/com/aor/DK/Viewer)
-- [Model](../java/com/aor/DK/model)
+- [Controller](../src/main/java/com/aor/DK/controller)
+- [Viewer](../src/main/java/com/aor/DK/viewer)
+- [Model](../src/main/java/com/aor/DK/model)
 
 **Consequences**
 
@@ -215,9 +347,9 @@ It's used in almost every game, and it's considered one of the basics of program
 
 In the game it's visible where which component is implemented:
 
-- [Controller](../java/com/aor/DK/controller)
-- [Viewer](../java/com/aor/DK/Viewer)
-- [Model](../java/com/aor/DK/model)
+- [Controller](../src/main/java/com/aor/DK/controller)
+- [Viewer](../src/main/java/com/aor/DK/viewer)
+- [Model](../src/main/java/com/aor/DK/model)
 
 
 **Consequences**

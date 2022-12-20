@@ -28,8 +28,12 @@ public class MenuController extends Controller<Menu> {
 
     @Override
     public void step(Game game, List<GUI.ACTION> actions, long time) throws IOException, InterruptedException {
+
         if (time - lastRegistered > 70) {
             for (GUI.ACTION action : actions) {
+                if (getModel().getMod()=="Instructions"){
+                    if (action== GUI.ACTION.SPACE) game.setState(new MenuState(new Menu("Start")));
+                }
                 switch (action) {
                     case UP -> getModel().previousEntry();
                     case DOWN -> getModel().nextEntry();
@@ -41,16 +45,11 @@ public class MenuController extends Controller<Menu> {
 
                         if (getModel().isSelected_String("Start") || getModel().isSelected_String("Play Again?")) {
                             game.setState(new LevelState(new Level(1, 0)));
-                            sleep(500);
                         }
                         if (getModel().isSelected_String("Instructions")) {
                             game.setState(new MenuState(new Menu("Instructions")));
                         }
 
-                        if (getModel().isSelected_String("Exit to Menu")) {
-                            game.setState(new MenuState(new Menu("Start")));
-                            sleep(500);
-                        }
                         if (getModel().isSelected_String("Register Score")) {
                             var model = (RegisterScoreMenu) getModel();
                             new PlayerNameGUI(game, model.getScore());
