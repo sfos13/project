@@ -22,14 +22,14 @@ public class BarrelController extends GameController {
 
     @Override
     public void step(Game game, List<GUI.ACTION> actions, long time) throws IOException {
-        time_barrel(time);
+        timeBarrel(time);
         List<Barrel> barrels = getModel().getBarrels();
         for (Barrel barrel : barrels) {
-            move_barrel(barrel);
+            moveBarrel(barrel);
         }
     }
 
-    private void move_barrel(@NotNull Barrel barrel) {
+    private void moveBarrel(@NotNull Barrel barrel) {
         Position barrelPosition = barrel.getPosition();
         Boolean isUnderStairs = new UnderStairs(barrelPosition, getModel()).isValid();
         if (getModel().getFloorNumber(barrelPosition) == -1 || (isUnderStairs) && barrel.isHeavy()) {
@@ -45,7 +45,7 @@ public class BarrelController extends GameController {
         }
     }
 
-    private void time_barrel(long time) {
+    private void timeBarrel(long time) {
         if (time - lastMovement > 2000) {
             getModel().spawnBarrel();
             lastMovement = time;
