@@ -15,6 +15,8 @@ import com.aor.DK.viewer.ranking.PlayerNameGUI;
 import java.io.IOException;
 import java.util.List;
 
+import static java.lang.Thread.sleep;
+
 public class MenuController extends Controller<Menu> {
     long lastRegistered;
 
@@ -25,7 +27,7 @@ public class MenuController extends Controller<Menu> {
 
 
     @Override
-    public void step(Game game, List<GUI.ACTION> actions, long time) throws IOException {
+    public void step(Game game, List<GUI.ACTION> actions, long time) throws IOException, InterruptedException {
         if (time - lastRegistered > 70) {
             for (GUI.ACTION action : actions) {
                 switch (action) {
@@ -39,6 +41,7 @@ public class MenuController extends Controller<Menu> {
 
                         if (getModel().isSelected_String("Start") || getModel().isSelected_String("Play Again?")) {
                             game.setState(new LevelState(new Level(1, 0)));
+                            sleep(500);
                         }
                         if (getModel().isSelected_String("Instructions")) {
                             game.setState(new MenuState(new Menu("Instructions")));
@@ -46,6 +49,7 @@ public class MenuController extends Controller<Menu> {
 
                         if (getModel().isSelected_String("Exit to Menu")) {
                             game.setState(new MenuState(new Menu("Start")));
+                            sleep(500);
                         }
                         if (getModel().isSelected_String("Register Score")) {
                             var model = (RegisterScoreMenu) getModel();

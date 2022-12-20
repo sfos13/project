@@ -11,75 +11,83 @@
 
 - **Mario Movement** - The player can control the directions that Mario moves. But there are restrictions, you only move to right and left on the floor, and the stairs are the only way to move vertically.
 
-- **Jumping** - Mario (or the char 'X') will jump when the space bar is pressed.
+- **Jumping** - Mario will jump when the space bar is pressed.
 
-- **Climbing stairs** - To move to the higher floor it's needed to climb the stairs. Therefore, if the character is in the same position as the stairs (or char 'H'), it can climb. But if the stairs are broken, the action can't be completed.
+- **Climbing stairs** - To move to the higher floor it's needed to climb the stairs. Therefore, if the character is in the same position as the stairs, it can climb. But if the stairs are broken, the action can't be completed.
 
-- **Gravity** - Gravity is very important in Donkey Kong, and it helps in some functions. For example, if Mario isn't standing on the floor(or char '#'), he automatically falls.
+- **Gravity** - Gravity is very important in Donkey Kong, and it helps in some functions. For example, if Mario isn't standing on the floor, he automatically falls.
 
-- **Moving Barrels** - The barrels are an important feature in the original game. In this project, they move according to the floor and fall with the action of gravity. When they fall to the lower floor, they change the direction. In other words, if they were moving to the right side, in the next floor, they will move to the left side. Sometimes, they can also roll down the ladders.
+- **Moving Barrels according to the floor** - The barrels are an important feature in the original game. In this project, they move according to the floor. When they fall to the lower floor, they change the direction. In other words, if they were moving to the right side, in the next floor, they will move to the left side. Sometimes, they can also roll down the ladders.
 
-- **Winning conditions** - Usually, the game ends when Mario is in the same level as the princess (or char 'P'). The way to win is the same. So, in the floor where the char is, the game ends, and the player can play again or exit.
+- **Random Barrels move  down the stairs** - Another important feature is the ability to some barrels move down the stairs. The decision of the barrel go down the stair or continue in the floor is random, so every time the level 1 is played is a different level.
 
-- **Losing through a barrel hit** - When a barrel (or char 'O') is in the same place as Mario, the game automatically ends, and the player can try again.
+- **Two Different Levels** - The game has two different levels, with different rules, and goals. Because of the new elements added and more complex design.
+
+- **Two Different Levels Map** - Besides the different monsters and conditions, there are also two different maps. They differ in the location of the stairs and floor, and also the inclusion of switches.
+
+- **Losing through a barrel hit** - When a barrel is in the same place as Mario, the game automatically ends, and the player can try again.
 
 - **Losing when face to face with Donkey Kong** - This feature is similar to the previous, when Mario touches Donkey Kong, the player looses.
 
-**Screenshots of the Game**
+- **Fire element** - They are different ´monsters´ than the barrels because of the way they move: slower, up and down the stairs, and just one part of the floor. 
 
-<p>
-  <img width=1249 src="img/floor_screenshot.png" alt="">
-</p>
+- **Switch element** - These elements are important because of the final winning condition, where the Mario touches them, and they change the color from yellow to green.
 
-<p>
-  <img width=1249 src="img/stairs_screenshot.png" alt="">
-</p>
+- **Jump Score** - Which time that Mario jump a fire element or a barrel, is added to the jump score 100 points.
 
+- **Time Score** - The time score starts with 5000 each level, when it passes 3 seconds these reduce 100 points of the initial score. 
 
-<p>
-  <img width=1249 src="img/jump_screenshot.png" alt="">
-</p>
+- **Ranking** - After the gameplay, winning or losing, the player can register his name, and will update the scoreboard if he is one of the best players.  
 
+- **Visuals** - The game uses a font that was made by the group. Where the mario has different visuals when is running to the left, or right or climbing the stairs. Also, the Donkey Kong, the Princess, the Fires, the Barrels, the Stairs has a more real view.
 
-## PLANNED FEATURES
+- **Instructions** - In the initial menu, the player can see some instructions, where see what which character means and they job.
 
-**Future Features:**
+- **Between Levels** - Before each level starts, it appears a window that is similar to the original game.
 
-- **Hammer** - Instead of only jumping to bypass the barrels, Mario has a tool (the hammer) to destroy them, pressing 'X'.
+- **Menu** - There are different menu's, and it depends on losing or winning, or if it is the initial one.
 
-- **Two Different Levels** - On the actual model, it has just one level, but it will have two, with higher difficulty, different rules, and goals. Because of the new elements added and more complex design.
+- **Winning conditions** - Usually, the game ends when Mario is in the same level as the princess. Unless in the second level, where the goal is to touch the switchers and make the Donkey Kong fall.
 
-- **Tilted Floor** - In the first level, the floor won't be straight, to add difficulty to the gameplay and the program itself.
+- **Donkey Kong Falls** - When the player wins the game, it appears another window that shows the Donkey Kong in the last floor, like the original game. So it was used a different map to obtain the image.
 
-- **New Elements** - In the present level, to win, Mario needs to go to the highest floor. But new elements will be added, like a different floor where Mario needs to jump to make Donkey Kong fall or new types of barrels.
+## Screenshots 
 
-- **Different Menus with More Options** - Currently, the menus are very similar and simple, and don't have options like instructions. In the future, they will be more appealing and easy to understand.
+### Menus
 
-- **Different Draw Methods** - The characters are based on just one char, and elements like floors or stairs are longer and have spaces between them. The next delivery will have more detail and better graphics.
-
-**Mocks**
-
->**Level 1** - More similar to the original game with titled floor and a hammer that needs to be collected.
-
-<p>
-  <img width=1920 src="img/originalgame_nivel1.png" alt="">
-</p>
-
->**Level 2** - Instead of a titled floor, the levels of floor are proportional to each other (horizontal). The goal also change: Mario need to jump all 8 yellow blocks in the floor to Donkey Kong fall and end the game.
-
+### Level 1
 
 
 <p>
-  <img width=1920 src="img/originalgame_nivel2.png" alt="">
+  <img src="img/originalgame_nivel1.png" alt="">
+</p>
+<p align="center">
+  <b><i>Gif 1. Original Level 1</i></b>
+</p>
+<br>
+<br />
+
+<p align="center" justify="center">
+  <img src="img/stairs_screenshot.png" alt="">
 </p>
 
-<p>
-  <img width=1920 src="img/originalgame_nivel2_lastfloor.png" alt="">
+<p align="center">
+  <b><i>Gif 2. Level 1 - First Deliver</i></b>
+</p>
+<br>
+<br />
+
+<p align="center" justify="center">
+  <img src="img/level1_climbingStairs" alt="">
 </p>
 
-<p>
-  <img width=1920 src="img/originalgame_nivel2_end.png" alt="">
+<p align="center">
+  <b><i>Gif 2. Level 1 - Second Deliver</i></b>
 </p>
+<br>
+<br />
+
+
 
 ## DESIGN
 
