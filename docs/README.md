@@ -5,6 +5,22 @@
 
 >The authors of the project are Nils Rothamel (202203004@fe.up.pt), João Fernandes (202108867@fe.up.pt) and Sara Santos (202108675@fe.up.pt) for LDTS 2022/2023
 
+## INDEX
+
+- [Implemented Features](#implemented-features)
+  - [Screenshots](#screenshots)
+    - [Level 1](#level-1)
+    - [Level 2](#level-2)
+    - [Menus](#menus)
+    - [Between Levels](#between-levels)
+    - [Others](#others)
+- [Design](#design)
+  - [UML](#uml)
+  - [Design Patterns]
+  - 
+
+
+
 ## IMPLEMENTED FEATURES
 
 **Features:**
@@ -51,7 +67,7 @@
 
 - **Donkey Kong Falls** - When the player wins the game, it appears another window that shows the Donkey Kong in the last floor, like the original game. So it was used a different map to obtain the image.
 
-## Screenshots 
+### Screenshots 
 
 
 ### Level 1

@@ -7,3 +7,74 @@
 
 ## IMPLEMENTED FEATURES
 
+<p align="center">
+  <img src="src/main/resources/gif/instructions.gif" alt="">
+</p>
+
+<p align="center">
+  <b><i>Gif 1. Instructions</i></b>
+</p>
+<br>
+<br />
+
+
+<p align="center">
+  <img src="src/main/resources/gif/lost_level1.gif" alt="">
+</p>
+
+<p align="center">
+  <b><i>Gif 2. Lost in Level 1</i></b>
+</p>
+<br>
+<br />
+
+<p align="center">
+  <img src="src/main/resources/gif/jump.gif" alt="">
+</p>
+
+<p align="center">
+  <b><i>Gif 3. Jumping</i></b>
+</p>
+<br>
+<br />
+
+<p align="center">
+  <img src="src/main/resources/gif/win_level1.gif" alt="">
+</p>
+
+<p align="center">
+  <b><i>Gif 4. Winning level 1</i></b>
+</p>
+<br>
+<br />
+
+<p align="center">
+  <img src="src/main/resources/gif/lost_level2.gif" alt="">
+</p>
+
+<p align="center">
+  <b><i>Gif 5. Lost in level 2</i></b>
+</p>
+<br>
+<br />
+
+
+<p align="center">
+  <img src="src/main/resources/gif/win_game.gif" alt="">
+</p>
+
+<p align="center">
+  <b><i>Gif 6. Winning the game</i></b>
+</p>
+<br>
+<br />
+
+<p align="center">
+  <img src="src/main/resources/gif/ranking.gif" alt="">
+</p>
+
+<p align="center">
+  <b><i>Gif 7. Ranking</i></b>
+</p>
+<br>
+<br />

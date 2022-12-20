@@ -15,8 +15,6 @@ import com.aor.DK.viewer.ranking.PlayerNameGUI;
 import java.io.IOException;
 import java.util.List;
 
-import static java.lang.Thread.sleep;
-
 public class MenuController extends Controller<Menu> {
     long lastRegistered;
 

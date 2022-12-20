@@ -46,7 +46,7 @@ public class BarrelController extends GameController {
     }
 
     private void timeBarrel(long time) {
-        if (time - lastMovement > 2000) {
+        if (time - lastMovement > 3000) {
             getModel().spawnBarrel();
             lastMovement = time;
         }
