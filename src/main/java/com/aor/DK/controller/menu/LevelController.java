@@ -22,17 +22,19 @@ public class LevelController extends Controller<Level> {
     @Override
     public void step(Game game, List<GUI.ACTION> actions, long time) throws IOException {
         int level = getModel().getLevel();
-
-        if (time - lastMovement > 3000){
-            run_level(game, level, 1);
-            run_level(game, level, 2);
+        int score = getModel().getScore();
+        if (time - lastMovement > 3000) {
+            run_level(game, level, 1, score);
+            run_level(game, level, 2, score);
+            run_level(game, level, 21, score);
         }
 
     }
 
-    private void run_level(Game game, int level, int i) throws IOException {
+    private void run_level(Game game, int level, int i, int score) throws IOException {
         if (level == i) {
             Arena arena = new LoaderArenaBuilder(i).createArena();
+            arena.setOriginalScore(score);
             game.setState(new GameState(arena));
         }
     }

@@ -27,12 +27,14 @@ import java.util.Set;
 public class LanternaGUI implements GUI {
     private final Screen screen;
     Set<Integer> pressedKeys = new HashSet<>();
+
     public LanternaGUI(int width, int height) throws IOException, FontFormatException, URISyntaxException {
         AWTTerminalFontConfiguration fontConfig = loadSquareFont();
 
         Terminal terminal = createTerminal(width, height, fontConfig);
         this.screen = createScreen(terminal);
     }
+
     private AWTTerminalFontConfiguration loadSquareFont() throws URISyntaxException, FontFormatException, IOException {
         URL resource = getClass().getClassLoader().getResource("fonts/MyFont-Modern.otf");
         File fontFile = new File(resource.toURI());
@@ -66,7 +68,7 @@ public class LanternaGUI implements GUI {
         terminalFactory.setTerminalEmulatorFontConfiguration(fontConfig);
         Terminal terminal = terminalFactory.createTerminal();
 
-        ((AWTTerminalFrame)terminal).getComponent(0).addKeyListener(new KeyAdapter() {
+        ((AWTTerminalFrame) terminal).getComponent(0).addKeyListener(new KeyAdapter() {
             @Override
             public void keyPressed(KeyEvent e) {
                 pressedKeys.add(e.getKeyCode());
@@ -90,6 +92,7 @@ public class LanternaGUI implements GUI {
         if (pressedKeys.contains(KeyEvent.VK_DOWN)) actions.add(ACTION.DOWN);
         if (pressedKeys.contains(KeyEvent.VK_LEFT)) actions.add(ACTION.LEFT);
         if (pressedKeys.contains(KeyEvent.VK_ENTER)) actions.add(ACTION.SELECT);
+        if (pressedKeys.contains(KeyEvent.VK_W)) actions.add(ACTION.WIN);
 
         return actions;
     }
@@ -113,13 +116,15 @@ public class LanternaGUI implements GUI {
     public void drawStair(Position position) {
         drawCharacter(position.getX(), position.getY(), '+', "#4ad5f6");
     }
+
     @Override
     public void drawDonkeyKong(Position position) {
-        drawCharacter(position.getX()-1, position.getY()-1, '$', "#A03305");
-        drawCharacter(position.getX(), position.getY()-1, '%', "#A03305");
-        drawCharacter(position.getX()-1, position.getY(), '&', "#A03305");
+        drawCharacter(position.getX() - 1, position.getY() - 1, '$', "#A03305");
+        drawCharacter(position.getX(), position.getY() - 1, '%', "#A03305");
+        drawCharacter(position.getX() - 1, position.getY(), '&', "#A03305");
         drawCharacter(position.getX(), position.getY(), '\'', "#A03305");
     }
+
     @Override
     public void drawPrincess(Position position) {
         drawCharacter(position.getX(), position.getY(), '@', "#ff57ff");
@@ -127,12 +132,17 @@ public class LanternaGUI implements GUI {
 
     @Override
     public void drawFire(Position position, char letter) {
-        drawCharacter(position.getX(),position.getY(),letter,"#ff8b00");
+        drawCharacter(position.getX(), position.getY(), letter, "#ff8b00");
     }
 
     @Override
     public void drawSwitch(Position position, String color) {
-        drawCharacter(position.getX(),position.getY(),')',color);
+        drawCharacter(position.getX(), position.getY(), ')', color);
+    }
+
+    @Override
+    public void drawStick(Position position) {
+        drawCharacter(position.getX(), position.getY(), '|', "#FAA0A0");
     }
 
     @Override
@@ -143,23 +153,23 @@ public class LanternaGUI implements GUI {
     }
 
 
-
-
-
     @Override
     public void drawLevel(Position position, int level) {
-        drawText(position,"L="+level,"#3F50EB" );
+        while (level > 9) {
+            level /= 10;
+        }
+        drawText(position, "L=" + level, "#3F50EB");
 
     }
 
-    public void drawScores(Position position,int jumpScore, int timeScore) {
-        int x=position.getX();
-        int y=position.getY();
+    public void drawScores(Position position, int jumpScore, int timeScore) {
+        int x = position.getX();
+        int y = position.getY();
 
-        drawText(position,"Bonus","#E6003C");
-        drawText(new Position(x,y+1), String.valueOf(timeScore),"#ffffff" );
-        drawText(new Position(x+10,y),"Jump Score","#E6003C");
-        drawText(new Position(x+10,y+1), String.valueOf(jumpScore),"#ffffff" );
+        drawText(position, "Bonus", "#E6003C");
+        drawText(new Position(x, y + 1), String.valueOf(timeScore), "#ffffff");
+        drawText(new Position(x + 10, y), "Jump Score", "#E6003C");
+        drawText(new Position(x + 10, y + 1), String.valueOf(jumpScore), "#ffffff");
     }
 
 
@@ -185,8 +195,11 @@ public class LanternaGUI implements GUI {
     }
 
 
-
     public void close(Screen screen) throws IOException {
         screen.close();
+    }
+
+    public Screen getScreen() {
+        return screen;
     }
 }

@@ -29,7 +29,7 @@ public class InstructionsViewer extends MenuViewer {
         gui.drawStair(new Position(x, y + 8));
 
         gui.drawText(new Position(x + 2, y + 11), "Barrels", "#E6003C");
-        gui.drawText(new Position(x + 2, y +12), "Are thrown by Donkey Kong", "#FFFFFF");
+        gui.drawText(new Position(x + 2, y + 12), "Are thrown by Donkey Kong", "#FFFFFF");
         gui.drawText(new Position(x + 2, y + 13), "Move randomly across the game", "#FFFFFF");
         gui.drawText(new Position(x + 2, y + 14), "Jump them to get some points", "#FFFFFF");
         gui.drawBarrel(new Position(x, y + 11));
@@ -37,4 +37,3 @@ public class InstructionsViewer extends MenuViewer {
     }
 
 }
-

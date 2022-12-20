@@ -10,9 +10,7 @@ import java.util.List;
 public class Arena {
     private final int width;
     private final int height;
-
     private Position spawnFirePosition1;
-
     private Position spawnFirePosition2;
     private Position spawnBarrelPosition;
     private Mario mario;
@@ -24,10 +22,10 @@ public class Arena {
     private List<Fire> fireMonsters;
     private boolean spawnFlag;
     private List<Switch> switches;
-
-
+    private List<Stick> sticks;
     private Scores scores;
 
+    private int originalScore;
     private int level;
 
 
@@ -46,7 +44,6 @@ public class Arena {
     public int getHeight() {
         return height;
     }
-
 
     public Mario getMario() {
         return mario;
@@ -76,20 +73,20 @@ public class Arena {
         return stairs;
     }
 
-    public DonkeyKong getDonkeyKong() {
-        return donkeyKong;
-    }
-
-    public Princess getPrincess() {
-        return princess;
-    }
-
     public void setStairs(List<Stair> stairs) {
         this.stairs = stairs;
     }
 
+    public DonkeyKong getDonkeyKong() {
+        return donkeyKong;
+    }
+
     public void setDonkeyKong(DonkeyKong donkeyKong) {
         this.donkeyKong = donkeyKong;
+    }
+
+    public Princess getPrincess() {
+        return princess;
     }
 
     public void setPrincess(Princess princess) {
@@ -97,8 +94,8 @@ public class Arena {
     }
 
     public void spawnBarrel() {
-        if(spawnBarrelPosition == null) return;
-        barrels.add(new Barrel(spawnBarrelPosition.getX(),spawnBarrelPosition.getY()));
+        if (spawnBarrelPosition == null) return;
+        barrels.add(new Barrel(spawnBarrelPosition.getX(), spawnBarrelPosition.getY()));
     }
 
     public boolean outOfBounds(Position position) {
@@ -107,15 +104,16 @@ public class Arena {
 
 
     public int getFloorNumber(Position position) {
-        for(int i = 0; i < floor.size(); i++) {
-            for(Floor tile : floor.get(i)) {
-                if(position.getX() == tile.getPosition().getX() && position.getY() + 1 == tile.getPosition().getY()) {
+        for (int i = 0; i < floor.size(); i++) {
+            for (Floor tile : floor.get(i)) {
+                if (position.getX() == tile.getPosition().getX() && position.getY() + 1 == tile.getPosition().getY()) {
                     return i;
                 }
             }
         }
         return -1;
     }
+
     public Position getSpawnBarrelPosition() {
         return spawnBarrelPosition;
     }
@@ -126,17 +124,17 @@ public class Arena {
 
 
     public boolean isOnSwitch(Position position) {
-        for(Switch s : switches)
-                if(position.getY()+1 == (s.getPosition().getY()) && position.getX() == s.getPosition().getX()) {
-                    return true;
-                }
+        for (Switch s : switches)
+            if (position.getY() + 1 == (s.getPosition().getY()) && position.getX() == s.getPosition().getX()) {
+                return true;
+            }
         return false;
     }
 
 
     public boolean checkStairs(Position position) {
-        for(Stair stair : stairs) {
-            if((position.equals(stair.getPosition()))){
+        for (Stair stair : stairs) {
+            if ((position.equals(stair.getPosition()))) {
                 return true;
             }
         }
@@ -144,7 +142,9 @@ public class Arena {
     }
 
 
-    public Scores getScores() { return scores;}
+    public Scores getScores() {
+        return scores;
+    }
 
 
     public void setScores(Scores scores) {
@@ -157,19 +157,19 @@ public class Arena {
 
 
     public void spawnFire() {
-        if(spawnFirePosition1 == null) return;
-        if(spawnFlag) {
-            fireMonsters.add(new Fire(spawnFirePosition1.getX(),spawnFirePosition1.getY()));
+        if (spawnFirePosition1 == null) return;
+        if (spawnFlag) {
+            fireMonsters.add(new Fire(spawnFirePosition1.getX(), spawnFirePosition1.getY()));
             spawnFlag = false;
             return;
         }
-        fireMonsters.add(new Fire(spawnFirePosition2.getX(),spawnFirePosition2.getY()));
+        fireMonsters.add(new Fire(spawnFirePosition2.getX(), spawnFirePosition2.getY()));
         spawnFlag = true;
     }
 
     public void setSpawnFirePosition(Position spawnFirePosition, int spawnNumber) {
-        if(spawnNumber == 1) this.spawnFirePosition1 = spawnFirePosition;
-        if(spawnNumber == 2) this.spawnFirePosition2 = spawnFirePosition;
+        if (spawnNumber == 1) this.spawnFirePosition1 = spawnFirePosition;
+        if (spawnNumber == 2) this.spawnFirePosition2 = spawnFirePosition;
     }
 
     public List<Switch> getSwitches() {
@@ -180,11 +180,27 @@ public class Arena {
         this.switches = switches;
     }
 
-    public int getLevel(){
+    public int getLevel() {
         return level;
     }
 
-    public void setLevel(int level){this.level=level;}
+    public void setLevel(int level) {
+        this.level = level;
+    }
 
+    public List<Stick> getSticks() {
+        return sticks;
+    }
 
+    public void setSticks(List<Stick> sticks) {
+        this.sticks = sticks;
+    }
+
+    public int getOriginalScore() {
+        return originalScore;
+    }
+
+    public void setOriginalScore(int originalScore) {
+        this.originalScore = originalScore;
+    }
 }

@@ -1,7 +1,6 @@
 package com.aor.DK.viewer;
 
 import com.aor.DK.GUI.GUI;
-
 import com.aor.DK.model.Position;
 import com.aor.DK.model.arena.Arena;
 import com.aor.DK.model.elements.Element;
@@ -17,7 +16,7 @@ public class GameViewer extends Viewer<Arena> {
 
     @Override
     public void drawElements(GUI gui) {
-        for(List<Floor> storey : getModel().getFloor()) {
+        for (List<Floor> storey : getModel().getFloor()) {
             drawElements(gui, storey, new FloorViewer());
         }
         drawElements(gui, getModel().getStairs(), new StairViewer());
@@ -26,10 +25,10 @@ public class GameViewer extends Viewer<Arena> {
         drawElement(gui, getModel().getDonkeyKong(), new DonkeyKongViewer());
         drawElement(gui, getModel().getPrincess(), new PrincessViewer());
         drawElements(gui, getModel().getFireMonsters(), new FireViewer());
-        drawElements(gui, getModel().getSwitches(),new SwitchViewer());
-        gui.drawLevel(new Position(36,1),1);
-        gui.drawScores(new Position(0,1),getModel().getScores().getJumpScore(),getModel().getScores().getTimeScore());
-
+        drawElements(gui, getModel().getSwitches(), new SwitchViewer());
+        drawElements(gui, getModel().getSticks(), new StickViewer());
+        gui.drawLevel(new Position(36, 1), getModel().getLevel());
+        gui.drawScores(new Position(0, 1), getModel().getScores().getJumpScore(), getModel().getScores().getTimeScore());
     }
 
     private <T extends Element> void drawElements(GUI gui, List<T> elements, GenericViewer<T> viewer) {

@@ -7,16 +7,17 @@ public class UnderStairs implements Validation {
 
     Arena arena;
     Position positionMario;
-    public UnderStairs(Position positionMario, Arena arena){
-        this.positionMario=positionMario;
-        this.arena=arena;
+
+    public UnderStairs(Position positionMario, Arena arena) {
+        this.positionMario = positionMario;
+        this.arena = arena;
     }
 
     @Override
     public boolean isValid() {
-        int x= positionMario.getX();
-        int y= positionMario.getY()+1;
-        Position position = new Position(x,y);
-        return  new CheckStairs(position, arena).isValid();
+        int x = positionMario.getX();
+        int y = positionMario.getY() + 1;
+        Position position = new Position(x, y);
+        return new CheckStairs(position, arena).isValid();
     }
 }

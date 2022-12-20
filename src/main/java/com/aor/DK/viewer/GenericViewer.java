@@ -6,7 +6,7 @@ import com.aor.DK.model.elements.Element;
 
 
 public interface GenericViewer<T extends Element> {
-        void draw(T element, GUI gui);
+    void draw(T element, GUI gui);
 
 
 }

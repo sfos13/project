@@ -7,14 +7,15 @@ public class OutOfBonds implements Validation {
     Position positionMario;
     int width;
 
-    public OutOfBonds(Position position, Arena arena){
-        this.width=arena.getWidth();
-        this.positionMario=position;
+    public OutOfBonds(Position position, Arena arena) {
+        this.width = arena.getWidth();
+        this.positionMario = position;
     }
+
     @Override
     public boolean isValid() {
-         return !(positionMario.getX() >= 0 && positionMario.getX() < width-1);
-        }
+        return !(positionMario.getX() >= 0 && positionMario.getX() < width - 1);
+    }
 
 
 }
