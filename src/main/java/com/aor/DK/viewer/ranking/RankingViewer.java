@@ -31,13 +31,15 @@ public class RankingViewer extends Viewer<Ranking> {
 
         gui.drawText(new Position(x-10,6),"Name","#ffffff");
         gui.drawText(new Position(x+10,6),"Total Score","#ffffff");
-        int y=8;
+        int y=9;
         for(RankingElement element : list) {
-            gui.drawText(new Position(x-10,y), element.getName(), "#ffffff");
+            gui.drawText(new Position(x-10,y), element.getName(), "#13EBD9");
+            gui.drawText(new Position(x+12,y), String.valueOf(element.getScore()), "#13EBD9");
+
             y+=2;
 
         }
-        String  finalMessage="Exit";
+        String  finalMessage="Exit SPACE";
         int x1=(w-finalMessage.length())/2;
         gui.drawText(new Position(x1 ,30), finalMessage, "#E6003C");
 

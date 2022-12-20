@@ -32,6 +32,7 @@ public class MenuController extends Controller<Menu> {
                 switch (action) {
                     case UP -> getModel().previousEntry();
                     case DOWN -> getModel().nextEntry();
+                    case QUIT -> game.setState(null);
                     case SELECT -> {
                         if (getModel().isSelected_String("Exit")) {
                             game.setState(null);
