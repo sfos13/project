@@ -146,7 +146,7 @@
 ### Between Levels
 
 <p align="center" justify="center">
-  <img src="img/originalgame_between.png" alt="" >
+  <img src="img/originalgame_between12.png" alt="" >
 </p>
 
 <p align="center">
