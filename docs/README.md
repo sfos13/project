@@ -92,7 +92,7 @@
 <br />
 
 <p align="center" justify="center">
-  <img src="img/level1_climbingStairs.png" alt="">
+  <img src="img/level1ClimbingStairs.png" alt="">
 </p>
 
 <p align="center">
@@ -114,7 +114,7 @@
 <br />
 
 <p align="center" justify="center">
-  <img src="img/level2_switches.png" alt="" >
+  <img src="img/level2Switches.png" alt="" >
 </p>
 
 <p align="center">
@@ -134,7 +134,7 @@
 <br />
 
 <p align="center" justify="center">
-  <img src="img/level2_end.png" alt="" >
+  <img src="img/level2End.png" alt="" >
 </p>
 
 <p align="center">
@@ -156,7 +156,7 @@
 <br />
 
 <p align="center" justify="center">
-  <img src="img/betweenLevels.png" alt="" >
+  <img src="img/betweenLevels12.png" alt="" >
 </p>
 
 <p align="center">
@@ -169,7 +169,7 @@
 ### Menus
 
 <p align="center" justify="center">
-  <img src="img/initialMenu.png" alt="" >
+  <img src="img/menuInitial.png" alt="" >
 </p>
 
 <p align="center">
@@ -179,7 +179,7 @@
 <br />
 
 <p align="center" justify="center">
-  <img src="img/loseMenu.png" alt="" >
+  <img src="img/menuLost.png" alt="" >
 </p>
 
 <p align="center">
@@ -189,7 +189,7 @@
 <br />
 
 <p align="center" justify="center">
-  <img src="img/winMenu.png" alt="" >
+  <img src="img/menuWin.png" alt="" >
 </p>
 
 <p align="center">
@@ -201,7 +201,7 @@
 
 ### Others
 <p align="center" justify="center">
-  <img src="img/instructionsGUI.png" alt="" >
+  <img src="img/instructions.png" alt="" >
 </p>
 
 <p align="center">
@@ -211,7 +211,7 @@
 <br />
 
 <p align="center" justify="center">
-  <img src="img/playerName.png" alt="" >
+  <img src="img/playerNameRanking.png" alt="" >
 </p>
 
 <p align="center">
@@ -221,7 +221,7 @@
 <br />
 
 <p align="center" justify="center">
-  <img src="img/ranking.png" alt="" >
+  <img src="img/scoreboard.png" alt="" >
 </p>
 
 <p align="center">
@@ -239,7 +239,7 @@
 ### UML
 
 <p>
-  <img src="img/UML.png" alt="">
+  <img src="img/uml.png" alt="">
 </p>
 
 <p align="center">
