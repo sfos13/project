@@ -8,7 +8,7 @@
 ## IMPLEMENTED FEATURES
 
 <p align="center">
-  <img src="src/main/resources/gif/instructions.gif" alt="">
+  <img src="src/main/resources/gif/instruction.gif" alt="">
 </p>
 
 <p align="center">
@@ -19,7 +19,7 @@
 
 
 <p align="center">
-  <img src="src/main/resources/gif/lost_level1.gif" alt="">
+  <img src="src/main/resources/gif/lostLevel1.gif" alt="">
 </p>
 
 <p align="center">
@@ -29,7 +29,7 @@
 <br />
 
 <p align="center">
-  <img src="src/main/resources/gif/jump.gif" alt="">
+  <img src="src/main/resources/gif/jumping.gif" alt="">
 </p>
 
 <p align="center">
@@ -39,7 +39,7 @@
 <br />
 
 <p align="center">
-  <img src="src/main/resources/gif/win_level.gif" alt="">
+  <img src="src/main/resources/gif/winLevel.gif" alt="">
 </p>
 
 <p align="center">
@@ -49,7 +49,7 @@
 <br />
 
 <p align="center">
-  <img src="src/main/resources/gif/lost_level2.gif" alt="">
+  <img src="src/main/resources/gif/lostLevel2.gif" alt="">
 </p>
 
 <p align="center">
@@ -60,7 +60,7 @@
 
 
 <p align="center">
-  <img src="src/main/resources/gif/win_game.gif" alt="">
+  <img src="src/main/resources/gif/winGame.gif" alt="">
 </p>
 
 <p align="center">
@@ -70,11 +70,11 @@
 <br />
 
 <p align="center">
-  <img src="src/main/resources/gif/ranking.gif" alt="">
+  <img src="src/main/resources/gif/scoreboard.gif" alt="">
 </p>
 
 <p align="center">
-  <b><i>Gif 7. Ranking</i></b>
+  <b><i>Gif 7. Scoreboard</i></b>
 </p>
 <br>
 <br />
