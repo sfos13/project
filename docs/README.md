@@ -78,7 +78,7 @@
 <br />
 
 <p align="center" justify="center">
-  <img src="img/level1_climbingStairs" alt="">
+  <img src="img/level1_climbingStairs.png" alt="">
 </p>
 
 <p align="center">
