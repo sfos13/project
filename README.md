@@ -39,7 +39,7 @@
 <br />
 
 <p align="center">
-  <img src="src/main/resources/gif/win_level1.gif" alt="">
+  <img src="src/main/resources/gif/win_level.gif" alt="">
 </p>
 
 <p align="center">
