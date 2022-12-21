@@ -31,7 +31,7 @@ public class MenuController extends Controller<Menu> {
 
         if (time - lastRegistered > 70) {
             for (GUI.ACTION action : actions) {
-                if (action== GUI.ACTION.SPACE){
+                if (action == GUI.ACTION.SPACE){
                     game.setState(new MenuState(new Menu("Start")));
                 }
 
@@ -41,22 +41,22 @@ public class MenuController extends Controller<Menu> {
                     case QUIT -> game.setState(null);
                     case SELECT -> {
 
-                        if (getModel().isSelected_String("Exit")) {
+                        if (getModel().isSelectedString("Exit")) {
                             game.setState(null);
                         }
 
-                        if (getModel().isSelected_String("Start") || getModel().isSelected_String("Play Again?")) {
+                        if (getModel().isSelectedString("Start") || getModel().isSelectedString("Play Again?")) {
                             game.setState(new LevelState(new Level(1, 0)));
                         }
-                        if (getModel().isSelected_String("Instructions")) {
+                        if (getModel().isSelectedString("Instructions")) {
                             game.setState(new MenuState(new Menu("Instructions")));
                         }
 
-                        if (getModel().isSelected_String("Register Score")) {
+                        if (getModel().isSelectedString("Register Score")) {
                             var model = (RegisterScoreMenu) getModel();
                             new PlayerNameGUI(game, model.getScore());
                         }
-                        if (getModel().isSelected_String("Ranking")) {
+                        if (getModel().isSelectedString("Ranking")) {
                             game.setState(new RankingState(new Ranking()));
                         }
 
