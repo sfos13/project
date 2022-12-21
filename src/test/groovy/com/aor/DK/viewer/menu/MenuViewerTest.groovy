@@ -73,7 +73,7 @@ class MenuViewerTest extends Specification{
         when:
         viewer.drawElements(gui)
         then:
-        0 * _
+        gui.drawDonkeyKong(new Position(20,20))
     }
 
 }

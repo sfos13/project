@@ -123,15 +123,6 @@ public class Arena {
     }
 
 
-    public boolean isOnSwitch(Position position) {
-        for (Switch s : switches)
-            if (position.getY() + 1 == (s.getPosition().getY()) && position.getX() == s.getPosition().getX()) {
-                return true;
-            }
-        return false;
-    }
-
-
     public boolean checkStairs(Position position) {
         for (Stair stair : stairs) {
             if ((position.equals(stair.getPosition()))) {
