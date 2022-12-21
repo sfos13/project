@@ -17,7 +17,7 @@
 - [Design](#design)
   - [UML](#uml)
   - [Design Patterns](#design-patterns)
-  - [Knon Code Smells and Refactoring Suggestions](#known-code-smells-and-refactoring-suggestions)
+  - [Known Code Smells and Refactoring Suggestions](#known-code-smells-and-refactoring-suggestions)
 - [Better Code Hub](#better-code-hub)
 - [Testing](#testing)
 
