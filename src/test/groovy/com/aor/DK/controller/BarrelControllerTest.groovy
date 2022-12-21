@@ -40,19 +40,22 @@ import com.aor.DK.model.elements.Barrel
 class BarrelControllerTest extends Specification {
     BarrelController barrelController
     Arena arena
+    def stair
+    def floor
 
     def setup() {
         arena = new Arena(10,10)
         barrelController = new BarrelController(arena)
+        stair = new ArrayList()
+        floor = new ArrayList()
+        floor.add(new ArrayList())
+        floor.add(new ArrayList())
     }
 
     def "test move barrel down method"() {
         given:
-        def stair = new ArrayList()
         stair.add(new Stair(1,1))
         arena.stairs = stair
-        def floor = new ArrayList()
-        floor.add(new ArrayList())
         floor.get(0).add(new Floor (1,1))
         arena.setFloor(floor)
         def barrel = new Barrel(1,1)
@@ -64,11 +67,8 @@ class BarrelControllerTest extends Specification {
 
     def "test move barrel left method"() {
         given:
-        def stair = new ArrayList()
         stair.add(new Stair(0,0))
         arena.stairs = stair
-        def floor = new ArrayList()
-        floor.add(new ArrayList())
         floor.get(0).add(new Floor (1,2))
         arena.setFloor(floor)
         def barrel = new Barrel(1,1)
@@ -80,12 +80,8 @@ class BarrelControllerTest extends Specification {
 
     def "test move barrel right method"() {
         given:
-        def stair = new ArrayList()
         stair.add(new Stair(0,0))
         arena.stairs = stair
-        def floor = new ArrayList()
-        floor.add(new ArrayList())
-        floor.add(new ArrayList())
         floor.get(1).add(new Floor (1,2))
         arena.setFloor(floor)
         def barrels = new ArrayList()
@@ -96,6 +92,22 @@ class BarrelControllerTest extends Specification {
         barrelController.step(game, new ArrayList<GUI.ACTION>(), 1000)
         then:
         arena.getBarrels().get(0).getPosition().x == 2
+    }
+
+    def "test spawn barrel method"() {
+        given:
+        stair.add(new Stair(0,0))
+        arena.stairs = stair
+        floor.get(1).add(new Floor (1,2))
+        arena.setFloor(floor)
+        def barrels = new ArrayList()
+        arena.setBarrels(barrels)
+        def game = Mock(Game.class)
+        arena.setSpawnBarrelPosition(new Position(3,3))
+        when:
+        barrelController.step(game, new ArrayList<GUI.ACTION>(), 4000)
+        then:
+        arena.getBarrels().size() == 1
     }
 
 }
