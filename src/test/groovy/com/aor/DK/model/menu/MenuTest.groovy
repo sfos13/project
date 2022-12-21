@@ -27,7 +27,7 @@ class MenuTest extends Specification{
         when:
         menu.nextEntry()
         then:
-        menu.isSelected_Number(1)
+        menu.isSelectedNumber(1)
     }
 
         def 'Testing next entry to 0'(){
@@ -39,7 +39,7 @@ class MenuTest extends Specification{
             menu.nextEntry()
             menu.nextEntry()
             then:
-            menu.isSelected_Number(0)
+            menu.isSelectedNumber(0)
     }
 
     def 'Testing previous entry'(){
@@ -48,7 +48,7 @@ class MenuTest extends Specification{
         when:
         menu.previousEntry()
         then:
-        menu.isSelected_Number(3)
+        menu.isSelectedNumber(3)
     }
 
     def 'Testing previous entry to 0'(){
@@ -60,7 +60,7 @@ class MenuTest extends Specification{
         menu.previousEntry()
         menu.previousEntry()
         then:
-        menu.isSelected_Number(0)
+        menu.isSelectedNumber(0)
     }
 
     def 'Testing get entry'(){
@@ -76,7 +76,7 @@ class MenuTest extends Specification{
         given:
         def menu = new Menu("Start")
         expect:
-        menu.isSelected_String("Start")
+        menu.isSelectedString("Start")
     }
 
     def 'Testing get message / get Mod'(){

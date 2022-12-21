@@ -15,6 +15,8 @@ import com.aor.DK.viewer.ranking.PlayerNameGUI;
 import java.io.IOException;
 import java.util.List;
 
+import static java.lang.Thread.sleep;
+
 public class MenuController extends Controller<Menu> {
     long lastRegistered;
 
@@ -36,22 +38,22 @@ public class MenuController extends Controller<Menu> {
                     case SPACE -> game.setState(new MenuState(new Menu("Start")));
                     case SELECT -> {
 
-                        if (getModel().isSelected_String("Exit")) {
+                        if (getModel().isSelectedString("Exit")) {
                             game.setState(null);
                         }
 
-                        if (getModel().isSelected_String("Start") || getModel().isSelected_String("Play Again?")) {
+                        if (getModel().isSelectedString("Start") || getModel().isSelectedString("Play Again?")) {
                             game.setState(new LevelState(new Level(1, 0)));
                         }
-                        if (getModel().isSelected_String("Instructions")) {
+                        if (getModel().isSelectedString("Instructions")) {
                             game.setState(new MenuState(new Menu("Instructions")));
                         }
 
-                        if (getModel().isSelected_String("Register Score")) {
+                        if (getModel().isSelectedString("Register Score")) {
                             var model = (RegisterScoreMenu) getModel();
                             new PlayerNameGUI(game, model.getScore());
                         }
-                        if (getModel().isSelected_String("Ranking")) {
+                        if (getModel().isSelectedString("Ranking")) {
                             game.setState(new RankingState(new Ranking()));
                         }
 

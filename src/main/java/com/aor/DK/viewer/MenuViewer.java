@@ -30,7 +30,7 @@ public class MenuViewer extends Viewer<Menu> {
         gui.drawText(new Position(x, y), message, "#efa107");
         for (int i = 0; i < getModel().getNumberEntries(); i++) {
             x = (w - getModel().getEntry(i).length()) / 2;
-            gui.drawText(new Position(x, y + 2 + i * 2), getModel().getEntry(i), getModel().isSelected_Number(i) ? "#E6003C" : "#FFFFFF");
+            gui.drawText(new Position(x, y + 2 + i * 2), getModel().getEntry(i), getModel().isSelectedNumber(i) ? "#E6003C" : "#FFFFFF");
         }
 
         if (getModel().getMod().equals("Instructions")) {

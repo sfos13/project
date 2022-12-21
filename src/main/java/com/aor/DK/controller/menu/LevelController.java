@@ -24,18 +24,13 @@ public class LevelController extends Controller<Level> {
         int level = getModel().getLevel();
         int score = getModel().getScore();
         if (time - lastMovement > 3000) {
-            runLevel(game, level, 1, score);
-            runLevel(game, level, 2, score);
-            runLevel(game, level, 21, score);
+            runLevel(game, level, score);
         }
-
     }
 
-    private void runLevel(Game game, int level, int i, int score) throws IOException {
-        if (level == i) {
-            Arena arena = new LoaderArenaBuilder(i).createArena();
-            arena.setOriginalScore(score);
-            game.setState(new GameState(arena));
-        }
+    private void runLevel(Game game, int level, int score) throws IOException {
+        Arena arena = new LoaderArenaBuilder(level).createArena();
+        arena.setOriginalScore(score);
+        game.setState(new GameState(arena));
     }
 }

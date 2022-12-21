@@ -42,12 +42,12 @@ public class Menu {
         return entries.get(i);
     }
 
-    public boolean isSelected_Number(int Entry) {
-        return currentEntry == Entry;
+    public boolean isSelectedNumber(int entry) {
+        return currentEntry == entry;
     }
 
-    public boolean isSelected_String(String Entry) {
-        return entries.get(currentEntry).equals(Entry);
+    public boolean isSelectedString(String entry) {
+        return entries.get(currentEntry).equals(entry);
     }
 
     public int getNumberEntries() {
