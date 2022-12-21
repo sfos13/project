@@ -15,6 +15,8 @@ import com.aor.DK.viewer.ranking.PlayerNameGUI;
 import java.io.IOException;
 import java.util.List;
 
+import static java.lang.Thread.sleep;
+
 public class MenuController extends Controller<Menu> {
     long lastRegistered;
 
@@ -29,14 +31,12 @@ public class MenuController extends Controller<Menu> {
 
         if (time - lastRegistered > 70) {
             for (GUI.ACTION action : actions) {
-                if (getModel().getMod()=="Instructions"){
-                    if (action== GUI.ACTION.SPACE) game.setState(new MenuState(new Menu("Start")));
-                }
                 switch (action) {
                     case UP -> getModel().previousEntry();
                     case DOWN -> getModel().nextEntry();
                     case QUIT -> game.setState(null);
                     case SELECT -> {
+
                         if (getModel().isSelected_String("Exit")) {
                             game.setState(null);
                         }
@@ -54,6 +54,10 @@ public class MenuController extends Controller<Menu> {
                         }
                         if (getModel().isSelected_String("Ranking")) {
                             game.setState(new RankingState(new Ranking()));
+                        }
+                        if (getModel().isSelected_String("Exit to Menu")) {
+                            game.setState(new MenuState(new Menu("Start")));
+                            sleep(500);
                         }
                     }
                 }
