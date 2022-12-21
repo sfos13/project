@@ -20,7 +20,7 @@ public class Menu {
             this.message = "Donkey Kong";
         }
         if (mod.equals("Instructions")) {
-            this.entries = Arrays.asList("Exit to Menu");
+            this.entries = Arrays.asList("Exit to Menu SPACE");
             this.message = "Instructions";
         }
     }
