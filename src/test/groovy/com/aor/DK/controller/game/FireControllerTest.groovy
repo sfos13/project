@@ -1,4 +1,4 @@
-package com.aor.DK.controller
+package com.aor.DK.controller.game
 
 import com.aor.DK.Game
 import com.aor.DK.controller.game.FireController

@@ -1,4 +1,4 @@
-package com.aor.DK.controller
+package com.aor.DK.controller.game
 /*
 package com.aor.DK.controller
 

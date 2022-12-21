@@ -30,8 +30,7 @@ public class ArenaController extends GameController {
         for (Switch s : getModel().getSwitches()) {
             if (!s.isOn()) continue;
             if (s.getPosition().getX() == marioPos.getX() &&
-                    (marioPos.getY() == s.getPosition().getY() - 1
-                            || marioPos.getY() == s.getPosition().getY() - 2)) {
+                    (marioPos.getY() == s.getPosition().getY() - 1 || marioPos.getY() == s.getPosition().getY() - 2)) {
                 s.turnOff();
             }
         }
