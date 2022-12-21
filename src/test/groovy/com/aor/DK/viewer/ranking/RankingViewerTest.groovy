@@ -1,9 +1,8 @@
 package com.aor.DK.viewer.ranking
 
 import com.aor.DK.GUI.LanternaGUI
-import com.aor.DK.model.Position
 import com.aor.DK.model.ranking.Ranking
-import com.aor.DK.model.ranking.RankingElement
+import com.aor.DK.viewer.RankingViewer
 import spock.lang.Specification
 
 class RankingViewerTest extends Specification{

@@ -238,7 +238,7 @@
 
 ### UML
 
-<p>
+<p align="center">
   <img src="img/uml.png" alt="">
 </p>
 
@@ -248,8 +248,9 @@
 <br>
 <br />
 
+### DESIGN PATTERNS 
 
-### MVC (Model–View–Controller)
+#### MVC (Model–View–Controller)
 
 **Problem in Context**
 
@@ -259,6 +260,16 @@ From a beginner's point of view, it's difficult to create a game and connect all
 **The Pattern**
 
 The whole game is based on the MVC architecture. Therefore, the View is a representation of the input data by the user, the Controller manipulates the Model according to the users input, and the Model represents the logical part of the backend data in the game.
+
+<p align="center">
+  <img src="img/mvc.png" alt="">
+</p>
+
+<p align="center">
+  <b><i>Img 17. MVC </i></b>
+</p>
+<br>
+
 
 **Implementation**
 
@@ -270,7 +281,7 @@ In the game it's visible where which component is implemented:
 
 **Consequences**
 
-Some benefits:
+_Benefits:_
 
 - Easy to test independently and to maintain
 - Features are reusable
@@ -278,7 +289,7 @@ Some benefits:
 - Facilitates collaborative work
 - Separation of these three different components, separate responsibilities, and independence between input and output
 
-Some disadvantages:
+_Disadvantages:_
 
 - High complexity
 - Difficult to understand
@@ -286,29 +297,45 @@ Some disadvantages:
 ### Factory Method
 **Problem in Context**
 
-The problem is based on the high count of components that need to be represented and also the resemblances between the components. So, the game must have a Design Pattern to not implement the same code twice or more. For example, Mario and the Princess are both chars, they differ in their color and the chosen char, but the method to draw is the same.
+The problem is based on the high count of components that need to be represented and also the resemblances between the components. So, the game must have a Design Pattern to not implement the same code twice or more. 
+The Menu, Game, between Levels and Ranking are similar because they need a view (a representation of the data). Some elements are the same, for instance: 'the between levels' (Img. 9) has a Donkey Kong and the gameplay also has. 
+And which element is similar, for example, Mario and the Princess are both chars, they differ in their color and the chosen char, but the method to draw is the same.
 
 **The Pattern**
 
 The Pattern creates objects without exposing the instantiation logic to the client.
 So, the creator can create a standard way to create objects, but it can be easily overridden/customized.
 
+<p align="center">
+  <img src="img/factory.png" alt="">
+</p>
+
+<p align="center">
+  <b><i>Img 18. Factory Method </i></b>
+</p>
+<br>
+
 **Implementation**
 
 In the game it's visible where which component is implemented:
 
-Interface:
-- [GenericViewer](../java/com/aor/DK/Viewer/GenericViewer.java)
+_Creator_:
+- [Viewer](../src/main/java/com/aor/DK/viewer/Viewer.java)
 
-Abstract Class:
-- [Viewer](../java/com/aor/DK/Viewer/Viewer.java)
+_Concrete Creator (examples):_
+- [Level Viewer](../src/main/java/com/aor/DK/viewer/GameViewer.java)
+- [Game Viewer](../src/main/java/com/aor/DK/viewer/MenuViewer.java)
 
-Examples of subclasses:
+_Product:_
+- [GenericViewer](../src/main/java/com/aor/DK/viewer/GenericViewer.java)
 
+_Concrete Product (examples):_
+- [BarrelViewer](../src/main/java/com/aor/DK/viewer/elements/BarrelViewer.java)
+- [DonkeyKongViewer](../src/main/java/com/aor/DK/viewer/elements/DonkeyKongViewer.java)
 
 **Consequences**
 
-Some benefits:
+_Benefits:_
 
 - Easy to test and maintain
 - Create a design more customizable
@@ -316,36 +343,49 @@ Some benefits:
 - Subclasses are proliferate
 - Single Responsibility Principle
 
-Some disadvantage:
+_Disadvantage:_
 - High complexity because of the many subclasses that need to implement
 
 ### State
 
 **Problem in Context**
 
-Actually, the game only has two states (Menu and Game Play) on the graphic interface, and on controller. In the future, the game will have more, because of the implementation of different stages at different parts of the gameplay. So the code is easier to implement and comprehend.
+Actually, the game has some states (Examples: Menu and Gameplay) on the graphic interface, and on controller. For each state, has a different way to behave: it represents different views; different actions has different consequences. Because, all the states need these, is needed a design to make the code is easier to implement and comprehend.
 
 **The Pattern**
 
 State Pattern is a Behavioral software design pattern, it's a way to solve similar recurring issues. When the internal state changes, alters its behavior. Within any unique state, the program behaves differently, and the program can be switched from one state to another instantaneously.
 
+<p align="center">
+  <img src="img/state.png" alt="">
+</p>
+
+<p align="center">
+  <b><i>Img 19. State Pattern </i></b>
+</p>
+<br>
+
 **Implementation**
 
 In the game it's visible where which component is implemented:
 
-- [Controller](../java/com/aor/DK/controller)
-- [Viewer](../java/com/aor/DK/Viewer)
-- [Model](../java/com/aor/DK/model)
+_State:_
+- [State](../src/main/java/com/aor/DK/states/State.java)
+
+_Concrete States (examples):_
+- [GameState](../src/main/java/com/aor/DK/states/GameState.java)
+- [MenuState](../src/main/java/com/aor/DK/states/MenuState.java)
+
 
 **Consequences**
 
-Some benefits:
+_Benefits_:
 
 - Single Responsibility Principle
 - Simplify the code
 - Open/Closed Principle
 
-Some disadvantage:
+_Disadvantage_:
 - Finite number of states
 
 ### Game Loop Pattern
@@ -370,34 +410,22 @@ In the game it's visible where which component is implemented:
 
 **Consequences**
 
-Some benefits:
+_Benefits:_
 - A very common tool in games
 - Easy to use and define
 - Easy to understand when it can be used
 
 #### KNOWN CODE SMELLS AND REFACTORING SUGGESTIONS
 
-<p>
-  <img width=767 src="img/Better Code Hub_Raking.png" alt="">
-</p>
+**Bloaters**
+- Long Method
+- Long Parameter List
 
+**Object-Orientation Abusers**
 
-The raking that the game obtain 7 out 10, in the app 'Better Code Hub'.
-Some errors that are visible: the unit interfaces aren't small.
+**Dispensables**
 
-- For example, [BarrelController](../java/com/aor/DK/controller/game/BarrelController.java) in the unit 'step' (BarrelController.step(Game,GUI.ACTION,long)) has 16 lines of code with 3 parameters. There are used a 'for' with 3 'if'. A suggestion was using game loop, but a better one is using the states pattern because the barrels have 3 states (when is going to the left, to the right and down).
-- In the [MarioController](../java/com/aor/DK/model) the unit has a lot of lines (26), because of a high quantity of 'if' cases. The code can be simplified, but it was easier to implement in that way.
-- Both are bloaters that represent large class and long parameter list
-
-Another error is the level of code which isn't balanced, while the package [arena](../java/com/aor/DK/model/arena) has the highest count of lines with a total of 244, the package [game](../java/com/aor/DK/controller/game) in comparison just has 139 lines and the [menu](../java/com/aor/DK/model/menu) package just (27 lines).
-
-<p>
-  <img width=1027 src="img/Better Code Hub_Lines of Code.png" alt="">
-</p>
-
-
-- In [Arena](../java/com/aor/DK/model/arena/Arena.java) there are a lot of classes, many of them are Data Classes like getWidth, setMario and setBarrels (getters and setters). They can be a 'Self Encapsulate Field' and should remove the setting methods.
-- In [MarioController](../java/com/aor/DK/controller/game/MarioController.java) there are a lot of 'if' clauses, that can replace conditional with polymorphism and should decompose conditional in the last class.
+### BETTER CODE HUB
 
 ### TESTING
 
@@ -414,4 +442,4 @@ Another error is the level of code which isn't balanced, while the package [aren
 
 ### SELF-EVALUATION
 
-Every element worked on the project in different ways. Also we did some important meetings that helped to solve problems, and create the necessary solutions. So, we believe that everybody deserves the same percentage(33%).
+Every element worked on the project in different ways. Also, we did some important meetings that helped to solve problems, and create the necessary solutions. So, we believe that everybody deserves the same percentage(33%).
