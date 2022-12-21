@@ -40,8 +40,8 @@ import com.aor.DK.model.elements.Barrel
 class BarrelControllerTest extends Specification {
     BarrelController barrelController
     Arena arena
-    def stair
-    def floor
+    List stair
+    List floor
 
     def setup() {
         arena = new Arena(10,10)
