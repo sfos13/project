@@ -16,8 +16,10 @@
     - [Others](#others)
 - [Design](#design)
   - [UML](#uml)
-  - [Design Patterns]
-  - 
+  - [Design Patterns](#design-patterns)
+  - [Knon Code Smells and Refactoring Suggestions](#known-code-smells-and-refactoring-suggestions)
+- [Better Code Hub](#better-code-hub)
+- [Testing](#testing)
 
 
 
@@ -418,12 +420,48 @@ _Benefits:_
 #### KNOWN CODE SMELLS AND REFACTORING SUGGESTIONS
 
 **Bloaters**
-- Long Method
-- Long Parameter List
+- **Large Class**
+
+  An example of a large Class is MarioController. This happens because Mario is a very important element and controls the winning and losing condition, the ranking, and others... Because of that, it is easier to put all in the same class. Where other classes are called, but the flow of data always starts here. A way to solve this is to extract some subclasses.
+
+<p align="center">
+  <img src="img/largeClass.png" alt="">
+</p>
+
+<p align="center">
+  <b><i>Img 20. Large Class </i></b>
+</p>
+<br>
+
 
 **Object-Orientation Abusers**
+- **Switch Statements**
+
+  In menuController, there is an example of a switch. It's not the only one, and inside that switch there are a sequence of if statements. 
+The code can change using design Patterns like the state or strategy. In the previous example (MarioController), can exist a Mario loose and a Mario win... Or it can  Replace Conditional with Polymorphism. 
+
+<p align="center">
+  <img src="img/switch.png" alt="">
+</p>
+
+<p align="center">
+  <b><i>Img 21. Switch Statement </i></b>
+</p>
+<br>
+
+
 
 **Dispensables**
+  - **Comments**
+
+    Along the code some comments to justify why things are done like that. Besides being a smell, it's necessary because it can help other person that did not make the code.
+    A class that contains this smell is in FireController.
+    Using comments is an indication that the code is to complicated, and to make it simpler, can extract the method or introduce assertion.  
+
+
+  - **Data Class**
+
+    In Arena there are a lot of classes, many of them are Data Classes like getWidth, setMario and setBarrels (getters and setters). They can be a 'Self Encapsulate Field' and should remove the setting methods.
 
 ### BETTER CODE HUB
 
