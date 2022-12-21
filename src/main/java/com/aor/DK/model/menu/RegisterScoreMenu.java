@@ -17,11 +17,11 @@ public class RegisterScoreMenu extends Menu {
     @Override
     protected void parse(String mod) {
         if (mod.equals("Win")) {
-            this.entries = Arrays.asList("Play Again?", "Register Score", "Exit to Menu SPACE");
+            this.entries = Arrays.asList("Play Again?", "Register Score","Exit to Menu SPACE");
             this.message = "Congratulations! You won the game!";
         }
         if (mod.equals("Lost")) {
-            this.entries = Arrays.asList("Play Again?", "Register Score", "Exit to Menu SPACE");
+            this.entries = Arrays.asList("Play Again?", "Register Score","Exit to Menu SPACE");
             this.message = "Try again! Its just a Donkey Kong";
         }
     }

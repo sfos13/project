@@ -31,12 +31,10 @@ public class MenuController extends Controller<Menu> {
 
         if (time - lastRegistered > 70) {
             for (GUI.ACTION action : actions) {
-                if(getModel().isSelected_String("Exit to Menu SPACE")){
-                    boolean b = action == GUI.ACTION.SPACE;
-                    if (action== GUI.ACTION.SPACE){
-                        game.setState(new MenuState(new Menu("Start")));
-                    }
+                if (action== GUI.ACTION.SPACE){
+                    game.setState(new MenuState(new Menu("Start")));
                 }
+
                 switch (action) {
                     case UP -> getModel().previousEntry();
                     case DOWN -> getModel().nextEntry();
