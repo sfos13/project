@@ -8,7 +8,6 @@ import com.aor.DK.viewer.menu.InstructionsViewer;
 import com.aor.DK.viewer.menu.LostViewer;
 import com.aor.DK.viewer.menu.StartViewer;
 import com.aor.DK.viewer.menu.WinViewer;
-import com.aor.DK.viewer.ranking.RankingViewer;
 
 import java.io.IOException;
 
