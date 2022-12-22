@@ -1,10 +1,10 @@
 package com.aor.DK.viewer
 
-import com.aor.DK.GUI.LanternaGUI
 import com.aor.DK.model.menu.Menu
 import spock.lang.Specification
 
 class MenuViewerTest extends Specification{
+
     def 'Testing draw elements' (){
         given:
         def viewer = new MenuViewer(new Menu("Instructions"))
@@ -15,4 +15,5 @@ class MenuViewerTest extends Specification{
         _ * gui.drawText(_,_,_)
 
     }
+
 }

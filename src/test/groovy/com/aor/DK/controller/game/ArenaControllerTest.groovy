@@ -1,17 +1,9 @@
 package com.aor.DK.controller.game
-import com.aor.DK.GUI.GUI
+
 import com.aor.DK.Game
-import com.aor.DK.controller.game.ArenaController
-import com.aor.DK.controller.game.BarrelController
-import com.aor.DK.controller.game.MarioController
 import com.aor.DK.model.Position
 import com.aor.DK.model.arena.Arena
-import com.aor.DK.model.elements.DonkeyKong
-import com.aor.DK.model.elements.Floor
-import com.aor.DK.model.elements.Mario
-import com.aor.DK.model.elements.Princess
-import com.aor.DK.model.elements.Stair
-import com.aor.DK.model.elements.Switch
+import com.aor.DK.model.elements.*
 import spock.lang.Specification
 
 class ArenaControllerTest extends Specification{

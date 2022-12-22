@@ -1,14 +1,13 @@
 package com.aor.DK.GUI
 
-import com.aor.DK.model.Position
-import com.googlecode.lanterna.TerminalPosition
-import com.googlecode.lanterna.TextCharacter
-import com.googlecode.lanterna.screen.Screen
+
 import spock.lang.Specification
+
+import java.awt.event.KeyEvent
 
 class GUITest extends Specification{
     LanternaGUI lanternaGUI = new LanternaGUI(30,30)
-
+/*
     def 'screen must close'() {
         given:
         Screen screen = Mock()
@@ -17,14 +16,16 @@ class GUITest extends Specification{
         then:
         1 * screen.close()
     }
- /*
+*/
     def 'testing next Action'(){
         given:
-        lanternaGUI.pressedKeys.a
+        lanternaGUI.pressedKeys.add(KeyEvent.VK_SPACE)
         when:
-        lanternaGUI.getNextActions()
+        def nextActions =lanternaGUI.getNextActions()
+        then:
+        nextActions.contains(GUI.ACTION.SPACE)
     }
-
+/*
     def 'testing draw Mario'(){
         given:
         def position = new Position(1,1)
