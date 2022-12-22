@@ -10,6 +10,7 @@ import com.aor.DK.model.elements.Floor
 import com.aor.DK.model.elements.Mario
 import com.aor.DK.model.elements.Princess
 import com.aor.DK.model.elements.Stair
+import com.aor.DK.model.elements.Stick
 import com.aor.DK.model.elements.Switch
 import com.aor.DK.model.ranking.Scores
 import spock.lang.Specification
@@ -77,6 +78,18 @@ class ArenaTest extends Specification{
         then:
             floor1 == arena.getFloor().get(0).get(0)
             floor2 == arena.getFloor().get(1).get(0)
+    }
+
+    def 'set and get sticks'() {
+        given:
+        List<Stick> stick = new ArrayList<>()
+        def stick1 = new Stick(1,1)
+        stick.add(stick1)
+        when:
+        arena.setSticks(stick)
+        then:
+        arena.getSticks().get(0) == stick1
+
     }
     def 'get floor number'() {
         given:

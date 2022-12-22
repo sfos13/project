@@ -1,4 +1,4 @@
-package com.aor.DK.viewer.ranking
+package com.aor.DK.viewer
 
 import com.aor.DK.GUI.LanternaGUI
 import com.aor.DK.model.ranking.Ranking

@@ -1,6 +1,7 @@
 package com.aor.DK.model
 
 import spock.lang.Specification
+import java.util.Objects;
 
 class PositionTest extends Specification{
 
@@ -8,12 +9,6 @@ class PositionTest extends Specification{
 
     def setup(){
         p = new Position(2,3)
-    }
-
-    def 'build position'() {
-        expect:
-            2 == p.getX()
-            3 == p.getY()
     }
 
     def 'get position on the left'() {
@@ -49,6 +44,18 @@ class PositionTest extends Specification{
         p.setX(10)
         then:
         p.getX() == 10
+    }
+
+    def 'Testing get set y'(){
+        when:
+        p.setY(10)
+        then:
+        p.getY() == 10
+    }
+
+    def 'Testing hash code'(){
+        expect:
+        p.hashCode() == Objects.hash(2,3)
     }
 
 }

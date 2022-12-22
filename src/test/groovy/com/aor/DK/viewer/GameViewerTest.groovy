@@ -1,4 +1,4 @@
-package com.aor.DK.viewer.ranking
+package com.aor.DK.viewer
 
 import com.aor.DK.GUI.GUI
 import com.aor.DK.model.arena.Arena
