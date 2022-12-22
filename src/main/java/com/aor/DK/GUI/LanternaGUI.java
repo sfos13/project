@@ -194,11 +194,6 @@ public class LanternaGUI implements GUI {
         screen.close();
     }
 
-
-    public void close(Screen screen) throws IOException {
-        screen.close();
-    }
-
     public Screen getScreen() {
         return screen;
     }
