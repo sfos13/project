@@ -6,7 +6,7 @@ import com.aor.DK.viewer.GenericViewer;
 
 
 public class DonkeyKongViewer implements GenericViewer<DonkeyKong> {
-
+    @Override
     public void draw(DonkeyKong donkeyKong, GUI gui) {
         gui.drawDonkeyKong(donkeyKong.getPosition());
     }

@@ -22,7 +22,7 @@ public class OnSwitches implements Validation {
 
 
         for (Switch s : switches)
-            if (positionY + 1 == (s.getPosition().getY()) && positionX == s.getPosition().getX()) {
+            if (positionY + 1 == s.getPosition().getY() && positionX == s.getPosition().getX()) {
                 return true;
             }
 

@@ -9,7 +9,7 @@ public class StartViewer extends MenuViewer implements MenuGeneric {
     public StartViewer(Menu menu) {
         super(menu);
     }
-
+    @Override
     public void drawElements(GUI gui) {
         gui.drawDonkeyKong(new Position(15, 20));
         gui.drawPrincess(new Position(20, 20));

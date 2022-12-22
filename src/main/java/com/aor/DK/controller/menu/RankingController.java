@@ -20,7 +20,9 @@ public class RankingController extends Controller<Ranking> {
         for (GUI.ACTION action : actions) {
             switch (action) {
                 case SPACE -> game.setState(new MenuState(new Menu("Start")));
-
+                default -> {
+                    return;
+                }
             }
         }
     }

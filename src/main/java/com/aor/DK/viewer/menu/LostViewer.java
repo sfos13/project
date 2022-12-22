@@ -9,7 +9,7 @@ public class LostViewer extends MenuViewer {
     public LostViewer(Menu menu) {
         super(menu);
     }
-
+    @Override
     public void drawElements(GUI gui) {
         gui.drawDonkeyKong(new Position(20,20));
     }
