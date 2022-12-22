@@ -3,6 +3,7 @@ package com.aor.DK.controller.menu
 import com.aor.DK.GUI.GUI
 import com.aor.DK.Game
 import com.aor.DK.model.menu.Menu
+import com.aor.DK.model.ranking.Ranking
 import spock.lang.Specification
 
 class MenuControllerTest extends Specification{
@@ -72,15 +73,14 @@ class MenuControllerTest extends Specification{
         game.getState().getModel().getMod() == "Instructions"
     }
 
-    def 'Testing menu controller step select Ranking'(){
+    def 'Testing menu controller step select ranking'(){
         given:
-        def gameMock = Mock(Game.class)
         def menuController = new MenuController(new Menu("Start"))
         when:
         menuController.getModel().nextEntry()
         menuController.getModel().nextEntry()
-        menuController.step(gameMock,[GUI.ACTION.SELECT],100)
+        menuController.step(game,[GUI.ACTION.SELECT],100)
         then:
-        1 * gameMock.setState(_)
+        game.getState().getModel().getClass() == Ranking
     }
 }

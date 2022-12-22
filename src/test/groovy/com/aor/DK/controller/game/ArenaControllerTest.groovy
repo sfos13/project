@@ -16,7 +16,7 @@ class ArenaControllerTest extends Specification{
     List floor
 
     def setup(){
-        game = Mock(Game.class)
+        game = new Game()
         arena = new Arena(10, 10)
         arena.setMario(new Mario(1,1))
         arenaController = new ArenaController(arena)
@@ -31,7 +31,7 @@ class ArenaControllerTest extends Specification{
         when:
         arenaController.step(game, [GUI.ACTION.QUIT],0)
         then:
-        1 * game.setState(_)
+        game.getState().getModel().getMod() == "Start"
     }
 
     def 'testing step with switches on'(){
@@ -50,7 +50,7 @@ class ArenaControllerTest extends Specification{
         arenaController.step(game, [],0)
         arenaController.step(game, [],0)
         then:
-        1 * game.setState(_)
+        game.getState().getModel().getLevel() == 21
     }
 
 }
