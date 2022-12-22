@@ -7,6 +7,7 @@ import com.aor.DK.model.elements.*
 import spock.lang.Specification
 
 class MarioControllerTest extends Specification {
+
     Arena arena
     MarioController marioController
     Game game
@@ -27,6 +28,7 @@ class MarioControllerTest extends Specification {
         floor.add(new ArrayList())
         switches = new ArrayList()
     }
+
 
     def 'Testing move mario up'() {
         given:

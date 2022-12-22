@@ -38,6 +38,7 @@ import com.aor.DK.model.arena.Arena
 import com.aor.DK.model.elements.Barrel
 
 class BarrelControllerTest extends Specification {
+
     BarrelController barrelController
     Arena arena
     List stair
@@ -51,6 +52,7 @@ class BarrelControllerTest extends Specification {
         floor.add(new ArrayList())
         floor.add(new ArrayList())
     }
+
 
     def "test move barrel down method"() {
         given:

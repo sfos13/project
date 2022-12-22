@@ -6,10 +6,16 @@ import spock.lang.Specification
 
 class LevelControllerTest extends Specification{
 
+    Game game
+
+    def setup(){
+        game = Mock(Game.class)
+    }
+
+
     def'Testing level controller step'(){
         given:
         def levelController = new LevelController(new Level(1,100))
-        def game = Mock(Game.class)
         when:
         levelController.step(game,[],System.currentTimeMillis() + 4000)
         then:

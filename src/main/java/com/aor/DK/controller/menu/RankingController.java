@@ -18,11 +18,10 @@ public class RankingController extends Controller<Ranking> {
     @Override
     public void step(Game game, List<GUI.ACTION> actions, long time) throws IOException {
         for (GUI.ACTION action : actions) {
-            switch (action) {
-                case SPACE -> game.setState(new MenuState(new Menu("Start")));
-                default -> {
-                    return;
-                }
+            if (action == GUI.ACTION.SPACE) {
+                game.setState(new MenuState(new Menu("Start")));
+            } else {
+                return;
             }
         }
     }

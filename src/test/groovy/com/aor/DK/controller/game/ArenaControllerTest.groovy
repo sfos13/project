@@ -27,6 +27,7 @@ class ArenaControllerTest extends Specification{
         floor.add(new ArrayList())
     }
 
+
     def 'testing step with GUI.ACTION.QUIT'(){
         when:
         arenaController.step(game, [GUI.ACTION.QUIT],0)
