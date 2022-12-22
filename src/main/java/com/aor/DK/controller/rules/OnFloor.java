@@ -22,7 +22,7 @@ public class OnFloor implements Validation {
 
         for (List<Floor> storey : floors) {
             for (Floor floor : storey)
-                if (positionY + 1 == (floor.getPosition().getY()) && positionX == floor.getPosition().getX()) {
+                if (positionY + 1 == floor.getPosition().getY() && positionX == floor.getPosition().getX()) {
                     return true;
                 }
         }

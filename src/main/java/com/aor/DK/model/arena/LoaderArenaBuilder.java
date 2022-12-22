@@ -4,11 +4,14 @@ import com.aor.DK.model.Position;
 import com.aor.DK.model.elements.*;
 
 import java.io.BufferedReader;
-import java.io.FileReader;
 import java.io.IOException;
 import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
+
+import static java.nio.charset.StandardCharsets.UTF_8;
 
 public class LoaderArenaBuilder extends ArenaBuilder {
     private final int level;
@@ -21,7 +24,7 @@ public class LoaderArenaBuilder extends ArenaBuilder {
         URL resource = LoaderArenaBuilder.class.getResource("/levels/level" + level + ".lvl");
         BufferedReader br = null;
         if (resource != null) {
-            br = new BufferedReader(new FileReader(resource.getFile()));
+            br = Files.newBufferedReader(Paths.get(resource.getFile()), UTF_8);
         }
 
         lines = readLines(br);

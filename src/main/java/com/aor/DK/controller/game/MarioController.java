@@ -108,7 +108,7 @@ public class MarioController extends GameController {
             arena.getMario().setVy(0);
         }
     }
-
+    @Override
     public void step(Game game, List<GUI.ACTION> actions, long time) throws InterruptedException, IOException {
         boolean isOutOfBonds = new OutOfBonds(positionMario, arena).isValid();
         boolean isCrash = new Crash(positionMario, arena).isValid();
@@ -135,7 +135,7 @@ public class MarioController extends GameController {
                 moveMarioRight();
             }
 
-            if ((actions.contains(GUI.ACTION.SPACE))) {
+            if (actions.contains(GUI.ACTION.SPACE)) {
                 jumpMario();
             }
 

@@ -9,7 +9,7 @@ public class WinViewer extends MenuViewer implements MenuGeneric {
     public WinViewer(Menu menu) {
         super(menu);
     }
-
+    @Override
     public void drawElements(GUI gui) {
         gui.drawPrincess(new Position(20, 20));
     }

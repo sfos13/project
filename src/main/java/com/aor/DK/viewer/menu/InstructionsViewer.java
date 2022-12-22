@@ -9,7 +9,7 @@ public class InstructionsViewer extends MenuViewer {
     public InstructionsViewer(Menu menu) {
         super(menu);
     }
-
+    @Override
     public void drawElements(GUI gui) {
         int x = 2;
         int y = 12;

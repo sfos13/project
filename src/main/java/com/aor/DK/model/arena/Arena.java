@@ -96,6 +96,7 @@ public class Arena {
     public void spawnBarrel() {
         if (spawnBarrelPosition == null) return;
         barrels.add(new Barrel(spawnBarrelPosition.getX(), spawnBarrelPosition.getY()));
+        if(barrels.size() > 10) barrels.remove(0);
     }
 
     public boolean outOfBounds(Position position) {
@@ -125,7 +126,7 @@ public class Arena {
 
     public boolean checkStairs(Position position) {
         for (Stair stair : stairs) {
-            if ((position.equals(stair.getPosition()))) {
+            if (position.equals(stair.getPosition())) {
                 return true;
             }
         }

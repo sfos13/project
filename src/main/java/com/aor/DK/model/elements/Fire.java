@@ -17,7 +17,7 @@ public class Fire extends Element {
     }
 
     public boolean isSmart() {
-        return random.nextInt() % 3 == 0;
+        return random.nextInt(3) == 0;
     }
 
     public String getDirection() {

@@ -9,6 +9,6 @@ public class Barrel extends Element {
 
     public boolean isHeavy() {
         Random random = new Random();
-        return random.nextInt() % 6 == 0;
+        return random.nextInt(6) == 0;
     }
 }

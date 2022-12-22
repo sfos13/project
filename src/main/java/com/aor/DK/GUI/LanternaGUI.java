@@ -19,10 +19,8 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.net.URL;
-import java.util.HashSet;
-import java.util.LinkedList;
+import java.util.*;
 import java.util.List;
-import java.util.Set;
 
 public class LanternaGUI implements GUI {
     private final Screen screen;
@@ -82,9 +80,9 @@ public class LanternaGUI implements GUI {
 
         return terminal;
     }
-
+    @Override
     public List<ACTION> getNextActions() throws IOException {
-        List<ACTION> actions = new LinkedList<>();
+        List<ACTION> actions = new ArrayList<>();
         if (pressedKeys.contains(KeyEvent.VK_SPACE)) actions.add(ACTION.SPACE);
         if (pressedKeys.contains(KeyEvent.VK_Q)) actions.add(ACTION.QUIT);
         if (pressedKeys.contains(KeyEvent.VK_UP)) actions.add(ACTION.UP);
@@ -161,7 +159,7 @@ public class LanternaGUI implements GUI {
         drawText(position, "L=" + level, "#3F50EB");
 
     }
-
+    @Override
     public void drawScores(Position position, int jumpScore, int timeScore) {
         int x = position.getX();
         int y = position.getY();
