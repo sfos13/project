@@ -1,5 +1,6 @@
 package com.aor.DK.viewer
 
+import com.aor.DK.GUI.LanternaGUI
 import com.aor.DK.model.menu.Menu
 import spock.lang.Specification
 

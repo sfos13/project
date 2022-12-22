@@ -10,7 +10,7 @@ import com.aor.DK.viewer.menu.WinViewer
 import org.junit.Test
 import spock.lang.Specification
 
-class MenuViewerTest extends Specification{
+class GameMenuesViewerTest extends Specification{
 
     def 'Testing instructions menu viewer'(){
         given:
