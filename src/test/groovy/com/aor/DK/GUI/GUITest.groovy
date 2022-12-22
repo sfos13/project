@@ -193,5 +193,10 @@ class GUITest extends Specification{
         lanternaGUI.getScreen().getFrontCharacter(1,1).character == "M" as char
     }
 
-
+    def 'Testing screen close'(){
+        when:
+        lanternaGUI.close()
+        then:
+        lanternaGUI.screen.close()
+    }
 }
