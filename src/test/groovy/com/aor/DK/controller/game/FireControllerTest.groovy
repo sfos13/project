@@ -1,7 +1,6 @@
 package com.aor.DK.controller.game
 
 import com.aor.DK.Game
-import com.aor.DK.controller.game.FireController
 import com.aor.DK.model.Position
 import com.aor.DK.model.arena.Arena
 import com.aor.DK.model.elements.Floor
