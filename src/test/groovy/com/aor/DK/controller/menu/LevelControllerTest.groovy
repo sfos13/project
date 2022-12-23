@@ -9,9 +9,8 @@ class LevelControllerTest extends Specification{
     Game game
 
     def setup(){
-        game = Mock(Game.class)
+        game = new Game()
     }
-
 
     def'Testing level controller step'(){
         given:
@@ -19,7 +18,8 @@ class LevelControllerTest extends Specification{
         when:
         levelController.step(game,[],System.currentTimeMillis() + 4000)
         then:
-        1 * game.setState(_)
+        game.getState().getModel().getLevel() == 1
+
     }
 
 }

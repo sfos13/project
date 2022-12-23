@@ -22,7 +22,7 @@ class MarioControllerTest extends Specification {
         arena.setDonkeyKong(new DonkeyKong(0, 0))
         arena.setPrincess(new Princess(0, 0))
         marioController = new MarioController(arena)
-        game = Mock(Game.class)
+        game = new Game()
         stair = new ArrayList()
         floor = new ArrayList()
         floor.add(new ArrayList())
@@ -129,7 +129,8 @@ class MarioControllerTest extends Specification {
         when:
         marioController.step(game,[GUI.ACTION.WIN],0)
         then:
-        1 * game.setState(_)
+        game.getState().getModel().getLevel() == 2
+
     }
 
     def 'Testing step level 2'(){
@@ -144,7 +145,7 @@ class MarioControllerTest extends Specification {
         when:
         marioController.step(game,[GUI.ACTION.WIN],0)
         then:
-        1 * game.setState(_)
+        game.getState().getModel().getLevel() == 21
     }
 
     def 'Testing step winning game'(){
@@ -159,7 +160,7 @@ class MarioControllerTest extends Specification {
         when:
         marioController.step(game,[GUI.ACTION.WIN],0)
         then:
-        1 * game.setState(_)
+        game.getState().getModel().getMod() == "Win"
     }
 
     def 'Testing step is crash'(){
@@ -176,9 +177,6 @@ class MarioControllerTest extends Specification {
         when:
         marioController.step(game,[],0)
         then:
-        1 * game.setState(_)
+        game.getState().getModel().getMod() == "Lost"
     }
-
-
-
 }

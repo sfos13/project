@@ -159,15 +159,12 @@ public class MarioController extends GameController {
                 arena.setScores(scores);
                 game.setState(new MenuState(new RegisterScoreMenu("Win", scores.getTotal() + arena.getOriginalScore() + 2500)));
             }
-
-
         }
 
         if (isCrash || isOutOfBonds || scores.getTimeScore() == 0) {
             arena.setScores(scores);
             game.setState(new MenuState(new RegisterScoreMenu("Lost", scores.getTotal() + arena.getOriginalScore())));
         }
-
 
         if (time - lastMovement > 3000) {
             scores.setTimeScore();
