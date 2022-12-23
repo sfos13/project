@@ -1,5 +1,9 @@
 plugins {
     id 'java'
+    id 'application'
+    id 'groovy'
+    id 'info.solidsoft.pitest' version '1.9.0'
+    id "net.ltgt.errorprone" version "2.0.2"
 }
 
 group 'com.aor.DK'
@@ -9,13 +13,35 @@ repositories {
     mavenCentral()
 }
 
+application {
+    mainClass.set('com.aor.DK.Game')
+}
+
 dependencies {
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+    implementation 'org.jetbrains:annotations:20.1.0'
+    testImplementation 'org.spockframework:spock-core:2.3-groovy-3.0'
+    testImplementation 'org.codehaus.groovy:groovy-all:3.0.13'
     implementation group: 'com.googlecode.lanterna', name:
             'lanterna', version: '3.1.1'
+    implementation 'net.bytebuddy:byte-buddy-gradle-plugin:1.12.4'
+    errorprone("com.google.errorprone:error_prone_core:2.10.0")
 }
 
 test {
     useJUnitPlatform()
+    maxHeapSize = "4096m"
+}
+
+pitest {
+    junit5PluginVersion = '1.0.0'
+    excludedTestClasses = ['com.aor.DK.controller.*','com.aor.DK.GUI.*',
+                           'com.aor.DK.viewer.AllBasicViewerTest',
+                           'com.aor.DK.viewer.LevelViewerTest',
+                           'com.aor.DK.viewer.MenuViewerTest',
+                           'com.aor.DK.viewer.RankingViewerTest',
+                           'com.aor.DK.viewer.ranking.*',
+                           'com.aor.DK.GameTest',
+                           'com.aor.DK.model.elements.BarrelTest'
+    ]
+
 }
