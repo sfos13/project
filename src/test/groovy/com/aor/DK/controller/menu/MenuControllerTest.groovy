@@ -14,7 +14,6 @@ class MenuControllerTest extends Specification{
         game = new Game()
     }
 
-/*
     def 'Testing menu controller step GUI.ACTION.SPACE'(){
         given:
         def menuController = new MenuController(new Menu("Instructions"))
@@ -83,5 +82,6 @@ class MenuControllerTest extends Specification{
         menuController.step(game,[GUI.ACTION.SELECT],100)
         then:
         game.getState().getModel().getClass() == Ranking
-    }*/
+    }
+
 }

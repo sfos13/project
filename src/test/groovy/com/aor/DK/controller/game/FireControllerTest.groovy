@@ -15,7 +15,6 @@ class FireControllerTest extends Specification{
     List stair
     List floor
 
-/*
     def setup(){
         arena = new Arena(10,10)
         fireController = new FireController(arena)
@@ -117,5 +116,6 @@ class FireControllerTest extends Specification{
         then:
         arena.getFireMonsters().size() == 2
     }
-*/
+
+
 }

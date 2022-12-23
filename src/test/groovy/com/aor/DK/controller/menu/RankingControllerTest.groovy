@@ -14,7 +14,6 @@ class RankingControllerTest extends Specification{
         game = new Game()
     }
 
-/*
     def 'Testing ranking controller test'() throws IOException{
         given:
         def rankingController = new RankingController(new Ranking())
@@ -23,5 +22,6 @@ class RankingControllerTest extends Specification{
         rankingController.step(game,[GUI.ACTION.SPACE], 100)
         then:
         game.getState().getModel().getMod() == "Start"
-    }*/
+    }
+
 }

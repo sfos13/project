@@ -10,7 +10,7 @@ import com.aor.DK.viewer.menu.WinViewer
 import spock.lang.Specification
 
 class MenuViewerTest extends Specification{
-/*
+
     def 'Testing draw elements' (){
         given:
         def viewer = new MenuViewer(new Menu("Instructions"))
@@ -85,5 +85,5 @@ class MenuViewerTest extends Specification{
         then:
         gui.drawDonkeyKong(new Position(20,20))
     }
-*/
+
 }

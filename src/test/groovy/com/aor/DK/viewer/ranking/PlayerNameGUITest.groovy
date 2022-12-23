@@ -7,7 +7,7 @@ import spock.lang.Specification
 import java.awt.event.ActionEvent
 
 class PlayerNameGUITest extends Specification{
- /*   def 'Testing action button ok'(){
+   def 'Testing action button ok'(){
         given:
         def ranking = new Ranking()
         def game = Mock(Game.class)
@@ -21,5 +21,6 @@ class PlayerNameGUITest extends Specification{
         cleanup:
         ranking.getList().remove(size)
         ranking.save()
-    }*/
+    }
+
 }

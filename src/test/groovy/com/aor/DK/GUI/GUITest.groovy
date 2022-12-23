@@ -12,7 +12,6 @@ class GUITest extends Specification{
     def setup(){
         lanternaGUI = new LanternaGUI(30,30)
     }
-/*
     def 'testing next action space'(){
         given:
         lanternaGUI.pressedKeys.add(KeyEvent.VK_SPACE)
@@ -198,5 +197,6 @@ class GUITest extends Specification{
         lanternaGUI.close()
         then:
         lanternaGUI.screen.close()
-    }*/
+    }
+
 }

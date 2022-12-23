@@ -7,7 +7,6 @@ import spock.lang.Specification
 class LevelControllerTest extends Specification{
 
     Game game
-/*
     def setup(){
         game = new Game()
     }
@@ -21,5 +20,6 @@ class LevelControllerTest extends Specification{
         game.getState().getModel().getLevel() == 1
 
     }
-*/
+
+
 }
