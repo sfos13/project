@@ -12,7 +12,7 @@ class LevelControllerTest extends Specification{
         game = new Game()
     }
 
-    def'Testing level controller step'(){
+    def 'Testing level controller step'(){
         given:
         def levelController = new LevelController(new Level(1,100))
         when:
