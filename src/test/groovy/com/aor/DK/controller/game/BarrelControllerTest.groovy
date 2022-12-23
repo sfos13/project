@@ -79,7 +79,7 @@ class BarrelControllerTest extends Specification {
         then:
         barrel.getPosition().x == 0
     }
-
+/*
     def "test move barrel right method"() {
         given:
         stair.add(new Stair(0,0))
@@ -111,6 +111,6 @@ class BarrelControllerTest extends Specification {
         then:
         arena.getBarrels().size() == 1
     }
-
+*/
 }
 

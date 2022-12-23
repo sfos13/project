@@ -7,7 +7,7 @@ import spock.lang.Specification
 class LevelControllerTest extends Specification{
 
     Game game
-
+/*
     def setup(){
         game = Mock(Game.class)
     }
@@ -21,5 +21,5 @@ class LevelControllerTest extends Specification{
         then:
         1 * game.setState(_)
     }
-
+*/
 }

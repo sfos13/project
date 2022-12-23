@@ -6,7 +6,7 @@ import com.aor.DK.viewer.RankingViewer
 import spock.lang.Specification
 
 class RankingViewerTest extends Specification{
-
+/*
     def 'Testing ranking viewer draw'(){
         given:
         def ranking = new Ranking()
@@ -16,5 +16,5 @@ class RankingViewerTest extends Specification{
         viewer.draw(gui)
         then:
         _ * gui.drawText(_)
-    }
+    }*/
 }

@@ -22,7 +22,7 @@ import com.aor.DK.viewer.elements.SwitchViewer
 import spock.lang.Specification
 
 class AllBasicViewerTest extends Specification{
-
+/*
     def 'Testing barrel viewer'(){
         given:
         def viewer = new BarrelViewer()
@@ -134,7 +134,7 @@ class AllBasicViewerTest extends Specification{
         then:
         1 * gui.drawStick(stick.getPosition())
     }
-
+*/
 
 
 }

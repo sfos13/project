@@ -8,7 +8,7 @@ import com.aor.DK.GUI.LanternaGUI
 class GameTest extends Specification {
     Game game
     LanternaGUI gui
-
+/*
     def setup() {
         gui = Mock(LanternaGUI.class, constructorArgs:[30, 30])
         game = new Game()
@@ -21,5 +21,5 @@ class GameTest extends Specification {
         then:
         game.state == null
     }
-
+*/
 }
