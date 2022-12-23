@@ -35,6 +35,7 @@ public class LanternaGUI implements GUI {
 
     private AWTTerminalFontConfiguration loadSquareFont() throws URISyntaxException, FontFormatException, IOException {
         URL resource = getClass().getClassLoader().getResource("fonts/MyFont-Modern.otf");
+        assert resource != null;
         File fontFile = new File(resource.toURI());
         Font font = Font.createFont(Font.TRUETYPE_FONT, fontFile);
 
@@ -42,8 +43,8 @@ public class LanternaGUI implements GUI {
         ge.registerFont(font);
 
         Font loadedFont = font.deriveFont(Font.PLAIN, 20);
-        AWTTerminalFontConfiguration fontConfig = AWTTerminalFontConfiguration.newInstance(loadedFont);
-        return fontConfig;
+
+        return AWTTerminalFontConfiguration.newInstance(loadedFont);
     }
 
 
@@ -81,7 +82,7 @@ public class LanternaGUI implements GUI {
         return terminal;
     }
     @Override
-    public List<ACTION> getNextActions() throws IOException {
+    public List<ACTION> getNextActions() {
         List<ACTION> actions = new ArrayList<>();
         if (pressedKeys.contains(KeyEvent.VK_SPACE)) actions.add(ACTION.SPACE);
         if (pressedKeys.contains(KeyEvent.VK_Q)) actions.add(ACTION.QUIT);
@@ -190,9 +191,5 @@ public class LanternaGUI implements GUI {
     @Override
     public void close() throws IOException {
         screen.close();
-    }
-
-    public Screen getScreen() {
-        return screen;
     }
 }

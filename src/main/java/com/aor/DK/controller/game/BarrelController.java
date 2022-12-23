@@ -31,7 +31,7 @@ public class BarrelController extends GameController {
 
     private void moveBarrel(@NotNull Barrel barrel) {
         Position barrelPosition = barrel.getPosition();
-        Boolean isUnderStairs = new UnderStairs(barrelPosition, getModel()).isValid();
+        boolean isUnderStairs = new UnderStairs(barrelPosition, getModel()).isValid();
         if (getModel().getFloorNumber(barrelPosition) == -1 || (isUnderStairs && barrel.isHeavy())) {
             Position down = barrel.getPosition().getDown();
             barrel.setPosition(down);

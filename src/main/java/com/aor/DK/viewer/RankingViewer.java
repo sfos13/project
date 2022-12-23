@@ -4,7 +4,6 @@ import com.aor.DK.GUI.GUI;
 import com.aor.DK.model.Position;
 import com.aor.DK.model.ranking.Ranking;
 import com.aor.DK.model.ranking.RankingElement;
-import com.aor.DK.viewer.Viewer;
 
 import java.util.List;
 
