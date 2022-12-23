@@ -14,7 +14,7 @@ class ArenaControllerTest extends Specification{
     ArenaController arenaController
     List stair
     List floor
-
+/*
     def setup(){
         game = new Game()
         arena = new Arena(10, 10)
@@ -53,6 +53,6 @@ class ArenaControllerTest extends Specification{
         then:
         game.getState().getModel().getLevel() == 21
     }
-
+*/
 }
 
