@@ -15,6 +15,8 @@ class BarrelControllerTest extends Specification {
     Arena arena
     List stair
     List floor
+    Game game
+
 
     def setup() {
         arena = new Arena(10,10)
@@ -23,6 +25,7 @@ class BarrelControllerTest extends Specification {
         floor = new ArrayList()
         floor.add(new ArrayList())
         floor.add(new ArrayList())
+        game = Mock(Game.class, constructorArgs:[null])
     }
 
 
@@ -35,7 +38,6 @@ class BarrelControllerTest extends Specification {
         def barrels = new ArrayList()
         barrels.add(new Barrel(1,1))
         arena.setBarrels(barrels)
-        def game = Mock(Game.class)
         when:
         barrelController.step(game, [], 1000)
         then:
@@ -51,7 +53,6 @@ class BarrelControllerTest extends Specification {
         def barrels = new ArrayList()
         barrels.add(new Barrel(1,1))
         arena.setBarrels(barrels)
-        def game = Mock(Game.class)
         when:
         barrelController.step(game, [], 1000)
         then:
@@ -66,7 +67,6 @@ class BarrelControllerTest extends Specification {
         def barrels = new ArrayList()
         barrels.add(new Barrel(1,1))
         arena.setBarrels(barrels)
-        def game = Mock(Game.class)
         when:
         barrelController.step(game, [], 1000)
         then:
@@ -81,7 +81,6 @@ class BarrelControllerTest extends Specification {
         arena.setFloor(floor)
         def barrels = new ArrayList()
         arena.setBarrels(barrels)
-        def game = Mock(Game.class)
         arena.setSpawnBarrelPosition(new Position(3,3))
         when:
         barrelController.step(game, new ArrayList<GUI.ACTION>(), 4000)

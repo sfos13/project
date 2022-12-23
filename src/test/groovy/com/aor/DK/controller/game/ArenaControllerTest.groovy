@@ -15,7 +15,7 @@ class ArenaControllerTest extends Specification{
     List stair
     List floor
     def setup(){
-        game = new Game()
+        game = new Game(null)
         arena = new Arena(10, 10)
         arena.setMario(new Mario(1,1))
         arenaController = new ArenaController(arena)

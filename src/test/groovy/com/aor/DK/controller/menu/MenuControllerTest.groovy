@@ -11,7 +11,7 @@ class MenuControllerTest extends Specification{
     Game game
 
     def setup(){
-        game = new Game()
+        game = new Game(null)
     }
 
     def 'Testing menu controller step GUI.ACTION.SPACE'(){
@@ -25,7 +25,6 @@ class MenuControllerTest extends Specification{
 
     def 'Testing menu controller step GUI.ACTION.UP'(){
         given:
-        def game = new Game()
         def menuController = new MenuController(new Menu("Start"))
         when:
         menuController.step(game,[GUI.ACTION.UP],100)
@@ -35,7 +34,6 @@ class MenuControllerTest extends Specification{
 
     def 'Testing menu controller step GUI.ACTION.DOWN'(){
         given:
-        Game game = new Game()
         def menuController = new MenuController(new Menu("Start"))
         when:
         menuController.step(game,[GUI.ACTION.UP],100)

@@ -21,7 +21,7 @@ class MarioControllerTest extends Specification {
         arena.setDonkeyKong(new DonkeyKong(0, 0))
         arena.setPrincess(new Princess(0, 0))
         marioController = new MarioController(arena)
-        game = new Game()
+        game = new Game(null)
         stair = new ArrayList()
         floor = new ArrayList()
         floor.add(new ArrayList())

@@ -11,7 +11,7 @@ class RankingControllerTest extends Specification{
     Game game
 
     def setup(){
-        game = new Game()
+        game = new Game(null)
     }
 
     def 'Testing ranking controller test'() throws IOException{

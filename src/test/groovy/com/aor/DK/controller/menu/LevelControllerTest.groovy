@@ -8,7 +8,7 @@ class LevelControllerTest extends Specification{
 
     Game game
     def setup(){
-        game = new Game()
+        game = new Game(null)
     }
 
     def 'Testing level controller step'(){

@@ -21,7 +21,7 @@ class FireControllerTest extends Specification{
         arena.setSpawnFirePosition(new Position(1,1), 1)
         arena.setSpawnFirePosition(new Position(2,2), 2)
         arena.spawnFire()
-        game = Mock(Game.class)
+        game = Mock(Game.class, constructorArgs:[null])
         stair = new ArrayList()
         floor = new ArrayList()
         floor.add(new ArrayList())
